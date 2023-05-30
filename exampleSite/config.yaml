@@ -1,4 +1,4 @@
-baseURL: "https://hugo-profile.netlify.app"
+baseURL: "https://qselmer.netlify.app"
 languageCode: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
