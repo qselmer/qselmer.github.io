@@ -53,7 +53,7 @@ Menus:
     #   weight: 2
 
 params:
-  title: "Hugo Profile"
+  title: "Elmer O. Quispe Salazar"
   description: Text about my cool site
   # staticPath: ""  # The path to serve the static files from
   favicon: "/fav.png"
@@ -147,19 +147,18 @@ params:
     title: "About Me"
     image: "/images/me.png"
     content: |-
-      I am a software developer with a passion for web development. I have a background in computer science and mathematics, and I have a strong interest in the intersection of technology and art. I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. 
-
-      I am currently working on a project that will be used to help people find the best way to get around the city.
+      Quantitative Fisheries Scientist
+      
+      My research interests focus on theoretical and applied issues for the management and ecology of marine resources. My research includes stock assessments, spatio-temporal analysis, life history theory, and models of population and community dynamics. Specifically, I like to integrate scientific programming with the latest advances in statistical modeling to respond to changes in the structure and functioning of marine ecosystems and populations.
     skills:
       enable: true
-      title: "Here are a few technologies I've been working with recently:"
+      title: "My Interests: "
       items:
-        - "HTML"
-        - "CSS"
-        - "JavaScript"
-        - "React"
-        - "Node"
-        - "Express"
+        - "Population dynamics"
+        - "Methods for counting animals"
+        - "Bayesian analysis"
+        - "Transparent and data-driven decision processes"
+        - "Reproducible workflow"
 
   # Experience
   experience:
