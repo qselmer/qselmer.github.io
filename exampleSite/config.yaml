@@ -1,6 +1,6 @@
 baseURL: "https://qselmer.netlify.app"
 languageCode: "en-us"
-title: "Hugo Profile"
+title: "Science4Sea (S4S)"
 theme: hugo-profile
 
 outputs:
@@ -54,7 +54,7 @@ Menus:
 
 params:
   title: "Elmer O. Quispe Salazar"
-  description: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  description: XXX
   # staticPath: ""  # The path to serve the static files from
   favicon: "/fav.png"
 
@@ -103,7 +103,7 @@ params:
     align: ms-auto # Left: ms-auto | center: mx-auto | right: me-auto | Default: ms-auto
     # brandLogo: "/logo.png" # Logo for the brand | default is the favicon variable
     # showBrandLogo: false # Show brand logo in nav bar | default is true
-    brandName: "Hugo Profile" # Brand name for the brand | default is the title variable
+    brandName: "Science4Sea" # Brand name for the brand | default is the title variable
     disableSearch: false
     # searchPlaceholder: "Search"
     menus:
@@ -118,9 +118,9 @@ params:
   hero:
     enable: true
     intro: "Hi, my name is"
-    title: "Elmer."
-    subtitle: "For a sea of science"
-    content: "xxx"
+    title: "Elmer Quispe Salazar"
+    subtitle: "Science for Sea"
+    content: "THIS SITE IS ALL ABOUT DATA HARVESTING, ANALYSIS AND COMMUNICATION TO INCREASE OUR UNDERSTANDING OF MARINE SYSTEM DYNAMICS AND IMPROVE MARINE CONSERVATION"
     image: /images/hero.png
     bottomImage:
       enable: true
@@ -136,7 +136,7 @@ params:
         - icon: fab fa-github
           url: https://github.com/qselmer
         - icon: fab fa-twitter
-          url: https://example.com
+          url: https://twitter.com/e4fish
         - icon: fa-brands fa-reseachgate
           url: https://example.com
         
@@ -145,7 +145,7 @@ params:
   about:
     enable: true
     title: "About Me"
-    image: "/images/me.jpg"
+    image: "/images/me2.jpg"
     content: |-
       Quantitative Ecology and Fisheries Scientist
       
@@ -154,9 +154,10 @@ params:
       enable: true
       title: "My Interests: "
       items:
-        - "Population dynamics"
+        - "Population and community dynamics models"
         - "Methods for counting animals"
-        - "Bayesian analysis"
+        - "Stock assessments, spatio-temporal analyses"
+        - "Life history analyses"
         - "Transparent and data-driven decision processes"
         - "Reproducible workflow"
 
@@ -342,7 +343,7 @@ params:
     enable: true
     # title: "Custom Name"
     content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
-    email: gurusabarisha@gmail.com
+    email: qselmer@gmail.com
     btnName: Mail me
     # formspree:
     #   enable: true # `contact.email` value will be ignored
@@ -358,11 +359,11 @@ params:
       enable: true
       disableFeaturedImage: false
     socialNetworks:
-      github: https://github.com
-      linkedin: https://linkedin.com
-      twitter: https://twitter.com
-      instagram: https://instagram.com
-      facebook: https://facebook.com
+      github: https://github.com/qselmer
+      linkedin: https://linkedin.com #falta
+      twitter: https://twitter.com/e4fish
+      instagram: https://instagram.com #falta 
+      facebook: https://facebook.com #falta
 
   # List pages like blogs and posts
   listPages:

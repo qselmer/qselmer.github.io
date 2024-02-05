@@ -1,12 +1,12 @@
 ---
-title: "Render Math With Mathjax"
-date: 2022-12-09T19:53:33+05:30
+title: "Cohort, age, age group, and year class"
+date: 2024-02-05T19:53:33+05:30
 draft: false
-author: "Gurusabarish"
+author: "qselmer"
 tags:
-  - Markdown syntax
-  - Mathjax
-  - example
+  - cohort
+  - age group
+  - year class
 image: /images/mathjax.png
 description: ""
 toc: true

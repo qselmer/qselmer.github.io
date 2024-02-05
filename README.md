@@ -7,7 +7,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5c1dcb34-cada-4c80-82b7-cfdbdbd7c774/deploy-status)](https://app.netlify.com/sites/hugo-profile/deploys)
 ![Latest Release](https://img.shields.io/github/v/release/gurusabarish/hugo-profile?include_prereleases)
 ![Last Commit](https://img.shields.io/github/last-commit/gurusabarish/hugo-profile)
-![Open Issues](https://img.shields.io/github/issues/gurusabarish/hugo-profile?color=important)
+
+![Open Issues](https://img.shields.io/github/issues/gurusabarish/hugo-profile?color=importan)
 ![Open Pull Requests](https://img.shields.io/github/issues-pr/gurusabarish/hugo-profile?color=yellowgreen)
 ![License](https://img.shields.io/github/license/gurusabarish/hugo-profile)
 
@@ -77,10 +78,4 @@ Contributions, issues, and feature requests are welcome! For major changes, plea
 
 Licensed under [MIT](LICENSE)
 
-# 🤝 Support
 
-Give a ⭐️ or buy me a ~`coffee`~ tea if you like this project!
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q7BFFGU)
-
-<a href="https://www.buymeacoffee.com/gurusabarish" target="_blank" rel="noopener"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="40" width="145" alt="Buy Me A Coffee"></a>
