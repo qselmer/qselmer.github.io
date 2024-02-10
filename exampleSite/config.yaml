@@ -1,6 +1,6 @@
 baseURL: "https://qselmer.netlify.app"
 languageCode: "en-us"
-title: "Science4Sea (S4S)"
+title: "Science4Sea"
 theme: hugo-profile
 
 outputs:
@@ -12,9 +12,9 @@ outputs:
     - "HTML"
     - "RSS"
 
-Paginate: 3
+Paginate: 7
 enableRobotsTXT: true
-# disqusShortname: your-disqus-shortname
+disqusShortname: elmerquispesalazar
 # googleAnalytics: G-MEASUREMENT_ID
 
 markup:
@@ -354,7 +354,7 @@ params:
   footer:
     recentPosts:
       path: "blogs"
-      count: 3
+      count: 10
       title: Recent Posts
       enable: true
       disableFeaturedImage: false
