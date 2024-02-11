@@ -25,36 +25,41 @@ markup:
 Menus:
   main:
     - identifier: blog
-      name: Blog
+      name: BLOG
       title: Blog posts
       url: /blogs
       weight: 1
+   - identifier: courses
+      name: COURSES 
+      title: Blog posts
+      url: /courses
+      weight: 1
     - identifier: gallery
-      name: Gallery
+      name: GALLERY
       title: Blog posts
       url: /gallery
-      weight: 2
-    #Dropdown menu
-    - identifier: dropdown
-      title: Example dropdown menu
-      name: Dropdown
       weight: 3
-    - identifier: dropdown1
-      title: example dropdown 1
-      name: example 1
-      url: /#
-      parent: dropdown
-      weight: 1
-    - identifier: dropdown2
-      title: example dropdown 2
-      name: example 2
-      url: /#
-      parent: dropdown
-      weight: 2
+    #Dropdown menu
+    # - identifier: dropdown
+    #   title: Example dropdown menu
+    #   name: Dropdown
+    #   weight: 3
+    # - identifier: dropdown1
+    #   title: example dropdown 1
+    #   name: example 1
+    #   url: /#
+    #   parent: dropdown
+    #   weight: 1
+    # - identifier: dropdown2
+    #   title: example dropdown 2
+    #   name: example 2
+    #   url: /#
+    #   parent: dropdown
+    #   weight: 2
 
 params:
   title: "Elmer O. Quispe Salazar"
-  description: XXX
+  description: "THIS SITE IS ALL ABOUT DATA HARVESTING, ANALYSIS AND COMMUNICATION TO INCREASE OUR UNDERSTANDING OF MARINE SYSTEM DYNAMICS AND IMPROVE MARINE CONSERVATION"
   # staticPath: ""  # The path to serve the static files from
   favicon: "/fav.png"
 
@@ -72,14 +77,14 @@ params:
   animate: true
 
   theme:
-    # disableThemeToggle: true
-    # defaultTheme: "light" # dark
+    disableThemeToggle: true
+    defaultTheme: "light" # dark
 
   font:
     fontSize: 1rem # default: 1rem
-    fontWeight: 400 # default: 400
-    lineHeight: 1.5 # default: 1.5
-    textAlign: left # default: left
+    fontWeight: 200 # default: 400
+    lineHeight: 1.0 # default: 1.5
+    textAlign: center # default: left
 
   # color preference
   # color:
