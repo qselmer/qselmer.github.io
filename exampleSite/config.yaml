@@ -12,7 +12,7 @@ outputs:
     - "HTML"
     - "RSS"
 
-Paginate: 7
+Paginate: 3
 enableRobotsTXT: true
 disqusShortname: elmerquispesalazar
 # googleAnalytics: G-MEASUREMENT_ID
@@ -35,22 +35,22 @@ Menus:
       url: /gallery
       weight: 2
     #Dropdown menu
-    # - identifier: dropdown
-    #   title: Example dropdown menu
-    #   name: Dropdown
-    #   weight: 3
-    # - identifier: dropdown1
-    #   title: example dropdown 1
-    #   name: example 1
-    #   url: /#
-    #   parent: dropdown
-    #   weight: 1
-    # - identifier: dropdown2
-    #   title: example dropdown 2
-    #   name: example 2
-    #   url: /#
-    #   parent: dropdown
-    #   weight: 2
+    - identifier: dropdown
+      title: Example dropdown menu
+      name: Dropdown
+      weight: 3
+    - identifier: dropdown1
+      title: example dropdown 1
+      name: example 1
+      url: /#
+      parent: dropdown
+      weight: 1
+    - identifier: dropdown2
+      title: example dropdown 2
+      name: example 2
+      url: /#
+      parent: dropdown
+      weight: 2
 
 params:
   title: "Elmer O. Quispe Salazar"
