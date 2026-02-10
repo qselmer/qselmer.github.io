@@ -85,11 +85,19 @@ author:
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
   books:
-    title: 'Books'
-  manuscripts:
-    title: 'Journal Articles'    
-  conferences:
-    title: 'Conference Papers'
+    title: "Books & Chapters"
+  indexed:
+    title: "Journal Articles (Indexed)"
+  nonindexed:
+    title: "Journal Articles (Non-indexed)"
+  reports:
+    title: "Technical Reports"
+  notes:
+    title: "Scientific Notes"
+  policy:
+    title: "Policy & Management Briefs"
+  conference:
+    title: "Conference Contributions"
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
