@@ -1,20 +1,12 @@
 ---
 layout: single
-title: "Elmer Quispe-Salazar"
+title: "Home"
 permalink: /
 author_profile: true
-excerpt: "Marine quantitative ecologist @IMARPE | Fisheries science, stock assessment & spatio-temporal modeling | Open-source R / Python / Julia | Founder of Blue Ecological Systems | Creator of Pelagytics"
-header:
-  overlay_color: "#000000"
-  overlay_filter: "0.25"
-  actions:
-    - label: "Research"
-      url: "/publications/"
-    - label: "Software"
-      url: "/portfolio/"
-    - label: "Services"
-      url: "/services/"
 ---
+# Elmer Quispe-Salazar
+
+**Marine quantitative ecologist @IMARPE | Fisheries science, stock assessment & spatio-temporal modeling | Open-source R / Python / Julia | Founder of Blue Ecological Systems | Creator of Pelagytics**
 
 I am a **marine quantitative ecologist** at **IMARPE (Peru)** working at the interface of **fisheries science**, **stock assessment**, and **spatio-temporal modeling**. My work focuses on translating **complex, dynamic marine systems** into **quantitative evidence** that supports monitoring, assessment, and decision-making in fisheries and marine resource management.
 
