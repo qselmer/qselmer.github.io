@@ -6,10 +6,9 @@ author_profile: true
 header:
   show_title: false
 ---
-s
-<strong> Marine quantitative ecologist @IMARPE | Fisheries science, stock assessment & spatio-temporal modeling | Open-source R / Python / Julia | Founder of Blue Ecological Systems | Creator of Pelagytics </strong>
+Marine quantitative ecologist @IMARPE | Fisheries science, stock assessment & spatio-temporal modeling | Open-source R / Python / Julia | Founder of Blue Ecological Systems | Creator of Pelagytics
 
-I am a **marine quantitative ecologist** at **IMARPE (Peru)** working at the interface of **fisheries science**, **stock assessment**, and **spatio-temporal modeling**. My work focuses on translating **complex, dynamic marine systems** into **quantitative evidence** that supports monitoring, assessment, and decision-making in fisheries and marine resource management.
+I am a marine quantitative ecologist at IMARPE (Peru) working at the interface of fisheries science, stock assessment, and spatio-temporal modeling. My work focuses on translating complex, dynamic marine systems into quantitative evidence that supports monitoring, assessment, and decision-making in fisheries and marine resource management.
 
 I integrate **population and community ecology** with **modern statistical modeling** to understand how marine populations respond to **environmental variability** and **human pressures**, and to design analytical frameworks and management strategies that remain **robust under change**.
 
