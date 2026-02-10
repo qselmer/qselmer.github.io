@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: "Elmer Quispe-Salazar"
 permalink: /
 author_profile: true
