@@ -1,7 +1,7 @@
 ---
 title: "Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy (Engraulis ringens)"
 collection: publications
-category: Journal Articles (Indexed)
+category: indexed
 permalink: /publication/2025-12-01-gsi-ml-maturity-anchovy
 excerpt: "Machine-learning classification of gonadal maturity stages from GSI in Peruvian anchovy, harmonizing historical biological data with the current maturity scale."
 date: 2025-12-01
