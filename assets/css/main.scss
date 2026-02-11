@@ -41,3 +41,20 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+/* Publications only */
+.publications .archive__item-title {
+  font-size: 1.15rem;
+  line-height: 1.25;
+  margin-bottom: 0.2rem;
+}
+
+.publications .archive__item-excerpt {
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.publications .archive__item {
+  margin-bottom: 0.9rem;
+}
+
