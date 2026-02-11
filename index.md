@@ -14,16 +14,6 @@ I integrate population and community ecology with modern statistical modeling to
 
 ---
 
-## Explore
-{: .notice}
-
-- **Research:** /publications/  
-- **Software:** /portfolio/  
-- **Services:** /services/  
-- **CV (PDF):** /files/CV.pdf  
-
----
-
 ## Core areas of work
 - **Stock assessment and population dynamics**, including uncertainty-aware modeling of recruitment, growth, mortality, and abundance.
 - **Spatio-temporal ecology**, quantifying distribution, habitat use, and shifts in availability across heterogeneous seascapes.

@@ -8,58 +8,42 @@
 
 <article class="archive__item pubitem" itemscope itemtype="http://schema.org/CreativeWork">
 
-  {%- comment -%}
-  Line 1: Year + Title (clickable)
-  {%- endcomment -%}
+  <!-- Line 1: Year + Title (NO bold) -->
   <p class="pubtitle">
     {% if post.date %}
       <span class="pubyear">{{ post.date | date: "%Y" }}</span>
     {% endif %}
-    <a href="{{ base_path }}{{ post.url }}" rel="permalink"><strong>{{ clean_title }}</strong></a>
+    <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ clean_title }}</a>
   </p>
 
-  {%- comment -%}
-  Line 2: Published in + short description (excerpt)
-  {%- endcomment -%}
+  <!-- Line 2: Venue + excerpt (tight) -->
+  {% if post.venue or post.excerpt %}
   <p class="pubmeta">
     {% if post.venue %}
-      <span>Published in <em>{{ post.venue }}</em>.</span>
+      <span><em>{{ post.venue }}</em>{% if post.excerpt %}: {% else %}.{% endif %}</span>
     {% endif %}
     {% if post.excerpt %}
       <span>{{ post.excerpt | strip_html }}</span>
     {% endif %}
   </p>
+  {% endif %}
 
-  {%- comment -%}
-  Line 3: Citation (optional)
-  {%- endcomment -%}
+  <!-- Line 3: Citation (smaller, one block) -->
   {% if post.citation %}
   <p class="pubcite">
-    <strong>Recommended citation:</strong> {{ post.citation }}
+    <span class="pubcite-label">Recommended citation:</span> {{ post.citation }}
   </p>
   {% endif %}
 
-  {%- comment -%}
-  Line 4: Links (optional)
-  {%- endcomment -%}
+  <!-- Line 4: Links (inline, minimal) -->
+  {% if post.paperurl or post.slidesurl or post.codeurl or post.dataurl or post.bibtexurl %}
   <p class="publinks">
-    {% if post.paperurl %}<a href="{{ post.paperurl }}">Download Paper</a>{% endif %}
-    {% if post.slidesurl %}
-      {% if post.paperurl %} | {% endif %}
-      <a href="{{ post.slidesurl | relative_url }}">Slides</a>
-    {% endif %}
-    {% if post.codeurl %}
-      {% if post.paperurl or post.slidesurl %} | {% endif %}
-      <a href="{{ post.codeurl }}">Code</a>
-    {% endif %}
-    {% if post.dataurl %}
-      {% if post.paperurl or post.slidesurl or post.codeurl %} | {% endif %}
-      <a href="{{ post.dataurl }}">Data</a>
-    {% endif %}
-    {% if post.bibtexurl %}
-      {% if post.paperurl or post.slidesurl or post.codeurl or post.dataurl %} | {% endif %}
-      <a href="{{ post.bibtexurl }}">BibTeX</a>
-    {% endif %}
+    {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}
+    {% if post.slidesurl %}{% if post.paperurl %} · {% endif %}<a href="{{ post.slidesurl | relative_url }}">Slides</a>{% endif %}
+    {% if post.codeurl %}{% if post.paperurl or post.slidesurl %} · {% endif %}<a href="{{ post.codeurl }}">Code</a>{% endif %}
+    {% if post.dataurl %}{% if post.paperurl or post.slidesurl or post.codeurl %} · {% endif %}<a href="{{ post.dataurl }}">Data</a>{% endif %}
+    {% if post.bibtexurl %}{% if post.paperurl or post.slidesurl or post.codeurl or post.dataurl %} · {% endif %}<a href="{{ post.bibtexurl }}">BibTeX</a>{% endif %}
   </p>
+  {% endif %}
 
 </article>
