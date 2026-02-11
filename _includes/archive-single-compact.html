@@ -1,0 +1,65 @@
+{% include base_path %}
+
+{% if post.id %}
+  {% assign clean_title = post.title | markdownify | strip_html | strip_newlines %}
+{% else %}
+  {% assign clean_title = post.title %}
+{% endif %}
+
+<article class="archive__item pubitem" itemscope itemtype="http://schema.org/CreativeWork">
+
+  {%- comment -%}
+  Line 1: Year + Title (clickable)
+  {%- endcomment -%}
+  <p class="pubtitle">
+    {% if post.date %}
+      <span class="pubyear">{{ post.date | date: "%Y" }}</span>
+    {% endif %}
+    <a href="{{ base_path }}{{ post.url }}" rel="permalink"><strong>{{ clean_title }}</strong></a>
+  </p>
+
+  {%- comment -%}
+  Line 2: Published in + short description (excerpt)
+  {%- endcomment -%}
+  <p class="pubmeta">
+    {% if post.venue %}
+      <span>Published in <em>{{ post.venue }}</em>.</span>
+    {% endif %}
+    {% if post.excerpt %}
+      <span>{{ post.excerpt | strip_html }}</span>
+    {% endif %}
+  </p>
+
+  {%- comment -%}
+  Line 3: Citation (optional)
+  {%- endcomment -%}
+  {% if post.citation %}
+  <p class="pubcite">
+    <strong>Recommended citation:</strong> {{ post.citation }}
+  </p>
+  {% endif %}
+
+  {%- comment -%}
+  Line 4: Links (optional)
+  {%- endcomment -%}
+  <p class="publinks">
+    {% if post.paperurl %}<a href="{{ post.paperurl }}">Download Paper</a>{% endif %}
+    {% if post.slidesurl %}
+      {% if post.paperurl %} | {% endif %}
+      <a href="{{ post.slidesurl | relative_url }}">Slides</a>
+    {% endif %}
+    {% if post.codeurl %}
+      {% if post.paperurl or post.slidesurl %} | {% endif %}
+      <a href="{{ post.codeurl }}">Code</a>
+    {% endif %}
+    {% if post.dataurl %}
+      {% if post.paperurl or post.slidesurl or post.codeurl %} | {% endif %}
+      <a href="{{ post.dataurl }}">Data</a>
+    {% endif %}
+    {% if post.bibtexurl %}
+      {% if post.paperurl or post.slidesurl or post.codeurl or post.dataurl %} | {% endif %}
+      <a href="{{ post.bibtexurl }}">BibTeX</a>
+    {% endif %}
+  </p>
+
+</article>

@@ -41,23 +41,20 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
-/* =========================
-   Compact Publications list
-   ========================= */
+/* Publications page only (because classes: publications) */
+.publications .pubtitle { margin: 0 0 0.2rem 0; }
+.publications .pubmeta  { margin: 0 0 0.25rem 0; font-size: 0.95rem; }
+.publications .pubcite  { margin: 0 0 0.25rem 0; font-size: 0.92rem; }
+.publications .publinks { margin: 0 0 0.8rem 0; font-size: 0.92rem; }
 
-.page__content .archive__item-title,
-.page__content .archive__item-title a {
-  font-size: 1.1rem !important;
-  line-height: 1.25 !important;
+.publications .pubyear {
+  display: inline-block;
+  min-width: 3.2rem;
+  font-weight: 700;
+}
+.publications .pubitem {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-.page__content .archive__item-excerpt {
-  font-size: 0.95rem !important;
-  margin-top: 0.2rem !important;
-  margin-bottom: 0.4rem !important;
-}
-
-.page__content .archive__item {
-  margin-bottom: 0.8rem !important;
-}
 
