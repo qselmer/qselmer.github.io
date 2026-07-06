@@ -2,7 +2,7 @@
 layout: home-marine
 title: ""
 permalink: /
-author_profile: false
+author_profile: true
 header:
   show_title: false
 ---
