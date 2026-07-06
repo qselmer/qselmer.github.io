@@ -29,9 +29,10 @@ The framework is intended to support ecosystem-informed assessment by identifyin
 
 **Authors:** Elmer Quispe-Salazar; Alvaro Recoba; Jorge Tam 
 
-**Keywords:** small pelagic fish; critical points; stock-state responses; natural pressures; anthropogenic pressures; environmental variability; threshold dynamics; ecosystem approach to fisheries; adaptive management.
+**Keywords:** Small pelagic fish; critical points; stock-state responses; natural pressures; anthropogenic pressures; environmental variability; threshold dynamics; ecosystem approach to fisheries; adaptive management.
 
 **How to cite this work:**
+
 Quispe-Salazar, E., & Tam, J. (2026). *Critical points of natural and anthropogenic pressures and stock-state responses of the north–central anchovy stock in the pelagic system of the Peruvian Sea* [Poster presentation; presented by A. Recoba]. SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities, La Paz, Mexico. North Pacific Marine Science Organization (PICES). https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf
 
 **Related materials:**

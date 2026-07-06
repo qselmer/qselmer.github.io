@@ -30,7 +30,7 @@ main:
     url: /services/
 
   - title: "Blog"
-    url: /year-archive/
+    url: /blog/
 
   - title: "CV"
     url: /cv/

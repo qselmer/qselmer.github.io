@@ -27,9 +27,10 @@ The proposed Multivariate Health Index combines five dimensions of stock state: 
 
 **Authors:** Elmer Quispe-Salazar & Jorge Tam.
 
-**Keywords:** small pelagic fish; forage fish; Peruvian anchovy; multivariate health index; environmental variability; stock-state indicators; demographic plasticity; ecosystem approach to fisheries; adaptive management.
+**Keywords:** Small pelagic fish; forage fish; Peruvian anchovy; multivariate health index; environmental variability; stock-state indicators; demographic plasticity; ecosystem approach to fisheries; adaptive management.
 
 **How to cite this work:**
+
 Quispe-Salazar, E., & Tam, J. (2026). *Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability* [Oral presentation]. SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities, La Paz, Mexico. North Pacific Marine Science Organization (PICES). https://meetings.pices.int/publications/presentations/2026-SPF
 
 **Related materials:**
