@@ -12,9 +12,8 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Elmer Quispe-Salazar"
 title_separator          : "-"
 name                     : &name "Elmer Quispe-Salazar"
-description              : &description "Quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, and reproducible scientific computing."
-url                      : "https://qselmer.github.io"
-                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+description              : &description "Elmer Quispe-Salazar personal website and blog."
+url                      : "https://qselmer.github.io"   # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "qselmer/qselmer.github.io"
 
@@ -26,9 +25,9 @@ author:
   avatar           : "profile.png"
   name             : "Elmer Quispe-Salazar"
   pronouns         :
-  bio              : "Marine quantitative ecologist | Fisheries science, stock assessment and spatio-temporal modelling | R, Python and Julia"
-  location         : "Peru"
-  employer         : "IMARPE"
+  bio              : "Marine quantitative ecologist | Fisheries science, stock assessment and spatio-temporal modelling | C++, R, Python and Julia"
+  location         : #"Peru"
+  # employer         : "IMARPE"
   uri              :
   email            : "oquispe@imarpe.gob.pe"
 
@@ -92,10 +91,6 @@ publication_category:
     title: "Journal Articles (Non-indexed)"
   reports:
     title: "Technical Reports"
-  notes:
-    title: "Scientific Notes"
-  policy:
-    title: "Policy & Management Briefs"
   conference:
     title: "Conference Contributions"
 
@@ -118,7 +113,7 @@ comments:
     colorscheme          : # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
+  branch                 : "master" # "master", "gh-pages"
   commitMessage          : "New comment."
   filename               : comment-{@timestamp}
   format                 : "yml"
@@ -146,23 +141,18 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &twitter "qselmer_"
 facebook:
   username               :
   app_id                 :
   publisher              :
-teaser                   : "home/statistical-modelling-workflow.png"
 og_image                 : "home/statistical-modelling-workflow.png"
-og_description           : "Quantitative marine ecology, fisheries science, stock assessment, and reproducible scientific computing."
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type: Person
-  name: "Elmer Quispe-Salazar"
-  links:
-    - "https://github.com/qselmer"
-    - "https://orcid.org/0000-0001-9229-6379"
-    - "https://scholar.google.com/citations?user=wz83egoAAAAJ"
+  type                   : # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
 
 
 # Analytics
@@ -239,9 +229,6 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
   talks:
     output: true
     permalink: /:collection/:path/
@@ -255,7 +242,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       read_time: true
       comments: true
       share: true
@@ -266,14 +253,14 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: false
+      author_profile: true
   # _teaching
   - scope:
       path: ""
       type: teaching
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       share: true
       comments: true
   # _publications
@@ -282,7 +269,7 @@ defaults:
       type: publications
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       share: true
       comments: true
   # _portfolio
@@ -291,7 +278,7 @@ defaults:
       type: portfolio
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       share: true
       comment: true
   # _talks
@@ -300,7 +287,7 @@ defaults:
       type: talks
     values:
       layout: talk
-      author_profile: false
+      author_profile: true
       share: true
 
 
