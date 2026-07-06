@@ -1,0 +1,222 @@
+/* ==========================================================================
+   Marine homepage visual layer
+   Inspired by a digital-garden style, adapted to quantitative marine ecology
+   ========================================================================== */
+
+#marine-particles {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.marine-particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 0.35;
+}
+
+.marine-particle.twinkle {
+  animation: marine-twinkle 10s infinite;
+}
+
+@keyframes marine-twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.85; }
+}
+
+#marine-hero {
+  min-height: calc(100vh - 70px);
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1.25rem 2rem;
+}
+
+.hero-title {
+  max-width: 950px;
+  margin: 0 auto;
+  animation: marine-intro 0.4s both;
+  animation-delay: 0.25s;
+}
+
+.hero-title h1 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.hero-bio {
+  text-align: center;
+  color: var(--global-text-color);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: marine-intro 0.4s both;
+  animation-delay: 0.35s;
+}
+
+.hero-bio p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.marine-scene {
+  width: 100vw;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.marine-system {
+  width: min(920px, 92vw);
+  height: 220px;
+  position: relative;
+  animation: marine-hover 16s infinite ease-in-out;
+}
+
+.marine-current {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3aa6c7, #9be7ff, #3aa6c7, transparent);
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(58, 166, 199, 0.55);
+}
+
+.marine-node {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(105, 210, 231, 0.85);
+  border-radius: 50%;
+  background: rgba(10, 40, 55, 0.35);
+  box-shadow: 0 0 28px rgba(105, 210, 231, 0.25);
+}
+
+.marine-node::before,
+.marine-node::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(105, 210, 231, 0.5);
+}
+
+.marine-node::before {
+  inset: 22px;
+}
+
+.marine-node::after {
+  inset: 42px;
+}
+
+.node-1 { left: 8%; top: 45px; }
+.node-2 { left: 31%; top: 85px; }
+.node-3 { left: 54%; top: 45px; }
+.node-4 { left: 77%; top: 85px; }
+
+.marine-label {
+  position: absolute;
+  top: 145px;
+  width: 160px;
+  margin-left: -20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--global-text-color);
+}
+
+.node-1 .marine-label::after { content: "Observations"; }
+.node-2 .marine-label::after { content: "Data"; }
+.node-3 .marine-label::after { content: "Models"; }
+.node-4 .marine-label::after { content: "Advice"; }
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 0 2px 2px 0;
+  animation: marine-pulse 2s infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes marine-pulse {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(10px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes marine-hover {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(18px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes marine-intro {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  #marine-hero {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+
+  .marine-system {
+    height: 420px;
+  }
+
+  .marine-current {
+    display: none;
+  }
+
+  .marine-node {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+
+  .node-1 { top: 0; }
+  .node-2 { top: 100px; }
+  .node-3 { top: 200px; }
+  .node-4 { top: 300px; }
+
+  .marine-label {
+    top: 125px;
+  }
+}

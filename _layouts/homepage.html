@@ -1,20 +1,4 @@
----
-layout: compress
----
-
-{% include base_path %}
-
-<!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
-
-  <body>
-
-
-    <div id="marine-particles"></div>
+<div id="marine-particles"></div>
 <script>
   const particles = document.getElementById('marine-particles');
   if (particles) {
@@ -36,20 +20,3 @@ layout: compress
     }
   }
 </script>
-
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
-
-    {{ content }}
-
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
-
-    {% include scripts.html %}
-
-  </body>
-</html>
