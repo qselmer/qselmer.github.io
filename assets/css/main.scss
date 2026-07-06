@@ -12,8 +12,8 @@
     "vendor/breakpoint/breakpoint",
 
     "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+    "theme/default",
+    "theme/dark",
 
     "include/mixins",
     "vendor/susy/susy",
@@ -29,6 +29,7 @@
     "layout/navigation",
     "layout/footer",
     "syntax",
+    "custom",
 
     "layout/forms",
 
@@ -41,6 +42,7 @@
     "vendor/font-awesome/fontawesome",
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
+    "vendor/magnific-popup/magnific-popup"
 ;
 /* Compact publications list (only on /publications/ because classes: publications) */
 .publications .pubitem { 
