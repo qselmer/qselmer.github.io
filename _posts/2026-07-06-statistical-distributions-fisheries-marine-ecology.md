@@ -13,7 +13,7 @@ tags:
   - marine-ecology
   - fisheries
   - R
-series: "Statistical Ecology Notes"
+series: "Quantitative marine ecology"
 post_type: "technical-note"
 level: "intermediate"
 excerpt: "A practical guide to choosing statistical distributions for presence–absence, counts, CPUE, biomass, proportions, compositional data, and extreme events in fisheries and marine ecology."

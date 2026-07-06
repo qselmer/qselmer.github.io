@@ -26,9 +26,6 @@ main:
   - title: "Data"
     url: /data/
 
-  - title: "Services"
-    url: /services/
-
   - title: "Blog"
     url: /blog/
 

@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Elmer Quispe-Salazar"
 title_separator          : "-"
 name                     : &name "Elmer Quispe-Salazar"
-description              : &description "Marine quantitative ecologist @IMARPE | Fisheries science, stock assessment & spatio-temporal modeling | Open-source R / Python / Julia | Founder of Blue Ecological Systems | Creator of Pelagytics"
+description              : &description "Quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, and reproducible scientific computing."
 url                      : "https://qselmer.github.io"
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -26,14 +26,14 @@ author:
   avatar           : "profile.png"
   name             : "Elmer Quispe-Salazar"
   pronouns         :
-  bio              : "Marine quantitative ecologist @IMARPE | Fisheries science, stock assessment & spatio-temporal modeling | Open-source R / Python / Julia | Founder of Blue Ecological Systems | Creator of Pelagytics"
-  location         : "Perú"
+  bio              : "Marine quantitative ecologist | Fisheries science, stock assessment and spatio-temporal modelling | R, Python and Julia"
+  location         : "Peru"
   employer         : "IMARPE"
-  uri              : "https://qselmer.github.io"
+  uri              :
   email            : "oquispe@imarpe.gob.pe"
 
   # Academic websites
-  academia         : "https://unmsm.academia.edu/qselmer"
+  academia         : #"https://unmsm.academia.edu/qselmer"
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=wz83egoAAAAJ"
   inspire-hep      : # URL
@@ -41,23 +41,23 @@ author:
   orcid            : "https://orcid.org/0000-0001-9229-6379"
   semantic         : # URL
   ssrn             : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   researchgate     : "https://www.researchgate.net/profile/Elmer-Quispe-Salazar"
   scopus           : # URL
-  zotero           : "https://www.zotero.org/qselmer/"
+  zotero           : #"https://www.zotero.org/qselmer/"
 
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
-  codepen          : "qselmer"
-  dribbble         : "qselmer"
+  codepen          : #"qselmer"
+  dribbble         : #"qselmer"
   github           : "qselmer"
   kaggle           : # Username  
-  stackoverflow    : "10836637"    
+  stackoverflow    : #"10836637"    
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : #"bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -66,7 +66,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "qselmer"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -107,7 +107,7 @@ future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false      #change to true to add link to talkmap on talks page
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : false #(default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
     shortname            :
   discourse:
@@ -151,8 +151,9 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Social media default site image
-og_description           :  # Social media default site image description
+teaser                   : "home/statistical-modelling-workflow.png"
+og_image                 : "home/statistical-modelling-workflow.png"
+og_description           : "Quantitative marine ecology, fisheries science, stock assessment, and reproducible scientific computing."
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -166,7 +167,7 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               :  false # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
     tracking_id          :
 
@@ -254,7 +255,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: true
       share: true
@@ -265,14 +266,14 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
+      author_profile: false
   # _teaching
   - scope:
       path: ""
       type: teaching
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       share: true
       comments: true
   # _publications
@@ -281,7 +282,7 @@ defaults:
       type: publications
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       share: true
       comments: true
   # _portfolio
@@ -290,7 +291,7 @@ defaults:
       type: portfolio
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       share: true
       comment: true
   # _talks
@@ -299,7 +300,7 @@ defaults:
       type: talks
     values:
       layout: talk
-      author_profile: true
+      author_profile: false
       share: true
 
 
@@ -313,7 +314,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Etc/UTC # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:  America/Lima #Etc/UTC # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
