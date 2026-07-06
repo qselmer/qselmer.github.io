@@ -1,34 +1,20 @@
 ---
 layout: archive
-title: "Technical Blog"
+title: ""
 permalink: /blog/
 author_profile: true
 ---
 
 {% include base_path %}
+This section contains technical notes on quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, statistical distributions, and reproducible scientific computing. The purpose of this blog is to translate statistical and ecological concepts into practical tools for marine and fisheries research.
 
-This section contains technical notes on quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, statistical distributions, and reproducible scientific computing.
-
-The purpose of this blog is to translate statistical and ecological concepts into practical tools for marine and fisheries research.
-
-## Main series
-
-- **Statistical Ecology Notes**  
-  Statistical distributions, GLM, GAM, uncertainty, overdispersion, zero inflation, and ecological inference.
-
-- **Fisheries Modelling Lab**  
-  CPUE standardization, selectivity, acoustic biomass, stock indicators, recruitment, and fisheries-dependent data.
-
-- **Spatio-temporal Ecology**  
-  Species distribution models, spatial random fields, habitat modelling, oceanographic gradients, and ecosystem structure.
-
-- **Marine Ecosystem Indicators**  
-  Indicators of stock state, pressure–response relationships, DPSIR, environmental forcing, and ecosystem-based fisheries management.
-
-- **Scientific Computing**  
-  R, Python, Julia, GitHub, reproducible workflows, renv, targets, and open science.
-
----
+## Main Series
+- **Quantitative marine ecology**: Marine ecology through data, statistical models, theory, and computational tools.
+- **Fisheries and stock dynamics**: Population changes, fishing pressure, productivity, stock status, and fisheries management.
+- **Species profiles**: Scientific syntheses of marine species of ecological, commercial, or fisheries interest.
+- **Ocean–climate interactions**: Biological and ecological responses to environmental, climatic, and oceanographic variability.
+- **Spatial ecology and habitat**: Distribution, habitat, spatial structure, connectivity, and movement patterns of marine resources.
+- **Paper review**: Critical discussion of key scientific papers in marine ecology, fisheries science, and ecological modelling.
 
 ## Latest technical notes
 
