@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Marine home layout
+   ========================================================================== */
+
+.marine-home {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.lang-switch {
+  text-align: right;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.lang-switch a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.marine-hero {
+  padding: 2rem 0 1rem;
+}
+
+.marine-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.marine-kicker {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2b6f8f;
+  margin-bottom: 0.75rem;
+}
+
+.marine-title {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+
+.marine-subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.55;
+  color: #444;
+  max-width: 760px;
+}
+
+.marine-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.marine-button {
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #1f5f7a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.marine-button--primary {
+  background: #1f5f7a;
+  color: #fff !important;
+}
+
+.marine-button--secondary {
+  background: transparent;
+  color: #1f5f7a !important;
+}
+
+.marine-visual {
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid #d8e4e8;
+  background: #f6fafb;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.08);
+}
+
+.marine-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.section-title {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.info-card {
+  border: 1px solid #dbe5e9;
+  border-radius: 16px;
+  padding: 1.1rem;
+  background: #fff;
+}
+
+.info-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.info-card p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.workflow-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.workflow-step {
+  border: 1px solid #dbe5e9;
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  background: #f8fbfc;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.featured-card {
+  border: 1px solid #dbe5e9;
+  border-radius: 18px;
+  padding: 1.25rem;
+  background: #fff;
+}
+
+.featured-card h3 {
+  margin-top: 0;
+}
+
+.featured-card a {
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .marine-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .lang-switch {
+    text-align: left;
+  }
+}
