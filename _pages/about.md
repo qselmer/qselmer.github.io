@@ -1,8 +1,8 @@
 ---
 permalink: /
-title: "Welcome to Elmer's Marine Quantitative Ecology Garden"
-bio: "I am a marine quantitative ecologist at [IMARPE](https://www.gob.pe/imarpe), working at the interface of fisheries science, stock assessment, spatio-temporal ecology, and reproducible scientific computing."
-excerpt: 'I work on quantitative marine ecology, fisheries modelling, stock indicators, and open scientific workflows for understanding marine ecosystems and supporting fisheries decision-making.'
+title: "Quantitative Marine Ecology for Fisheries and Ecosystems"
+bio: "I develop statistical, spatio-temporal, and reproducible workflows to understand marine populations, stock dynamics, and ecosystem change."
+excerpt: "Quantitative marine ecology, fisheries modelling, stock indicators, and reproducible scientific workflows."
 author_profile: true
 layout: homepage
 redirect_from:

@@ -466,3 +466,152 @@ select {
 hr {
   border-color: rgba(160, 230, 255, 0.18) !important;
 }
+
+/* ==========================================================================
+   Homepage alignment and global marine visual corrections
+   ========================================================================== */
+
+/* Asegurar que el fondo marino quede visible detrás del contenido */
+#marine-bg,
+#marine-particles {
+  z-index: 0 !important;
+}
+
+.masthead,
+#marine-hero,
+#main,
+.page__footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Corregir barra superior blanca */
+.masthead {
+  background: rgba(1, 10, 20, 0.94) !important;
+  border-bottom: 1px solid rgba(160, 230, 255, 0.18) !important;
+  box-shadow: none !important;
+}
+
+.masthead__inner-wrap,
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links {
+  background: transparent !important;
+}
+
+.greedy-nav a,
+.greedy-nav .visible-links a,
+.greedy-nav .hidden-links a,
+.greedy-nav .site-title {
+  color: #eef7fb !important;
+}
+
+.greedy-nav a:hover,
+.greedy-nav .visible-links a:hover,
+.greedy-nav .hidden-links a:hover {
+  color: #8de1ff !important;
+}
+
+.greedy-nav .visible-links a::before {
+  background: #8de1ff !important;
+}
+
+/* Botón menú móvil */
+.greedy-nav__toggle,
+.search__toggle {
+  background: rgba(1, 10, 20, 0.75) !important;
+  color: #eef7fb !important;
+  border: 1px solid rgba(160, 230, 255, 0.18) !important;
+}
+
+/* Evitar que el hero invada el sidebar en escritorio */
+@media (min-width: 1024px) {
+  #marine-hero {
+    width: calc(100% - 320px);
+    margin-left: 320px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
+
+  .hero-title {
+    max-width: 820px;
+  }
+
+  .hero-title h1 {
+    font-size: clamp(1.8rem, 3.4vw, 3.35rem);
+  }
+
+  .marine-scene {
+    max-width: 780px;
+  }
+
+  .marine-system {
+    height: 210px;
+  }
+}
+
+/* Sidebar integrado al fondo marino */
+.sidebar {
+  background: rgba(1, 12, 22, 0.28) !important;
+  border-right: 1px solid rgba(160, 230, 255, 0.10) !important;
+  box-shadow: none !important;
+}
+
+.author__avatar img {
+  border: 2px solid rgba(225, 247, 255, 0.95) !important;
+  box-shadow: 0 0 18px rgba(120, 220, 255, 0.18);
+}
+
+.author__name {
+  color: #f4fbff !important;
+  font-weight: 700 !important;
+}
+
+.author__bio {
+  color: #dbeef7 !important;
+  line-height: 1.45 !important;
+  font-size: 0.82rem !important;
+}
+
+.author__urls a,
+.author__urls li,
+.author__urls-wrapper {
+  color: #e7f7ff !important;
+}
+
+.author__urls a:hover {
+  color: #8de1ff !important;
+}
+
+/* Ajuste del contenido principal */
+#main {
+  background: transparent !important;
+}
+
+.page,
+.page__inner-wrap,
+.page__content {
+  background: transparent !important;
+}
+
+/* Mejor contraste de texto */
+.page__content,
+.page__content p,
+.page__content li {
+  color: #eef7fb !important;
+}
+
+.page__content h1,
+.page__content h2,
+.page__content h3 {
+  color: #f4fbff !important;
+}
+
+.page__content a {
+  color: #76d8ff !important;
+}
+
+.page__content a:hover {
+  color: #b9efff !important;
+}

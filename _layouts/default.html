@@ -13,29 +13,41 @@ layout: compress
 
   <body>
 
-
+    <div id="marine-bg"></div>
     <div id="marine-particles"></div>
-<script>
-  const particles = document.getElementById('marine-particles');
-  if (particles) {
-    for (let i = 0; i < 260; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'marine-particle';
-      const colors = ['#ffffff', '#9be7ff', '#6dd5ed', '#b8f3ff'];
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      particle.style.backgroundColor = color;
-      particle.style.top = `${Math.random() * 100}vh`;
-      particle.style.left = `${Math.random() * 100}vw`;
-      particle.style.width = `${Math.random() * 2 + 1}px`;
-      particle.style.height = particle.style.width;
-      particle.style.animationDelay = `${Math.random() * 20}s`;
-      if (Math.random() > 0.55) {
-        particle.classList.add('twinkle');
-      }
-      particles.appendChild(particle);
-    }
-  }
-</script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("marine-particles");
+        if (!container) return;
+
+        if (container.dataset.loaded === "true") return;
+        container.dataset.loaded = "true";
+
+        for (let i = 0; i < 160; i++) {
+          const p = document.createElement("div");
+
+          const r = Math.random();
+          const sizeClass = r < 0.62 ? "small" : (r < 0.88 ? "medium" : "large");
+
+          p.className = "marine-particle " + sizeClass;
+
+          const size =
+            sizeClass === "small" ? (Math.random() * 2 + 1) :
+            sizeClass === "medium" ? (Math.random() * 4 + 2) :
+            (Math.random() * 7 + 4);
+
+          p.style.width = size + "px";
+          p.style.height = size + "px";
+          p.style.left = Math.random() * 100 + "vw";
+          p.style.top = (100 + Math.random() * 35) + "vh";
+          p.style.animationDuration = (22 + Math.random() * 36) + "s";
+          p.style.animationDelay = (Math.random() * 22) + "s";
+
+          container.appendChild(p);
+        }
+      });
+    </script>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
