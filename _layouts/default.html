@@ -24,7 +24,7 @@ layout: compress
         if (container.dataset.loaded === "true") return;
         container.dataset.loaded = "true";
 
-        for (let i = 0; i < 160; i++) {
+        for (let i = 0; i < 210; i++) {
           const p = document.createElement("div");
 
           const r = Math.random();
@@ -33,8 +33,8 @@ layout: compress
           p.className = "marine-particle " + sizeClass;
 
           const size =
-            sizeClass === "small" ? (Math.random() * 2 + 1) :
-            sizeClass === "medium" ? (Math.random() * 4 + 2) :
+            sizeClass === "small" ? (Math.random() * 3 + 1) :
+            sizeClass === "medium" ? (Math.random() * 6 + 2) :
             (Math.random() * 7 + 4);
 
           p.style.width = size + "px";
