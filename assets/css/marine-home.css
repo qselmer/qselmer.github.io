@@ -615,3 +615,223 @@ hr {
 .page__content a:hover {
   color: #b9efff !important;
 }
+/* ==========================================================================
+   FINAL HOME FIXES: masthead, sidebar-safe hero, and stronger dark marine skin
+   ========================================================================== */
+
+html,
+body {
+  min-height: 100%;
+  background-color: #010a14 !important;
+  background-image: linear-gradient(180deg, #010a14 0%, #021522 30%, #032235 62%, #062c43 100%) !important;
+  background-attachment: fixed !important;
+}
+
+#marine-bg {
+  z-index: 0 !important;
+}
+
+#marine-particles {
+  z-index: 1 !important;
+}
+
+.masthead,
+#main,
+.page__footer {
+  position: relative;
+}
+
+.masthead {
+  z-index: 1000 !important;
+  background-color: rgba(1, 10, 20, 0.96) !important;
+  background-image: none !important;
+  border-bottom: 1px solid rgba(160, 230, 255, 0.18) !important;
+  box-shadow: none !important;
+}
+
+#main,
+.page__footer {
+  z-index: 5 !important;
+}
+
+.masthead__inner-wrap,
+.masthead__menu,
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links,
+.masthead__menu-item,
+.masthead .masthead__menu-item,
+.greedy-nav li,
+.greedy-nav .visible-links li,
+.greedy-nav .hidden-links li {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.greedy-nav button,
+.greedy-nav__toggle,
+.search__toggle {
+  background-color: rgba(1, 10, 20, 0.82) !important;
+  color: #eef7fb !important;
+  border: 1px solid rgba(160, 230, 255, 0.20) !important;
+}
+
+.greedy-nav button .navicon,
+.greedy-nav button .navicon::before,
+.greedy-nav button .navicon::after {
+  background: #eef7fb !important;
+}
+
+.greedy-nav a,
+.greedy-nav .visible-links a,
+.greedy-nav .hidden-links a,
+.greedy-nav .masthead__menu-item a,
+.masthead__menu-item.selected a,
+#theme-toggle a,
+#theme-icon {
+  color: #eef7fb !important;
+  text-shadow: none !important;
+}
+
+.greedy-nav a:hover,
+.greedy-nav .visible-links a:hover,
+.greedy-nav .hidden-links a:hover,
+#theme-toggle a:hover,
+#theme-icon:hover {
+  color: #8de1ff !important;
+}
+
+.masthead__menu-item.selected a,
+.masthead__menu-item.selected a:hover {
+  border-bottom-color: #8de1ff !important;
+}
+
+/* Keep the Home hero inside the normal AcademicPages content column. */
+.homepage-main {
+  margin-top: 0 !important;
+}
+
+.page--home #marine-hero {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 62vh !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 3rem 0 1.1rem !important;
+  box-sizing: border-box !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page--home .hero-title {
+  width: 100%;
+  max-width: 760px !important;
+  margin: 0 auto 1.2rem !important;
+}
+
+.page--home .hero-title h1 {
+  font-size: clamp(2rem, 3.05vw, 2.95rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.02em;
+  margin: 0 !important;
+  color: #f5fbff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45) !important;
+}
+
+.page--home .marine-scene {
+  width: 100% !important;
+  max-width: 720px !important;
+  margin: 2.1rem auto 1.4rem !important;
+}
+
+.page--home .marine-system {
+  height: 180px !important;
+}
+
+.page--home .marine-current {
+  left: 10% !important;
+  right: 10% !important;
+  top: 48% !important;
+}
+
+.page--home .marine-node {
+  width: 92px !important;
+  height: 92px !important;
+}
+
+.page--home .marine-node::before {
+  inset: 18px !important;
+}
+
+.page--home .node-1 { left: 6% !important; top: 42px !important; }
+.page--home .node-2 { left: 31% !important; top: 76px !important; }
+.page--home .node-3 { left: 56% !important; top: 42px !important; }
+.page--home .node-4 { left: 81% !important; top: 76px !important; }
+
+.page--home .marine-label {
+  top: 104px !important;
+  font-size: 0.78rem !important;
+}
+
+.page--home .hero-bio {
+  max-width: 720px !important;
+  margin: 0 auto 1rem !important;
+}
+
+.page--home .hero-bio p {
+  color: #e4f5fb !important;
+  font-size: clamp(0.98rem, 1.45vw, 1.12rem) !important;
+  line-height: 1.6 !important;
+}
+
+.sidebar {
+  background-color: rgba(1, 12, 22, 0.22) !important;
+  backdrop-filter: blur(3px);
+}
+
+.author__bio br {
+  display: block;
+  content: "";
+  margin-bottom: 0.15rem;
+}
+
+@media (min-width: 1024px) {
+  /* Override previous experimental margin rule. */
+  #marine-hero {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .page--home #marine-hero {
+    min-height: auto !important;
+    padding-top: 2rem !important;
+  }
+
+  .page--home .hero-title h1 {
+    font-size: clamp(1.7rem, 6vw, 2.5rem) !important;
+  }
+
+  .page--home .marine-system {
+    height: 420px !important;
+  }
+
+  .page--home .marine-current {
+    display: none !important;
+  }
+
+  .page--home .marine-node {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .page--home .node-1 { top: 0 !important; }
+  .page--home .node-2 { top: 100px !important; }
+  .page--home .node-3 { top: 200px !important; }
+  .page--home .node-4 { top: 300px !important; }
+}
