@@ -1,22 +1,63 @@
-<div id="marine-particles"></div>
-<script>
-  const particles = document.getElementById('marine-particles');
-  if (particles) {
-    for (let i = 0; i < 260; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'marine-particle';
-      const colors = ['#ffffff', '#9be7ff', '#6dd5ed', '#b8f3ff'];
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      particle.style.backgroundColor = color;
-      particle.style.top = `${Math.random() * 100}vh`;
-      particle.style.left = `${Math.random() * 100}vw`;
-      particle.style.width = `${Math.random() * 2 + 1}px`;
-      particle.style.height = particle.style.width;
-      particle.style.animationDelay = `${Math.random() * 20}s`;
-      if (Math.random() > 0.55) {
-        particle.classList.add('twinkle');
-      }
-      particles.appendChild(particle);
-    }
-  }
-</script>
+---
+layout: default
+---
+
+<div id="marine-hero">
+  {% if page.title %}
+    <div class="hero-title">
+      <h1>{{ page.title | markdownify }}</h1>
+    </div>
+  {% endif %}
+
+  <div class="marine-scene">
+    <div class="marine-system">
+      <div class="marine-current"></div>
+
+      <div class="marine-node node-1">
+        <div class="marine-label"></div>
+      </div>
+
+      <div class="marine-node node-2">
+        <div class="marine-label"></div>
+      </div>
+
+      <div class="marine-node node-3">
+        <div class="marine-label"></div>
+      </div>
+
+      <div class="marine-node node-4">
+        <div class="marine-label"></div>
+      </div>
+    </div>
+  </div>
+
+  {% if page.bio %}
+    <div class="hero-bio">
+      <p>{{ page.bio | markdownify }}</p>
+    </div>
+  {% endif %}
+
+  <div class="scroll-arrow"></div>
+</div>
+
+{% include base_path %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if page.title %}
+      <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+    {% endif %}
+
+    {% if page.excerpt %}
+      <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
+    {% endif %}
+
+    <div class="page__inner-wrap">
+      <section class="page__content" itemprop="text">
+        {{ content }}
+      </section>
+    </div>
+  </article>
+</div>

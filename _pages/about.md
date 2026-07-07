@@ -103,7 +103,7 @@ You can also explore my [research]({{ base_path }}/research/), [technical blog](
 
 I welcome feedback, collaboration ideas, and suggestions related to quantitative marine ecology, fisheries science, statistical modelling, and reproducible research.
 
-<img src="/images/buttons/godsped_button.gif" alt="marine quantitative ecology" class="emoji" style="image-rendering: pixelated;"  width="88px" height="31px">
+#poner boton de contacto
 
 *[CPUE]: Catch Per Unit Effort
 *[GAM]: Generalized Additive Model
