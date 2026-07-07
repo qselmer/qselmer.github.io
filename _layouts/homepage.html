@@ -2,6 +2,37 @@
 layout: default
 ---
 
+<div id="marine-bg"></div>
+<div id="marine-particles"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.classList.add("homepage-layout");
+
+  const container = document.getElementById("marine-particles");
+  if (!container) return;
+
+  for (let i = 0; i < 140; i++) {
+    const p = document.createElement("div");
+    const sizeClass = Math.random() < 0.6 ? "small" : (Math.random() < 0.85 ? "medium" : "large");
+    p.className = "marine-particle " + sizeClass;
+
+    const size = sizeClass === "small" ? (Math.random() * 2 + 1) :
+                 sizeClass === "medium" ? (Math.random() * 4 + 2) :
+                 (Math.random() * 7 + 4);
+
+    p.style.width = size + "px";
+    p.style.height = size + "px";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.top = (100 + Math.random() * 30) + "vh";
+    p.style.animationDuration = (20 + Math.random() * 30) + "s";
+    p.style.animationDelay = (Math.random() * 20) + "s";
+
+    container.appendChild(p);
+  }
+});
+</script>
+
 <div id="marine-hero">
   {% if page.title %}
     <div class="hero-title">
@@ -16,15 +47,12 @@ layout: default
       <div class="marine-node node-1">
         <div class="marine-label"></div>
       </div>
-
       <div class="marine-node node-2">
         <div class="marine-label"></div>
       </div>
-
       <div class="marine-node node-3">
         <div class="marine-label"></div>
       </div>
-
       <div class="marine-node node-4">
         <div class="marine-label"></div>
       </div>

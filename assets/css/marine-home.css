@@ -1,142 +1,158 @@
 /* ==========================================================================
-   Marine homepage visual layer
-   Inspired by a digital-garden style, adapted to quantitative marine ecology
+   Marine homepage background
    ========================================================================== */
 
-#marine-particles {
-  width: 100vw;
-  height: 100vh;
+body.homepage-layout {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(80, 180, 220, 0.10) 0%, transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(0, 210, 255, 0.08) 0%, transparent 20%),
+    radial-gradient(circle at 50% 80%, rgba(0, 120, 170, 0.10) 0%, transparent 25%),
+    linear-gradient(180deg, #02111d 0%, #032238 40%, #06324d 70%, #0a4a63 100%);
+  background-attachment: fixed;
+}
+
+#marine-bg {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#marine-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
   pointer-events: none;
 }
 
 .marine-particle {
   position: absolute;
   border-radius: 50%;
-  background-color: #ffffff;
-  opacity: 0.35;
+  opacity: 0.22;
+  animation: floatUp linear infinite;
+  filter: blur(0.2px);
 }
 
-.marine-particle.twinkle {
-  animation: marine-twinkle 10s infinite;
+.marine-particle.small {
+  background: rgba(170, 235, 255, 0.45);
 }
 
-@keyframes marine-twinkle {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.85; }
+.marine-particle.medium {
+  background: rgba(120, 220, 255, 0.35);
 }
 
+.marine-particle.large {
+  background: rgba(220, 245, 255, 0.20);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-120vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Hero */
 #marine-hero {
-  min-height: calc(100vh - 70px);
-  width: 100vw;
-  position: relative;
+  min-height: 78vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 3rem 1.25rem 2rem;
+  text-align: center;
 }
 
 .hero-title {
-  max-width: 950px;
-  margin: 0 auto;
-  animation: marine-intro 0.4s both;
-  animation-delay: 0.25s;
+  max-width: 1000px;
+  margin: 0 auto 1rem;
 }
 
 .hero-title h1 {
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 5vw, 4.3rem);
   line-height: 1.05;
   margin: 0;
+  color: #ffffff;
 }
 
 .hero-bio {
-  text-align: center;
-  color: var(--global-text-color);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
-  animation: marine-intro 0.4s both;
-  animation-delay: 0.35s;
+  max-width: 820px;
+  margin: 0 auto 1.5rem;
+  color: #dbeef7;
 }
 
 .hero-bio p {
   font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .marine-scene {
-  width: 100vw;
-  min-height: 240px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  width: 100%;
+  max-width: 950px;
+  margin: 1.5rem auto 2rem;
 }
 
 .marine-system {
-  width: min(920px, 92vw);
-  height: 220px;
   position: relative;
-  animation: marine-hover 16s infinite ease-in-out;
+  height: 240px;
 }
 
 .marine-current {
   position: absolute;
-  left: 5%;
-  right: 5%;
+  left: 8%;
+  right: 8%;
   top: 50%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #3aa6c7, #9be7ff, #3aa6c7, transparent);
   border-radius: 999px;
-  box-shadow: 0 0 18px rgba(58, 166, 199, 0.55);
+  background: linear-gradient(90deg, transparent, #5fd0ff, #b4efff, #5fd0ff, transparent);
+  box-shadow: 0 0 18px rgba(95, 208, 255, 0.4);
 }
 
 .marine-node {
   position: absolute;
   width: 120px;
   height: 120px;
-  border: 2px solid rgba(105, 210, 231, 0.85);
   border-radius: 50%;
-  background: rgba(10, 40, 55, 0.35);
-  box-shadow: 0 0 28px rgba(105, 210, 231, 0.25);
-}
-
-.marine-node::before,
-.marine-node::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(105, 210, 231, 0.5);
+  border: 2px solid rgba(138, 226, 255, 0.8);
+  background: rgba(7, 32, 49, 0.45);
+  box-shadow: 0 0 25px rgba(95, 208, 255, 0.18);
 }
 
 .marine-node::before {
-  inset: 22px;
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(138, 226, 255, 0.5);
 }
 
-.marine-node::after {
-  inset: 42px;
-}
-
-.node-1 { left: 8%; top: 45px; }
-.node-2 { left: 31%; top: 85px; }
-.node-3 { left: 54%; top: 45px; }
-.node-4 { left: 77%; top: 85px; }
+.node-1 { left: 5%; top: 48px; }
+.node-2 { left: 29%; top: 92px; }
+.node-3 { left: 53%; top: 48px; }
+.node-4 { left: 77%; top: 92px; }
 
 .marine-label {
   position: absolute;
-  top: 145px;
-  width: 160px;
-  margin-left: -20px;
-  font-size: 0.82rem;
+  width: 180px;
+  top: 136px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--global-text-color);
+  color: #eaf8ff;
 }
 
 .node-1 .marine-label::after { content: "Observations"; }
@@ -145,61 +161,25 @@
 .node-4 .marine-label::after { content: "Advice"; }
 
 .scroll-arrow {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-style: solid;
-  border-color: #ffffff;
+  border-color: #d9f5ff;
   border-width: 0 2px 2px 0;
-  animation: marine-pulse 2s infinite;
-  margin-bottom: 1rem;
+  transform: rotate(45deg);
+  margin-top: 1rem;
+  animation: pulseDown 2s infinite;
 }
 
-@keyframes marine-pulse {
-  0% {
-    transform: translateY(0) rotate(45deg);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateY(10px) rotate(45deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0) rotate(45deg);
-    opacity: 0.5;
-  }
-}
-
-@keyframes marine-hover {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(18px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-@keyframes marine-intro {
-  from {
-    opacity: 0;
-    transform: translateY(0.6rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes pulseDown {
+  0%   { transform: translateY(0) rotate(45deg); opacity: 0.4; }
+  50%  { transform: translateY(10px) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(45deg); opacity: 0.4; }
 }
 
 @media (max-width: 768px) {
-  #marine-hero {
-    min-height: auto;
-    padding-top: 2rem;
-  }
-
   .marine-system {
-    height: 420px;
+    height: 460px;
   }
 
   .marine-current {
@@ -212,11 +192,7 @@
   }
 
   .node-1 { top: 0; }
-  .node-2 { top: 100px; }
-  .node-3 { top: 200px; }
-  .node-4 { top: 300px; }
-
-  .marine-label {
-    top: 125px;
-  }
+  .node-2 { top: 110px; }
+  .node-3 { top: 220px; }
+  .node-4 { top: 330px; }
 }
