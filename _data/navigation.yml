@@ -14,8 +14,14 @@ main:
   - title: "Software & Data"
     url: /resources/
 
-  - title: "Engagement"
-    url: /engagement/
+  - title: "Talks"
+    url: /talks/
+
+  - title: "Teaching"
+    url: /teaching/
+
+  - title: "Blog"
+    url: /blog/
 
   - title: "CV"
     url: /cv/
