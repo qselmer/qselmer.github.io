@@ -11,14 +11,17 @@ main:
   - title: "Publications"
     url: /publications/
 
-  - title: "Software & Data"
-    url: /resources/
+  - title: "Software"
+    url: /software/
 
   - title: "Talks"
     url: /talks/
 
   - title: "Teaching"
     url: /teaching/
+
+  - title: "Data"
+    url: /data/
 
   - title: "Blog"
     url: /blog/
