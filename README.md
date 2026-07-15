@@ -1,54 +1,52 @@
 # qselmer.github.io
 
-Personal scientific website for Elmer Quispe-Salazar, developed with Jekyll and GitHub Pages.
+Personal academic website of Elmer Quispe-Salazar, built with Jekyll and deployed through GitHub Pages.
 
-## Site structure
+## Scientific information architecture
 
-The website separates stable research themes, concrete projects, formal publications, software and data resources, scientific engagement, curriculum vitae, and contact information.
+The site separates stable research themes from concrete projects and scholarly outputs:
 
-```text
-Research
-Projects
-Publications
-Software & Data
-Engagement
-CV
-Contact
-```
+- `Research`: long-term scientific questions and methodological themes.
+- `Projects`: active and completed research programmes.
+- `Publications`: verified peer-reviewed, conference, and technical outputs.
+- `Software & Data`: software under development, reproducible workflows, and curated data resources.
+- `Engagement`: talks, teaching, and research notes.
+- `CV` and `Contact`: professional record and collaboration channels.
 
-## Content collections
+## Collections
 
-- `_projects/`: research programmes with scientific questions, data, methods, status, and expected outputs.
-- `_software/`: scientific software and analytical frameworks with explicit development status.
-- `_publications/`: curated scholarly outputs.
-- `_talks/`: conference presentations, posters, and seminars.
+- `_projects/`: project records with questions, data, methods, status, and outputs.
+- `_publications/`: verified scholarly records only.
+- `_software/`: software records with transparent development status.
+- `_talks/`: presentations and posters.
 - `_teaching/`: teaching and training activities.
-- `_posts/`: research notes and technical articles.
 
-## JavaScript workflow
+## Publication policy
 
-Install dependencies and run the reproducible build:
+Publication pages are included only when authorship, title, year, output type, and citation status can be verified. DOI, PDF, code, data, and presentation links are added only when stable public locations exist. Works in preparation are not represented as publications.
+
+## Software and data policy
+
+Software records must distinguish clearly among concept, prototype, active development, internal use, and public release. Repository, version, DOI, citation, and license fields are added only after they exist.
+
+Restricted fisheries, biological, or institutional datasets are never published through this repository. Public pages may describe metadata, analytical structure, derived products, or synthetic examples without exposing protected information.
+
+## Local JavaScript build
+
+The JavaScript bundle is generated from the source files in `assets/js/`. Plotly and Mermaid are loaded only on pages that contain those visualizations.
 
 ```bash
 npm ci
 npm test
 ```
 
-`npm test` validates the JavaScript source and regenerates `assets/js/main.min.js`.
+`npm test` checks JavaScript syntax and rebuilds `assets/js/main.min.js`.
 
-## Local Jekyll development
-
-After installing the Ruby dependencies:
+## Local Jekyll preview
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-Changes to `_config.yml` require restarting the Jekyll process.
-
-## Content standards
-
-Project and software records should state their status accurately. Public software releases should include a version number, source repository, documentation, examples, tests, license, citation metadata, and archived releases where appropriate.
-
-Restricted fisheries or institutional data must not be redistributed without authorization. Where direct publication is not possible, the site may provide metadata, variable dictionaries, processing descriptions, synthetic examples, or non-disclosive derived products.
+Changes to `_config.yml` require restarting the Jekyll server.
