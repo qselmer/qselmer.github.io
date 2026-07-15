@@ -7,14 +7,30 @@ author_profile: true
 
 {% include base_path %}
 
-Scientific software, reproducible workflows, and analytical tools for marine ecology, fisheries science, stock assessment, environmental analysis, and scientific computing.
+This section documents scientific software, analytical frameworks, and reproducible workflows developed for marine ecology, fisheries science, stock assessment, environmental analysis, and scientific computing. Development status is stated explicitly; tools without a stable public release should not yet be treated as production software.
 
-{% assign software_items = site.software | sort: "title" %}
+## Featured tools
 
-{% if software_items and software_items.size > 0 %}
-  {% for post in software_items %}
+{% assign featured_software = site.software | where: "featured", true | sort: "date" | reverse %}
+
+{% if featured_software and featured_software.size > 0 %}
+  {% for post in featured_software %}
     {% include archive-single.html %}
   {% endfor %}
 {% else %}
-  <p>Software records and documentation are being prepared.</p>
+  <p>Featured software records are being prepared.</p>
 {% endif %}
+
+{% assign other_software = site.software | where_exp: "item", "item.featured != true" | sort: "date" | reverse %}
+
+{% if other_software and other_software.size > 0 %}
+## Additional tools
+
+  {% for post in other_software %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+## Release and citation policy
+
+Public releases will include, where applicable, a version number, source repository, documentation, examples, tests, license, citation metadata, and archived release identifier. Until those elements are available, each record is labelled according to its actual development stage.
