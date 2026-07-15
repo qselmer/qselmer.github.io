@@ -97,7 +97,7 @@ Marine data become useful when they are transformed into interpretable evidence 
 
 Message me through any of the contacts in the sidebar. Email is preferable.
 
-You can also explore my [research]({{ base_path }}/research/), [technical blog]({{ base_path }}/blog/), [data resources]({{ base_path }}/data/), [talks]({{ base_path }}/talks/), [CV]({{ base_path }}/cv/), and [GitHub](https://github.com/qselmer).
+You can also explore my [research]({{ base_path }}/research/), [projects]({{ base_path }}/projects/), [publications]({{ base_path }}/publications/), [software and data resources]({{ base_path }}/resources/), [scientific engagement]({{ base_path }}/engagement/), [CV]({{ base_path }}/cv/), and [GitHub](https://github.com/qselmer).
 
 ## Feedback
 
