@@ -1,0 +1,467 @@
+/* Academic visual refinement
+   A restrained, readable presentation for a quantitative marine science profile. */
+
+:root {
+  --academic-bg: #06131d;
+  --academic-surface: #0a1d2a;
+  --academic-surface-2: #0d2534;
+  --academic-surface-3: #113044;
+  --academic-border: #24485d;
+  --academic-border-soft: #17384b;
+  --academic-text: #eef4f7;
+  --academic-text-soft: #cbd9e0;
+  --academic-muted: #a9bbc4;
+  --academic-heading: #ffffff;
+  --academic-link: #77cdeb;
+  --academic-link-hover: #b9edff;
+  --academic-accent: #5db7d7;
+  --academic-radius: 0.65rem;
+  --academic-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.18);
+  --academic-font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --academic-font-serif: Georgia, "Times New Roman", serif;
+}
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--academic-font-sans) !important;
+  font-size: 1rem;
+  line-height: 1.68;
+  letter-spacing: 0.002em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--academic-bg) !important;
+}
+
+/* Main page frame */
+
+#main {
+  width: min(100%, 1500px) !important;
+  max-width: 1500px !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-right: clamp(0.8rem, 2vw, 2rem) !important;
+  padding-left: clamp(0.8rem, 2vw, 2rem) !important;
+  box-sizing: border-box;
+}
+
+.page,
+.archive {
+  color: var(--academic-text) !important;
+}
+
+.page__inner-wrap,
+.archive {
+  background: var(--academic-surface) !important;
+  border: 1px solid var(--academic-border-soft) !important;
+  border-radius: var(--academic-radius);
+  box-shadow: var(--academic-shadow);
+}
+
+.page__inner-wrap {
+  padding: clamp(1.2rem, 2.5vw, 2.35rem) !important;
+}
+
+.archive {
+  padding: clamp(1.2rem, 2.5vw, 2.35rem) !important;
+}
+
+.page--home .page__inner-wrap,
+.page--home .archive,
+.home .page__inner-wrap {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Typography hierarchy */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.page__title,
+.archive__subtitle,
+.archive__item-title {
+  font-family: var(--academic-font-sans) !important;
+  color: var(--academic-heading) !important;
+  font-weight: 720 !important;
+  letter-spacing: -0.018em;
+}
+
+.page__title,
+.archive > h1,
+.page__content > h1:first-child {
+  margin-top: 0 !important;
+  margin-bottom: 1.15rem !important;
+  font-size: clamp(2rem, 3vw, 3rem) !important;
+  line-height: 1.12 !important;
+}
+
+.page__content h2,
+.archive h2 {
+  margin-top: 2.5rem !important;
+  margin-bottom: 0.9rem !important;
+  padding-bottom: 0.48rem;
+  font-size: clamp(1.45rem, 2vw, 1.95rem) !important;
+  line-height: 1.2 !important;
+  border-bottom: 1px solid var(--academic-border) !important;
+}
+
+.page__content h3,
+.archive h3 {
+  margin-top: 1.8rem !important;
+  margin-bottom: 0.55rem !important;
+  font-size: clamp(1.16rem, 1.5vw, 1.38rem) !important;
+  line-height: 1.3 !important;
+}
+
+.page__content p,
+.page__content li,
+.archive p,
+.archive li {
+  color: var(--academic-text-soft) !important;
+  font-size: 1rem !important;
+  line-height: 1.72 !important;
+}
+
+.page__content p,
+.archive p {
+  max-width: 78ch;
+}
+
+.page__content strong,
+.archive strong {
+  color: var(--academic-heading) !important;
+  font-weight: 700;
+}
+
+.page__content em,
+.archive em {
+  color: #dce8ed !important;
+}
+
+.page__content a,
+.archive a {
+  color: var(--academic-link) !important;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.page__content a:hover,
+.archive a:hover {
+  color: var(--academic-link-hover) !important;
+}
+
+/* Lists and reading rhythm */
+
+.page__content ul,
+.page__content ol,
+.archive ul,
+.archive ol {
+  margin-top: 0.7rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.35rem;
+}
+
+.page__content li + li,
+.archive li + li {
+  margin-top: 0.35rem;
+}
+
+hr {
+  margin: 2.4rem 0 !important;
+  border: 0 !important;
+  border-top: 1px solid var(--academic-border) !important;
+}
+
+/* Sidebar as a stable academic profile card */
+
+.sidebar {
+  background: #071923 !important;
+  border: 1px solid var(--academic-border-soft) !important;
+  border-radius: var(--academic-radius);
+  box-shadow: 0 0.55rem 1.5rem rgba(0, 0, 0, 0.16) !important;
+  padding: 1rem !important;
+}
+
+.author__avatar img {
+  border: 3px solid #dcecf2 !important;
+  box-shadow: none !important;
+}
+
+.author__name {
+  margin-top: 0.8rem !important;
+  color: #ffffff !important;
+  font-size: 1.18rem !important;
+  line-height: 1.2 !important;
+}
+
+.author__bio {
+  color: var(--academic-muted) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+}
+
+.author__urls li a {
+  color: #d6e5eb !important;
+  font-size: 0.9rem !important;
+}
+
+.author__urls li a:hover {
+  color: var(--academic-link-hover) !important;
+}
+
+/* Archive entries resemble compact academic records */
+
+.list__item,
+.archive__item {
+  margin-bottom: 1rem !important;
+}
+
+.archive__item {
+  padding: 1.05rem 1.15rem !important;
+  background: var(--academic-surface-2) !important;
+  border: 1px solid var(--academic-border-soft) !important;
+  border-radius: 0.55rem;
+  transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.archive__item:hover {
+  transform: translateY(-1px);
+  background: var(--academic-surface-3) !important;
+  border-color: var(--academic-border) !important;
+}
+
+.archive__item-title {
+  margin-top: 0 !important;
+  margin-bottom: 0.45rem !important;
+  font-size: 1.22rem !important;
+  line-height: 1.3 !important;
+}
+
+.archive__item-excerpt,
+.archive__item p {
+  color: var(--academic-muted) !important;
+  font-size: 0.96rem !important;
+  line-height: 1.58 !important;
+}
+
+.page__meta,
+.archive__item-meta,
+.page__date {
+  color: var(--academic-muted) !important;
+  font-size: 0.86rem !important;
+  letter-spacing: 0.015em;
+}
+
+/* Cards and notices */
+
+.notice,
+.notice--info,
+.notice--primary,
+.notice--success,
+.notice--warning,
+.data-card,
+.info-card,
+.featured-card {
+  padding: 1.15rem 1.2rem !important;
+  background: var(--academic-surface-2) !important;
+  border: 1px solid var(--academic-border) !important;
+  border-radius: 0.58rem !important;
+  box-shadow: none !important;
+}
+
+.grid__item,
+.feature__item,
+.page__content article {
+  border-radius: var(--academic-radius);
+}
+
+/* Tables and code */
+
+table {
+  width: 100%;
+  margin: 1.3rem 0 !important;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  overflow: hidden;
+  background: #071923 !important;
+  border: 1px solid var(--academic-border) !important;
+  border-radius: 0.5rem;
+}
+
+thead {
+  background: #103247 !important;
+}
+
+th {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+th,
+td {
+  padding: 0.72rem 0.82rem !important;
+  border-bottom: 1px solid var(--academic-border-soft) !important;
+}
+
+tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+pre,
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+}
+
+pre {
+  padding: 1rem 1.1rem !important;
+  background: #041018 !important;
+  border: 1px solid var(--academic-border-soft) !important;
+  border-radius: 0.5rem !important;
+}
+
+:not(pre) > code {
+  padding: 0.12rem 0.35rem;
+  background: #102b3b !important;
+  border-radius: 0.3rem;
+}
+
+/* Buttons */
+
+.btn,
+.page__content .btn {
+  padding: 0.64rem 0.9rem !important;
+  background: #0c4963 !important;
+  color: #ffffff !important;
+  border: 1px solid #2b7896 !important;
+  border-radius: 0.45rem !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+.btn:hover,
+.page__content .btn:hover {
+  background: #12617f !important;
+  border-color: #55a6c3 !important;
+}
+
+/* Homepage sections: solid, ordered, and less decorative */
+
+.page--home .page__content > section,
+.page--home .home-section,
+.page--home .feature-row,
+.page--home .grid__wrapper {
+  margin: 1.25rem 0 !important;
+  padding: clamp(1.25rem, 2.5vw, 2rem) !important;
+  background: var(--academic-surface) !important;
+  border: 1px solid var(--academic-border-soft) !important;
+  border-radius: var(--academic-radius);
+  box-shadow: 0 0.6rem 1.7rem rgba(0, 0, 0, 0.14);
+}
+
+.page--home #marine-hero {
+  margin-bottom: 1.4rem !important;
+  background: #061724 !important;
+  border: 1px solid var(--academic-border-soft) !important;
+  border-radius: var(--academic-radius);
+  box-shadow: var(--academic-shadow);
+}
+
+.page--home .hero-title h1 {
+  font-size: clamp(2.25rem, 4vw, 3.65rem) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.035em !important;
+}
+
+.page--home .hero-bio p {
+  max-width: 68ch;
+  margin-right: auto;
+  margin-left: auto;
+  color: #d5e4ea !important;
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem) !important;
+  line-height: 1.65 !important;
+}
+
+/* Footer */
+
+.page__footer {
+  background: #041018 !important;
+  border-top: 1px solid var(--academic-border) !important;
+}
+
+.page__footer,
+.page__footer p,
+.page__footer li {
+  color: var(--academic-muted) !important;
+  font-size: 0.88rem !important;
+}
+
+/* Accessibility and focus */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #8dd9f3 !important;
+  outline-offset: 3px;
+}
+
+/* Responsive behavior */
+
+@media (min-width: 1024px) {
+  .page,
+  .archive {
+    min-width: 0;
+  }
+
+  .page__content {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  html {
+    font-size: 16px;
+  }
+
+  #main {
+    padding-right: 0.65rem !important;
+    padding-left: 0.65rem !important;
+  }
+
+  .sidebar {
+    border-radius: 0.5rem;
+  }
+
+  .page__inner-wrap,
+  .archive {
+    padding: 1.1rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .page__title,
+  .archive > h1,
+  .page__content > h1:first-child {
+    font-size: 1.85rem !important;
+  }
+
+  .page__content h2,
+  .archive h2 {
+    font-size: 1.42rem !important;
+  }
+
+  .archive__item {
+    padding: 0.95rem !important;
+  }
+}
