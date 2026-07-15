@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: ""
+title: "Research Notes"
 permalink: /blog/
 author_profile: true
 ---
