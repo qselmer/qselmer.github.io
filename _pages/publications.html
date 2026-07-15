@@ -6,59 +6,83 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
+
+This page presents verified scholarly outputs. Peer-reviewed articles, conference contributions, and technical publications are separated by type. Works in preparation are not presented as publications until their status and citation information can be stated unambiguously.
+
+{% if site.author.googlescholar or site.author.orcid %}
+<p class="wordwrap">
+  External profiles:
+  {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
+  {% if site.author.googlescholar and site.author.orcid %} · {% endif %}
+  {% if site.author.orcid %}<a href="{{ site.author.orcid }}">ORCID</a>{% endif %}
+</p>
+{% endif %}
 
 {% assign synced_publications = site.data.publications.publications %}
 {% if synced_publications and synced_publications.size > 0 %}
-  <section class="publications-synced" aria-labelledby="latest-publications-heading">
-    <h2 id="latest-publications-heading">Latest publications</h2>
-    <p><small>Automatically synchronized from my ORCID-linked scholarly record. Metadata with a DOI is enriched through Crossref.</small></p>
-    <ol class="publication-list">
-      {% for publication in synced_publications limit: 10 %}
-        <li>
-          {% if publication.url %}
-            <strong><a href="{{ publication.url }}">{{ publication.title }}</a></strong>
-          {% else %}
-            <strong>{{ publication.title }}</strong>
-          {% endif %}
-          {% if publication.authors and publication.authors.size > 0 %}
-            <br><span>{{ publication.authors | join: ", " }}</span>
-          {% endif %}
-          <br>
-          <em>{{ publication.journal | default: publication.type }}</em>
-          {% if publication.year %} ({{ publication.year }}){% endif %}
-          {% if publication.doi %}
-            · <a href="https://doi.org/{{ publication.doi }}">DOI</a>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ol>
-  </section>
-  <hr>
-{% endif %}
-
-<h2>Curated publication record</h2>
-
-{% if site.publication_category %}
-  {% for category in site.publication_category %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h3>{{ category[1].title }}</h3><hr>
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single-compact.html %}
+<section class="publications-synced" aria-labelledby="external-records-heading">
+  <h2 id="external-records-heading">ORCID-linked records</h2>
+  <p><small>These metadata are synchronized from the ORCID-linked scholarly record and may be enriched using DOI metadata. The curated records below remain the authoritative presentation for this website.</small></p>
+  <ol class="publication-list">
+    {% for publication in synced_publications %}
+      <li>
+        {% if publication.url %}
+          <strong><a href="{{ publication.url }}">{{ publication.title }}</a></strong>
+        {% else %}
+          <strong>{{ publication.title }}</strong>
+        {% endif %}
+        {% if publication.authors and publication.authors.size > 0 %}
+          <br><span>{{ publication.authors | join: ", " }}</span>
+        {% endif %}
+        <br>
+        <em>{{ publication.journal | default: publication.type }}</em>
+        {% if publication.year %} ({{ publication.year }}){% endif %}
+        {% if publication.doi %} · <a href="https://doi.org/{{ publication.doi }}">DOI</a>{% endif %}
+      </li>
     {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single-compact.html %}
-  {% endfor %}
+  </ol>
+</section>
+<hr>
 {% endif %}
+
+{% assign journal_articles = site.publications | where: "category", "indexed" | sort: "date" | reverse %}
+{% assign nonindexed_articles = site.publications | where: "category", "nonindexed" | sort: "date" | reverse %}
+{% assign technical_reports = site.publications | where: "category", "reports" | sort: "date" | reverse %}
+{% assign conference_outputs = site.publications | where: "category", "conference" | sort: "date" | reverse %}
+
+{% if journal_articles.size > 0 %}
+<h2>Peer-reviewed journal articles</h2>
+{% for post in journal_articles %}
+  {% include archive-single-compact.html %}
+{% endfor %}
+{% endif %}
+
+{% if nonindexed_articles.size > 0 %}
+<h2>Other journal articles</h2>
+{% for post in nonindexed_articles %}
+  {% include archive-single-compact.html %}
+{% endfor %}
+{% endif %}
+
+{% if technical_reports.size > 0 %}
+<h2>Technical reports and chapters</h2>
+{% for post in technical_reports %}
+  {% include archive-single-compact.html %}
+{% endfor %}
+{% endif %}
+
+{% if conference_outputs.size > 0 %}
+<h2>Conference contributions</h2>
+{% for post in conference_outputs %}
+  {% include archive-single-compact.html %}
+{% endfor %}
+{% endif %}
+
+{% if site.publications.size == 0 %}
+<p>No verified publication records are currently available.</p>
+{% endif %}
+
+## Record policy
+
+A publication record is added only when authorship, title, year, output type, and citation status can be verified. DOI, PDF, code, data, and presentation links are included only when stable public locations are available.
