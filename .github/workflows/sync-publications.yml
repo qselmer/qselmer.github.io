@@ -1,0 +1,38 @@
+name: Sync publications
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "47 08 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-publications
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Synchronize publication metadata
+        run: python scripts/sync_publications.py
+      - name: Validate metadata
+        run: python -m json.tool _data/publications.json >/dev/null
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No publication changes detected."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/publications.json
+          git commit -m "chore: synchronize publication metadata"
+          git push
