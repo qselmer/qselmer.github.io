@@ -7,21 +7,51 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">You can also find my articles on <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.</div>
 {% endif %}
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+{% assign synced_publications = site.data.publications.publications %}
+{% if synced_publications and synced_publications.size > 0 %}
+  <section class="publications-synced" aria-labelledby="latest-publications-heading">
+    <h2 id="latest-publications-heading">Latest publications</h2>
+    <p><small>Automatically synchronized from my ORCID-linked scholarly record. Metadata with a DOI is enriched through Crossref.</small></p>
+    <ol class="publication-list">
+      {% for publication in synced_publications limit: 10 %}
+        <li>
+          {% if publication.url %}
+            <strong><a href="{{ publication.url }}">{{ publication.title }}</a></strong>
+          {% else %}
+            <strong>{{ publication.title }}</strong>
+          {% endif %}
+          {% if publication.authors and publication.authors.size > 0 %}
+            <br><span>{{ publication.authors | join: ", " }}</span>
+          {% endif %}
+          <br>
+          <em>{{ publication.journal | default: publication.type }}</em>
+          {% if publication.year %} ({{ publication.year }}){% endif %}
+          {% if publication.doi %}
+            · <a href="https://doi.org/{{ publication.doi }}">DOI</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+  <hr>
+{% endif %}
+
+<h2>Curated publication record</h2>
+
 {% if site.publication_category %}
-  {% for category in site.publication_category  %}
+  {% for category in site.publication_category %}
     {% assign title_shown = false %}
     {% for post in site.publications reversed %}
       {% if post.category != category[0] %}
         {% continue %}
       {% endif %}
       {% unless title_shown %}
-        <h3>{{ category[1].title }}</h3><hr />
+        <h3>{{ category[1].title }}</h3><hr>
         {% assign title_shown = true %}
       {% endunless %}
       {% include archive-single-compact.html %}
@@ -32,6 +62,3 @@ author_profile: true
     {% include archive-single-compact.html %}
   {% endfor %}
 {% endif %}
-
-
-
