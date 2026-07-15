@@ -12,7 +12,9 @@ This section presents verified conference contributions, oral presentations, pos
 {% assign talk_items = site.talks | sort: "date" | reverse %}
 {% assign oral_talks = talk_items | where_exp: "item", "item.type contains 'Oral'" %}
 {% assign poster_talks = talk_items | where_exp: "item", "item.type contains 'Poster'" %}
-{% assign other_talks = talk_items | where_exp: "item", "item.type contains 'Seminar' or item.type contains 'Workshop'" %}
+{% assign seminar_talks = talk_items | where_exp: "item", "item.type contains 'Seminar'" %}
+{% assign workshop_talks = talk_items | where_exp: "item", "item.type contains 'Workshop'" %}
+{% assign other_talks = seminar_talks | concat: workshop_talks %}
 
 {% if oral_talks.size > 0 %}
 <h2>Oral presentations</h2>
