@@ -25,6 +25,8 @@ Responses of marine populations to oceanographic and climatic variability, inclu
 
 Hierarchical, additive, mixed, Bayesian, multivariate, and machine-learning methods supported by reproducible workflows in R, Python, Julia, Git, and GitHub.
 
-## From questions to outputs
+## From questions to research programmes
 
-The [Projects](/projects/) section presents the concrete research programmes in which these themes are applied. Formal scientific outputs are listed under [Publications](/publications/), while analytical tools and curated data resources are available under [Software & Data](/resources/).
+These themes are implemented through active projects on the multidimensional state of the north-central Peruvian anchovy stock, anchovy selectivity and demographic change, the Peruvian tuna purse-seine fishery, fleet responses to temporary closures, multivariate assessment indicators, and reproducible marine data systems.
+
+Explore the complete [Projects](/projects/) section, consult formal scientific outputs under [Publications](/publications/), or review analytical tools and curated data under [Software & Data](/resources/).
