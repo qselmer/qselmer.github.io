@@ -7,18 +7,10 @@
   background-color: var(--global-footer-bg-color);
   color: var(--global-text-color-light);
 
-  float: left;
-  margin-left: 0;
-  margin-right: 0;
+  position: relative;
   width: 100%;
   clear: both;
-
-  /* sticky footer fix start */
-  position: absolute;
-  bottom: 0em;
-  height: auto;
-  /* sticky footer fix end */
-
+  flex: 0 0 auto;
   margin-top: 3em;
 
   -webkit-animation: intro 0.3s both;

@@ -837,40 +837,46 @@ body {
 }
 
 /* ==========================================================================
-   Global layout corrections: masthead, footer, particles
+   Canonical global layout
    ========================================================================== */
 
-/* Eliminar espacio superior no deseado */
-html,
-body {
-  margin: 0 !important;
-  padding: 0 !important;
+html {
   min-height: 100%;
 }
 
-/* Convertir el sitio en estructura vertical estable */
 body {
   min-height: 100vh;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
   display: flex;
   flex-direction: column;
 }
 
-/* El masthead debe empezar pegado arriba */
+.site-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+/* The masthead is the only fixed layout component. */
 .masthead {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  position: fixed !important;
   top: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
   width: 100% !important;
+  margin: 0 !important;
   background: rgba(1, 10, 20, 0.96) !important;
 }
 
-/* Reducir padding interno del menú */
 .masthead__inner-wrap {
   padding-top: 0.35rem !important;
   padding-bottom: 0.35rem !important;
 }
 
-/* Evitar fondos blancos en cada item del menú */
+/* Avoid white backgrounds inherited by navigation items. */
 .masthead__menu,
 .masthead__menu-item,
 .greedy-nav,
@@ -883,7 +889,6 @@ body {
   background: transparent !important;
 }
 
-/* Texto del menú */
 .greedy-nav a,
 .greedy-nav .visible-links a,
 .greedy-nav .hidden-links a,
@@ -891,32 +896,30 @@ body {
   color: #eef7fb !important;
 }
 
-/* Contenedor principal ocupa el espacio disponible */
 #main {
-  flex: 1 0 auto;
-  min-height: calc(100vh - 180px);
+  min-height: 0;
 }
 
-/* Footer se queda abajo cuando hay poco contenido */
+/* The footer remains in document flow and follows all page content. */
 .page__footer {
-  flex-shrink: 0;
-  margin-top: auto !important;
-  position: relative;
-  z-index: 2;
+  position: relative !important;
+  inset: auto !important;
+  float: none !important;
+  width: 100%;
+  flex: 0 0 auto;
+  margin-top: 3rem !important;
 }
 
-/* Evitar que el footer se monte sobre sidebar o contenido */
 .page__footer footer {
   position: relative;
   z-index: 2;
 }
 
-/* Sidebar no debe ser tapado visualmente por footer */
 .sidebar {
   z-index: 2;
 }
 
-/* Burbujas más notorias */
+/* More visible marine particles. */
 .marine-particle {
   opacity: 0.38 !important;
   box-shadow: 0 0 8px rgba(180, 240, 255, 0.35);
