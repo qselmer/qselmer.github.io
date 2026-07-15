@@ -1,0 +1,36 @@
+---
+layout: archive
+title: "Software"
+permalink: /software/
+author_profile: true
+---
+
+{% include base_path %}
+
+This section documents scientific software, analytical frameworks, and reproducible workflows developed for marine ecology, fisheries science, stock assessment, environmental analysis, and scientific computing. Development status is stated explicitly; tools without a stable public release should not yet be treated as production software.
+
+## Featured tools
+
+{% assign featured_software = site.software | where: "featured", true | sort: "date" | reverse %}
+
+{% if featured_software and featured_software.size > 0 %}
+  {% for post in featured_software %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% else %}
+  <p>Featured software records are being prepared.</p>
+{% endif %}
+
+{% assign other_software = site.software | where_exp: "item", "item.featured != true" | sort: "date" | reverse %}
+
+{% if other_software and other_software.size > 0 %}
+## Additional tools
+
+  {% for post in other_software %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+## Release and citation policy
+
+Public releases will include, where applicable, a version number, source repository, documentation, examples, tests, license, citation metadata, and archived release identifier. Until those elements are available, each record is labelled according to its actual development stage.
