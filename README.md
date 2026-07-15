@@ -49,4 +49,6 @@ Changes to `_config.yml` require restarting the Jekyll process.
 
 ## Content standards
 
-Project and software records should state their status accurately. Public software releases should include version, source repository, documentation, tests, license, citation metadata, and archived releases where appropriate. Restricted fisheries or institutional data must not be redistributed without authorization.
+Project and software records should state their status accurately. Public software releases should include a version number, source repository, documentation, examples, tests, license, citation metadata, and archived releases where appropriate.
+
+Restricted fisheries or institutional data must not be redistributed without authorization. Where direct publication is not possible, the site may provide metadata, variable dictionaries, processing descriptions, synthetic examples, or non-disclosive derived products.
