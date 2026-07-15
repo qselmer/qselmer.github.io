@@ -7,13 +7,25 @@ author_profile: true
 
 {% include base_path %}
 
-This section presents active and completed research projects that connect scientific questions, data, methods, and outputs. Project pages will document the study system, analytical approach, current status, associated publications, software, presentations, and collaborators.
+This section presents research programmes that connect scientific questions, data, quantitative methods, and outputs. Each project page documents its study system, analytical approach, current status, expected products, and links to related publications, presentations, software, or data resources.
 
 {% assign project_items = site.projects | sort: "date" | reverse %}
 
 {% if project_items and project_items.size > 0 %}
+  <h2>Featured projects</h2>
+
   {% for post in project_items %}
-    {% include archive-single.html %}
+    {% if post.featured == true %}
+      {% include archive-single.html %}
+    {% endif %}
+  {% endfor %}
+
+  <h2>Additional active projects</h2>
+
+  {% for post in project_items %}
+    {% unless post.featured == true %}
+      {% include archive-single.html %}
+    {% endunless %}
   {% endfor %}
 {% else %}
   <p>Project records are being structured and will be added progressively.</p>
