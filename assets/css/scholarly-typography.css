@@ -1,0 +1,202 @@
+/* Scholarly typography and layout refinement.
+   Inspired by restrained university and research-lab websites: strong hierarchy,
+   readable line lengths, opaque surfaces, and low visual noise. */
+
+:root {
+  --scholar-font-sans: "Source Sans 3", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --scholar-font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --scholar-surface: #081b28;
+  --scholar-surface-raised: #0c2433;
+  --scholar-surface-strong: #103044;
+  --scholar-border: #28536a;
+  --scholar-text: #edf4f7;
+  --scholar-muted: #b8c8d0;
+  --scholar-accent: #76c9e6;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: var(--scholar-font-sans) !important;
+}
+
+body {
+  font-size: 1.04rem !important;
+  line-height: 1.7 !important;
+}
+
+.page__title,
+.archive > h1,
+.page__content > h1:first-child,
+.page--home .hero-title h1 {
+  font-family: var(--scholar-font-serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.page__content h2,
+.archive h2,
+.home-collaboration h2 {
+  font-family: var(--scholar-font-serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.012em !important;
+}
+
+.page__content h3,
+.archive h3,
+.archive__item-title,
+.home-card h3,
+.home-output h3 {
+  font-family: var(--scholar-font-sans) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.page__content p,
+.page__content li,
+.archive p,
+.archive li {
+  color: var(--scholar-text) !important;
+}
+
+.page__content p,
+.archive p {
+  max-width: 74ch;
+}
+
+.page__inner-wrap,
+.archive,
+.sidebar,
+.home-card,
+.home-output,
+.home-collaboration,
+.notice,
+.notice--info,
+.notice--primary,
+.notice--success,
+.notice--warning,
+.data-card,
+.info-card,
+.featured-card {
+  background-color: var(--scholar-surface) !important;
+  background-image: none !important;
+  border-color: var(--scholar-border) !important;
+  box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.18) !important;
+}
+
+.home-card,
+.home-output,
+.home-collaboration {
+  border: 1px solid var(--scholar-border) !important;
+  border-radius: 0.65rem !important;
+}
+
+.home-card {
+  padding: 1.35rem !important;
+  transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  background-color: var(--scholar-surface-raised) !important;
+  border-color: #3a718d !important;
+}
+
+.home-output {
+  margin: 0.9rem 0 !important;
+  padding: 1.2rem 1.3rem !important;
+}
+
+.home-output:last-child {
+  border-bottom: 1px solid var(--scholar-border) !important;
+}
+
+.home-collaboration {
+  padding: 1.45rem !important;
+  border-left: 5px solid var(--scholar-accent) !important;
+}
+
+.home-kicker,
+.page__meta,
+.archive__item-meta,
+.page__date {
+  color: var(--scholar-muted) !important;
+  font-family: var(--scholar-font-sans) !important;
+  font-weight: 600 !important;
+}
+
+.home-kicker {
+  letter-spacing: 0.085em !important;
+}
+
+.home-actions a,
+.btn,
+.page__content .btn {
+  font-family: var(--scholar-font-sans) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.005em;
+}
+
+.home-actions a {
+  background: #0d3549 !important;
+  color: #f4f9fb !important;
+  border: 1px solid #36708a !important;
+  border-radius: 0.45rem !important;
+}
+
+.home-actions a:hover {
+  background: #15516b !important;
+  color: #ffffff !important;
+}
+
+.archive__item {
+  background-color: var(--scholar-surface-raised) !important;
+  border-color: var(--scholar-border) !important;
+}
+
+.archive__item:hover {
+  background-color: var(--scholar-surface-strong) !important;
+}
+
+.page__content a,
+.archive a {
+  color: var(--scholar-accent) !important;
+}
+
+.page__content a:hover,
+.archive a:hover {
+  color: #b9edff !important;
+}
+
+blockquote {
+  margin: 1.6rem 0 !important;
+  padding: 1rem 1.25rem !important;
+  background: var(--scholar-surface-raised) !important;
+  border-left: 4px solid var(--scholar-accent) !important;
+  color: var(--scholar-muted) !important;
+}
+
+@media (min-width: 1200px) {
+  #main {
+    max-width: 1580px !important;
+  }
+
+  .page__inner-wrap,
+  .archive {
+    padding: 2.4rem 2.7rem !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 1rem !important;
+  }
+
+  .home-card,
+  .home-output,
+  .home-collaboration {
+    padding: 1rem !important;
+  }
+}
