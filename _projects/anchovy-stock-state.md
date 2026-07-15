@@ -1,5 +1,5 @@
 ---
-title: "Multidimensional state of the Peruvian anchovy stock"
+title: "Multidimensional state of the north-central Peruvian anchovy stock"
 collection: projects
 permalink: /projects/anchovy-stock-state/
 date: 2026-07-15
