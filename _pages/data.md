@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: ""
+title: "Data"
 permalink: /data/
 author_profile: true
 ---
