@@ -63,24 +63,6 @@ $(document).ready(function () {
   // These should be the same as the settings in _variables.scss
   const scssLarge = 925; // pixels
 
-  // Sticky footer
-  var bumpIt = function () {
-    $("body").css("margin-bottom", $(".page__footer").outerHeight(true));
-  },
-    didResize = false;
-
-  bumpIt();
-
-  $(window).resize(function () {
-    didResize = true;
-  });
-  setInterval(function () {
-    if (didResize) {
-      didResize = false;
-      bumpIt();
-    }
-  }, 250);
-
   // FitVids init
   fitvids();
 
