@@ -1,0 +1,20 @@
+---
+layout: archive
+title: "Projects"
+permalink: /projects/
+author_profile: true
+---
+
+{% include base_path %}
+
+This section presents active and completed research projects that connect scientific questions, data, methods, and outputs. Project pages will document the study system, analytical approach, current status, associated publications, software, presentations, and collaborators.
+
+{% assign project_items = site.projects | sort: "date" | reverse %}
+
+{% if project_items and project_items.size > 0 %}
+  {% for post in project_items %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% else %}
+  <p>Project records are being structured and will be added progressively.</p>
+{% endif %}
