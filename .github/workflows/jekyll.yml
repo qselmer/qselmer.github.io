@@ -28,11 +28,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: npm
 
-      - name: Validate and build JavaScript
+      - name: Install and validate JavaScript
+        env:
+          NPM_CONFIG_REGISTRY: https://registry.npmjs.org/
         run: |
-          npm ci
+          npm install --no-package-lock --ignore-scripts
           npm test
 
       - name: Setup Ruby
