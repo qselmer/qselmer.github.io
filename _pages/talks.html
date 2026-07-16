@@ -1,13 +1,19 @@
 ---
 layout: archive
-title: "Talks and presentations"
+title: "Conferences and presentations"
 permalink: /talks/
 author_profile: true
 ---
 
 {% include base_path %}
 
-This section presents verified conference contributions, oral presentations, posters, seminars, and workshops. Each record states the presentation type, event, date, location, authorship, public materials, and citation information when these can be verified.
+Conference participation is a central component of my scientific activity. This section documents verified oral presentations, posters, symposium contributions, seminars, and workshops, together with event details, authorship, public materials, and citation information when available.
+
+<div class="conference-summary">
+  <div><strong>{{ site.talks | size }}</strong><span>verified contributions</span></div>
+  <div><strong>{{ site.talks | where_exp: "item", "item.type contains 'Oral'" | size }}</strong><span>oral presentations</span></div>
+  <div><strong>{{ site.talks | where_exp: "item", "item.type contains 'Poster'" | size }}</strong><span>posters</span></div>
+</div>
 
 {% assign talk_items = site.talks | sort: "date" | reverse %}
 {% assign oral_talks = talk_items | where_exp: "item", "item.type contains 'Oral'" %}
@@ -43,4 +49,4 @@ This section presents verified conference contributions, oral presentations, pos
 
 ## Record policy
 
-Talk records are added only when the title, event, presentation type, date, authorship, and participation status can be stated accurately. Abstract books, slides, posters, videos, and official presentation files are linked only when stable public sources are available.
+Conference and presentation records are added only when the title, event, presentation type, date, authorship, and participation status can be stated accurately. Abstract books, slides, posters, videos, and official presentation files are linked only when stable public sources are available.
