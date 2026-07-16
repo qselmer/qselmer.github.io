@@ -1,0 +1,264 @@
+/* Homepage hierarchy and mobile optimisation. */
+
+.current-work-card {
+  border-top-color: var(--light-blue) !important;
+}
+
+.conference-feature-card {
+  border-top-color: var(--light-gold) !important;
+}
+
+.publication-output {
+  border-left: 5px solid var(--light-gold) !important;
+}
+
+.page--home .node-4 .marine-label::after {
+  content: "Decision support" !important;
+}
+
+@media (max-width: 1023px) {
+  .homepage-main {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .homepage-main .sidebar {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    float: none !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0.75rem 1rem 1rem !important;
+    padding: 0.85rem 0 !important;
+    border-bottom: 1px solid var(--light-border) !important;
+  }
+
+  .homepage-main .author__profile {
+    display: grid !important;
+    grid-template-columns: 92px minmax(0, 1fr) !important;
+    column-gap: 1rem !important;
+    align-items: center !important;
+  }
+
+  .homepage-main .author__avatar {
+    grid-row: 1 / span 2;
+    margin: 0 !important;
+  }
+
+  .homepage-main .author__avatar img {
+    width: 88px !important;
+    max-width: 88px !important;
+  }
+
+  .homepage-main .author__content {
+    padding: 0 !important;
+    border-bottom: 0 !important;
+  }
+
+  .homepage-main .author__name {
+    margin: 0 0 0.25rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  .homepage-main .author__bio {
+    display: -webkit-box !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .homepage-main .author__urls-wrapper {
+    grid-column: 2;
+    margin-top: 0.45rem !important;
+  }
+
+  .homepage-main .author__urls {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem 0.75rem !important;
+  }
+
+  .homepage-main .author__urls li {
+    border: 0 !important;
+  }
+
+  .homepage-main .author__urls li a {
+    padding: 0.2rem 0 !important;
+    font-size: 0.82rem !important;
+  }
+
+  .homepage-main .page--home {
+    float: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .page--home #marine-hero {
+    min-height: auto !important;
+    padding: 1.7rem 1rem 1.25rem !important;
+    border-radius: 0.65rem !important;
+  }
+
+  .page--home .hero-title {
+    margin-bottom: 0.65rem !important;
+  }
+
+  .page--home .hero-title h1 {
+    font-size: clamp(1.65rem, 5vw, 2.25rem) !important;
+  }
+
+  .page--home .marine-scene {
+    max-width: 600px !important;
+    margin: 1rem auto 0.8rem !important;
+  }
+
+  .page--home .marine-system {
+    height: 130px !important;
+  }
+
+  .page--home .marine-current {
+    display: block !important;
+    top: 43% !important;
+    right: 8% !important;
+    left: 8% !important;
+  }
+
+  .page--home .marine-node {
+    top: 25px !important;
+    left: auto !important;
+    width: 58px !important;
+    height: 58px !important;
+    transform: none !important;
+  }
+
+  .page--home .marine-node::before {
+    inset: 11px !important;
+  }
+
+  .page--home .node-1 { left: 4% !important; }
+  .page--home .node-2 { left: 30% !important; }
+  .page--home .node-3 { left: 56% !important; }
+  .page--home .node-4 { left: 82% !important; transform: translateX(-100%) !important; }
+
+  .page--home .marine-label {
+    top: 68px !important;
+    width: 110px !important;
+    font-size: 0.69rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .page--home .hero-bio {
+    margin-bottom: 0.2rem !important;
+  }
+
+  .page--home .hero-bio p {
+    font-size: 0.94rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .page--home .scroll-arrow {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage-main .sidebar {
+    margin-right: 0.75rem !important;
+    margin-left: 0.75rem !important;
+  }
+
+  .homepage-main .author__profile {
+    grid-template-columns: 72px minmax(0, 1fr) !important;
+    column-gap: 0.8rem !important;
+  }
+
+  .homepage-main .author__avatar img {
+    width: 68px !important;
+    max-width: 68px !important;
+  }
+
+  .homepage-main .author__bio {
+    -webkit-line-clamp: 2;
+  }
+
+  .homepage-main .author__urls li:nth-child(n + 5) {
+    display: none !important;
+  }
+
+  .homepage-main .page--home {
+    padding: 0 0.75rem !important;
+  }
+
+  .page--home #marine-hero {
+    padding: 1.35rem 0.75rem 1rem !important;
+  }
+
+  .page--home .hero-title h1 {
+    font-size: 1.55rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .page--home .marine-system {
+    height: 112px !important;
+  }
+
+  .page--home .marine-node {
+    top: 20px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .page--home .marine-node::before {
+    inset: 9px !important;
+  }
+
+  .page--home .marine-label {
+    top: 57px !important;
+    width: 84px !important;
+    font-size: 0.61rem !important;
+  }
+
+  .page--home .hero-bio p {
+    font-size: 0.86rem !important;
+  }
+
+  .home-grid,
+  .current-work-grid,
+  .conference-feature-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.8rem !important;
+    margin-bottom: 1.6rem !important;
+  }
+
+  .home-card {
+    padding: 1rem !important;
+  }
+
+  .home-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+    margin-bottom: 1.8rem !important;
+  }
+
+  .home-actions a {
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.86rem !important;
+  }
+
+  .follow-floating-button {
+    right: 0.55rem !important;
+    bottom: 0.55rem !important;
+    width: 2.7rem !important;
+    height: 2.7rem !important;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+}
