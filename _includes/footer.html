@@ -1,11 +1,17 @@
 {% include base_path %}
 
+<a class="follow-floating-button" href="{{ base_path }}/follow/" aria-label="Follow research updates by email">
+  <i class="fas fa-envelope" aria-hidden="true"></i>
+  <span>Follow by email</span>
+</a>
+
 {% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
 <div class="page__footer-follow">
   <ul class="social-icons">
     {% if site.data.ui-text[site.locale].follow_label %}
       <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
     {% endif %}
+    <li><a href="{{ base_path }}/follow/"><i class="fas fa-envelope" aria-hidden="true"></i> Email updates</a></li>
     {% if site.author.github %}
       <li><a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
     {% endif %}

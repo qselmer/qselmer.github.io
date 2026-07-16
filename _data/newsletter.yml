@@ -1,0 +1,5 @@
+provider: "buttondown"
+username: "YOUR_BUTTONDOWN_USERNAME"
+enabled: false
+heading: "Follow research updates"
+description: "Receive new research notes, publications, projects, software releases, and presentations by email."
