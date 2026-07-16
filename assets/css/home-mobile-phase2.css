@@ -1,0 +1,218 @@
+/* Phase 2: mobile-first homepage and profile improvements. */
+
+.current-work-card {
+  border-top-color: var(--light-blue) !important;
+}
+
+.conference-feature-card {
+  border-top-color: var(--light-gold) !important;
+}
+
+.publication-output {
+  border-left: 5px solid var(--light-gold) !important;
+}
+
+@media (max-width: 1023px) {
+  #main {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .sidebar,
+  .sidebar.sticky {
+    position: static !important;
+    float: none !important;
+    clear: both !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0.75rem 0.75rem 1rem !important;
+    padding: 0.85rem 0.95rem !important;
+    background: #ffffff !important;
+    border: 1px solid var(--light-border) !important;
+    border-radius: 0.6rem !important;
+    box-shadow: var(--light-shadow) !important;
+  }
+
+  .author__profile {
+    display: grid !important;
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+    column-gap: 0.9rem !important;
+    align-items: center !important;
+  }
+
+  .author__avatar {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    margin: 0 !important;
+  }
+
+  .author__avatar img {
+    width: 76px !important;
+    max-width: 76px !important;
+    height: 76px !important;
+    object-fit: cover !important;
+  }
+
+  .author__content {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    padding: 0 !important;
+    border-bottom: 0 !important;
+  }
+
+  .author__name {
+    margin: 0 0 0.25rem !important;
+    font-size: 1.1rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .author__bio {
+    margin: 0 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .author__bio br {
+    display: none !important;
+  }
+
+  .author__bio br::after {
+    content: " · ";
+  }
+
+  .author__urls-wrapper {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .author__urls {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem 0.75rem !important;
+    padding-top: 0.6rem !important;
+    border-top: 1px solid var(--light-border) !important;
+  }
+
+  .author__urls li {
+    border: 0 !important;
+  }
+
+  .author__urls li a {
+    padding: 0.25rem 0 !important;
+    font-size: 0.82rem !important;
+  }
+
+  .page,
+  .archive {
+    float: none !important;
+    width: auto !important;
+    margin: 0 0.75rem !important;
+  }
+
+  .page--home #marine-hero {
+    min-height: auto !important;
+    padding: 1.5rem 0.85rem 1rem !important;
+  }
+
+  .page--home .hero-title {
+    margin-bottom: 0.6rem !important;
+  }
+
+  .page--home .hero-title h1 {
+    font-size: clamp(1.55rem, 5.5vw, 2.2rem) !important;
+    line-height: 1.13 !important;
+  }
+
+  .page--home .hero-bio p {
+    font-size: 0.94rem !important;
+    line-height: 1.45 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .page--home .marine-scene {
+    margin: 0.8rem auto 0.5rem !important;
+  }
+
+  .page--home .marine-system {
+    height: 145px !important;
+  }
+
+  .page--home .marine-current {
+    display: block !important;
+    top: 42px !important;
+    right: 7% !important;
+    left: 7% !important;
+  }
+
+  .page--home .marine-node {
+    top: 14px !important;
+    width: 58px !important;
+    height: 58px !important;
+    transform: none !important;
+  }
+
+  .page--home .marine-node::before {
+    inset: 11px !important;
+  }
+
+  .page--home .node-1 {
+    left: 2% !important;
+  }
+
+  .page--home .node-2 {
+    left: 27% !important;
+  }
+
+  .page--home .node-3 {
+    left: 52% !important;
+  }
+
+  .page--home .node-4 {
+    left: 77% !important;
+  }
+
+  .page--home .marine-label {
+    top: 68px !important;
+    width: 86px !important;
+    font-size: 0.67rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .node-4 .marine-label::after {
+    content: "Decision support" !important;
+  }
+
+  .scroll-arrow {
+    display: none !important;
+  }
+
+  .home-intro {
+    font-size: 1rem !important;
+    line-height: 1.62 !important;
+  }
+
+  .home-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+    margin-bottom: 1.8rem !important;
+  }
+
+  .home-actions a {
+    padding: 0.62rem 0.45rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .home-grid,
+  .current-work-grid,
+  .conference-feature-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.8rem !important;
+    margin-bottom: 1.8rem !important;
+  }
+
+  .follow-floating-button {
+    display: none !important;
+  }
+}
