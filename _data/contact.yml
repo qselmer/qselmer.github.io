@@ -1,0 +1,4 @@
+provider: "formsubmit"
+recipient_email: "YOUR_PERSONAL_EMAIL"
+enabled: false
+success_path: "/contact/thanks/"
