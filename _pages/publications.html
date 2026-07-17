@@ -10,6 +10,20 @@ author_profile: true
 
 This page presents verified scholarly outputs. Peer-reviewed articles, conference contributions, and technical publications are separated by type. Works in preparation are not presented as publications until their status and citation information can be stated unambiguously.
 
+{% assign journal_articles = site.publications | where: "category", "indexed" | sort: "date" | reverse %}
+{% assign nonindexed_articles = site.publications | where: "category", "nonindexed" | sort: "date" | reverse %}
+{% assign technical_reports = site.publications | where: "category", "reports" | sort: "date" | reverse %}
+{% assign conference_outputs = site.publications | where: "category", "conference" | sort: "date" | reverse %}
+{% assign theses = site.publications | where: "category", "thesis" | sort: "date" | reverse %}
+
+<div class="section-stats" aria-label="Publication summary">
+  <div class="section-stat"><span class="section-stat__value">{{ site.publications | size }}</span><span class="section-stat__label">verified outputs</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ journal_articles | size }}</span><span class="section-stat__label">peer-reviewed articles</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ technical_reports | size }}</span><span class="section-stat__label">technical reports and chapters</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ conference_outputs | size }}</span><span class="section-stat__label">conference publications</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ theses | size }}</span><span class="section-stat__label">graduate theses</span></div>
+</div>
+
 {% if site.author.googlescholar or site.author.orcid %}
 <p class="wordwrap">
   External profiles:
@@ -46,11 +60,6 @@ This page presents verified scholarly outputs. Peer-reviewed articles, conferenc
 <hr>
 {% endif %}
 
-{% assign journal_articles = site.publications | where: "category", "indexed" | sort: "date" | reverse %}
-{% assign nonindexed_articles = site.publications | where: "category", "nonindexed" | sort: "date" | reverse %}
-{% assign technical_reports = site.publications | where: "category", "reports" | sort: "date" | reverse %}
-{% assign conference_outputs = site.publications | where: "category", "conference" | sort: "date" | reverse %}
-
 {% if journal_articles.size > 0 %}
 <h2>Peer-reviewed journal articles</h2>
 {% for post in journal_articles %}
@@ -75,6 +84,13 @@ This page presents verified scholarly outputs. Peer-reviewed articles, conferenc
 {% if conference_outputs.size > 0 %}
 <h2>Conference contributions</h2>
 {% for post in conference_outputs %}
+  {% include archive-single-compact.html %}
+{% endfor %}
+{% endif %}
+
+{% if theses.size > 0 %}
+<h2>Graduate theses</h2>
+{% for post in theses %}
   {% include archive-single-compact.html %}
 {% endfor %}
 {% endif %}

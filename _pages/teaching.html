@@ -10,6 +10,21 @@ author_profile: true
 This section documents verified teaching, workshops, training activities, and educational materials related to quantitative marine ecology, fisheries science, statistical modelling, scientific programming, and reproducible research.
 
 {% assign teaching_items = site.teaching | sort: "date" | reverse %}
+{% assign workshop_count = 0 %}
+{% assign course_count = 0 %}
+{% assign seminar_count = 0 %}
+{% for item in teaching_items %}
+  {% if item.type contains "Workshop" or item.type contains "workshop" %}{% assign workshop_count = workshop_count | plus: 1 %}{% endif %}
+  {% if item.type contains "Course" or item.type contains "course" or item.type contains "Class" or item.type contains "class" %}{% assign course_count = course_count | plus: 1 %}{% endif %}
+  {% if item.type contains "Seminar" or item.type contains "seminar" or item.type contains "Training" or item.type contains "training" %}{% assign seminar_count = seminar_count | plus: 1 %}{% endif %}
+{% endfor %}
+
+<div class="section-stats" aria-label="Teaching summary">
+  <div class="section-stat"><span class="section-stat__value">{{ teaching_items | size }}</span><span class="section-stat__label">verified activities</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ course_count }}</span><span class="section-stat__label">courses and classes</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ workshop_count }}</span><span class="section-stat__label">workshops</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ seminar_count }}</span><span class="section-stat__label">seminars and training sessions</span></div>
+</div>
 
 {% if teaching_items and teaching_items.size > 0 %}
   {% for post in teaching_items %}
