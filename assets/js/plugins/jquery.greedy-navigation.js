@@ -13,7 +13,33 @@ var $hlinks = $('#site-nav .hidden-links');
 
 var breaks = [];
 
+function restoreWideNavigation() {
+  while ($hlinks.children().length > 0) {
+    if ($vlinks_persist_tail.length > 0) {
+      $hlinks.children().first().insertBefore($vlinks_persist_tail);
+    } else {
+      $hlinks.children().first().appendTo($vlinks);
+    }
+  }
+
+  breaks = [];
+  $btn.addClass('hidden');
+  $btn.removeClass('close');
+  $hlinks.addClass('hidden');
+  $btn.attr('count', 0);
+}
+
 function updateNav() {
+
+  // On wide desktop screens, keep the complete scientific navigation horizontal.
+  if (window.matchMedia('(min-width: 1180px)').matches) {
+    restoreWideNavigation();
+
+    var wideMastheadHeight = $('.masthead').height();
+    $('body').css('padding-top', wideMastheadHeight + 'px');
+    $('.sidebar').css('padding-top', wideMastheadHeight + 'px');
+    return;
+  }
 
   var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
 
@@ -38,8 +64,7 @@ function updateNav() {
 
     // There is space for another item in the nav
     while (breaks.length > 0 && availableSpace > breaks[breaks.length - 1]) {
-      // Move the item to the visible list
-      if ($vlinks_persist_tail.children().length > 0) {
+      if ($vlinks_persist_tail.length > 0) {
         $hlinks.children().first().insertBefore($vlinks_persist_tail);
       } else {
         $hlinks.children().first().appendTo($vlinks);
@@ -70,7 +95,6 @@ function updateNav() {
 }
 
 // Window listeners
-
 $(window).on('resize', function () {
   updateNav();
 });
