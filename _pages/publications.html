@@ -8,10 +8,11 @@ author_profile: true
 
 {% include base_path %}
 
-This page presents verified scholarly outputs. Peer-reviewed articles, conference contributions, and technical publications are separated by type. Works in preparation are not presented as publications until their status and citation information can be stated unambiguously.
+This page presents verified scholarly outputs organized once by publication type. External profiles such as Google Scholar and ORCID are provided only as supplementary indexes; records are not repeated in a separate ORCID-derived list.
 
 {% assign journal_articles = site.publications | where: "category", "indexed" | sort: "date" | reverse %}
 {% assign nonindexed_articles = site.publications | where: "category", "nonindexed" | sort: "date" | reverse %}
+{% assign books_chapters = site.publications | where: "category", "books" | sort: "date" | reverse %}
 {% assign technical_reports = site.publications | where: "category", "reports" | sort: "date" | reverse %}
 {% assign conference_outputs = site.publications | where: "category", "conference" | sort: "date" | reverse %}
 {% assign theses = site.publications | where: "category", "thesis" | sort: "date" | reverse %}
@@ -19,79 +20,60 @@ This page presents verified scholarly outputs. Peer-reviewed articles, conferenc
 <div class="section-stats" aria-label="Publication summary">
   <div class="section-stat"><span class="section-stat__value">{{ site.publications | size }}</span><span class="section-stat__label">verified outputs</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ journal_articles | size }}</span><span class="section-stat__label">peer-reviewed articles</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ technical_reports | size }}</span><span class="section-stat__label">technical reports and chapters</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ books_chapters | size }}</span><span class="section-stat__label">books and chapters</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ technical_reports | size }}</span><span class="section-stat__label">technical reports</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ conference_outputs | size }}</span><span class="section-stat__label">conference publications</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ theses | size }}</span><span class="section-stat__label">graduate theses</span></div>
 </div>
 
 {% if site.author.googlescholar or site.author.orcid %}
-<p class="wordwrap">
-  External profiles:
+<p class="wordwrap publication-profiles">
+  Supplementary indexes:
   {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
   {% if site.author.googlescholar and site.author.orcid %} · {% endif %}
   {% if site.author.orcid %}<a href="{{ site.author.orcid }}">ORCID</a>{% endif %}
 </p>
 {% endif %}
 
-{% assign synced_publications = site.data.publications.publications %}
-{% if synced_publications and synced_publications.size > 0 %}
-<section class="publications-synced" aria-labelledby="external-records-heading">
-  <h2 id="external-records-heading">ORCID-linked records</h2>
-  <p><small>These metadata are synchronized from the ORCID-linked scholarly record and may be enriched using DOI metadata. The curated records below remain the authoritative presentation for this website.</small></p>
-  <ol class="publication-list">
-    {% for publication in synced_publications %}
-      <li>
-        {% if publication.url %}
-          <strong><a href="{{ publication.url }}">{{ publication.title }}</a></strong>
-        {% else %}
-          <strong>{{ publication.title }}</strong>
-        {% endif %}
-        {% if publication.authors and publication.authors.size > 0 %}
-          <br><span>{{ publication.authors | join: ", " }}</span>
-        {% endif %}
-        <br>
-        <em>{{ publication.journal | default: publication.type }}</em>
-        {% if publication.year %} ({{ publication.year }}){% endif %}
-        {% if publication.doi %} · <a href="https://doi.org/{{ publication.doi }}">DOI</a>{% endif %}
-      </li>
-    {% endfor %}
-  </ol>
-</section>
-<hr>
-{% endif %}
-
 {% if journal_articles.size > 0 %}
 <h2>Peer-reviewed journal articles</h2>
 {% for post in journal_articles %}
-  {% include archive-single-compact.html %}
+  {% include archive-single-publication.html %}
 {% endfor %}
 {% endif %}
 
 {% if nonindexed_articles.size > 0 %}
 <h2>Other journal articles</h2>
 {% for post in nonindexed_articles %}
-  {% include archive-single-compact.html %}
+  {% include archive-single-publication.html %}
+{% endfor %}
+{% endif %}
+
+{% if books_chapters.size > 0 %}
+<h2>Books and book chapters</h2>
+{% for post in books_chapters %}
+  {% include archive-single-publication.html %}
 {% endfor %}
 {% endif %}
 
 {% if technical_reports.size > 0 %}
-<h2>Technical reports and chapters</h2>
+<h2>Technical reports</h2>
 {% for post in technical_reports %}
-  {% include archive-single-compact.html %}
+  {% include archive-single-publication.html %}
 {% endfor %}
 {% endif %}
 
 {% if conference_outputs.size > 0 %}
-<h2>Conference contributions</h2>
+<h2>Conference publications</h2>
 {% for post in conference_outputs %}
-  {% include archive-single-compact.html %}
+  {% include archive-single-publication.html %}
 {% endfor %}
 {% endif %}
 
 {% if theses.size > 0 %}
 <h2>Graduate theses</h2>
 {% for post in theses %}
-  {% include archive-single-compact.html %}
+  {% include archive-single-publication.html %}
 {% endfor %}
 {% endif %}
 

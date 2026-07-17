@@ -1,0 +1,58 @@
+{% include base_path %}
+
+{% if post.id %}
+  {% assign clean_title = post.title | markdownify | strip_html | strip_newlines %}
+{% else %}
+  {% assign clean_title = post.title %}
+{% endif %}
+
+{% assign publication_image = post.image | default: post.header.teaser | default: post.teaser %}
+
+<article class="publication-entry" itemscope itemtype="http://schema.org/CreativeWork">
+  <div class="publication-entry__media" aria-hidden="true">
+    {% if publication_image %}
+      <img src="{{ publication_image | relative_url }}" alt="" loading="lazy">
+    {% else %}
+      <span class="publication-entry__placeholder"><i class="fas fa-file-alt"></i></span>
+    {% endif %}
+  </div>
+
+  <div class="publication-entry__content">
+    <p class="publication-entry__title">
+      {% if post.date %}<span class="publication-entry__year">{{ post.date | date: "%Y" }}</span>{% endif %}
+      <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ clean_title }}</a>
+    </p>
+
+    {% if post.authors %}
+      {% assign author_line = post.authors | join: ", " %}
+      {% assign author_line = author_line | replace: "Elmer Ovidio Quispe Salazar", "<strong>Elmer Ovidio Quispe Salazar</strong>" %}
+      {% assign author_line = author_line | replace: "Elmer Quispe-Salazar", "<strong>Elmer Quispe-Salazar</strong>" %}
+      {% assign author_line = author_line | replace: "Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>" %}
+      <p class="publication-entry__authors">{{ author_line }}</p>
+    {% elsif post.citation %}
+      {% assign citation_line = post.citation %}
+      {% assign citation_line = citation_line | replace: "Elmer Ovidio Quispe Salazar", "<strong>Elmer Ovidio Quispe Salazar</strong>" %}
+      {% assign citation_line = citation_line | replace: "Elmer Quispe-Salazar", "<strong>Elmer Quispe-Salazar</strong>" %}
+      {% assign citation_line = citation_line | replace: "Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>" %}
+      <p class="publication-entry__authors">{{ citation_line }}</p>
+    {% endif %}
+
+    {% if post.venue or post.excerpt %}
+    <p class="publication-entry__meta">
+      {% if post.venue %}<em>{{ post.venue }}</em>{% endif %}
+      {% if post.venue and post.excerpt %}. {% endif %}
+      {% if post.excerpt %}{{ post.excerpt | strip_html }}{% endif %}
+    </p>
+    {% endif %}
+
+    {% if post.paperurl or post.slidesurl or post.codeurl or post.dataurl or post.bibtexurl %}
+    <p class="publication-entry__links">
+      {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}
+      {% if post.slidesurl %}{% if post.paperurl %} · {% endif %}<a href="{{ post.slidesurl | relative_url }}">Slides</a>{% endif %}
+      {% if post.codeurl %}{% if post.paperurl or post.slidesurl %} · {% endif %}<a href="{{ post.codeurl }}">Code</a>{% endif %}
+      {% if post.dataurl %}{% if post.paperurl or post.slidesurl or post.codeurl %} · {% endif %}<a href="{{ post.dataurl }}">Data</a>{% endif %}
+      {% if post.bibtexurl %}{% if post.paperurl or post.slidesurl or post.codeurl or post.dataurl %} · {% endif %}<a href="{{ post.bibtexurl }}">BibTeX</a>{% endif %}
+    </p>
+    {% endif %}
+  </div>
+</article>
