@@ -1,0 +1,105 @@
+# Canonical publication taxonomy for the website.
+# Use one category value per record in _publications.
+# ORCID remains a metadata source; it is not a separate display category.
+
+categories:
+  - id: journal-article
+    title: Peer-reviewed journal articles
+    orcid_type: journal-article
+    description: Original research articles published in peer-reviewed journals.
+
+  - id: review
+    title: Reviews
+    orcid_type: review
+    description: Critical or synthetic reviews of published research.
+
+  - id: perspective
+    title: Perspectives
+    orcid_type: other
+    description: Scholarly perspective, commentary, or conceptual synthesis articles.
+
+  - id: opinion
+    title: Opinion articles
+    orcid_type: other
+    description: Evidence-based scholarly opinion or policy-facing commentary.
+
+  - id: book
+    title: Books
+    orcid_type: book
+    description: Complete scholarly monographs or edited volumes.
+
+  - id: book-chapter
+    title: Book chapters
+    orcid_type: book-chapter
+    description: Authored chapters or sections within scholarly books.
+
+  - id: technical-report
+    title: Technical reports
+    orcid_type: report
+    description: Separately issued technical research reports, usually with an institutional or report identifier.
+
+  - id: institutional-report
+    title: Institutional reports
+    orcid_type: report
+    description: Formal institutional reports, assessments, or advisory documents.
+
+  - id: grey-literature
+    title: Grey literature
+    orcid_type: report
+    description: Public research outputs not controlled by commercial or academic journal publishing, excluding outputs classified more specifically elsewhere.
+
+  - id: working-paper
+    title: Working papers
+    orcid_type: working-paper
+    description: Public or circulated research papers preceding formal publication.
+
+  - id: preprint
+    title: Preprints
+    orcid_type: preprint
+    description: Public manuscripts not yet peer reviewed or formally published.
+
+  - id: conference-paper
+    title: Published conference papers and proceedings
+    orcid_type: conference-paper
+    description: Formal papers published in proceedings. Talks and posters belong in the Conferences collection.
+
+  - id: bachelor-thesis
+    title: Bachelor's theses
+    orcid_type: dissertation-thesis
+    description: Thesis submitted for a bachelor's or professional degree.
+
+  - id: master-thesis
+    title: Master's theses
+    orcid_type: dissertation-thesis
+    description: Thesis submitted for a master's degree.
+
+  - id: doctoral-thesis
+    title: Doctoral theses
+    orcid_type: dissertation-thesis
+    description: Dissertation submitted for a doctoral degree.
+
+legacy_aliases:
+  indexed: journal-article
+  nonindexed: journal-article
+  books: book-chapter
+  reports: technical-report
+  conference: conference-paper
+  thesis: master-thesis
+
+required_metadata:
+  - title
+  - category
+  - date
+  - citation
+  - authors_or_verified_citation
+
+recommended_metadata:
+  - doi
+  - paperurl
+  - venue
+  - image
+  - language
+  - repository_identifier
+  - orcid_work_identifier
+  - source
+  - verification_date
