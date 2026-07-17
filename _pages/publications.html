@@ -8,79 +8,135 @@ author_profile: true
 
 {% include base_path %}
 
-This page presents verified scholarly outputs organized once by publication type. External profiles such as Google Scholar and ORCID are provided only as supplementary indexes; records are not repeated in a separate ORCID-derived list.
+This page presents verified research outputs once, under a stable publication taxonomy. ORCID remains an underlying metadata and identifier source, together with DOI records, institutional repositories, journal pages, and author-verified files; it is not displayed as a second, duplicated publication list.
 
-{% assign journal_articles = site.publications | where: "category", "indexed" | sort: "date" | reverse %}
-{% assign nonindexed_articles = site.publications | where: "category", "nonindexed" | sort: "date" | reverse %}
-{% assign books_chapters = site.publications | where: "category", "books" | sort: "date" | reverse %}
-{% assign technical_reports = site.publications | where: "category", "reports" | sort: "date" | reverse %}
-{% assign conference_outputs = site.publications | where: "category", "conference" | sort: "date" | reverse %}
-{% assign theses = site.publications | where: "category", "thesis" | sort: "date" | reverse %}
+{% assign peer_reviewed_legacy = site.publications | where: "category", "indexed" %}
+{% assign peer_reviewed_new = site.publications | where: "category", "journal-article" %}
+{% assign peer_reviewed = peer_reviewed_legacy | concat: peer_reviewed_new | sort: "date" | reverse %}
+
+{% assign other_journal = site.publications | where: "category", "nonindexed" | sort: "date" | reverse %}
+{% assign reviews = site.publications | where: "category", "review" %}
+{% assign perspectives = site.publications | where: "category", "perspective" %}
+{% assign opinions = site.publications | where: "category", "opinion" %}
+{% assign review_opinion = reviews | concat: perspectives | concat: opinions | sort: "date" | reverse %}
+
+{% assign books = site.publications | where: "category", "book" | sort: "date" | reverse %}
+{% assign book_chapters = site.publications | where: "category", "book-chapter" | sort: "date" | reverse %}
+{% assign books_legacy = site.publications | where: "category", "books" | sort: "date" | reverse %}
+
+{% assign technical_reports_legacy = site.publications | where: "category", "reports" %}
+{% assign technical_reports_new = site.publications | where: "category", "technical-report" %}
+{% assign institutional_reports = site.publications | where: "category", "institutional-report" %}
+{% assign technical_reports = technical_reports_legacy | concat: technical_reports_new | concat: institutional_reports | sort: "date" | reverse %}
+
+{% assign grey_literature = site.publications | where: "category", "grey-literature" %}
+{% assign working_papers = site.publications | where: "category", "working-paper" %}
+{% assign grey_outputs = grey_literature | concat: working_papers | sort: "date" | reverse %}
+
+{% assign preprints = site.publications | where: "category", "preprint" | sort: "date" | reverse %}
+
+{% assign conference_legacy = site.publications | where: "category", "conference" %}
+{% assign conference_papers_new = site.publications | where: "category", "conference-paper" %}
+{% assign conference_papers = conference_legacy | concat: conference_papers_new | sort: "date" | reverse %}
+
+{% assign bachelor_theses = site.publications | where: "category", "bachelor-thesis" | sort: "date" | reverse %}
+{% assign master_theses_new = site.publications | where: "category", "master-thesis" %}
+{% assign master_theses_legacy = site.publications | where: "category", "thesis" %}
+{% assign master_theses = master_theses_new | concat: master_theses_legacy | sort: "date" | reverse %}
+{% assign doctoral_theses = site.publications | where: "category", "doctoral-thesis" | sort: "date" | reverse %}
+
+{% assign article_total = peer_reviewed.size | plus: other_journal.size | plus: review_opinion.size %}
+{% assign book_total = books.size | plus: book_chapters.size | plus: books_legacy.size %}
+{% assign report_total = technical_reports.size | plus: grey_outputs.size %}
+{% assign thesis_total = bachelor_theses.size | plus: master_theses.size | plus: doctoral_theses.size %}
 
 <div class="section-stats" aria-label="Publication summary">
-  <div class="section-stat"><span class="section-stat__value">{{ site.publications | size }}</span><span class="section-stat__label">verified outputs</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ journal_articles | size }}</span><span class="section-stat__label">peer-reviewed articles</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ books_chapters | size }}</span><span class="section-stat__label">books and chapters</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ technical_reports | size }}</span><span class="section-stat__label">technical reports</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ conference_outputs | size }}</span><span class="section-stat__label">conference publications</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ theses | size }}</span><span class="section-stat__label">graduate theses</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ site.publications | size }}</span><span class="section-stat__label">verified research outputs</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ article_total }}</span><span class="section-stat__label">journal articles and reviews</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ book_total }}</span><span class="section-stat__label">books and chapters</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ report_total }}</span><span class="section-stat__label">reports and grey literature</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ thesis_total }}</span><span class="section-stat__label">academic theses</span></div>
 </div>
 
-{% if site.author.googlescholar or site.author.orcid %}
 <p class="wordwrap publication-profiles">
-  Supplementary indexes:
-  {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
-  {% if site.author.googlescholar and site.author.orcid %} · {% endif %}
+  Metadata and verification sources:
   {% if site.author.orcid %}<a href="{{ site.author.orcid }}">ORCID</a>{% endif %}
+  {% if site.author.googlescholar %} · <a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
+  · DOI/Crossref records · journal and repository records.
 </p>
-{% endif %}
 
-{% if journal_articles.size > 0 %}
+{% if peer_reviewed.size > 0 %}
 <h2>Peer-reviewed journal articles</h2>
-{% for post in journal_articles %}
-  {% include archive-single-publication.html %}
-{% endfor %}
+{% for post in peer_reviewed %}{% include archive-single-publication.html %}{% endfor %}
 {% endif %}
 
-{% if nonindexed_articles.size > 0 %}
+{% if review_opinion.size > 0 %}
+<h2>Reviews, perspectives and opinion articles</h2>
+{% for post in review_opinion %}{% include archive-single-publication.html %}{% endfor %}
+{% endif %}
+
+{% if other_journal.size > 0 %}
 <h2>Other journal articles</h2>
-{% for post in nonindexed_articles %}
-  {% include archive-single-publication.html %}
-{% endfor %}
+{% for post in other_journal %}{% include archive-single-publication.html %}{% endfor %}
 {% endif %}
 
-{% if books_chapters.size > 0 %}
+{% if books.size > 0 %}
+<h2>Books</h2>
+{% for post in books %}{% include archive-single-publication.html %}{% endfor %}
+{% endif %}
+
+{% if book_chapters.size > 0 %}
+<h2>Book chapters</h2>
+{% for post in book_chapters %}{% include archive-single-publication.html %}{% endfor %}
+{% endif %}
+
+{% if books_legacy.size > 0 %}
 <h2>Books and book chapters</h2>
-{% for post in books_chapters %}
-  {% include archive-single-publication.html %}
-{% endfor %}
+{% for post in books_legacy %}{% include archive-single-publication.html %}{% endfor %}
 {% endif %}
 
 {% if technical_reports.size > 0 %}
-<h2>Technical reports</h2>
-{% for post in technical_reports %}
-  {% include archive-single-publication.html %}
-{% endfor %}
+<h2>Technical and institutional reports</h2>
+{% for post in technical_reports %}{% include archive-single-publication.html %}{% endfor %}
 {% endif %}
 
-{% if conference_outputs.size > 0 %}
-<h2>Conference publications</h2>
-{% for post in conference_outputs %}
-  {% include archive-single-publication.html %}
-{% endfor %}
+{% if grey_outputs.size > 0 %}
+<h2>Grey literature and working papers</h2>
+{% for post in grey_outputs %}{% include archive-single-publication.html %}{% endfor %}
 {% endif %}
 
-{% if theses.size > 0 %}
-<h2>Graduate theses</h2>
-{% for post in theses %}
-  {% include archive-single-publication.html %}
-{% endfor %}
+{% if preprints.size > 0 %}
+<h2>Preprints</h2>
+{% for post in preprints %}{% include archive-single-publication.html %}{% endfor %}
+{% endif %}
+
+{% if conference_papers.size > 0 %}
+<h2>Published conference papers and proceedings</h2>
+<p class="publication-category-note">Only formally published conference papers or proceedings are included here. Oral presentations, symposium talks, abstracts presented without a formal publication, and posters remain in <a href="/talks/">Conferences and presentations</a>.</p>
+{% for post in conference_papers %}{% include archive-single-publication.html %}{% endfor %}
+{% endif %}
+
+{% if bachelor_theses.size > 0 %}
+<h2>Bachelor's theses</h2>
+{% for post in bachelor_theses %}{% include archive-single-publication.html %}{% endfor %}
+{% endif %}
+
+{% if master_theses.size > 0 %}
+<h2>Master's theses</h2>
+{% for post in master_theses %}{% include archive-single-publication.html %}{% endfor %}
+{% endif %}
+
+{% if doctoral_theses.size > 0 %}
+<h2>Doctoral theses</h2>
+{% for post in doctoral_theses %}{% include archive-single-publication.html %}{% endfor %}
 {% endif %}
 
 {% if site.publications.size == 0 %}
 <p>No verified publication records are currently available.</p>
 {% endif %}
 
-## Record policy
+## Record and metadata policy
 
-A publication record is added only when authorship, title, year, output type, and citation status can be verified. DOI, PDF, code, data, and presentation links are included only when stable public locations are available.
+Each public record must have a verified title, authorship, year, output type, publication status, and stable source. When available, records also include DOI or repository identifiers, work URL, publication venue, citation, contributors, language, and related files. ORCID is retained as a source for discovery, reconciliation, persistent identifiers, and future synchronization; the curated website record remains the single public display record.
+
+The canonical category field for future records is documented in `_data/publication_taxonomy.yml`. Talks and posters are not publication categories and belong in the Conferences collection.
