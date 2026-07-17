@@ -1,0 +1,182 @@
+/* Layout corrections requested after visual review. */
+
+/* --------------------------------------------------------------------------
+   1. Restore a horizontal desktop navigation
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1180px) {
+  .masthead__inner-wrap {
+    padding: 0.45rem 1rem !important;
+  }
+
+  .greedy-nav {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0.35rem !important;
+    background: #ffffff !important;
+  }
+
+  .greedy-nav > button,
+  .greedy-nav__toggle {
+    display: none !important;
+  }
+
+  .greedy-nav .visible-links {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.25rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .greedy-nav .visible-links > li {
+    flex: 0 0 auto !important;
+    display: block !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .greedy-nav .visible-links > li:first-child {
+    margin-right: auto !important;
+  }
+
+  .greedy-nav .visible-links > li > a {
+    padding: 0.62rem 0.62rem !important;
+    background: transparent !important;
+    color: var(--light-navy) !important;
+    border: 0 !important;
+    border-bottom: 3px solid transparent !important;
+    border-radius: 0 !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+  }
+
+  .greedy-nav .visible-links > li:first-child > a {
+    padding-right: 0.9rem !important;
+    padding-left: 0.9rem !important;
+    background: var(--light-navy) !important;
+    color: #ffffff !important;
+    border-radius: 0.35rem !important;
+  }
+
+  .greedy-nav .visible-links > li > a:hover,
+  .greedy-nav .visible-links > li > a:focus {
+    background: var(--light-cyan) !important;
+    color: var(--light-blue-dark) !important;
+    border-bottom-color: var(--light-blue) !important;
+  }
+
+  .greedy-nav .visible-links > li:first-child > a:hover,
+  .greedy-nav .visible-links > li:first-child > a:focus {
+    background: var(--light-blue-dark) !important;
+    color: #ffffff !important;
+    border-bottom-color: transparent !important;
+  }
+
+  .greedy-nav .masthead__menu-item.selected > a {
+    background: transparent !important;
+    color: var(--light-blue-dark) !important;
+    border-bottom-color: var(--light-blue) !important;
+  }
+
+  .greedy-nav .visible-links > li:first-child.selected > a {
+    background: var(--light-navy) !important;
+    color: #ffffff !important;
+    border-bottom-color: transparent !important;
+  }
+
+  .greedy-nav .hidden-links {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Integrate the homepage hero with the white site background
+   -------------------------------------------------------------------------- */
+
+.page--home #marine-hero {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: var(--light-text) !important;
+  border: 1px solid var(--light-border) !important;
+  border-radius: 0.55rem !important;
+  box-shadow: 0 0.35rem 1.1rem rgba(18, 52, 74, 0.08) !important;
+}
+
+.page--home .hero-title h1 {
+  color: var(--light-navy) !important;
+  text-shadow: none !important;
+}
+
+.page--home .hero-bio,
+.page--home .hero-bio p {
+  color: var(--light-text) !important;
+}
+
+.page--home .marine-current {
+  background: linear-gradient(90deg, transparent, #6fb7cf, #176b8a, #6fb7cf, transparent) !important;
+  box-shadow: none !important;
+}
+
+.page--home .marine-node {
+  background: #ffffff !important;
+  border: 2px solid var(--light-blue) !important;
+  box-shadow: 0 0.25rem 0.7rem rgba(18, 52, 74, 0.12) !important;
+}
+
+.page--home .marine-node::before {
+  border-color: #78b8cf !important;
+}
+
+.page--home .marine-label {
+  color: var(--light-navy) !important;
+  text-shadow: none !important;
+}
+
+.page--home .scroll-arrow {
+  border-color: var(--light-blue) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Larger square profile photograph with a light frame
+   -------------------------------------------------------------------------- */
+
+.sidebar .author__avatar img {
+  width: 190px !important;
+  max-width: 190px !important;
+  height: 190px !important;
+  object-fit: cover !important;
+  border: 1px solid var(--light-border) !important;
+  border-radius: 0.35rem !important;
+  box-shadow: 0 0.3rem 0.9rem rgba(18, 52, 74, 0.12) !important;
+}
+
+.sidebar .author__avatar {
+  width: 190px !important;
+  max-width: 190px !important;
+}
+
+@media (max-width: 1179px) {
+  .sidebar .author__avatar,
+  .sidebar .author__avatar img {
+    width: 92px !important;
+    max-width: 92px !important;
+    height: 92px !important;
+    border-radius: 0.3rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar .author__avatar,
+  .sidebar .author__avatar img {
+    width: 76px !important;
+    max-width: 76px !important;
+    height: 76px !important;
+  }
+}
