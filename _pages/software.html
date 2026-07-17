@@ -11,14 +11,18 @@ This section documents scientific software, analytical frameworks, and reproduci
 
 {% assign featured_software = site.software | where: "featured", true | sort: "date" | reverse %}
 {% assign other_software = site.software | where_exp: "item", "item.featured != true" | sort: "date" | reverse %}
-{% assign public_software = site.software | where_exp: "item", "item.status contains 'public' or item.status contains 'Public' or item.status contains 'released' or item.status contains 'Released'" %}
-{% assign development_software = site.software | where_exp: "item", "item.status contains 'development' or item.status contains 'Development'" %}
+{% assign public_count = 0 %}
+{% assign development_count = 0 %}
+{% for item in site.software %}
+  {% if item.status contains "public" or item.status contains "Public" or item.status contains "released" or item.status contains "Released" %}{% assign public_count = public_count | plus: 1 %}{% endif %}
+  {% if item.status contains "development" or item.status contains "Development" %}{% assign development_count = development_count | plus: 1 %}{% endif %}
+{% endfor %}
 
 <div class="section-stats" aria-label="Software summary">
   <div class="section-stat"><span class="section-stat__value">{{ site.software | size }}</span><span class="section-stat__label">software records</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ featured_software | size }}</span><span class="section-stat__label">featured tools</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ development_software | size }}</span><span class="section-stat__label">tools in development</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ public_software | size }}</span><span class="section-stat__label">public releases</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ development_count }}</span><span class="section-stat__label">tools in development</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ public_count }}</span><span class="section-stat__label">public releases</span></div>
 </div>
 
 ## Featured tools
