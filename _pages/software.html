@@ -9,9 +9,19 @@ author_profile: true
 
 This section documents scientific software, analytical frameworks, and reproducible workflows developed for marine ecology, fisheries science, stock assessment, environmental analysis, and scientific computing. Development status is stated explicitly; tools without a stable public release should not yet be treated as production software.
 
-## Featured tools
-
 {% assign featured_software = site.software | where: "featured", true | sort: "date" | reverse %}
+{% assign other_software = site.software | where_exp: "item", "item.featured != true" | sort: "date" | reverse %}
+{% assign public_software = site.software | where_exp: "item", "item.status contains 'public' or item.status contains 'Public' or item.status contains 'released' or item.status contains 'Released'" %}
+{% assign development_software = site.software | where_exp: "item", "item.status contains 'development' or item.status contains 'Development'" %}
+
+<div class="section-stats" aria-label="Software summary">
+  <div class="section-stat"><span class="section-stat__value">{{ site.software | size }}</span><span class="section-stat__label">software records</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ featured_software | size }}</span><span class="section-stat__label">featured tools</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ development_software | size }}</span><span class="section-stat__label">tools in development</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ public_software | size }}</span><span class="section-stat__label">public releases</span></div>
+</div>
+
+## Featured tools
 
 {% if featured_software and featured_software.size > 0 %}
   {% for post in featured_software %}
@@ -20,8 +30,6 @@ This section documents scientific software, analytical frameworks, and reproduci
 {% else %}
   <p>Featured software records are being prepared.</p>
 {% endif %}
-
-{% assign other_software = site.software | where_exp: "item", "item.featured != true" | sort: "date" | reverse %}
 
 {% if other_software and other_software.size > 0 %}
 ## Additional tools
