@@ -8,7 +8,7 @@ author_profile: true
 
 {% include base_path %}
 
-This page presents verified research outputs once, under a stable publication taxonomy. ORCID remains an underlying metadata and identifier source, together with DOI records, institutional repositories, journal pages, and author-verified files; it is not displayed as a second, duplicated publication list.
+<p>This page presents verified research outputs once, under a stable publication taxonomy. ORCID remains an underlying metadata and identifier source, together with DOI records, institutional repositories, journal pages, and author-verified files; it is not displayed as a second, duplicated publication list.</p>
 
 {% assign peer_reviewed_legacy = site.publications | where: "category", "indexed" %}
 {% assign peer_reviewed_new = site.publications | where: "category", "journal-article" %}
@@ -35,9 +35,8 @@ This page presents verified research outputs once, under a stable publication ta
 
 {% assign preprints = site.publications | where: "category", "preprint" | sort: "date" | reverse %}
 
-{% assign conference_legacy = site.publications | where: "category", "conference" %}
-{% assign conference_papers_new = site.publications | where: "category", "conference-paper" %}
-{% assign conference_papers = conference_legacy | concat: conference_papers_new | sort: "date" | reverse %}
+{% comment %}Only formally published conference papers belong here. Legacy `conference` records are presentations and remain in Conferences.{% endcomment %}
+{% assign conference_papers = site.publications | where: "category", "conference-paper" | sort: "date" | reverse %}
 
 {% assign bachelor_theses = site.publications | where: "category", "bachelor-thesis" | sort: "date" | reverse %}
 {% assign master_theses_new = site.publications | where: "category", "master-thesis" %}
@@ -49,9 +48,10 @@ This page presents verified research outputs once, under a stable publication ta
 {% assign book_total = books.size | plus: book_chapters.size | plus: books_legacy.size %}
 {% assign report_total = technical_reports.size | plus: grey_outputs.size %}
 {% assign thesis_total = bachelor_theses.size | plus: master_theses.size | plus: doctoral_theses.size %}
+{% assign publication_total = article_total | plus: book_total | plus: report_total | plus: preprints.size | plus: conference_papers.size | plus: thesis_total %}
 
 <div class="section-stats" aria-label="Publication summary">
-  <div class="section-stat"><span class="section-stat__value">{{ site.publications | size }}</span><span class="section-stat__label">verified research outputs</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ publication_total }}</span><span class="section-stat__label">verified publications</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ article_total }}</span><span class="section-stat__label">journal articles and reviews</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ book_total }}</span><span class="section-stat__label">books and chapters</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ report_total }}</span><span class="section-stat__label">reports and grey literature</span></div>
@@ -65,78 +65,85 @@ This page presents verified research outputs once, under a stable publication ta
   · DOI/Crossref records · journal and repository records.
 </p>
 
-{% if peer_reviewed.size > 0 %}
-<h2>Peer-reviewed journal articles</h2>
-{% for post in peer_reviewed %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<nav class="publication-category-index" aria-label="Publication categories">
+  <a href="#peer-reviewed">Peer-reviewed <span>{{ peer_reviewed.size }}</span></a>
+  <a href="#reviews-opinion">Reviews &amp; perspectives <span>{{ review_opinion.size }}</span></a>
+  <a href="#other-journal">Other journal articles <span>{{ other_journal.size }}</span></a>
+  <a href="#books">Books <span>{{ books.size }}</span></a>
+  <a href="#book-chapters">Book chapters <span>{{ book_chapters.size | plus: books_legacy.size }}</span></a>
+  <a href="#reports">Technical reports <span>{{ technical_reports.size }}</span></a>
+  <a href="#grey-literature">Grey literature <span>{{ grey_outputs.size }}</span></a>
+  <a href="#preprints">Preprints <span>{{ preprints.size }}</span></a>
+  <a href="#conference-papers">Published proceedings <span>{{ conference_papers.size }}</span></a>
+  <a href="#bachelor-theses">Bachelor's theses <span>{{ bachelor_theses.size }}</span></a>
+  <a href="#master-theses">Master's theses <span>{{ master_theses.size }}</span></a>
+  <a href="#doctoral-theses">Doctoral theses <span>{{ doctoral_theses.size }}</span></a>
+</nav>
 
-{% if review_opinion.size > 0 %}
-<h2>Reviews, perspectives and opinion articles</h2>
-{% for post in review_opinion %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="peer-reviewed">
+  <h2>Peer-reviewed journal articles <span class="publication-category__count">{{ peer_reviewed.size }}</span></h2>
+  {% if peer_reviewed.size > 0 %}{% for post in peer_reviewed %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if other_journal.size > 0 %}
-<h2>Other journal articles</h2>
-{% for post in other_journal %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="reviews-opinion">
+  <h2>Reviews, perspectives and opinion articles <span class="publication-category__count">{{ review_opinion.size }}</span></h2>
+  {% if review_opinion.size > 0 %}{% for post in review_opinion %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if books.size > 0 %}
-<h2>Books</h2>
-{% for post in books %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="other-journal">
+  <h2>Other journal articles <span class="publication-category__count">{{ other_journal.size }}</span></h2>
+  {% if other_journal.size > 0 %}{% for post in other_journal %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if book_chapters.size > 0 %}
-<h2>Book chapters</h2>
-{% for post in book_chapters %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="books">
+  <h2>Books <span class="publication-category__count">{{ books.size }}</span></h2>
+  {% if books.size > 0 %}{% for post in books %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if books_legacy.size > 0 %}
-<h2>Books and book chapters</h2>
-{% for post in books_legacy %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="book-chapters">
+  {% assign chapter_total = book_chapters.size | plus: books_legacy.size %}
+  <h2>Book chapters <span class="publication-category__count">{{ chapter_total }}</span></h2>
+  {% if chapter_total > 0 %}{% for post in book_chapters %}{% include archive-single-publication.html %}{% endfor %}{% for post in books_legacy %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if technical_reports.size > 0 %}
-<h2>Technical and institutional reports</h2>
-{% for post in technical_reports %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="reports">
+  <h2>Technical and institutional reports <span class="publication-category__count">{{ technical_reports.size }}</span></h2>
+  {% if technical_reports.size > 0 %}{% for post in technical_reports %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if grey_outputs.size > 0 %}
-<h2>Grey literature and working papers</h2>
-{% for post in grey_outputs %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="grey-literature">
+  <h2>Grey literature and working papers <span class="publication-category__count">{{ grey_outputs.size }}</span></h2>
+  {% if grey_outputs.size > 0 %}{% for post in grey_outputs %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if preprints.size > 0 %}
-<h2>Preprints</h2>
-{% for post in preprints %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="preprints">
+  <h2>Preprints <span class="publication-category__count">{{ preprints.size }}</span></h2>
+  {% if preprints.size > 0 %}{% for post in preprints %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if conference_papers.size > 0 %}
-<h2>Published conference papers and proceedings</h2>
-<p class="publication-category-note">Only formally published conference papers or proceedings are included here. Oral presentations, symposium talks, abstracts presented without a formal publication, and posters remain in <a href="/talks/">Conferences and presentations</a>.</p>
-{% for post in conference_papers %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="conference-papers">
+  <h2>Published conference papers and proceedings <span class="publication-category__count">{{ conference_papers.size }}</span></h2>
+  <p class="publication-category-note">Only formally published full papers or proceedings are included here. Oral presentations, symposium talks, meeting abstracts and posters belong in <a href="/talks/">Conferences and presentations</a>.</p>
+  {% if conference_papers.size > 0 %}{% for post in conference_papers %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No formally published conference papers are currently registered.</p>{% endif %}
+</section>
 
-{% if bachelor_theses.size > 0 %}
-<h2>Bachelor's theses</h2>
-{% for post in bachelor_theses %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="bachelor-theses">
+  <h2>Bachelor's theses <span class="publication-category__count">{{ bachelor_theses.size }}</span></h2>
+  {% if bachelor_theses.size > 0 %}{% for post in bachelor_theses %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if master_theses.size > 0 %}
-<h2>Master's theses</h2>
-{% for post in master_theses %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="master-theses">
+  <h2>Master's theses <span class="publication-category__count">{{ master_theses.size }}</span></h2>
+  {% if master_theses.size > 0 %}{% for post in master_theses %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if doctoral_theses.size > 0 %}
-<h2>Doctoral theses</h2>
-{% for post in doctoral_theses %}{% include archive-single-publication.html %}{% endfor %}
-{% endif %}
+<section class="publication-category" id="doctoral-theses">
+  <h2>Doctoral theses <span class="publication-category__count">{{ doctoral_theses.size }}</span></h2>
+  {% if doctoral_theses.size > 0 %}{% for post in doctoral_theses %}{% include archive-single-publication.html %}{% endfor %}{% else %}<p class="publication-category__empty">No verified records in this category yet.</p>{% endif %}
+</section>
 
-{% if site.publications.size == 0 %}
-<p>No verified publication records are currently available.</p>
-{% endif %}
-
-## Record and metadata policy
-
-Each public record must have a verified title, authorship, year, output type, publication status, and stable source. When available, records also include DOI or repository identifiers, work URL, publication venue, citation, contributors, language, and related files. ORCID is retained as a source for discovery, reconciliation, persistent identifiers, and future synchronization; the curated website record remains the single public display record.
-
-The canonical category field for future records is documented in `_data/publication_taxonomy.yml`. Talks and posters are not publication categories and belong in the Conferences collection.
+<section class="publication-policy" aria-labelledby="publication-policy-heading">
+  <h2 id="publication-policy-heading">Record and metadata policy</h2>
+  <p>Each public record must have a verified title, authorship, year, output type, publication status and stable source. When available, records also include DOI or repository identifiers, work URL, publication venue, citation, contributors, language and related files. ORCID is retained as a source for discovery, reconciliation, persistent identifiers and future synchronization; the curated website record remains the single public display record.</p>
+  <p>The canonical category field for future records is documented in <code>_data/publication_taxonomy.yml</code>. Talks and posters are not publication categories and belong in the Conferences collection.</p>
+</section>
