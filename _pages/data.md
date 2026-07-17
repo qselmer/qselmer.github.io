@@ -12,16 +12,21 @@ This section curates open, registered-access, and research-grade data resources 
 The catalogue distinguishes external source data from project-specific derived products. Inclusion does not imply that all datasets are directly redistributed through this website.
 
 {% assign groups = site.data.data_resources | group_by: "category" %}
-{% assign open_resources = site.data.data_resources | where_exp: "item", "item.access contains 'Open' or item.access contains 'open'" %}
-{% assign registered_resources = site.data.data_resources | where_exp: "item", "item.access contains 'Registered' or item.access contains 'registered'" %}
-{% assign restricted_resources = site.data.data_resources | where_exp: "item", "item.access contains 'Restricted' or item.access contains 'restricted'" %}
+{% assign open_count = 0 %}
+{% assign registered_count = 0 %}
+{% assign restricted_count = 0 %}
+{% for item in site.data.data_resources %}
+  {% if item.access contains "Open" or item.access contains "open" %}{% assign open_count = open_count | plus: 1 %}{% endif %}
+  {% if item.access contains "Registered" or item.access contains "registered" %}{% assign registered_count = registered_count | plus: 1 %}{% endif %}
+  {% if item.access contains "Restricted" or item.access contains "restricted" or item.access contains "Controlled" or item.access contains "controlled" %}{% assign restricted_count = restricted_count | plus: 1 %}{% endif %}
+{% endfor %}
 
 <div class="section-stats" aria-label="Data resource summary">
   <div class="section-stat"><span class="section-stat__value">{{ site.data.data_resources | size }}</span><span class="section-stat__label">catalogued resources</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ groups | size }}</span><span class="section-stat__label">data domains</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ open_resources | size }}</span><span class="section-stat__label">open-access resources</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ registered_resources | size }}</span><span class="section-stat__label">registered-access resources</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ restricted_resources | size }}</span><span class="section-stat__label">restricted or controlled resources</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ open_count }}</span><span class="section-stat__label">open-access resources</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ registered_count }}</span><span class="section-stat__label">registered-access resources</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ restricted_count }}</span><span class="section-stat__label">restricted or controlled resources</span></div>
 </div>
 
 ## Data domains
