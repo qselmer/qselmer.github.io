@@ -10,6 +10,16 @@ author_profile: true
 This section documents verified teaching, workshops, training activities, and educational materials related to quantitative marine ecology, fisheries science, statistical modelling, scientific programming, and reproducible research.
 
 {% assign teaching_items = site.teaching | sort: "date" | reverse %}
+{% assign workshops = teaching_items | where_exp: "item", "item.type contains 'Workshop' or item.type contains 'workshop'" %}
+{% assign courses = teaching_items | where_exp: "item", "item.type contains 'Course' or item.type contains 'course'" %}
+{% assign seminars = teaching_items | where_exp: "item", "item.type contains 'Seminar' or item.type contains 'seminar'" %}
+
+<div class="section-stats" aria-label="Teaching summary">
+  <div class="section-stat"><span class="section-stat__value">{{ teaching_items | size }}</span><span class="section-stat__label">verified activities</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ courses | size }}</span><span class="section-stat__label">courses and classes</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ workshops | size }}</span><span class="section-stat__label">workshops</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ seminars | size }}</span><span class="section-stat__label">seminars and training sessions</span></div>
+</div>
 
 {% if teaching_items and teaching_items.size > 0 %}
   {% for post in teaching_items %}
