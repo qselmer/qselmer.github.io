@@ -31,72 +31,54 @@ The catalogue distinguishes external source data from project-specific derived p
 
 ## Data domains
 
-- Fisheries and fishing activity.
-- Acoustic, biological, and survey observations.
-- Physical and biogeochemical oceanography.
-- Satellite and climate products.
-- Biodiversity and species occurrences.
-- Bathymetry and geospatial layers.
+<div class="data-domain-legend" aria-label="Data domains and colours">
+{% for group in groups %}
+  {% assign domain_number = forloop.index0 | modulo: 6 | plus: 1 %}
+  <div class="data-domain-legend__item data-domain--{{ domain_number }}">
+    <span class="data-domain-legend__marker" aria-hidden="true"></span>
+    <span>{{ group.name }}</span>
+    <strong>{{ group.items | size }}</strong>
+  </div>
+{% endfor %}
+</div>
 
 ## Access and data governance
 
 Open resources link to their authoritative providers. Registered-access products retain their original access conditions. Restricted fisheries or institutional data will be represented only through metadata, variable dictionaries, processing descriptions, synthetic examples, or non-disclosive derived products when permitted.
 
-<style>
-.data-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-  margin-top: 1rem;
-}
-.data-card {
-  padding: 1rem 0;
-  background: transparent;
-  border: 0;
-  border-top: 1px solid #e3e7e9;
-  border-radius: 0;
-  box-shadow: none;
-}
-.data-card h3 { margin-top: 0; margin-bottom: 0.25rem; }
-.data-provider { font-size: 0.85rem; color: #666; margin-bottom: 0.5rem; }
-.data-badges { margin: 0.5rem 0; }
-.data-badge {
-  display: inline-block;
-  border: 1px solid #b6c3ca;
-  border-radius: 999px;
-  padding: 0.15rem 0.5rem;
-  font-size: 0.75rem;
-  margin-right: 0.25rem;
-  margin-bottom: 0.25rem;
-  color: #3f4d55;
-  background: #fff;
-}
-.data-card a { font-weight: 600; }
-</style>
-
 ## Data catalogue
 
 {% for group in groups %}
-
-## {{ group.name }}
-
-<div class="data-grid">
-{% for r in group.items %}
-  <div class="data-card">
-    <h3>{{ r.name }}</h3>
-    <div class="data-provider">{{ r.provider }}</div>
-    <p>{{ r.description }}</p>
-    <div class="data-badges">
-      <span class="data-badge">{{ r.access }}</span>
-      <span class="data-badge">{{ r.scale }}</span>
-      <span class="data-badge">{{ r.format }}</span>
+{% assign domain_number = forloop.index0 | modulo: 6 | plus: 1 %}
+<section class="data-domain-section data-domain--{{ domain_number }}" aria-labelledby="data-domain-{{ forloop.index }}">
+  <div class="data-domain-section__header">
+    <div>
+      <span class="data-domain-section__eyebrow">Data domain</span>
+      <h2 id="data-domain-{{ forloop.index }}">{{ group.name }}</h2>
     </div>
-    <p><strong>Useful for:</strong> {{ r.use_case }}</p>
-    <p><a href="{{ r.url }}" target="_blank" rel="noopener">Open authoritative resource</a></p>
+    <span class="data-domain-section__count">{{ group.items | size }} resources</span>
   </div>
-{% endfor %}
-</div>
 
+  <div class="data-card-grid">
+  {% for r in group.items %}
+    <article class="data-card">
+      <div class="data-card__domain">{{ group.name }}</div>
+      <h3>{{ r.name }}</h3>
+      <div class="data-provider">{{ r.provider }}</div>
+      <p>{{ r.description }}</p>
+
+      <div class="data-badges">
+        <span class="data-badge">{{ r.access }}</span>
+        <span class="data-badge">{{ r.scale }}</span>
+        <span class="data-badge">{{ r.format }}</span>
+      </div>
+
+      <p class="data-card__use"><strong>Useful for:</strong> {{ r.use_case }}</p>
+      <p class="data-card__link"><a href="{{ r.url }}" target="_blank" rel="noopener">Open authoritative resource</a></p>
+    </article>
+  {% endfor %}
+  </div>
+</section>
 {% endfor %}
 
 ## Project data products
