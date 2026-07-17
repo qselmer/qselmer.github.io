@@ -11,14 +11,18 @@ This section presents research programmes that connect scientific questions, dat
 
 {% assign project_items = site.projects | sort: "date" | reverse %}
 {% assign featured_projects = project_items | where: "featured", true %}
-{% assign active_projects = project_items | where_exp: "item", "item.status == 'Active' or item.status == 'active'" %}
-{% assign preparation_projects = project_items | where_exp: "item", "item.status contains 'preparation' or item.status contains 'Preparation'" %}
+{% assign active_count = 0 %}
+{% assign preparation_count = 0 %}
+{% for item in project_items %}
+  {% if item.status == "Active" or item.status == "active" %}{% assign active_count = active_count | plus: 1 %}{% endif %}
+  {% if item.status contains "preparation" or item.status contains "Preparation" %}{% assign preparation_count = preparation_count | plus: 1 %}{% endif %}
+{% endfor %}
 
 <div class="section-stats" aria-label="Project summary">
   <div class="section-stat"><span class="section-stat__value">{{ project_items | size }}</span><span class="section-stat__label">research projects</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ featured_projects | size }}</span><span class="section-stat__label">featured projects</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ active_projects | size }}</span><span class="section-stat__label">active projects</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ preparation_projects | size }}</span><span class="section-stat__label">outputs in preparation</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ active_count }}</span><span class="section-stat__label">active projects</span></div>
+  <div class="section-stat"><span class="section-stat__value">{{ preparation_count }}</span><span class="section-stat__label">outputs in preparation</span></div>
 </div>
 
 {% if project_items and project_items.size > 0 %}
