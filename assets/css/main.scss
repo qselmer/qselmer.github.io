@@ -13,7 +13,6 @@
 
     "themes",
     "theme/default",
-    "theme/dark",
 
     "include/mixins",
     "vendor/susy/susy",
@@ -43,56 +42,4 @@
     "vendor/font-awesome/brands",
     "vendor/magnific-popup/magnific-popup"
 ;
-/* Compact publications list (only on /publications/ because classes: publications) */
-.publications .pubitem { 
-  padding: 0.35rem 0 0.55rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-.publications .pubtitle { 
-  margin: 0 0 0.15rem 0; 
-  font-size: 0.98rem; 
-  line-height: 1.25;
-  font-weight: 400;
-}
-
-.publications .pubyear {
-  display: inline-block;
-  min-width: 3.1rem;
-  font-weight: 400; /* no bold */
-  color: rgba(0,0,0,0.70);
-}
-
-.publications .pubmeta {
-  margin: 0 0 0.15rem 0;
-  font-size: 0.90rem;
-  line-height: 1.25;
-  color: rgba(0,0,0,0.85);
-}
-
-.publications .pubcite {
-  margin: 0 0 0.15rem 0;
-  font-size: 0.86rem;
-  line-height: 1.25;
-  color: rgba(0,0,0,0.80);
-}
-
-.publications .pubcite-label {
-  font-weight: 600;
-}
-
-.publications .publinks {
-  margin: 0;
-  font-size: 0.86rem;
-  line-height: 1.2;
-}
-
-.publications .publinks a { 
-  text-decoration: none;
-}
-
-.publications .publinks a:hover { 
-  text-decoration: underline;
-}
-
 

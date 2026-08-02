@@ -5,49 +5,13 @@ layout: compress
 {% include base_path %}
 
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
   </head>
 
   <body>
-
-    <div id="marine-bg"></div>
-    <div id="marine-particles"></div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const container = document.getElementById("marine-particles");
-        if (!container) return;
-
-        if (container.dataset.loaded === "true") return;
-        container.dataset.loaded = "true";
-
-        for (let i = 0; i < 210; i++) {
-          const p = document.createElement("div");
-
-          const r = Math.random();
-          const sizeClass = r < 0.62 ? "small" : (r < 0.88 ? "medium" : "large");
-
-          p.className = "marine-particle " + sizeClass;
-
-          const size =
-            sizeClass === "small" ? (Math.random() * 3 + 1) :
-            sizeClass === "medium" ? (Math.random() * 6 + 2) :
-            (Math.random() * 7 + 4);
-
-          p.style.width = size + "px";
-          p.style.height = size + "px";
-          p.style.left = Math.random() * 100 + "vw";
-          p.style.top = (100 + Math.random() * 35) + "vh";
-          p.style.animationDuration = (22 + Math.random() * 36) + "s";
-          p.style.animationDelay = (Math.random() * 22) + "s";
-
-          container.appendChild(p);
-        }
-      });
-    </script>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}

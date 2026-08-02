@@ -1,0 +1,93 @@
+#marine-hero {
+  padding: clamp(1rem, 3vw, 2.5rem) 0 1.5rem;
+  border-bottom: 1px solid var(--site-border);
+}
+
+.marine-scene,
+.scroll-arrow {
+  display: none;
+}
+
+.hero-title h1 {
+  max-width: 18ch;
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.7rem);
+}
+
+.hero-bio {
+  max-width: 48rem;
+  margin-top: 1rem;
+  color: var(--site-muted);
+  font-size: 1.1rem;
+}
+
+.home-intro {
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1.5rem 0 2.25rem;
+}
+
+.home-actions a {
+  padding: 0.55rem 0.85rem;
+  text-decoration: none;
+  border: 1px solid #9ab4c2;
+  border-radius: var(--site-radius);
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.home-card {
+  padding: 1rem;
+  color: var(--site-ink);
+  background: var(--site-soft);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius);
+}
+
+.home-card h3 {
+  margin-top: 0;
+}
+
+.home-kicker {
+  margin-bottom: 0.4rem;
+  color: var(--site-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-output {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--site-border);
+}
+
+.home-collaboration {
+  margin-top: 2rem;
+  padding: 1.1rem;
+  color: var(--site-ink);
+  background: var(--site-soft);
+  border-left: 4px solid var(--site-accent);
+}
+
+@media (max-width: 34rem) {
+  .home-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-actions a {
+    text-align: center;
+  }
+}

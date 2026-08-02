@@ -17,14 +17,6 @@
     margin-top: 1em;
   }
 
-  @media screen and (min-width: $sidebar-screen-min-width) {
-    position: sticky;
-    top: calc(#{$masthead-height} + 1rem);
-    max-height: calc(100vh - #{$masthead-height} - 2rem);
-    overflow-y: auto;
-    align-self: flex-start;
-  }
-
   @include breakpoint($large) {
     @include span(2 of 12);
     opacity: 1;
