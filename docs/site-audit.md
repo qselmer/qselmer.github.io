@@ -1,7 +1,7 @@
 # Auditoría integral del sitio
 
-Fecha de reaplicación: 2026-08-02  
-Rama: `codex/site-audit-cleanup`  
+Fecha de reaplicación: 2026-08-02
+Rama: `codex/site-audit-cleanup`
 Base inspeccionada: `master` en `f0ba367`
 
 ## Resumen ejecutivo
@@ -90,3 +90,20 @@ Las hojas específicas se cargarán condicionalmente según `page.url`. No se ma
 ## Límites editoriales
 
 La auditoría no elimina ni inventa publicaciones, proyectos, presentaciones, datos o software. Cualquier reclasificación científica queda fuera de esta limpieza técnica. En particular, el registro de conferencia de 2022 permanecerá en su clasificación actual hasta una decisión editorial explícita.
+
+## Resultado de la reaplicación
+
+- CSS público reducido de 22 a 10 archivos.
+- Usos de `!important` en `assets/css/` reducidos de 998 a 0.
+- Tema oscuro, partículas, fondos marinos animados y animaciones de entrada retirados.
+- Sidebar estático, sin altura forzada ni scroll interno.
+- Navegación greedy conservada con lista medible, menú móvil y estados ARIA.
+- Páginas demo conservadas como URL históricas mediante redirecciones, sin contenido demo visible.
+- Enlaces directos PICES no estables sustituidos por la página oficial de presentaciones.
+- Mermaid cargado bajo demanda y MathJax limitado a la entrada que lo necesita.
+- Contact y Newsletter confirmados con `enabled: false` y alternativas de correo/RSS.
+- Publications y Conferences permanecen separadas; el registro de 2022 no se reclasificó.
+- Diez PNG optimizados sin pérdida: 3,854,031 a 3,594,707 bytes (259,324 bytes, 6.7%).
+- Validador generado: 54 documentos HTML sin enlaces internos rotos, imágenes sin `alt`, botones sin nombre ni IDs duplicados.
+- Chrome headless: 11 páginas de escritorio y navegación móvil sin overflow horizontal, sidebar sticky, scroll interno ni texto blanco sobre blanco.
+- `npm test`, `bundle install` y `bundle exec jekyll build` completados correctamente.
