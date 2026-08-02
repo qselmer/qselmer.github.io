@@ -49,10 +49,11 @@ author_profile: true
 <div class="section-stats" aria-label="Publication summary">
   <div class="section-stat"><span class="section-stat__value">{{ publication_total }}</span><span class="section-stat__label">verified publications</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ article_total }}</span><span class="section-stat__label">journal articles and reviews</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ books_and_chapters.size }}</span><span class="section-stat__label">books and book chapters</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ reports.size | plus: grey_outputs.size }}</span><span class="section-stat__label">reports and grey literature</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ conference_papers.size }}</span><span class="section-stat__label">published proceedings</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ academic_theses.size }}</span><span class="section-stat__label">academic theses</span></div>
+  {% if books_and_chapters.size > 0 %}<div class="section-stat"><span class="section-stat__value">{{ books_and_chapters.size }}</span><span class="section-stat__label">books and book chapters</span></div>{% endif %}
+  {% assign report_total = reports.size | plus: grey_outputs.size %}
+  {% if report_total > 0 %}<div class="section-stat"><span class="section-stat__value">{{ report_total }}</span><span class="section-stat__label">reports and grey literature</span></div>{% endif %}
+  {% if conference_papers.size > 0 %}<div class="section-stat"><span class="section-stat__value">{{ conference_papers.size }}</span><span class="section-stat__label">published proceedings</span></div>{% endif %}
+  {% if academic_theses.size > 0 %}<div class="section-stat"><span class="section-stat__value">{{ academic_theses.size }}</span><span class="section-stat__label">academic theses</span></div>{% endif %}
 </div>
 
 <p class="wordwrap publication-profiles">

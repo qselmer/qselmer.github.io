@@ -15,11 +15,13 @@ header:
 
 This poster examines how the state of the north-central Peruvian anchovy stock responds to natural and fishing-related pressures in a highly variable pelagic ecosystem. The analysis focuses on critical points, non-linear responses, and potential thresholds associated with changes in biological, ecological, demographic, and spatial indicators of stock state.
 
-<p align="center">
+<figure class="talk-figure">
   <img src="/images/talks/anchovy-critical-points-full.png"
        alt="Poster on critical points and stock-state responses of the north-central Peruvian anchovy"
-       style="max-width: 850px; width: 100%; height: auto;">
-</p>
+       width="1265"
+       height="613"
+       loading="lazy">
+</figure>
 
 ## Scientific contribution
 
@@ -41,9 +43,7 @@ Quispe-Salazar, E., Recoba, A., & Tam, J. (2026). *Critical points of natural an
 
 ## Public materials
 
-- [SPF-2026 Book of Abstracts](https://meetings.pices.int/publications/book-of-abstracts/2026-SPF-Book-of-Abstracts.pdf)
 - [SPF-2026 official presentations page](https://meetings.pices.int/publications/presentations/2026-SPF)
-- [Official poster PDF](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
 
 ## Related work
 

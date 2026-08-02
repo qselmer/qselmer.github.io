@@ -8,12 +8,12 @@
 
 {% assign publication_image = post.image | default: post.header.teaser | default: post.teaser %}
 
-<article class="publication-entry" itemscope itemtype="http://schema.org/CreativeWork">
-  <div class="publication-entry__media" aria-hidden="true">
+<article class="publication-entry" itemscope itemtype="https://schema.org/ScholarlyArticle">
+  <div class="publication-entry__media">
     {% if publication_image %}
-      <img src="{{ publication_image | relative_url }}" alt="" loading="lazy">
+      <img src="{{ publication_image | relative_url }}" alt="Preview image for {{ clean_title | escape }}" loading="lazy">
     {% else %}
-      <span class="publication-entry__placeholder"><i class="fas fa-file-alt"></i></span>
+      <span class="publication-entry__placeholder" aria-hidden="true"><i class="fas fa-file-alt"></i></span>
     {% endif %}
   </div>
 

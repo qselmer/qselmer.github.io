@@ -97,3 +97,65 @@ input[type="submit"] {
   border: 1px solid var(--site-border);
   border-radius: var(--site-radius);
 }
+
+.cv-page {
+  width: 100%;
+}
+
+.cv-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cv-header h1 {
+  margin: 0.1rem 0 0.25rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.cv-kicker {
+  margin: 0;
+  color: var(--site-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cv-subtitle,
+.cv-summary {
+  color: var(--site-muted);
+}
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.cv-viewer {
+  width: 100%;
+  height: 75vh;
+  min-height: 38rem;
+  overflow: hidden;
+  background: #f3f4f6;
+  border: 1px solid var(--site-border);
+}
+
+.cv-viewer object {
+  display: block;
+  border: 0;
+}
+
+@media (max-width: 47.5rem) {
+  .cv-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cv-viewer {
+    min-height: 32rem;
+  }
+}

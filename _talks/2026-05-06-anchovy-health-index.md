@@ -15,11 +15,13 @@ This oral presentation introduces a multivariate health-index framework for eval
 
 <!--more-->
 
-<p align="center">
+<figure class="talk-figure">
   <img src="/images/talks/anchovy-health-index-full.png"
        alt="Multivariate Health Index for small pelagic fish"
-       style="max-width: 850px; width: 100%; height: auto;">
-</p>
+       width="1263"
+       height="620"
+       loading="lazy">
+</figure>
 
 The central idea is that small pelagic fish populations are highly dynamic systems, characterized by rapid responses to climate variability, strong environmental forcing, high demographic plasticity, and marked fluctuations in productivity, distribution, and reproductive output. Under this context, stock status cannot be fully represented by biomass alone. A broader diagnostic framework is needed to integrate complementary signals of population condition and ecosystem response.
 
@@ -34,6 +36,4 @@ The proposed Multivariate Health Index combines five dimensions of stock state: 
 Quispe-Salazar, E., & Tam, J. (2026). *Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability* [Oral presentation]. SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities, La Paz, Mexico. North Pacific Marine Science Organization (PICES). https://meetings.pices.int/publications/presentations/2026-SPF
 
 **Related materials:**
-- [SPF-2026: Book of abstracts](https://meetings.pices.int/publications/book-of-abstracts/2026-SPF-Book-of-Abstracts.pdf)
 - [SPF-2026: official presentations page](https://meetings.pices.int/publications/presentations/2026-SPF)
-- [Watch the PICES pre-recorded oral presentation](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
