@@ -1,0 +1,146 @@
+.masthead {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-bottom: 1px solid var(--site-border);
+  box-shadow: 0 1px 4px rgb(15 23 42 / 6%);
+}
+
+.masthead::after {
+  display: none;
+}
+
+.masthead__inner-wrap {
+  width: min(100%, var(--site-max));
+  max-width: var(--site-max);
+  margin: 0 auto;
+  padding: 0.45rem 1rem;
+}
+
+.site-content {
+  min-height: calc(100vh - 12rem);
+}
+
+#main,
+.homepage-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  width: min(100%, var(--site-max));
+  max-width: var(--site-max);
+  margin: 1.5rem auto 0;
+  padding: 0 1rem;
+  animation: none;
+}
+
+#main::before,
+#main::after {
+  display: none;
+}
+
+.page,
+.archive,
+.page--home {
+  float: none;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page__inner-wrap,
+.page__content,
+.page__meta,
+.page__share {
+  float: none;
+  width: 100%;
+  min-width: 0;
+}
+
+.sidebar {
+  position: static;
+  align-self: start;
+  float: none;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  transform: none;
+}
+
+.author__avatar img {
+  width: 8rem;
+  max-width: 100%;
+  padding: 0;
+  border: 1px solid var(--site-border);
+  border-radius: 50%;
+}
+
+.author__name {
+  margin: 0.7rem 0 0.25rem;
+}
+
+.author__bio {
+  margin: 0 0 0.8rem;
+  color: var(--site-muted);
+}
+
+.author__urls {
+  z-index: 20;
+}
+
+.page__footer {
+  margin-top: 3rem;
+  color: var(--site-muted);
+  background: var(--site-soft);
+  border-top: 1px solid var(--site-border);
+  animation: none;
+}
+
+.page__footer footer {
+  width: min(100%, var(--site-max));
+  max-width: var(--site-max);
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: 64rem) {
+  #main,
+  .homepage-main {
+    grid-template-columns: minmax(11rem, 14rem) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4.5rem);
+  }
+
+  .sidebar {
+    grid-column: 1;
+  }
+
+  .page,
+  .archive {
+    grid-column: 2;
+  }
+
+  .author__avatar,
+  .author__content,
+  .author__urls-wrapper {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+
+  .author__urls {
+    position: static;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+}

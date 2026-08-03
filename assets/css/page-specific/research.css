@@ -1,0 +1,25 @@
+.research-theme-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.research-theme {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 0.9rem;
+  padding: 1rem;
+  background: var(--site-soft);
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius);
+}
+
+.research-theme__icon {
+  color: var(--site-accent);
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.research-theme h3,
+.research-theme p {
+  margin-top: 0;
+}

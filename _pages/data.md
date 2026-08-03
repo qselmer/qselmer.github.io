@@ -25,8 +25,8 @@ The catalogue distinguishes external source data from project-specific derived p
   <div class="section-stat"><span class="section-stat__value">{{ site.data.data_resources | size }}</span><span class="section-stat__label">catalogued resources</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ groups | size }}</span><span class="section-stat__label">data domains</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ open_count }}</span><span class="section-stat__label">open-access resources</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ registered_count }}</span><span class="section-stat__label">registered-access resources</span></div>
-  <div class="section-stat"><span class="section-stat__value">{{ restricted_count }}</span><span class="section-stat__label">restricted or controlled resources</span></div>
+  {% if registered_count > 0 %}<div class="section-stat"><span class="section-stat__value">{{ registered_count }}</span><span class="section-stat__label">registered-access resources</span></div>{% endif %}
+  {% if restricted_count > 0 %}<div class="section-stat"><span class="section-stat__value">{{ restricted_count }}</span><span class="section-stat__label">restricted or controlled resources</span></div>{% endif %}
 </div>
 
 ## Data domains

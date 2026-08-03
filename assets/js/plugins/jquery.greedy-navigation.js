@@ -26,6 +26,8 @@ function restoreWideNavigation() {
   $btn.addClass('hidden');
   $btn.removeClass('close');
   $hlinks.addClass('hidden');
+  $hlinks.attr('aria-hidden', 'true');
+  $btn.attr('aria-expanded', 'false');
   $btn.attr('count', 0);
 }
 
@@ -77,6 +79,8 @@ function updateNav() {
       $btn.addClass('hidden');
       $btn.removeClass('close');
       $hlinks.addClass('hidden');
+      $hlinks.attr('aria-hidden', 'true');
+      $btn.attr('aria-expanded', 'false');
     }
   }
 
@@ -107,6 +111,9 @@ if (screen.orientation && screen.orientation.addEventListener) {
 $btn.on('click', function () {
   $hlinks.toggleClass('hidden');
   $(this).toggleClass('close');
+  var expanded = !$hlinks.hasClass('hidden');
+  $(this).attr('aria-expanded', String(expanded));
+  $hlinks.attr('aria-hidden', String(!expanded));
 });
 
 updateNav();

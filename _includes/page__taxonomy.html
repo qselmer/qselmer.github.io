@@ -1,6 +1,6 @@
 {% include base_path %}
 
-{% if site.tag_archive.type and page.tags[0] %}
+{% if site.tag_archive.type and page.tags[0] and page.collection == 'posts' %}
   {% include tag-list.html %}
 {% endif %}
 
