@@ -1,0 +1,41 @@
+{% include base_path %}
+
+<aside class="homepage-profile" aria-label="Researcher profile" itemscope itemtype="https://schema.org/Person">
+  <img
+    class="homepage-profile__photo"
+    src="{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}"
+    alt="Portrait of {{ site.author.name }}"
+    width="843"
+    height="843"
+    fetchpriority="high"
+    itemprop="image">
+
+  <div class="homepage-profile__body">
+    <h2 class="homepage-profile__name" itemprop="name">{{ site.author.name }}</h2>
+    <p class="homepage-profile__title" itemprop="jobTitle">{{ page.profile_title }}</p>
+    {% if page.profile_specializations %}
+      <ul class="homepage-profile__specializations" aria-label="Research specializations">
+        {% for specialization in page.profile_specializations %}
+          <li>{{ specialization }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <nav class="homepage-profile__links" aria-label="Academic profiles and contact">
+      <ul>
+        {% if site.author.email %}
+          <li><a href="mailto:{{ site.author.email }}"><i class="fas fa-envelope" aria-hidden="true"></i>Email</a></li>
+        {% endif %}
+        {% if site.author.orcid %}
+          <li><a href="{{ site.author.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i>ORCID</a></li>
+        {% endif %}
+        {% if site.author.googlescholar %}
+          <li><a href="{{ site.author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i>Scholar</a></li>
+        {% endif %}
+        {% if site.author.github %}
+          <li><a href="https://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</aside>
