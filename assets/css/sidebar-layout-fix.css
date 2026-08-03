@@ -1,0 +1,202 @@
+/* Sidebar flow and alignment corrections.
+   One document scroll only; no internal sidebar scrollbars. */
+
+@media (min-width: 1024px) {
+  #main {
+    display: grid !important;
+    grid-template-columns: 205px minmax(0, 1fr) !important;
+    column-gap: 3.4rem !important;
+    align-items: start !important;
+    max-width: 1180px !important;
+    padding-right: 1.2rem !important;
+    padding-left: 1.2rem !important;
+    box-sizing: border-box !important;
+  }
+
+  #main > .sidebar,
+  #main > .sidebar.sticky {
+    position: sticky !important;
+    top: 5.3rem !important;
+    float: none !important;
+    width: 205px !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    align-self: start !important;
+  }
+
+  #main > .page,
+  #main > .archive,
+  #main > article.page {
+    grid-column: 2 !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .author__avatar {
+    width: 100% !important;
+    margin: 0 0 1rem !important;
+  }
+
+  .author__avatar img {
+    display: block !important;
+    width: 190px !important;
+    height: 190px !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .author__bio {
+    max-width: 205px !important;
+  }
+
+  .author__urls-wrapper,
+  .author__urls {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  #main,
+  .homepage-main {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  #main > .sidebar,
+  #main > .sidebar.sticky,
+  .homepage-main .sidebar,
+  .homepage-main .sidebar.sticky {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    float: none !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    margin: 0 0 1.6rem !important;
+    padding: 0 0 1.1rem !important;
+    overflow: visible !important;
+    border-bottom: 1px solid var(--clean-rule) !important;
+  }
+
+  #main > .sidebar .author__profile,
+  .homepage-main .author__profile {
+    display: grid !important;
+    grid-template-columns: 110px minmax(0, 1fr) !important;
+    column-gap: 1.1rem !important;
+    align-items: start !important;
+  }
+
+  #main > .sidebar .author__avatar,
+  .homepage-main .author__avatar {
+    grid-row: 1 / span 3 !important;
+    margin: 0 !important;
+  }
+
+  #main > .sidebar .author__avatar img,
+  .homepage-main .author__avatar img {
+    width: 105px !important;
+    height: 105px !important;
+    max-width: 105px !important;
+    object-fit: cover !important;
+  }
+
+  #main > .sidebar .author__content,
+  .homepage-main .author__content {
+    padding: 0 !important;
+  }
+
+  #main > .sidebar .author__name,
+  .homepage-main .author__name {
+    margin-top: 0 !important;
+  }
+
+  #main > .sidebar .author__bio,
+  .homepage-main .author__bio {
+    max-width: none !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  #main > .sidebar .author__urls-wrapper,
+  .homepage-main .author__urls-wrapper {
+    margin-top: 0.35rem !important;
+  }
+
+  #main > .sidebar .author__urls,
+  .homepage-main .author__urls {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.2rem 0.9rem !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #main > .sidebar .author__urls li,
+  .homepage-main .author__urls li {
+    width: auto !important;
+  }
+
+  #main > .sidebar .author__urls li a,
+  .homepage-main .author__urls li a {
+    padding: 0.18rem 0 !important;
+  }
+
+  #main > .page,
+  #main > .archive,
+  #main > article.page {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #main,
+  .homepage-main {
+    padding: 0.8rem !important;
+  }
+
+  #main > .sidebar .author__profile,
+  .homepage-main .author__profile {
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+    column-gap: 0.8rem !important;
+  }
+
+  #main > .sidebar .author__avatar img,
+  .homepage-main .author__avatar img {
+    width: 78px !important;
+    height: 78px !important;
+    max-width: 78px !important;
+  }
+
+  #main > .sidebar .author__bio,
+  .homepage-main .author__bio {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+  }
+
+  #main > .sidebar .author__urls li:nth-child(n + 5),
+  .homepage-main .author__urls li:nth-child(n + 5) {
+    display: none !important;
+  }
+}

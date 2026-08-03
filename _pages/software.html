@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-<p>This section documents scientific software, analytical frameworks, and reproducible workflows developed for marine ecology, fisheries science, stock assessment, environmental analysis, and scientific computing. Development status is stated explicitly; tools without a stable public release should not yet be treated as production software.</p>
+This section documents scientific software, analytical frameworks, and reproducible workflows developed for marine ecology, fisheries science, stock assessment, environmental analysis, and scientific computing. Development status is stated explicitly; tools without a stable public release should not yet be treated as production software.
 
 {% assign featured_software = site.software | where: "featured", true | sort: "date" | reverse %}
 {% assign other_software = site.software | where_exp: "item", "item.featured != true" | sort: "date" | reverse %}
@@ -22,10 +22,10 @@ author_profile: true
   <div class="section-stat"><span class="section-stat__value">{{ site.software | size }}</span><span class="section-stat__label">software records</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ featured_software | size }}</span><span class="section-stat__label">featured tools</span></div>
   <div class="section-stat"><span class="section-stat__value">{{ development_count }}</span><span class="section-stat__label">tools in development</span></div>
-  {% if public_count > 0 %}<div class="section-stat"><span class="section-stat__value">{{ public_count }}</span><span class="section-stat__label">public releases</span></div>{% endif %}
+  <div class="section-stat"><span class="section-stat__value">{{ public_count }}</span><span class="section-stat__label">public releases</span></div>
 </div>
 
-<h2>Featured tools</h2>
+## Featured tools
 
 {% if featured_software and featured_software.size > 0 %}
   {% for post in featured_software %}
@@ -36,13 +36,13 @@ author_profile: true
 {% endif %}
 
 {% if other_software and other_software.size > 0 %}
-<h2>Additional tools</h2>
+## Additional tools
 
   {% for post in other_software %}
     {% include archive-single.html %}
   {% endfor %}
 {% endif %}
 
-<h2>Release and citation policy</h2>
+## Release and citation policy
 
-<p>Public releases will include, where applicable, a version number, source repository, documentation, examples, tests, license, citation metadata, and archived release identifier. Until those elements are available, each record is labelled according to its actual development stage.</p>
+Public releases will include, where applicable, a version number, source repository, documentation, examples, tests, license, citation metadata, and archived release identifier. Until those elements are available, each record is labelled according to its actual development stage.

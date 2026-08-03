@@ -19,9 +19,9 @@
     "uglify-js": "3.19.3"
   },
   "scripts": {
-    "build:js": "uglifyjs node_modules/jquery/dist/jquery.min.js assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js --compress --mangle --output assets/js/main.min.js",
+    "build:js": "uglifyjs node_modules/jquery/dist/jquery.min.js assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js assets/js/theme.js --compress --mangle --output assets/js/main.min.js",
     "watch:js": "onchange \"assets/js/**/*.js\" --exclude \"assets/js/main.min.js\" -- npm run build:js",
-    "check:js": "node --check assets/js/_main.js && node --check assets/js/plugins/jquery.greedy-navigation.js",
-    "test": "node --check assets/js/_main.js && node --check assets/js/plugins/jquery.greedy-navigation.js && uglifyjs node_modules/jquery/dist/jquery.min.js assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js --compress --mangle --output assets/js/main.min.js"
+    "check:js": "node --check assets/js/_main.js && node --check assets/js/plugins/jquery.greedy-navigation.js && node --check assets/js/theme.js",
+    "test": "npm run check:js && npm run build:js"
   }
 }

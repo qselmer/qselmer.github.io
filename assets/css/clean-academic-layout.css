@@ -1,0 +1,346 @@
+/* Clean academic layout inspired by restrained faculty websites.
+   Open white surfaces, flat navigation, readable typography, and minimal cards. */
+
+:root {
+  --clean-bg: #ffffff;
+  --clean-text: #4f5559;
+  --clean-heading: #3f4549;
+  --clean-muted: #747d83;
+  --clean-link: #2379a8;
+  --clean-rule: #e5e8ea;
+  --clean-accent: #19789c;
+}
+
+html,
+body {
+  background: var(--clean-bg) !important;
+  color: var(--clean-text) !important;
+}
+
+body {
+  font-size: 1rem !important;
+  line-height: 1.62 !important;
+}
+
+/* Flat, open masthead. */
+.masthead {
+  background: #ffffff !important;
+  border-bottom: 1px solid var(--clean-rule) !important;
+  box-shadow: none !important;
+}
+
+.masthead__inner-wrap {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 0.65rem 1.2rem !important;
+}
+
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .visible-links > li,
+.greedy-nav .hidden-links > li {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.greedy-nav .site-title,
+.greedy-nav .visible-links > li > a,
+.greedy-nav .hidden-links > li > a {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--clean-muted) !important;
+  font-size: 0.98rem !important;
+  font-weight: 500 !important;
+  padding: 0.45rem 0.72rem !important;
+}
+
+.greedy-nav .site-title {
+  color: var(--clean-heading) !important;
+  font-weight: 700 !important;
+  margin-right: 1.1rem !important;
+}
+
+.greedy-nav .visible-links > li > a:hover,
+.greedy-nav .hidden-links > li > a:hover,
+.greedy-nav .visible-links > li > a:focus,
+.greedy-nav .hidden-links > li > a:focus,
+.greedy-nav .masthead__menu-item.selected > a {
+  background: transparent !important;
+  color: var(--clean-link) !important;
+}
+
+.greedy-nav .hidden-links {
+  background: #ffffff !important;
+  border: 1px solid var(--clean-rule) !important;
+  border-radius: 0.25rem !important;
+  box-shadow: 0 0.45rem 1rem rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Main two-column composition. */
+#main {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding-top: 2.35rem !important;
+}
+
+.sidebar,
+.sidebar.sticky {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.author__avatar {
+  margin-bottom: 1rem !important;
+}
+
+.author__avatar img {
+  width: 170px !important;
+  height: 170px !important;
+  max-width: 170px !important;
+  object-fit: cover !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.author__content {
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.author__name {
+  margin: 0.6rem 0 0.3rem !important;
+  color: var(--clean-heading) !important;
+  font-size: 1.08rem !important;
+  font-weight: 700 !important;
+}
+
+.author__bio {
+  max-width: 190px;
+  color: var(--clean-text) !important;
+  font-size: 0.86rem !important;
+  line-height: 1.55 !important;
+}
+
+.author__urls-wrapper {
+  margin-top: 1rem !important;
+}
+
+.author__urls li {
+  border: 0 !important;
+}
+
+.author__urls li a {
+  padding: 0.3rem 0 !important;
+  background: transparent !important;
+  color: var(--clean-text) !important;
+  font-size: 0.84rem !important;
+}
+
+.author__urls li a:hover {
+  color: var(--clean-link) !important;
+}
+
+/* Open content: remove the boxed-page effect. */
+.page__inner-wrap,
+.archive,
+.page__content,
+.page,
+.notice,
+.notice--info,
+.notice--primary,
+.notice--success,
+.notice--warning {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.page__inner-wrap,
+.archive {
+  padding: 0 0 2.5rem !important;
+}
+
+.page__title,
+.archive > h1,
+.page__content > h1:first-child,
+.page--home .hero-title h1 {
+  color: var(--clean-heading) !important;
+  font-family: "Source Sans 3", sans-serif !important;
+  font-size: clamp(1.85rem, 3vw, 2.35rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.025em !important;
+  text-shadow: none !important;
+}
+
+.page__content h2,
+.archive h2,
+.home-collaboration h2 {
+  margin-top: 2rem !important;
+  padding-bottom: 0.38rem !important;
+  color: var(--clean-heading) !important;
+  font-family: "Source Sans 3", sans-serif !important;
+  font-size: 1.38rem !important;
+  font-weight: 700 !important;
+  border-bottom: 1px solid var(--clean-rule) !important;
+}
+
+.page__content h3,
+.archive h3,
+.archive__item-title,
+.home-card h3,
+.home-output h3 {
+  color: var(--clean-heading) !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+}
+
+.page__content p,
+.page__content li,
+.archive p,
+.archive li {
+  color: var(--clean-text) !important;
+}
+
+.page__content a,
+.archive a,
+.author__urls a {
+  color: var(--clean-link) !important;
+}
+
+/* Minimal cards: only small navigable units keep a subtle boundary. */
+.home-grid {
+  gap: 1.15rem !important;
+}
+
+.home-card,
+.home-output,
+.home-collaboration,
+.archive__item,
+.data-card,
+.info-card,
+.featured-card,
+.conference-summary > div,
+.contact-form,
+.contact-setup-panel,
+.follow-form,
+.follow-setup-panel {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.home-card {
+  padding: 0.9rem 0 !important;
+  border-top: 2px solid var(--clean-rule) !important;
+}
+
+.home-card:hover,
+.archive__item:hover {
+  background: transparent !important;
+  transform: none !important;
+}
+
+.home-output {
+  margin: 0 !important;
+  padding: 0.9rem 0 !important;
+  border-bottom: 1px solid var(--clean-rule) !important;
+}
+
+.home-collaboration {
+  margin-top: 2.2rem !important;
+  padding: 1.1rem 0 !important;
+  border-top: 1px solid var(--clean-rule) !important;
+  border-left: 0 !important;
+}
+
+.archive__item {
+  padding: 1rem 0 !important;
+  border-bottom: 1px solid var(--clean-rule) !important;
+}
+
+.home-actions a,
+.btn,
+.page__content .btn {
+  background: transparent !important;
+  color: var(--clean-link) !important;
+  border: 1px solid #b8cbd5 !important;
+  border-radius: 0.2rem !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+}
+
+.home-actions a:hover,
+.btn:hover,
+.page__content .btn:hover {
+  background: #f4f8fa !important;
+  color: #155f84 !important;
+}
+
+/* Keep the homepage introduction open and visually integrated. */
+.page--home #marine-hero {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-top: 1.25rem !important;
+}
+
+.page--home .hero-bio p {
+  color: var(--clean-text) !important;
+}
+
+.page--home .marine-node {
+  box-shadow: none !important;
+}
+
+/* Footer stays restrained. */
+.page__footer {
+  background: #f7f8f9 !important;
+  color: var(--clean-muted) !important;
+  border-top: 1px solid var(--clean-rule) !important;
+}
+
+.page__footer a {
+  color: var(--clean-link) !important;
+}
+
+@media (max-width: 1023px) {
+  #main {
+    padding-top: 1rem !important;
+  }
+
+  .homepage-main .author__avatar img {
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 0.96rem !important;
+  }
+
+  .page__title,
+  .archive > h1,
+  .page__content > h1:first-child,
+  .page--home .hero-title h1 {
+    font-size: 1.65rem !important;
+  }
+
+  .home-card {
+    padding: 0.75rem 0 !important;
+  }
+}

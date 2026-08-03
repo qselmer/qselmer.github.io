@@ -5,7 +5,7 @@ layout: default
 {% include base_path %}
 
 <div id="main" class="homepage-main" role="main">
-  {% include home-author-profile.html %}
+  {% include sidebar.html %}
 
   <article class="page page--home" itemscope itemtype="http://schema.org/CreativeWork">
     {% if page.title %}
@@ -16,11 +16,43 @@ layout: default
       <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
     {% endif %}
 
-    <header class="home-hero">
+    <section id="marine-hero" aria-label="Homepage introduction">
       {% if page.title %}
-        <h1>{{ page.title }}</h1>
+        <div class="hero-title">
+          <h1>{{ page.title | markdownify }}</h1>
+        </div>
       {% endif %}
-    </header>
+
+      <div class="marine-scene" aria-hidden="true">
+        <div class="marine-system">
+          <div class="marine-current"></div>
+
+          <div class="marine-node node-1">
+            <div class="marine-label"></div>
+          </div>
+
+          <div class="marine-node node-2">
+            <div class="marine-label"></div>
+          </div>
+
+          <div class="marine-node node-3">
+            <div class="marine-label"></div>
+          </div>
+
+          <div class="marine-node node-4">
+            <div class="marine-label"></div>
+          </div>
+        </div>
+      </div>
+
+      {% if page.bio %}
+        <div class="hero-bio">
+          <p>{{ page.bio | markdownify }}</p>
+        </div>
+      {% endif %}
+
+      <div class="scroll-arrow" aria-hidden="true"></div>
+    </section>
 
     <div class="page__inner-wrap">
       <section class="page__content" itemprop="text">
