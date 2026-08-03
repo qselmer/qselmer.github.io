@@ -13,6 +13,94 @@ redirect_from:
 ---
 {% include base_path %}
 
+<style>
+.home-intro {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.home-actions a {
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(120, 190, 220, 0.5);
+  border-radius: 0.45rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2.5rem;
+}
+
+.home-card {
+  padding: 1.1rem;
+  border: 1px solid rgba(130, 180, 205, 0.28);
+  border-radius: 0.7rem;
+  background: rgba(10, 30, 42, 0.32);
+}
+
+.home-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.55rem;
+  font-size: 1.05rem;
+}
+
+.home-card p {
+  margin-bottom: 0.65rem;
+}
+
+.home-card a {
+  font-weight: 600;
+}
+
+.home-output {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(130, 180, 205, 0.24);
+}
+
+.home-output:last-child {
+  border-bottom: 0;
+}
+
+.home-kicker {
+  margin-bottom: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.76;
+}
+
+.home-collaboration {
+  margin-top: 2.5rem;
+  padding: 1.25rem;
+  border-left: 4px solid rgba(80, 180, 220, 0.8);
+  background: rgba(10, 30, 42, 0.32);
+}
+
+@media (max-width: 600px) {
+  .home-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-actions a {
+    text-align: center;
+  }
+}
+</style>
+
 <div class="home-intro">
 <p>I study how marine populations and fisheries respond to environmental variability, fishing pressure, and ecosystem change. My work integrates ecological theory, biological and fisheries observations, oceanographic information, statistical modelling, and reproducible scientific computing.</p>
 

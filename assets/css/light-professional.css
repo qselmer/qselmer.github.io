@@ -1,0 +1,402 @@
+/* Light professional visual system
+   White background, solid marine colours, and fully opaque components. */
+
+:root {
+  --light-bg: #f4f7f9;
+  --light-surface: #ffffff;
+  --light-surface-alt: #eef4f7;
+  --light-navy: #12344a;
+  --light-blue: #176b8a;
+  --light-blue-dark: #0f5069;
+  --light-cyan: #dbeef5;
+  --light-green: #2f7d6d;
+  --light-gold: #b7791f;
+  --light-red: #a94442;
+  --light-text: #1f2d36;
+  --light-muted: #5a6b75;
+  --light-border: #c8d5dc;
+  --light-shadow: 0 0.45rem 1.4rem rgba(22, 52, 70, 0.11);
+}
+
+html,
+body {
+  background: var(--light-bg) !important;
+  color: var(--light-text) !important;
+}
+
+body {
+  background-image: none !important;
+  background-attachment: scroll !important;
+}
+
+#marine-bg,
+#marine-particles {
+  display: none !important;
+}
+
+#main,
+.site-content,
+.page,
+.page__content {
+  color: var(--light-text) !important;
+}
+
+.page__inner-wrap,
+.archive,
+.sidebar,
+.home-card,
+.home-output,
+.home-collaboration,
+.notice,
+.notice--info,
+.notice--primary,
+.notice--success,
+.notice--warning,
+.data-card,
+.info-card,
+.featured-card,
+.archive__item,
+table,
+pre,
+blockquote {
+  background: var(--light-surface) !important;
+  background-image: none !important;
+  color: var(--light-text) !important;
+  border-color: var(--light-border) !important;
+  box-shadow: var(--light-shadow) !important;
+}
+
+.page__inner-wrap,
+.archive {
+  border: 1px solid var(--light-border) !important;
+}
+
+.page--home .page__inner-wrap,
+.page--home .archive,
+.home .page__inner-wrap {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.masthead {
+  background: var(--light-surface) !important;
+  border-bottom: 1px solid var(--light-border) !important;
+  box-shadow: 0 0.25rem 0.9rem rgba(18, 52, 74, 0.1) !important;
+  backdrop-filter: none !important;
+}
+
+.greedy-nav,
+.greedy-nav .visible-links {
+  background: var(--light-surface) !important;
+}
+
+.greedy-nav .site-title {
+  background: var(--light-navy) !important;
+  color: #ffffff !important;
+  border-color: var(--light-navy) !important;
+}
+
+.greedy-nav .visible-links > li,
+.greedy-nav .hidden-links > li {
+  background: var(--light-surface-alt) !important;
+  border-color: var(--light-border) !important;
+}
+
+.greedy-nav .visible-links > li > a,
+.greedy-nav .hidden-links > li > a {
+  background: var(--light-surface-alt) !important;
+  color: var(--light-navy) !important;
+}
+
+.greedy-nav .visible-links > li > a:hover,
+.greedy-nav .hidden-links > li > a:hover,
+.greedy-nav .visible-links > li > a:focus,
+.greedy-nav .hidden-links > li > a:focus {
+  background: var(--light-cyan) !important;
+  color: var(--light-blue-dark) !important;
+}
+
+.greedy-nav .masthead__menu-item.selected,
+.greedy-nav .masthead__menu-item.selected > a {
+  background: var(--light-blue) !important;
+  color: #ffffff !important;
+}
+
+.greedy-nav .hidden-links {
+  background: var(--light-surface) !important;
+  border-color: var(--light-border) !important;
+}
+
+.greedy-nav button,
+.greedy-nav__toggle,
+.search__toggle {
+  background: var(--light-navy) !important;
+  color: #ffffff !important;
+  border-color: var(--light-navy) !important;
+}
+
+.greedy-nav button .navicon,
+.greedy-nav button .navicon::before,
+.greedy-nav button .navicon::after {
+  background: #ffffff !important;
+}
+
+.page__title,
+.archive > h1,
+.page__content > h1:first-child,
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4,
+.archive h1,
+.archive h2,
+.archive h3,
+.archive__item-title,
+.archive__item-title a,
+.home-card h3,
+.home-output h3,
+.home-collaboration h2,
+.author__name {
+  color: var(--light-navy) !important;
+}
+
+.page__content h2,
+.archive h2 {
+  border-bottom-color: var(--light-border) !important;
+}
+
+.page__content p,
+.page__content li,
+.archive p,
+.archive li,
+.archive__item-excerpt,
+.archive__item p,
+.author__bio,
+.author__urls li a,
+.page__meta,
+.archive__item-meta,
+.page__date {
+  color: var(--light-text) !important;
+}
+
+.author__bio,
+.page__meta,
+.archive__item-meta,
+.page__date,
+.home-kicker {
+  color: var(--light-muted) !important;
+}
+
+.page__content a,
+.archive a,
+.author__urls a,
+.page__footer a {
+  color: var(--light-blue) !important;
+}
+
+.page__content a:hover,
+.archive a:hover,
+.author__urls a:hover,
+.page__footer a:hover {
+  color: var(--light-blue-dark) !important;
+}
+
+.home-card:nth-child(4n + 1) {
+  border-top: 5px solid var(--light-blue) !important;
+}
+
+.home-card:nth-child(4n + 2) {
+  border-top: 5px solid var(--light-green) !important;
+}
+
+.home-card:nth-child(4n + 3) {
+  border-top: 5px solid var(--light-gold) !important;
+}
+
+.home-card:nth-child(4n + 4) {
+  border-top: 5px solid #6b5ca5 !important;
+}
+
+.home-card:hover,
+.archive__item:hover {
+  background: #f8fbfc !important;
+  border-color: #9fb8c5 !important;
+}
+
+.page--home #marine-hero {
+  background: linear-gradient(135deg, var(--light-navy), var(--light-blue)) !important;
+  border: 0 !important;
+  box-shadow: var(--light-shadow) !important;
+}
+
+.page--home .hero-title h1,
+.page--home .hero-bio p {
+  color: #ffffff !important;
+}
+
+.page--home .marine-node {
+  background: #ffffff !important;
+  border-color: #9bd2e4 !important;
+  box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.18) !important;
+}
+
+.page--home .marine-node::before {
+  border-color: var(--light-blue) !important;
+}
+
+.page--home .marine-label {
+  color: var(--light-navy) !important;
+  text-shadow: none !important;
+}
+
+.page--home .marine-current {
+  background: linear-gradient(90deg, transparent, #bde6f3, #ffffff, #bde6f3, transparent) !important;
+}
+
+.home-actions a,
+.btn,
+.page__content .btn,
+.follow-form button {
+  background: var(--light-blue) !important;
+  color: #ffffff !important;
+  border-color: var(--light-blue) !important;
+}
+
+.home-actions a:hover,
+.btn:hover,
+.page__content .btn:hover,
+.follow-form button:hover {
+  background: var(--light-blue-dark) !important;
+  color: #ffffff !important;
+  border-color: var(--light-blue-dark) !important;
+}
+
+table {
+  background: var(--light-surface) !important;
+}
+
+thead {
+  background: var(--light-navy) !important;
+}
+
+th {
+  color: #ffffff !important;
+}
+
+td {
+  color: var(--light-text) !important;
+}
+
+pre,
+code {
+  background: #eef3f6 !important;
+  color: #20323d !important;
+}
+
+blockquote {
+  border-left-color: var(--light-blue) !important;
+  color: var(--light-muted) !important;
+}
+
+.page__footer {
+  background: var(--light-navy) !important;
+  border-top: 0 !important;
+}
+
+.page__footer,
+.page__footer p,
+.page__footer li {
+  color: #e9f1f5 !important;
+}
+
+.page__footer a {
+  color: #bce6f4 !important;
+}
+
+.follow-floating-button {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.78rem 1rem;
+  background: var(--light-green) !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 0.6rem 1.5rem rgba(18, 52, 74, 0.25);
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.follow-floating-button:hover,
+.follow-floating-button:focus {
+  background: #245f54 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+.follow-form,
+.follow-setup-panel {
+  max-width: 720px;
+  margin: 1.5rem 0;
+  padding: 1.4rem;
+  background: var(--light-surface) !important;
+  border: 1px solid var(--light-border);
+  border-left: 6px solid var(--light-green);
+  border-radius: 0.65rem;
+  box-shadow: var(--light-shadow);
+}
+
+.follow-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--light-navy);
+  font-weight: 700;
+}
+
+.follow-form__row {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.follow-form input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.75rem 0.85rem;
+  background: #ffffff !important;
+  color: var(--light-text) !important;
+  border: 1px solid var(--light-border) !important;
+  border-radius: 0.45rem;
+}
+
+.follow-form button {
+  padding: 0.75rem 1rem;
+  border-radius: 0.45rem;
+  font-weight: 700;
+}
+
+.follow-form__note {
+  margin: 0.65rem 0 0;
+  color: var(--light-muted) !important;
+  font-size: 0.9rem !important;
+}
+
+@media (max-width: 700px) {
+  .follow-floating-button {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .follow-floating-button span {
+    display: none;
+  }
+
+  .follow-form__row {
+    flex-direction: column;
+  }
+}

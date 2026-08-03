@@ -1,4 +1,4 @@
-# Site configuration
+# Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
 # which you are expected to set up once and rarely need to edit after that.
@@ -8,10 +8,11 @@
 
 # Basic Site Settings
 locale                   : "en-US"
+site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Elmer Quispe-Salazar"
 title_separator          : "-"
 name                     : &name "Elmer Quispe-Salazar"
-description              : &description "Research in quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, and reproducible scientific computing."
+description              : &description "Elmer Quispe-Salazar personal website and blog."
 url                      : "https://qselmer.github.io"   # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "qselmer/qselmer.github.io"
@@ -80,6 +81,19 @@ author:
   youtube          : # Username
   zhihu            : # Username
 
+# Publication Category - The following the list of publication categories and their headings
+publication_category:
+  books:
+    title: "Books & Chapters"
+  indexed:
+    title: "Journal Articles (Indexed)"
+  nonindexed:
+    title: "Journal Articles (Non-indexed)"
+  reports:
+    title: "Technical Reports"
+  conference:
+    title: "Conference Contributions"
+
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
 breadcrumbs              : false # true, false (default)
@@ -136,13 +150,9 @@ og_image                 : "home/statistical-modelling-workflow.png"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : Person
-  name                   : "Elmer Quispe-Salazar"
-  links:
-    - "https://orcid.org/0000-0001-9229-6379"
-    - "https://scholar.google.com/citations?user=wz83egoAAAAJ"
-    - "https://github.com/qselmer"
-    - "https://www.linkedin.com/in/qselmer"
+  type                   : # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
 
 
 # Analytics

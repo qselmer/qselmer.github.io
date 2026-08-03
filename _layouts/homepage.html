@@ -19,15 +19,39 @@ layout: default
     <section id="marine-hero" aria-label="Homepage introduction">
       {% if page.title %}
         <div class="hero-title">
-          <h1>{{ page.title }}</h1>
+          <h1>{{ page.title | markdownify }}</h1>
         </div>
       {% endif %}
 
+      <div class="marine-scene" aria-hidden="true">
+        <div class="marine-system">
+          <div class="marine-current"></div>
+
+          <div class="marine-node node-1">
+            <div class="marine-label"></div>
+          </div>
+
+          <div class="marine-node node-2">
+            <div class="marine-label"></div>
+          </div>
+
+          <div class="marine-node node-3">
+            <div class="marine-label"></div>
+          </div>
+
+          <div class="marine-node node-4">
+            <div class="marine-label"></div>
+          </div>
+        </div>
+      </div>
+
       {% if page.bio %}
         <div class="hero-bio">
-          {{ page.bio | markdownify }}
+          <p>{{ page.bio | markdownify }}</p>
         </div>
       {% endif %}
+
+      <div class="scroll-arrow" aria-hidden="true"></div>
     </section>
 
     <div class="page__inner-wrap">

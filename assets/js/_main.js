@@ -1,19 +1,83 @@
-/* Site behavior and deferred visual integrations. */
+/* ==========================================================================
+   Site behavior and deferred visual integrations
+   ========================================================================== */
+
 /*jslint es6 */
 'use strict';
 
 const PLOTLY_URL = 'https://cdn.jsdelivr.net/npm/plotly.js@3.6.0/dist/plotly.min.js';
 const MERMAID_URL = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const PLOTLY_LIGHT_TEMPLATE = {
-  layout: {
-    paper_bgcolor: '#ffffff',
-    plot_bgcolor: '#ffffff',
-    font: { color: '#243b4a' },
-    colorway: ['#0e7490', '#2563eb', '#c2410c', '#7c3aed', '#15803d']
-  }
-};
+const THEME_SEQUENCE = ['auto', 'light', 'dark'];
+const browserThemeQuery = window.matchMedia
+  ? window.matchMedia('(prefers-color-scheme: dark)')
+  : null;
 
+let plotlyElements = document.querySelectorAll('pre > code.language-plotly');
 let plotlyReady = null;
+
+function normalizeThemeSetting(value) {
+  return THEME_SEQUENCE.includes(value) ? value : 'auto';
+}
+
+function getThemeSetting() {
+  return normalizeThemeSetting(localStorage.getItem('theme'));
+}
+
+function determineComputedTheme(setting) {
+  const normalized = normalizeThemeSetting(setting || getThemeSetting());
+
+  if (normalized !== 'auto') {
+    return normalized;
+  }
+
+  return browserThemeQuery && browserThemeQuery.matches ? 'dark' : 'light';
+}
+
+function updateThemeIcon(setting) {
+  const normalized = normalizeThemeSetting(setting);
+  const icon = $('#theme-icon');
+  const labels = {
+    auto: 'Theme follows system settings',
+    light: 'Light theme enabled',
+    dark: 'Dark theme enabled'
+  };
+
+  icon.removeClass('fa-sun fa-moon fa-desktop');
+
+  if (normalized === 'dark') {
+    icon.addClass('fa-moon');
+  } else if (normalized === 'light') {
+    icon.addClass('fa-sun');
+  } else {
+    icon.addClass('fa-desktop');
+  }
+
+  icon.attr('title', labels[normalized]);
+  $('#theme-toggle a').attr('aria-label', labels[normalized]);
+}
+
+function setTheme(setting) {
+  const normalized = normalizeThemeSetting(setting || getThemeSetting());
+  const computed = determineComputedTheme(normalized);
+
+  if (computed === 'dark') {
+    $('html').attr('data-theme', 'dark');
+  } else {
+    $('html').removeAttr('data-theme');
+  }
+
+  updateThemeIcon(normalized);
+}
+
+function toggleTheme() {
+  const current = getThemeSetting();
+  const nextIndex = (THEME_SEQUENCE.indexOf(current) + 1) % THEME_SEQUENCE.length;
+  const next = THEME_SEQUENCE[nextIndex];
+
+  localStorage.setItem('theme', next);
+  setTheme(next);
+  redrawPlotly();
+}
 
 function loadScriptOnce(url, id) {
   const existing = document.getElementById(id);
@@ -24,6 +88,7 @@ function loadScriptOnce(url, id) {
         resolve();
         return;
       }
+
       existing.addEventListener('load', resolve, { once: true });
       existing.addEventListener('error', reject, { once: true });
     });
@@ -43,6 +108,22 @@ function loadScriptOnce(url, id) {
   });
 }
 
+function applyPlotlyTheme(jsonData) {
+  const template = determineComputedTheme() === 'dark'
+    ? plotlyDarkLayout
+    : plotlyLightLayout;
+
+  if (!jsonData.layout) {
+    jsonData.layout = {};
+  }
+
+  jsonData.layout.template = jsonData.layout.template
+    ? { ...template, ...jsonData.layout.template }
+    : template;
+
+  return jsonData;
+}
+
 function renderPlotlyElement(element) {
   let jsonData;
 
@@ -54,19 +135,15 @@ function renderPlotlyElement(element) {
   }
 
   element.parentElement.classList.add('hidden');
-  let chartElement = element.parentElement.nextElementSibling;
 
+  let chartElement = element.parentElement.nextElementSibling;
   if (!chartElement || !chartElement.classList.contains('plotly-chart')) {
     chartElement = document.createElement('div');
     chartElement.className = 'plotly-chart';
     element.parentElement.after(chartElement);
   }
 
-  jsonData.layout = jsonData.layout || {};
-  jsonData.layout.template = jsonData.layout.template
-    ? { ...PLOTLY_LIGHT_TEMPLATE, ...jsonData.layout.template }
-    : PLOTLY_LIGHT_TEMPLATE;
-
+  jsonData = applyPlotlyTheme(jsonData);
   window.Plotly.react(
     chartElement,
     jsonData.data || [],
@@ -76,10 +153,8 @@ function renderPlotlyElement(element) {
 }
 
 function initializePlotly() {
-  const plotlyElements = document.querySelectorAll('pre > code.language-plotly');
-
   if (plotlyElements.length === 0) {
-    return;
+    return Promise.resolve();
   }
 
   if (!plotlyReady) {
@@ -91,10 +166,22 @@ function initializePlotly() {
         console.error('Plotly could not be loaded:', error);
       });
   }
+
+  return plotlyReady;
+}
+
+function redrawPlotly() {
+  if (plotlyElements.length === 0 || typeof window.Plotly === 'undefined') {
+    return;
+  }
+
+  plotlyElements.forEach(renderPlotlyElement);
 }
 
 function initializeMermaid() {
-  if (!document.querySelector('pre > code.language-mermaid')) {
+  const mermaidElements = document.querySelectorAll('pre > code.language-mermaid');
+
+  if (mermaidElements.length === 0) {
     return;
   }
 
@@ -115,13 +202,18 @@ function initializeSmoothAnchors() {
     }
 
     const link = event.target.closest('a[href^="#"]');
-    if (!link || !link.hash) {
+    if (!link) {
+      return;
+    }
+
+    const hash = link.getAttribute('href');
+    if (!hash || hash === '#') {
       return;
     }
 
     let target;
     try {
-      target = document.querySelector(link.hash);
+      target = document.querySelector(hash);
     } catch (error) {
       return;
     }
@@ -134,43 +226,44 @@ function initializeSmoothAnchors() {
     const masthead = document.querySelector('.masthead');
     const offset = masthead ? masthead.getBoundingClientRect().height + 12 : 12;
     const top = window.scrollY + target.getBoundingClientRect().top - offset;
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
-    window.history.pushState(null, '', link.hash);
-  });
-}
-
-function initializeAuthorLinks() {
-  const button = document.querySelector('.author__urls-wrapper button');
-  const links = document.getElementById('author-links');
-
-  if (!button || !links) {
-    return;
-  }
-
-  button.addEventListener('click', function () {
-    const expanded = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', String(!expanded));
-    links.setAttribute('aria-hidden', String(expanded));
-    $(links).stop(true, true).fadeToggle('fast');
-    button.classList.toggle('open', !expanded);
-  });
-
-  window.addEventListener('resize', function () {
-    if (window.matchMedia('(min-width: 64rem)').matches) {
-      links.removeAttribute('style');
-      links.setAttribute('aria-hidden', 'false');
-      button.setAttribute('aria-expanded', 'true');
-    } else if (!button.classList.contains('open')) {
-      links.setAttribute('aria-hidden', 'true');
-      button.setAttribute('aria-expanded', 'false');
-    }
+    window.scrollTo({ top: top, behavior: 'smooth' });
+    window.history.pushState(null, '', hash);
   });
 }
 
 $(document).ready(function () {
-  initializeAuthorLinks();
+  const scssLarge = 925;
+
+  setTheme();
+  $('#theme-toggle').on('click', toggleTheme);
+
+  if (browserThemeQuery) {
+    const handleBrowserThemeChange = function () {
+      if (getThemeSetting() === 'auto') {
+        setTheme('auto');
+        redrawPlotly();
+      }
+    };
+
+    if (browserThemeQuery.addEventListener) {
+      browserThemeQuery.addEventListener('change', handleBrowserThemeChange);
+    } else if (browserThemeQuery.addListener) {
+      browserThemeQuery.addListener(handleBrowserThemeChange);
+    }
+  }
+
+  $('.author__urls-wrapper button').on('click', function () {
+    $('.author__urls').fadeToggle('fast');
+    $('.author__urls-wrapper button').toggleClass('open');
+  });
+
+  $(window).on('resize', function () {
+    if ($('.author__urls.social-icons').css('display') === 'none' && $(window).width() >= scssLarge) {
+      $('.author__urls').css('display', 'block');
+    }
+  });
+
   initializeSmoothAnchors();
   initializePlotly();
   initializeMermaid();

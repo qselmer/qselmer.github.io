@@ -2,8 +2,6 @@
 permalink: /non-menu-page/
 title: "Page not in menu"
 author_profile: true
-redirect_to: /
-sitemap: false
 redirect_from: 
   - "/nmp/"
   - "/nmp.html"
