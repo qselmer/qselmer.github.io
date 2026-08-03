@@ -1,10 +1,7 @@
 # Main navigation for the scientific website.
-# The site title links to the home page, so a separate Home item is unnecessary.
+# The primary Research item is rendered by the site title link and points to the home page.
 
 main:
-  - title: "Research"
-    url: /research/
-
   - title: "Projects"
     url: /projects/
 
