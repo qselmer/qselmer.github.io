@@ -108,7 +108,7 @@ redirect_from:
 </div>
 
 <div class="home-actions">
-  <a href="{{ base_path }}/research/">Research programme</a>
+  <a href="#research-programme">Research programme</a>
   <a href="{{ base_path }}/projects/">Current projects</a>
   <a href="{{ base_path }}/publications/">Publications</a>
   <a href="{{ base_path }}/talks/">Conferences</a>
@@ -140,33 +140,49 @@ redirect_from:
   </div>
 </div>
 
-## Research themes
+<h2 id="research-programme">Research programme</h2>
 
-<div class="home-grid">
-  <div class="home-card">
-    <h3>Fisheries population dynamics</h3>
-    <p>Stock assessment, growth, recruitment, selectivity, demographic structure, indicators, uncertainty, and adaptive management.</p>
-    <a href="{{ base_path }}/research/">Explore research</a>
-  </div>
+<p>My research focuses on theoretical and applied questions in marine ecology and fisheries science. I combine ecological theory, statistical modelling, and reproducible scientific computing to understand how marine populations and fisheries respond to environmental variability, fishing pressure, and ecosystem change.</p>
 
-  <div class="home-card">
-    <h3>Spatio-temporal marine ecology</h3>
-    <p>Distribution shifts, habitat, accessibility, hotspots, fishing-fleet behaviour, and spatially explicit population and fishery models.</p>
-    <a href="{{ base_path }}/research/">Explore research</a>
-  </div>
+<div class="research-theme-list">
+  <article class="research-theme">
+    <div class="research-theme__icon" aria-hidden="true"><i class="fas fa-fish"></i></div>
+    <div class="research-theme__content">
+      <h3>Fisheries population dynamics and stock assessment</h3>
+      <p>Population dynamics, stock indicators, growth, recruitment, selectivity, demographic structure, uncertainty, and adaptive approaches to fisheries assessment and management.</p>
+    </div>
+  </article>
 
-  <div class="home-card">
-    <h3>Environmental variability</h3>
-    <p>Responses of marine populations to climate, oceanographic variability, productivity, oxygen, upwelling, and ecosystem regimes.</p>
-    <a href="{{ base_path }}/research/">Explore research</a>
-  </div>
+  <article class="research-theme">
+    <div class="research-theme__icon" aria-hidden="true"><i class="fas fa-map-marked-alt"></i></div>
+    <div class="research-theme__content">
+      <h3>Spatio-temporal marine ecology</h3>
+      <p>Spatial structure, habitat, distribution shifts, fishing-fleet behaviour, accessibility, hotspots, and spatio-temporal models for marine populations and fisheries.</p>
+    </div>
+  </article>
 
-  <div class="home-card">
-    <h3>Statistical ecology and computing</h3>
-    <p>Hierarchical, additive, mixed, Bayesian, multivariate, and machine-learning methods implemented through reproducible workflows.</p>
-    <a href="{{ base_path }}/resources/">Explore tools and data</a>
-  </div>
+  <article class="research-theme">
+    <div class="research-theme__icon" aria-hidden="true"><i class="fas fa-water"></i></div>
+    <div class="research-theme__content">
+      <h3>Environmental variability and ecosystem responses</h3>
+      <p>Responses of marine populations to oceanographic and climatic variability, including changes in productivity, oxygen, upwelling, habitat conditions, and ecosystem regimes.</p>
+    </div>
+  </article>
+
+  <article class="research-theme">
+    <div class="research-theme__icon" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
+    <div class="research-theme__content">
+      <h3>Statistical ecology and scientific computing</h3>
+      <p>Hierarchical, additive, mixed, Bayesian, multivariate, and machine-learning methods supported by reproducible workflows in R, Python, Julia, Git, and GitHub.</p>
+    </div>
+  </article>
 </div>
+
+### From questions to research programmes
+
+These themes are implemented through active projects on the multidimensional state of the north-central Peruvian anchovy stock, anchovy selectivity and demographic change, the Peruvian tuna purse-seine fishery, fleet responses to temporary closures, multivariate assessment indicators, and reproducible marine data systems.
+
+Explore the complete [Projects](/projects/) section, consult formal scientific outputs under [Publications](/publications/), or review analytical tools and curated data under [Software](/software/) and [Data](/data/).
 
 ## Selected publication
 
