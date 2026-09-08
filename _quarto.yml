@@ -43,7 +43,7 @@ website:
   search: true
   navbar:
     left:
-      - href: index.qmd
+      - href: research/index.qmd
         text: Research
       - href: projects/index.qmd
         text: Projects

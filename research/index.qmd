@@ -12,4 +12,6 @@ My research programme integrates population dynamics, stock assessment, spatio-t
 3. **Environmental variability and ecosystem responses** — oceanographic and climatic drivers, ecosystem regimes, and pressure–state relationships.
 4. **Statistical ecology and scientific computing** — hierarchical, additive, mixed, Bayesian, multivariate, machine-learning, and reproducible workflows.
 
-Research projects, papers, software, and data products are maintained in dedicated repositories and linked from the corresponding sections of this site.
+Research projects, papers, software, and teaching materials are maintained in dedicated repositories and linked from the corresponding sections of this site. The [Data Sources](../data/) section is a curated directory of external resources for students and collaborators; it is not a catalogue of datasets produced by me.
+
+[Explore current projects](../projects/) · [View publications](../publications/) · [Scientific software](../software/)

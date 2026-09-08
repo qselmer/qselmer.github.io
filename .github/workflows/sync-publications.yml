@@ -21,31 +21,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Synchronize canonical metadata
         run: |
           python scripts/sync_publications.py
           python scripts/sync_software.py
           python scripts/sync_teaching.py
-
+          python scripts/sync_metrics.py
       - name: Rebuild generated fragments
         run: |
           python scripts/build_publications.py
           python scripts/build_conferences.py
           python scripts/build_software.py
           python scripts/build_teaching.py
-
+          python scripts/build_home.py
       - name: Validate synchronized catalogues
         run: |
           python -m json.tool assets/data/publications.json >/dev/null
           python -m json.tool assets/data/conferences.json >/dev/null
           python -m json.tool assets/data/software.json >/dev/null
           python -m json.tool assets/data/teaching.json >/dev/null
+          python -m json.tool assets/data/research-metrics.json >/dev/null
           python -m json.tool talks/registry.json >/dev/null
           python -m json.tool software/registry.json >/dev/null
           python -m json.tool teaching/registry.json >/dev/null
@@ -53,15 +52,16 @@ jobs:
           python scripts/build_conferences.py --check
           python scripts/build_software.py --check
           python scripts/build_teaching.py --check
-
+          python scripts/build_home.py --check
       - name: Commit changes
         run: |
-          if git diff --quiet -- assets/data/publications.json publications/_generated.md assets/data/conferences.json talks/_generated.md assets/data/software.json software/_generated.md assets/data/teaching.json teaching/_generated.md; then
+          TRACKED="assets/data/publications.json publications/_generated.md assets/data/conferences.json talks/_generated.md assets/data/software.json software/_generated.md assets/data/teaching.json teaching/_generated.md assets/data/research-metrics.json home/_metrics.md"
+          if git diff --quiet -- $TRACKED; then
             echo "No academic profile changes detected."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/publications.json publications/_generated.md assets/data/conferences.json talks/_generated.md assets/data/software.json software/_generated.md assets/data/teaching.json teaching/_generated.md
+          git add $TRACKED
           git commit -m "chore: synchronize academic profile data"
           git push
