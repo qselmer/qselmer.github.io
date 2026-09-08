@@ -1,26 +1,13 @@
-# Jekyll output and caches
+# Quarto output and caches
 _site/
-.jekyll-cache/
-.jekyll-metadata
-.sass-cache/
-
-# Ruby/Bundler
-Gemfile.lock
-/vendor/
-.bundle/
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+.quarto/
 
 # Python and notebooks
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 
-# Local development files
+# Local development
 local/
 .env
 .env.*
