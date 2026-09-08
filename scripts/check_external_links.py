@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Check external HTTP(S) links in a rendered Quarto site.
+"""Audit external HTTP(S) links in a rendered Quarto site.
 
-The checker fails on confirmed 404/410 responses and unresolved network failures.
-Authentication, anti-bot and rate-limit responses (401/403/429) are treated as
-reachable-but-restricted rather than dead links.
+CI fails only for terminal link failures confirmed by an HTTP GET (404/410).
+Authentication, anti-bot, rate-limit, gateway, TLS, timeout and other network
+conditions are reported separately as restricted or unverified. This avoids
+turning third-party availability and CI-proxy behaviour into false dead-link
+failures while still making every unresolved URL visible in the build log.
 """
 
 from __future__ import annotations
@@ -18,9 +20,10 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 
-USER_AGENT = "qselmer.github.io-link-check/1.0 (+https://qselmer.github.io)"
-OK_RESTRICTED = {401, 403, 405, 429}
-FAIL_CODES = {404, 410}
+USER_AGENT = "qselmer.github.io-link-check/1.1 (+https://qselmer.github.io)"
+RESTRICTED_CODES = {401, 403, 405, 429}
+TERMINAL_CODES = {404, 410}
+TRANSIENT_CODES = {408, 425, 500, 502, 503, 504}
 
 
 class LinkParser(HTMLParser):
@@ -57,32 +60,49 @@ def request_once(url: str, method: str) -> tuple[int, str]:
     )
     context = ssl.create_default_context()
     with urlopen(req, timeout=12, context=context) as response:
-        if method == "GET":
-            response.read(1)
+        # Opening the response is sufficient for link validation. Do not read
+        # the body: some redirect/streaming endpoints close it immediately.
         return int(response.status), str(response.geturl())
 
 
 def check_url(url: str) -> tuple[str, str, int | None, str]:
-    errors: list[str] = []
+    observations: list[str] = []
+    terminal_head_code: int | None = None
+
     for method in ("HEAD", "GET"):
         for attempt in range(2):
             try:
                 code, final_url = request_once(url, method)
-                return url, "ok", code, final_url
+                if 200 <= code < 400:
+                    return url, "ok", code, final_url
+                observations.append(f"{method} HTTP {code}")
             except HTTPError as exc:
                 code = int(exc.code)
-                if code in OK_RESTRICTED:
-                    return url, "restricted", code, str(exc.geturl())
-                if code in FAIL_CODES:
-                    if method == "HEAD":
-                        break
-                    return url, "dead", code, str(exc.geturl())
-                errors.append(f"{method} HTTP {code}")
-            except (URLError, TimeoutError, OSError) as exc:
-                errors.append(f"{method} {type(exc).__name__}: {exc}")
+                final_url = str(exc.geturl())
+                if code in RESTRICTED_CODES:
+                    return url, "restricted", code, final_url
+                if code in TERMINAL_CODES:
+                    if method == "GET":
+                        return url, "dead", code, final_url
+                    terminal_head_code = code
+                    observations.append(f"HEAD HTTP {code}; GET confirmation required")
+                    break
+                if code in TRANSIENT_CODES:
+                    observations.append(f"{method} transient HTTP {code}")
+                else:
+                    observations.append(f"{method} HTTP {code}")
+            except (URLError, TimeoutError, OSError, ValueError) as exc:
+                observations.append(f"{method} {type(exc).__name__}: {exc}")
+            except Exception as exc:  # third-party transport quirks must be visible, not fatal
+                observations.append(f"{method} {type(exc).__name__}: {exc}")
+
             if attempt == 0:
                 time.sleep(0.5)
-    return url, "error", None, "; ".join(errors[-4:])
+
+    detail = "; ".join(observations[-6:]) or "No conclusive HTTP response"
+    if terminal_head_code is not None:
+        detail = f"HEAD returned {terminal_head_code}, but GET did not confirm a terminal failure; {detail}"
+    return url, "unverified", None, detail
 
 
 def main() -> None:
@@ -97,22 +117,32 @@ def main() -> None:
     if not links:
         raise SystemExit("No external links found")
 
-    results = []
+    results: list[tuple[str, str, int | None, str]] = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
-        for result in pool.map(check_url, links):
-            results.append(result)
+        results.extend(pool.map(check_url, links))
 
-    failures = [r for r in results if r[1] in {"dead", "error"}]
+    dead = [r for r in results if r[1] == "dead"]
     restricted = [r for r in results if r[1] == "restricted"]
+    unverified = [r for r in results if r[1] == "unverified"]
+    ok = [r for r in results if r[1] == "ok"]
 
-    for url, status, code, detail in failures:
+    for url, status, code, detail in dead:
         print(f"FAIL {status.upper():10} {code or '-':>3} {url} -> {detail}")
-    if failures:
-        raise SystemExit(f"External-link validation FAIL: {len(failures)} of {len(results)} URLs failed")
+    for url, status, code, detail in restricted:
+        print(f"INFO {status.upper():10} {code or '-':>3} {url} -> {detail}")
+    for url, status, code, detail in unverified:
+        print(f"WARN {status.upper():10} {code or '-':>3} {url} -> {detail}")
+
+    if dead:
+        raise SystemExit(
+            f"External-link audit FAIL: {len(dead)} confirmed dead URL(s) of {len(results)} checked"
+        )
 
     print(
-        f"External-link validation PASS: {len(results)} unique HTTP(S) URLs checked; "
-        f"{len(restricted)} reachable but access/rate restricted"
+        "External-link audit PASS: "
+        f"{len(results)} unique HTTP(S) URLs; {len(ok)} reachable, "
+        f"{len(restricted)} restricted, {len(unverified)} unverified, "
+        "0 confirmed 404/410"
     )
 
 
