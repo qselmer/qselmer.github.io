@@ -35,7 +35,7 @@ This branch contains the controlled migration of `qselmer.github.io` from Academ
   - [x] 4.10 Final homepage
 - [x] Phase 5 - metadata and automation consolidation.
 - [x] Phase 6 - remove Academic Pages/Jekyll technical debt.
-- [ ] Phase 7 - certify URLs, redirects, accessibility, metadata, external links, and responsive layout.
+- [x] Phase 7 - certify URLs, redirects, accessibility, metadata, external links, and responsive layout.
 - [ ] Phase 8 - production deployment and default-branch standardization.
 
 ## Phase 4 outcome
@@ -62,7 +62,7 @@ The final pre-migration Jekyll production state is preserved in branch `legacy/j
 
 A final parity inventory identified meaningful residual routes before cleanup. Quarto equivalents were created for `/engagement/`, `/resources/`, `/services/`, `/follow/`, `/terms/`, and the 404 page. A 2022 anchoveta biomass conference contribution that existed only in the legacy `_publications` collection was retained as an explicitly historical Conferences record at `/talks/2022-09-01-anchoveta-biomass-variability/`; no unverified proceedings URL was invented.
 
-`config/legacy-routes.json` now separates preserved routes from routes requiring redirects. Redirect implementation and certification remain Phase 7 work.
+`config/legacy-routes.json` separates preserved routes from routes requiring redirects. Phase 7 now generates and certifies those redirects deterministically.
 
 The migration branch no longer contains the Academic Pages/Jekyll runtime or template machinery, including:
 
@@ -75,11 +75,20 @@ The migration branch no longer contains the Academic Pages/Jekyll runtime or tem
 
 The retained source is Quarto plus the Python metadata/build pipeline, curated JSON registries/mirrors, site content, images, and CV resources. Source CI rejects reintroduction of the retired legacy paths.
 
+## Phase 7 outcome
+
+Preproduction certification is complete.
+
+- Required legacy redirects are generated deterministically from `config/legacy-routes.json` and validated against the rendered site.
+- Current same-site URLs are validated directly against `_site`; historical website routes and project microsites are distinguished from true external URLs.
+- Canonical URLs, Open Graph metadata, Twitter cards, `sitemap.xml`, `robots.txt`, and a `noindex` 404 page are present.
+- Accessibility checks enforce visible page titles, exactly one `h1` per page, a keyboard skip link, visible focus states, reduced-motion support, image alternative text, iframe titles, and responsive viewport metadata.
+- External-link validation blocks confirmed `404`/`410` failures while separately reporting authentication, rate-limit, anti-bot, gateway, TLS, and timeout responses that cannot be conclusively validated from GitHub Actions.
+- The certified workflow run rendered successfully and passed source, rendered-site, redirect, SEO/accessibility, internal-link, and external-link checks.
+- Independent artefact inspection found **42 HTML pages**, **1,141 internal `href`/`src` references**, **0 missing internal references**, and **0 canonical/H1 semantic anomalies**.
+- Secondary layout rendering at **1440 x 900** and **390 x 844** for Home, Data Sources, CV, Contact, and a long Blog page found no obvious content overflow or clipping. The available Chromium runtime was blocked from local navigation by the execution environment, so JavaScript navbar behaviour is not represented as Chrome-certified.
+
 ## Remaining work
-
-### Phase 7
-
-Implement and certify required redirects from `config/legacy-routes.json`; validate meaningful legacy URLs, metadata/SEO, accessibility, external links, responsive layouts, and deployment artefact quality.
 
 ### Phase 8
 
