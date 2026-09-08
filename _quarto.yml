@@ -53,7 +53,7 @@ website:
       - href: teaching/index.qmd
         text: Teaching
       - href: data/index.qmd
-        text: Data
+        text: Data Sources
       - href: blog/index.qmd
         text: Blog
       - href: cv/index.qmd

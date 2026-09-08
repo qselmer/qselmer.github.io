@@ -7,7 +7,7 @@ description: "Peer-reviewed articles, theses, and other formal scholarly outputs
 This catalogue contains formal scholarly outputs associated with my research. Publication metadata is not maintained manually in the website: it is derived from the research-profile catalogue and synchronized from ORCID and Crossref metadata.
 </div>
 
-Conference presentations and posters are maintained separately under [Conferences](/talks/). Software and data products are catalogued under [Software](/software/) and [Data](/data/), respectively.
+Conference presentations and posters are maintained separately under [Conferences](/talks/). Scientific software is catalogued under [Software](/software/), while [Data Sources](/data/) is a curated directory of external datasets and services rather than a catalogue of data produced by me.
 
 {{< include _generated.md >}}
 

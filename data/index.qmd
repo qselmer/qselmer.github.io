@@ -1,8 +1,18 @@
 ---
-title: "Data"
-description: "Curated marine and fisheries data resources and reproducible data products."
+title: "External Data Sources"
+description: "Curated external data sources for fisheries, marine ecology, oceanography, climate, spatial analysis, and teaching."
 ---
 
-This section distinguishes external source data from project-specific derived products. Inclusion does not imply that all datasets are redistributed through this website.
+<div class="section-intro">
+A curated directory of external data sources that students and collaborators can use in fisheries science, marine ecology, oceanography, stock assessment, species-distribution modelling, climate analysis, and reproducible scientific computing.
+</div>
 
-Records will document provenance, access conditions, spatial and temporal coverage, variables, processing level, and the repository or external service responsible for the data.
+**These are not my datasets.** This website does not claim ownership of, mirror, or redistribute the listed data. Each record points to the authoritative provider and summarizes practical access conditions so users can find an appropriate source quickly.
+
+{{< include _generated.md >}}
+
+## Catalogue maintenance
+
+`data/registry.json` is the website's curated source registry. It records only discovery metadata: provider, access model, coverage, formats, intended use, licence/access notes, and the authoritative URL. Dataset files remain with the original provider.
+
+A source is included because it is useful for research or teaching, not because it is endorsed, unrestricted, or interchangeable with another product. Users should always verify the current provider documentation before analysis.

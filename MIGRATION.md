@@ -13,7 +13,8 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
 7. The authoritative repository inventory is `qselmer/qselmer/assets/data/repository-catalog.json`; website registries curate which software and teaching resources are mature enough to present.
 8. Teaching content remains in dedicated repositories. Actual activities use `type-training`; the reusable teaching scaffold uses `type-template`.
 9. Conference outputs retain ORCID-derived bibliographic identity; `talks/registry.json` adds only presentation-level metadata and stable routes.
-10. Legacy template files are removed only after URL, content, and build parity are verified.
+10. The Data section is an external-source directory for students and collaborators. `data/registry.json` contains discovery metadata only; no listed dataset is presented as owned or produced by Elmer Quispe-Salazar.
+11. Legacy template files are removed only after URL, content, and build parity are verified.
 
 ## Migration phases
 
@@ -26,13 +27,13 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
   - [x] Phase 4.3 — curate scientific software from the canonical repository inventory and preserve software maturity boundaries.
   - [x] Phase 4.4 — curate structured teaching activities and teaching infrastructure without duplicating course content into the website.
   - [x] Phase 4.5 — reconcile all conference outputs with ORCID and preserve conference routes.
-  - [ ] Phase 4.6 — data.
+  - [x] Phase 4.6 — replace the ambiguous data-product concept with a curated external data-source directory for students and collaborators.
   - [ ] Phase 4.7 — blog / research notes.
   - [ ] Phase 4.8 — CV.
   - [ ] Phase 4.9 — contact.
   - [ ] Phase 4.10 — final homepage integration.
 - [ ] Phase 5 — consolidate metadata and automation.
-- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, and `_data/publications.json` after final parity checks.
+- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, `_data/publications.json`, and `_data/data_resources.yml` after final parity checks.
 - [ ] Phase 7 — validate URLs, accessibility, links, metadata, and mobile layout.
 - [ ] Phase 8 — merge to production and standardize the default branch.
 
@@ -46,4 +47,6 @@ Software migration uses the canonical repository inventory plus `software/regist
 
 Teaching migration follows the same architecture. `teaching/registry.json` currently promotes `git-github-training` as the structured teaching activity and `.template-training` as teaching infrastructure. Practice repositories and clones are not promoted automatically. `bioacoustic-monitoring` is intentionally held for adaptation because its current public README identifies the Climate Change AI tutorial and original authors; it must become a distinct, explicitly attributed class before website promotion.
 
-Conference migration now reconciles every `Conference outputs` record in the synchronized publication catalogue against `talks/registry.json`. The two SPF-2026 legacy records preserve their established routes and presentation metadata; the 2024 VI SIBECORP contribution receives a stable route. `assets/data/conferences.json` and `talks/_generated.md` are deterministic derivatives checked by CI, so new ORCID conference outputs cannot silently disappear from the website catalogue.
+Conference migration reconciles every `Conference outputs` record in the synchronized publication catalogue against `talks/registry.json`. The two SPF-2026 legacy records preserve their established routes and presentation metadata; the 2024 VI SIBECORP contribution receives a stable route. `assets/data/conferences.json` and `talks/_generated.md` are deterministic derivatives checked by CI, so new ORCID conference outputs cannot silently disappear from the website catalogue.
+
+Data migration now defines `/data/` exclusively as a curated directory of external sources for students and collaborators. `data/registry.json` contains 29 reviewed resources across fisheries, biodiversity, oceanography, satellite/reanalysis/climate, bathymetry/geospatial, Peru-specific public data, and licensed/commercial sources. The site does not mirror or claim ownership of these datasets. `data/_generated.md` is deterministic and checked by CI.
