@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_repository": "qselmer/qselmer",
+  "source_path": "assets/data/repository-catalog.json",
+  "catalog_updated_at": "2026-09-07T16:34:34.264471+00:00",
+  "count": 2,
+  "software": [
+    {
+      "name": "oceancube",
+      "full_name": "qselmer/oceancube",
+      "html_url": "https://github.com/qselmer/oceancube",
+      "description": "",
+      "language": "R",
+      "updated_at": "2026-08-20T18:10:17Z",
+      "repository_type": "type-package",
+      "repository_type_label": "Packages",
+      "category": "R package",
+      "maturity": "Stable source release",
+      "site_path": "/software/oceancube/",
+      "summary": "Validated R infrastructure for representing, inspecting, subsetting, extracting, visualizing, and transforming multidimensional ocean data cubes for reproducible marine analysis."
+    },
+    {
+      "name": "humboldt-ocean-watch",
+      "full_name": "qselmer/humboldt-ocean-watch",
+      "html_url": "https://github.com/qselmer/humboldt-ocean-watch",
+      "description": "AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region.",
+      "language": "Python",
+      "updated_at": "2026-08-03T19:50:54Z",
+      "repository_type": "type-app",
+      "repository_type_label": "Apps & dashboards",
+      "category": "Experimental application",
+      "maturity": "Experimental",
+      "site_path": "/software/humboldt-ocean-watch/",
+      "summary": "Python and Streamlit system for reproducible thermal monitoring of Niño 1+2 using validated local analytics, quality control, event diagnostics, and optional grounded scientific briefs."
+    }
+  ]
+}

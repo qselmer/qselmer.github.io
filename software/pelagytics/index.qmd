@@ -1,0 +1,30 @@
+---
+title: "Pelagytics"
+description: "Concept-stage fisheries analytics platform."
+status: "concept"
+categories:
+  - fisheries analytics
+  - decision support
+---
+
+Pelagytics is currently a **concept and prototype direction**, not a released software product.
+
+## Current status
+
+No canonical public repository has been verified for Pelagytics. For that reason it is not included in the primary scientific-software catalogue and no installation, release, API, or reproducibility claims are made here.
+
+The concept concerns modular integration of fisheries, biological, environmental, and spatial information into reproducible indicators and decision-support products.
+
+## Promotion criteria
+
+Pelagytics should return to the primary Software catalogue only after it has:
+
+- a canonical repository;
+- defined software scope and governance;
+- documented data boundaries;
+- reproducible installation;
+- tests;
+- license and citation metadata;
+- a minimum viable public interface or API.
+
+This page is retained primarily to preserve the established `/software/pelagytics/` URL during the website migration.

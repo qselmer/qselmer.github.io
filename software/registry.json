@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "source": "qselmer/qselmer/assets/data/repository-catalog.json",
+  "published": [
+    {
+      "repository": "qselmer/oceancube",
+      "site_path": "/software/oceancube/",
+      "category": "R package",
+      "maturity": "Stable source release",
+      "summary": "Validated R infrastructure for representing, inspecting, subsetting, extracting, visualizing, and transforming multidimensional ocean data cubes for reproducible marine analysis."
+    },
+    {
+      "repository": "qselmer/humboldt-ocean-watch",
+      "site_path": "/software/humboldt-ocean-watch/",
+      "category": "Experimental application",
+      "maturity": "Experimental",
+      "summary": "Python and Streamlit system for reproducible thermal monitoring of Niño 1+2 using validated local analytics, quality control, event diagnostics, and optional grounded scientific briefs."
+    }
+  ],
+  "incubating": [
+    {
+      "repository": "qselmer/seasignals",
+      "site_path": "/software/seasignals/",
+      "reason": "Public R-package repository exists, but its current README is still a package skeleton with placeholder installation and example sections."
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Pelagytics",
+      "site_path": "/software/pelagytics/",
+      "reason": "Concept and prototype only; no canonical public repository has been verified."
+    }
+  ],
+  "not_listed": [
+    {
+      "repository": "qselmer/FisheryClose",
+      "reason": "Repository is classified as a package in the profile catalogue, but the public README currently contains only the repository title."
+    },
+    {
+      "repository": "qselmer/postHub",
+      "reason": "Repository is classified as a package in the profile catalogue, but the public README does not document a scientific software product."
+    },
+    {
+      "repository": "qselmer/fish-byte",
+      "reason": "Repository is classified as a package in the profile catalogue, but current public documentation is insufficient for the academic software catalogue."
+    }
+  ]
+}

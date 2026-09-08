@@ -1,8 +1,18 @@
 ---
 title: "Software"
-description: "Scientific software, analytical tools, and reusable computational infrastructure."
+description: "Scientific packages, analytical applications, and reusable computational infrastructure."
 ---
 
-Software records on this site are discovery pages. The canonical source code, documentation, releases, tests, and development history remain in their independent GitHub repositories.
+<div class="section-intro">
+This section is a curated discovery layer for scientific software that has a verifiable public repository and sufficient documentation to support external use or technical review. Source code, issues, releases, tests, manuals, and development history remain in their canonical GitHub repositories.
+</div>
 
-Current development includes tools for marine environmental data, climate-state representation, fisheries analytics, and reproducible scientific workflows.
+Repository classification comes from the academic-profile catalogue, but **classification alone is not enough for inclusion here**. A repository must also pass a website-level readiness audit. Experimental applications are labelled explicitly and are not presented as official monitoring or management products.
+
+{{< include _generated.md >}}
+
+## Catalogue policy
+
+The authoritative repository inventory is maintained in [`qselmer/qselmer`](https://github.com/qselmer/qselmer). This website synchronizes only the curated software subset into `assets/data/software.json`. Editorial inclusion rules are stored in `software/registry.json`; generated presentation content must not be edited by hand.
+
+Repositories that are incomplete, undocumented, private, concept-stage, or not yet defensibly classified remain outside the primary software catalogue until their own repository audit is complete.

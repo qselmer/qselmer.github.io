@@ -1,16 +1,17 @@
-name: Sync publication catalogue
+name: Sync academic profile data
 
 on:
   workflow_dispatch:
   schedule:
-    # Weekly on Monday at 13:17 UTC (08:17 America/Lima).
+    # Weekly on Monday at 13:17 UTC (08:17 America/Lima),
+    # after qselmer/qselmer refreshes its canonical profile at 11:27 UTC.
     - cron: "17 13 * * 1"
 
 permissions:
   contents: write
 
 concurrency:
-  group: sync-publications
+  group: sync-academic-profile-data
   cancel-in-progress: false
 
 jobs:
@@ -26,25 +27,32 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Synchronize publication metadata
-        run: python scripts/sync_publications.py
+      - name: Synchronize canonical metadata
+        run: |
+          python scripts/sync_publications.py
+          python scripts/sync_software.py
 
-      - name: Rebuild publication fragment
-        run: python scripts/build_publications.py
+      - name: Rebuild generated fragments
+        run: |
+          python scripts/build_publications.py
+          python scripts/build_software.py
 
-      - name: Validate publication catalogue
+      - name: Validate synchronized catalogues
         run: |
           python -m json.tool assets/data/publications.json >/dev/null
+          python -m json.tool assets/data/software.json >/dev/null
+          python -m json.tool software/registry.json >/dev/null
           python scripts/build_publications.py --check
+          python scripts/build_software.py --check
 
       - name: Commit changes
         run: |
-          if git diff --quiet -- assets/data/publications.json publications/_generated.md; then
-            echo "No publication changes detected."
+          if git diff --quiet -- assets/data/publications.json publications/_generated.md assets/data/software.json software/_generated.md; then
+            echo "No academic profile changes detected."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/publications.json publications/_generated.md
-          git commit -m "chore: synchronize publication catalogue"
+          git add assets/data/publications.json publications/_generated.md assets/data/software.json software/_generated.md
+          git commit -m "chore: synchronize academic profile data"
           git push

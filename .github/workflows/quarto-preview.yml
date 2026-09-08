@@ -23,10 +23,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate publication catalogue
+      - name: Validate generated catalogues
         run: |
           python -m json.tool assets/data/publications.json >/dev/null
+          python -m json.tool assets/data/software.json >/dev/null
+          python -m json.tool software/registry.json >/dev/null
           python scripts/build_publications.py --check
+          python scripts/build_software.py --check
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
