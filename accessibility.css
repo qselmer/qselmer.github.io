@@ -2,6 +2,10 @@
   display: block;
 }
 
+body {
+  overflow-x: clip;
+}
+
 .qs-skip-link {
   position: fixed;
   top: 0.5rem;
@@ -56,10 +60,6 @@ main.content,
 }
 
 @media (max-width: 760px) {
-  body {
-    overflow-x: hidden;
-  }
-
   .quarto-title-block {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
