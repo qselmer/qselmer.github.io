@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import html as html_lib
 import json
 import subprocess
 import sys
@@ -32,14 +33,18 @@ def load_json(path: Path) -> dict:
     return payload
 
 
+def normalized_text(path: Path) -> str:
+    return html_lib.unescape(path.read_text(encoding="utf-8"))
+
+
 def require_text(path: Path, expected: str) -> None:
-    text = path.read_text(encoding="utf-8")
+    text = normalized_text(path)
     if expected not in text:
         raise RuntimeError(f"{path.relative_to(ROOT)} is missing canonical value: {expected}")
 
 
 def reject_text(path: Path, forbidden: str) -> None:
-    text = path.read_text(encoding="utf-8")
+    text = normalized_text(path)
     if forbidden in text:
         raise RuntimeError(f"{path.relative_to(ROOT)} contains forbidden legacy value: {forbidden}")
 
@@ -121,7 +126,7 @@ def internal_target(site: Path, page: Path, reference: str) -> list[Path]:
         return []
 
     parsed = urlsplit(ref)
-    if parsed.scheme.lower() in {"http", "https", "mailto", "tel", "javascript", "data"}:
+    if parsed.scheme:
         return []
     path_text = unquote(parsed.path)
     if not path_text:
@@ -191,6 +196,8 @@ def validate_rendered() -> None:
     for label in ("ORCID works", "OpenAlex works", "Citations", "h-index", "i10-index", "OpenAlex"):
         require_text(home, label)
     require_text(home, "research/index.html")
+    reject_text(home, '<pre><code><p class="qs-eyebrow">')
+    reject_text(home, '<pre><code><span class="qs-metric-value">')
 
     require_text(contact, identity["email"])
     require_text(contact, "elmer-quispe-salazar-104b6b1a4")
