@@ -2,7 +2,7 @@
 
 Personal academic website of **Elmer Quispe-Salazar**, implemented with Quarto.
 
-> Migration status: `migration/quarto-v1` is now Quarto-only and remains under final certification. Production `master` still serves the legacy Jekyll implementation until the controlled deployment phase.
+> Migration status: `migration/quarto-v1` is now Quarto-only and certified through Phase 7. Production `master` still serves the legacy Jekyll implementation until the controlled Phase 8 cutover is merged and deployed.
 
 ## Information architecture
 
@@ -56,6 +56,10 @@ python scripts/sync_profile.py
 
 This synchronizes canonical public profile metadata, derives the curated software/teaching subsets, rebuilds generated fragments, and runs source validation.
 
+## Production deployment
+
+The production site is deployed through GitHub Pages Actions. `.github/workflows/quarto-pages.yml` builds the Quarto project, runs source/rendered/external-link validation, uploads `_site`, and deploys it to GitHub Pages on pushes to `master`.
+
 ## Privacy and data policy
 
 Restricted fisheries, biological, institutional, or private-repository metadata is not published through this website. The external Data Sources directory stores discovery metadata and provider links only; it does not mirror third-party datasets.
@@ -69,6 +73,6 @@ branch: legacy/jekyll-v0.9
 commit: f84307690cc573b7b2e83a548d2d56102a05218d
 ```
 
-Meaningful historical routes and required redirects are inventoried in `config/legacy-routes.json`. Phase 7 certifies those routes before production cutover.
+Meaningful historical routes and required redirects are inventoried in `config/legacy-routes.json` and certified before production cutover.
 
 Migration design and checkpoints are documented in [`MIGRATION.md`](MIGRATION.md). Historical attribution is documented in [`NOTICE.md`](NOTICE.md).
