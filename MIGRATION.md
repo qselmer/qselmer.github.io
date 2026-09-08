@@ -16,7 +16,7 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
 10. The Data section is an external-source directory for students and collaborators. `data/registry.json` contains discovery metadata only; no listed dataset is presented as owned or produced by Elmer Quispe-Salazar.
 11. The Blog is a teaching-communication layer: the audience pathway is social post → Blog → class, while content production should normally proceed class/theme → Blog → social post. New Blog articles require an explicit link to a published class; migrated legacy articles may be retained as documented exceptions until the class exists.
 12. Formal scholarly outputs and citable scientific notes belong in Publications, not in the Blog.
-13. The complete PDF at `files/CV.pdf` is the authoritative detailed curriculum vitae. The `/cv/` page is a professional navigation layer and must not duplicate full publication, conference, software, teaching, project, or data catalogues.
+13. Contact identity follows the currently maintained public `qselmer/qselmer` profile: `qselmers@gmail.com` is the personal collaboration address and the full LinkedIn profile slug is canonical. Legacy institutional email and obsolete LinkedIn metadata are not propagated into the Quarto site.
 14. Legacy template files are removed only after URL, content, and build parity are verified.
 
 ## Migration phases
@@ -32,11 +32,11 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
   - [x] Phase 4.5 — reconcile all conference outputs with ORCID and preserve conference routes.
   - [x] Phase 4.6 — replace the ambiguous data-product concept with a curated external data-source directory for students and collaborators.
   - [x] Phase 4.7 — define Blog as the social → extended article → class pathway, migrate the legacy statistical-distributions article, and enforce class linkage for new posts.
-  - [x] Phase 4.8 — migrate the CV as a professional landing page while preserving the complete PDF and legacy `/resume/` route.
-  - [ ] Phase 4.9 — contact.
+  - [x] Phase 4.8 — retain the detailed PDF as the canonical CV while converting `/cv/` into a navigable professional landing page and preserving `/resume/`.
+  - [x] Phase 4.9 — consolidate personal contact identity, collaboration scope, and verified academic/professional profiles without using a third-party contact form.
   - [ ] Phase 4.10 — final homepage integration.
 - [ ] Phase 5 — consolidate metadata and automation.
-- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, `_posts/`, `_data/publications.json`, and `_data/data_resources.yml` after final parity checks.
+- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, `_posts/`, `_data/publications.json`, `_data/data_resources.yml`, and obsolete Jekyll contact configuration after final parity checks.
 - [ ] Phase 7 — validate URLs, accessibility, links, metadata, and mobile layout.
 - [ ] Phase 8 — merge to production and standardize the default branch.
 
@@ -56,4 +56,6 @@ Data migration now defines `/data/` exclusively as a curated directory of extern
 
 Blog migration now separates communication from scholarship. `blog/registry.json` records extended articles and their class relationship; `scripts/build_blog.py` rejects new non-legacy posts that are not linked to a published class. The established `/blog/statistical-distributions-fisheries-marine-ecology/` route is preserved as a `legacy-adapted` exception because no structured class for that topic is currently published. Social-media posts remain distribution entry points rather than website publication records, and formal scientific notes remain under Publications.
 
-CV migration keeps `files/CV.pdf` as the authoritative detailed professional record and turns `/cv/` into a concise navigation layer across the research portfolio. The legacy `/resume/` route remains available. Quarto explicitly copies the PDF as a static resource, and CI verifies the source PDF, rendered PDF, `/cv/`, and `/resume/` on every migration build.
+CV migration keeps `files/CV.pdf` as the authoritative detailed curriculum vitae while `/cv/` acts as a professional discovery page linked to the site catalogues. `/resume/` is preserved as a compatibility route, and CI verifies both routes plus the rendered PDF resource.
+
+Contact migration uses the maintained public profile as the identity source for personal collaboration contact. The Quarto Contact page exposes `qselmers@gmail.com`, ORCID, Google Scholar, Web of Science, ResearchGate, GitHub, LinkedIn, and X; it clearly states that the website is personal rather than an institutional communication channel. The unused FormSubmit configuration remains only as legacy Jekyll material until Phase 6 and is not rendered or used by Quarto.
