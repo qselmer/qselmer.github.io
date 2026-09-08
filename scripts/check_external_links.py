@@ -7,10 +7,10 @@ conditions are reported separately as restricted or unverified. This avoids
 turning third-party availability and CI-proxy behaviour into false dead-link
 failures while still making every unresolved URL visible in the build log.
 
-Absolute URLs that point back to this website are intentionally excluded: they
-are internal links and are validated against the rendered ``_site`` tree by
-``validate_site.py``. This is especially important before the production
-cutover, while the public domain still serves the legacy site.
+Absolute ``qselmer.github.io`` URLs are treated as internal only when their path
+actually resolves inside the rendered ``_site`` tree. This keeps future main-
+site routes out of the network audit before production cutover while still
+checking sibling GitHub Pages project sites such as ``/oceancube/``.
 """
 
 from __future__ import annotations
@@ -22,11 +22,11 @@ import time
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 from urllib.request import Request, urlopen
 
-USER_AGENT = "qselmer.github.io-link-check/1.2 (+https://qselmer.github.io)"
-INTERNAL_HOSTS = {"qselmer.github.io"}
+USER_AGENT = "qselmer.github.io-link-check/1.3 (+https://qselmer.github.io)"
+SITE_HOST = "qselmer.github.io"
 RESTRICTED_CODES = {401, 403, 405, 429}
 TERMINAL_CODES = {404, 410}
 TRANSIENT_CODES = {408, 425, 500, 502, 503, 504}
@@ -42,13 +42,30 @@ class LinkParser(HTMLParser):
             return
         data = dict(attrs)
         href = (data.get("href") or "").strip()
-        parsed = urlsplit(href)
-        if parsed.scheme not in {"http", "https"}:
-            return
-        host = (parsed.hostname or "").lower()
-        if host in INTERNAL_HOSTS:
-            return
-        self.links.add(href)
+        if urlsplit(href).scheme in {"http", "https"}:
+            self.links.add(href)
+
+
+def resolves_inside_site(url: str, site: Path) -> bool:
+    """Return True when an absolute same-host URL maps to this rendered site."""
+    parsed = urlsplit(url)
+    if (parsed.hostname or "").lower() != SITE_HOST:
+        return False
+
+    rel = unquote(parsed.path).lstrip("/")
+    target = site / rel
+    candidates: list[Path] = []
+
+    if not rel:
+        candidates.append(site / "index.html")
+    else:
+        candidates.append(target)
+        if parsed.path.endswith("/"):
+            candidates.append(target / "index.html")
+        elif not target.suffix:
+            candidates.extend([target / "index.html", Path(f"{target}.html")])
+
+    return any(candidate.is_file() for candidate in candidates)
 
 
 def collect_links(site: Path) -> list[str]:
@@ -56,7 +73,10 @@ def collect_links(site: Path) -> list[str]:
     for page in site.rglob("*.html"):
         parser = LinkParser()
         parser.feed(page.read_text(encoding="utf-8", errors="replace"))
-        links.update(parser.links)
+        for url in parser.links:
+            if resolves_inside_site(url, site):
+                continue
+            links.add(url)
     return sorted(links)
 
 
