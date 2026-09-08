@@ -17,14 +17,15 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
 11. The Blog is a teaching-communication layer: the audience pathway is social post → Blog → class, while content production should normally proceed class/theme → Blog → social post. New Blog articles require an explicit link to a published class; migrated legacy articles may be retained as documented exceptions until the class exists.
 12. Formal scholarly outputs and citable scientific notes belong in Publications, not in the Blog.
 13. Contact identity follows the currently maintained public `qselmer/qselmer` profile: `qselmers@gmail.com` is the personal collaboration address and the full LinkedIn profile slug is canonical. Legacy institutional email and obsolete LinkedIn metadata are not propagated into the Quarto site.
-14. Legacy template files are removed only after URL, content, and build parity are verified.
+14. Homepage research metrics are synchronized from `qselmer/qselmer/assets/data/research-metrics.json`; ORCID/OpenAlex values are displayed as reported and are never manually inflated. Google Scholar remains a discovery link rather than a scraped metric source.
+15. Legacy template files are removed only after URL, content, and build parity are verified.
 
 ## Migration phases
 
 - [x] Phase 1 — create isolated migration branch.
 - [x] Phase 2 — add minimal Quarto architecture and principal section routes.
 - [x] Phase 3 — validate automated Quarto rendering.
-- [ ] Phase 4 — migrate project, publication, software, conference, teaching, data, blog, CV, and contact content.
+- [x] Phase 4 — migrate project, publication, software, conference, teaching, data, blog, CV, contact, and homepage content.
   - [x] Phase 4.1 — migrate and classify all six project records while preserving project URLs.
   - [x] Phase 4.2 — consolidate publications around the profile catalogue and generate the Quarto publication list automatically.
   - [x] Phase 4.3 — curate scientific software from the canonical repository inventory and preserve software maturity boundaries.
@@ -34,7 +35,7 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
   - [x] Phase 4.7 — define Blog as the social → extended article → class pathway, migrate the legacy statistical-distributions article, and enforce class linkage for new posts.
   - [x] Phase 4.8 — retain the detailed PDF as the canonical CV while converting `/cv/` into a navigable professional landing page and preserving `/resume/`.
   - [x] Phase 4.9 — consolidate personal contact identity, collaboration scope, and verified academic/professional profiles without using a third-party contact form.
-  - [ ] Phase 4.10 — final homepage integration.
+  - [x] Phase 4.10 — integrate the final homepage identity, personal research statements, automated research metrics, current research, and navigation across the scientific ecosystem.
 - [ ] Phase 5 — consolidate metadata and automation.
 - [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, `_posts/`, `_data/publications.json`, `_data/data_resources.yml`, and obsolete Jekyll contact configuration after final parity checks.
 - [ ] Phase 7 — validate URLs, accessibility, links, metadata, and mobile layout.
@@ -59,3 +60,5 @@ Blog migration now separates communication from scholarship. `blog/registry.json
 CV migration keeps `files/CV.pdf` as the authoritative detailed curriculum vitae while `/cv/` acts as a professional discovery page linked to the site catalogues. `/resume/` is preserved as a compatibility route, and CI verifies both routes plus the rendered PDF resource.
 
 Contact migration uses the maintained public profile as the identity source for personal collaboration contact. The Quarto Contact page exposes `qselmers@gmail.com`, ORCID, Google Scholar, Web of Science, ResearchGate, GitHub, LinkedIn, and X; it clearly states that the website is personal rather than an institutional communication channel. The unused FormSubmit configuration remains only as legacy Jekyll material until Phase 6 and is not rendered or used by Quarto.
+
+Homepage integration gives the site a distinct personal identity rather than copying the reference design. The hero uses the name, field, portrait, and an original marine-data visual motif. The primary signature line is `Measure change. Model uncertainty. Inform fisheries decisions.` Supporting statements are `From marine observations to reproducible evidence` and `Connecting ecology, data, and decisions in dynamic marine systems.` Research metrics are generated deterministically from the synchronized ORCID/OpenAlex metric mirror. The navbar now separates the homepage from the dedicated Research page.
