@@ -34,23 +34,10 @@ jobs:
         uses: quarto-dev/quarto-actions/render@v2
 
       - name: Validate rendered site
-        shell: bash
-        run: |
-          set -o pipefail
-          python scripts/validate_site.py rendered 2>&1 | tee rendered-validation.log
-
-      - name: Upload rendered validation diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: rendered-validation-diagnostics
-          path: rendered-validation.log
-          if-no-files-found: ignore
+        run: python scripts/validate_site.py rendered
 
       - name: Upload rendered preview
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: quarto-site-preview
           path: _site
-          if-no-files-found: ignore
