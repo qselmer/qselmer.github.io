@@ -5,13 +5,11 @@ toc: false
 page-layout: full
 ---
 
-# Elmer Quispe-Salazar
-
-**Marine Quantitative Ecologist & Fisheries Scientist**
+**Elmer Quispe-Salazar · Marine Quantitative Ecologist & Fisheries Scientist**
 
 I work at the intersection of quantitative marine ecology, fisheries science, marine data science, and decision science. My work focuses on pelagic fish and marine ecosystems, combining stock assessment, spatio-temporal modelling, population and life-history processes, environmental variability, multidimensional indicators, and reproducible scientific computing.
 
-[Open complete CV (PDF)](/files/CV.pdf){.btn .btn-primary target="_blank"} [ORCID](https://orcid.org/0000-0001-9229-6379){.btn} [Google Scholar](https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en){.btn} [GitHub](https://github.com/qselmer){.btn}
+[Open complete CV (PDF)](/files/CV.pdf){.btn .btn-primary target="_blank" rel="noopener noreferrer"} [ORCID](https://orcid.org/0000-0001-9229-6379){.btn} [Google Scholar](https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en){.btn} [GitHub](https://github.com/qselmer){.btn}
 
 ## Research focus
 
@@ -73,7 +71,7 @@ A curated directory of external fisheries, oceanographic, ecological, climate, a
 
 The PDF below remains the **authoritative detailed CV** for education, research and professional experience, publications, conference contributions, training, awards, and other credentials. The website sections above are navigation and discovery layers rather than duplicate CV records.
 
-[Open the PDF in a new tab](/files/CV.pdf){.btn .btn-primary target="_blank"}
+[Open the PDF in a new tab](/files/CV.pdf){.btn .btn-primary target="_blank" rel="noopener noreferrer"}
 
 <iframe
   src="/files/CV.pdf#view=FitH&toolbar=1&navpanes=0"
