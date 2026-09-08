@@ -1,0 +1,50 @@
+---
+title: "Reproducible marine data systems"
+description: "Building reproducible systems for acquiring, harmonizing, documenting, analysing, and updating fisheries and oceanographic data."
+date: 2026-07-10
+status: active
+project-type: methods-software-programme
+featured: false
+categories: [reproducible research, marine data, scientific computing, automation]
+---
+
+<div class="project-meta"><strong>Status:</strong> Active · <strong>Type:</strong> Methods and software programme</div>
+
+## Scientific question
+
+How can complex fisheries, biological, acoustic, and oceanographic data be transformed into reproducible analytical systems that remain traceable, updateable, and suitable for scientific assessment?
+
+## Scope
+
+The programme covers data acquisition, quality control, harmonization, metadata, provenance, version control, analytical pipelines, automated outputs, and computational environments for marine research.
+
+## Data and tools
+
+Applications include satellite and reanalysis products, fisheries-dependent observations, acoustic-survey information, biological sampling, environmental time series, and multidimensional spatial data.
+
+## Methods
+
+- Programmatic data acquisition and validation.
+- Standardized data schemas and variable dictionaries.
+- Reproducible pipelines in R, Python, Julia, Git, and GitHub.
+- Dependency and environment management.
+- Automated figures, tables, reports, and quality-control summaries.
+- Documentation, testing, and provenance tracking.
+
+## Current status
+
+Active software and workflow-development programme supporting fisheries, anchovy, tuna, environmental, and ecosystem-indicator projects.
+
+## Related public repositories
+
+- [`oceancube`](https://github.com/qselmer/oceancube) — multidimensional marine environmental data acquisition, harmonization, subsetting, validation, and organization.
+- [`seasignals`](https://github.com/qselmer/seasignals) — representation of climate phase, magnitude, persistence, and transitions for marine ecological analyses.
+
+These repositories remain the canonical sources for their respective software. Their detailed website records will be migrated during the Software phase.
+
+## Expected outputs
+
+- Reusable data-processing workflows.
+- Scientific packages and analytical utilities.
+- Documented environmental and fisheries data products.
+- Training material on reproducible quantitative marine science.

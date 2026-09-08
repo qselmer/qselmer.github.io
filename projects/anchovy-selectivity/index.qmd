@@ -1,0 +1,43 @@
+---
+title: "Selectivity and demographic change in the anchovy fishery"
+description: "Evaluating long-term changes in length selectivity, selection range, juvenile incidence, and demographic structure in the north-central Peruvian anchovy fishery."
+date: 2026-07-14
+status: active
+project-type: manuscript-project
+featured: true
+categories: [anchovy, selectivity, demographic structure, fisheries management]
+---
+
+<div class="project-meta"><strong>Status:</strong> Active · <strong>Type:</strong> Manuscript-oriented project</div>
+
+## Scientific question
+
+Has the selectivity of the industrial anchovy fishery changed through time, and how are those changes associated with seasonality, fleet characteristics, management regimes, and the demographic structure of the stock?
+
+## Evidence base
+
+The project combines paired acoustic-survey and fishing-season information, length-frequency distributions, vessel and season descriptors, regulatory periods, and biological reference information.
+
+## Methods
+
+- Logistic selectivity models.
+- Estimation of length at 50% selection and selection range.
+- Mann–Kendall tests and Sen slopes for temporal trends.
+- Structural-break and change-point analysis.
+- Seasonal and regulatory-period comparisons.
+- Length–age key evaluation and demographic interpretation.
+
+## Current status
+
+Active manuscript and methodological development. The analysis evaluates long-term trends, seasonal contrasts, fleet-related differences, and changes in the exposure of juvenile fish to the fishery.
+
+## Expected outputs
+
+- Long-term selectivity time series.
+- Comparative length–age framework.
+- Peer-reviewed manuscript on selectivity and demographic consequences.
+- Reproducible code and diagnostic visualizations.
+
+## Repository architecture
+
+A canonical paper repository will be linked here once its current structure and public status are verified. Until then, this page remains the stable public project record rather than pointing to a provisional or legacy repository.

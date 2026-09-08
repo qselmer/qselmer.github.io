@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "source": "qselmer/qselmer/assets/data/repository-catalog.json",
+  "published": [
+    {
+      "repository": "qselmer/git-github-training",
+      "site_path": "/teaching/git-github-training/",
+      "category": "Course materials",
+      "maturity": "Active",
+      "summary": "Structured teaching materials, practices, and reusable resources for learning Git and GitHub through a progressive version-control workflow."
+    }
+  ],
+  "infrastructure": [
+    {
+      "repository": "qselmer/.template-training",
+      "category": "Teaching template",
+      "maturity": "Reusable template",
+      "summary": "Reusable Quarto structure for classes, workshops, short courses, technical training, and semester teaching, with modules, labs, exercises, metadata, and reproducible publishing."
+    }
+  ],
+  "under_review": [
+    {
+      "repository": "qselmer/TMB-LabCore",
+      "reason": "Useful TMB practice and example collection, but it is not yet organized as a bounded teaching activity and provenance for reused upstream examples should be made explicit before promotion."
+    },
+    {
+      "repository": "qselmer/R-LabCore",
+      "reason": "Current public repository metadata is insufficient to verify a structured teaching activity."
+    },
+    {
+      "repository": "qselmer/ctd-C-plus-plus",
+      "reason": "Legacy training material requires a current syllabus, learning sequence, and attribution review before promotion."
+    },
+    {
+      "repository": "qselmer/training_code_Python",
+      "reason": "Legacy multi-language practice repository is not yet a clearly bounded course or workshop."
+    },
+    {
+      "repository": "qselmer/skills-introduction-to-github",
+      "reason": "Repository is a clone/tutorial exercise and should not be presented as an authored teaching activity."
+    },
+    {
+      "repository": "qselmer/bioacoustic-monitoring",
+      "reason": "The current README identifies the Climate Change AI tutorial and its original authors. Convert it into a distinct class with explicit adaptation provenance before listing it as a teaching activity."
+    }
+  ]
+}

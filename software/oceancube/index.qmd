@@ -1,0 +1,53 @@
+---
+title: "oceancube"
+description: "R tools for validated multidimensional ocean data cubes."
+status: "stable-source-release"
+categories:
+  - R package
+  - ocean data
+  - reproducible workflows
+---
+
+`oceancube` is an R package for representing rectilinear ocean data under a validated five-dimensional contract: **longitude, latitude, depth, time, and variable**.
+
+## Current release
+
+**Stable source release:** `0.2.0`
+
+The package is distributed from GitHub rather than CRAN at this stage.
+
+```r
+remotes::install_github("qselmer/oceancube")
+```
+
+[Repository](https://github.com/qselmer/oceancube) · [Package documentation](https://qselmer.github.io/oceancube/) · [OceanCube Handbook](https://qselmer.github.io/oceancube/handbook/)
+
+## Core scope
+
+The current API supports:
+
+- validation and structural inspection of ocean cubes;
+- in-memory and read-only local NetCDF backends;
+- coordinate- and position-based selection;
+- spatial and temporal cropping;
+- point, profile, time-series, and transect extraction;
+- map, section, profile, transect, and time-series visualization;
+- temporal aggregation, climatologies, and anomalies;
+- descriptive per-cell temporal trends;
+- polygon masking;
+- grid-cell area, layer thickness, cell volume, and polygon weights;
+- provenance and quality metadata for reproducible workflows.
+
+## Scientific boundary
+
+`oceancube` handles data representation, validated manipulation, extraction, visualization, temporal transformations, masking, and geometric weights. It does **not** claim to provide general spatial-indicator inference, trend significance testing, change-point analysis, regridding, interpolation, or a complete remote-data acquisition system.
+
+This boundary is deliberate: the package is infrastructure for reproducible marine analysis rather than a black-box ecological model.
+
+## Reproducibility
+
+The repository includes package metadata, tests, documentation, an MIT license, citation metadata, versioned source releases, and a navigable handbook. Scientific examples are designed to keep transformations explicit and auditable.
+
+## Related work
+
+See [Reproducible marine data systems](/projects/reproducible-marine-data-systems/) and the [Data catalogue](/data/).

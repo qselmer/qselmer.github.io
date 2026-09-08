@@ -1,52 +1,78 @@
 # qselmer.github.io
 
-Personal academic website of Elmer Quispe-Salazar, built with Jekyll and deployed through GitHub Pages.
+Personal academic website of **Elmer Quispe-Salazar**, implemented with Quarto.
 
-## Scientific information architecture
+> Migration status: `migration/quarto-v1` is now Quarto-only and certified through Phase 7. Production `master` still serves the legacy Jekyll implementation until the controlled Phase 8 cutover is merged and deployed.
 
-The site separates stable research themes from concrete projects and scholarly outputs:
+## Information architecture
 
-- `Research`: long-term scientific questions and methodological themes.
-- `Projects`: active and completed research programmes.
-- `Publications`: verified peer-reviewed, conference, and technical outputs.
-- `Software & Data`: software under development, reproducible workflows, and curated data resources.
-- `Engagement`: talks, teaching, and research notes.
-- `CV` and `Contact`: professional record and collaboration channels.
+The website is a discovery and presentation layer. Scientific repositories remain the source of truth for code, analyses, manuscripts, software, and teaching materials.
 
-## Collections
+- **Research** - long-term scientific questions and methodological themes.
+- **Projects** - active research programmes and manuscript-oriented work.
+- **Publications** - formal scholarly outputs; conference outputs are separated.
+- **Conferences** - presentations, posters, and explicitly labelled historical conference contributions.
+- **Software** - curated scientific packages and applications with explicit maturity.
+- **Teaching** - structured courses/training and reusable teaching infrastructure.
+- **Data Sources** - curated external sources for students and collaborators; these are not datasets owned or produced by the site author.
+- **Blog** - extended educational articles in the pathway `social post -> Blog -> class`.
+- **CV / Contact** - professional record and collaboration channels.
 
-- `_projects/`: project records with questions, data, methods, status, and outputs.
-- `_publications/`: verified scholarly records only.
-- `_software/`: software records with transparent development status.
-- `_talks/`: presentations and posters.
-- `_teaching/`: teaching and training activities.
+Compatibility entry points such as `/resources/`, `/services/`, `/engagement/`, `/follow/`, and `/terms/` are retained as lightweight Quarto pages.
 
-## Publication policy
+## Metadata sources
 
-Publication pages are included only when authorship, title, year, output type, and citation status can be verified. DOI, PDF, code, data, and presentation links are added only when stable public locations exist. Works in preparation are not represented as publications.
+Canonical academic-profile metadata is maintained in `qselmer/qselmer`.
 
-## Software and data policy
+The website synchronizes only the public metadata required for presentation:
 
-Software records must distinguish clearly among concept, prototype, active development, internal use, and public release. Repository, version, DOI, citation, and license fields are added only after they exist.
+- `assets/data/publications.json`
+- `assets/data/research-metrics.json`
 
-Restricted fisheries, biological, or institutional datasets are never published through this repository. Public pages may describe metadata, analytical structure, derived products, or synthetic examples without exposing protected information.
+The canonical repository catalogue is fetched transiently during automation because it can contain private-repository metadata. Only curated public subsets are written to:
 
-## Local JavaScript build
+- `assets/data/software.json`
+- `assets/data/teaching.json`
 
-The JavaScript bundle is generated from the source files in `assets/js/`. Plotly and Mermaid are loaded only on pages that contain those visualizations.
+Website-specific editorial decisions remain in local registries such as `software/registry.json`, `teaching/registry.json`, `talks/registry.json`, `data/registry.json`, and `blog/registry.json`.
 
-```bash
-npm ci
-npm test
-```
+See [`AUTOMATION.md`](AUTOMATION.md) for the complete data flow.
 
-`npm test` checks JavaScript syntax and rebuilds `assets/js/main.min.js`.
-
-## Local Jekyll preview
+## Local validation
 
 ```bash
-bundle install
-bundle exec jekyll serve
+python scripts/validate_site.py source
+quarto render
+python scripts/validate_site.py rendered
 ```
 
-Changes to `_config.yml` require restarting the Jekyll server.
+The source validator rejects obsolete Academic Pages/Jekyll runtime paths. The rendered validator checks identity consistency, deterministic generated fragments, CV delivery, expected compatibility pages, and all internal `href`/`src` targets.
+
+## Synchronizing academic-profile metadata
+
+```bash
+python scripts/sync_profile.py
+```
+
+This synchronizes canonical public profile metadata, derives the curated software/teaching subsets, rebuilds generated fragments, and runs source validation.
+
+## Production deployment
+
+The production site is deployed through GitHub Pages Actions. `.github/workflows/quarto-pages.yml` builds the Quarto project, runs source/rendered/external-link validation, uploads `_site`, and deploys it to GitHub Pages on pushes to `master`.
+
+## Privacy and data policy
+
+Restricted fisheries, biological, institutional, or private-repository metadata is not published through this website. The external Data Sources directory stores discovery metadata and provider links only; it does not mirror third-party datasets.
+
+## Legacy preservation
+
+The final pre-migration Jekyll production snapshot is preserved at:
+
+```text
+branch: legacy/jekyll-v0.9
+commit: f84307690cc573b7b2e83a548d2d56102a05218d
+```
+
+Meaningful historical routes and required redirects are inventoried in `config/legacy-routes.json` and certified before production cutover.
+
+Migration design and checkpoints are documented in [`MIGRATION.md`](MIGRATION.md). Historical attribution is documented in [`NOTICE.md`](NOTICE.md).

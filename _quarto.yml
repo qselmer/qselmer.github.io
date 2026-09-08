@@ -1,0 +1,99 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - images/**
+    - files/CV.pdf
+  post-render:
+    - scripts/postprocess_site.py
+  render:
+    - 404.qmd
+    - index.qmd
+    - research/index.qmd
+    - projects/index.qmd
+    - projects/anchovy-stock-state/index.qmd
+    - projects/anchovy-selectivity/index.qmd
+    - projects/tuna-fishery/index.qmd
+    - projects/multivariate-indicators/index.qmd
+    - projects/temporary-closures/index.qmd
+    - projects/reproducible-marine-data-systems/index.qmd
+    - publications/index.qmd
+    - talks/index.qmd
+    - talks/2026-05-08-critical-points-anchovy-stock/index.qmd
+    - talks/2026-05-06-anchovy-health-index/index.qmd
+    - talks/2024-11-11-anchoveta-gsi-sibecorp/index.qmd
+    - talks/2022-09-01-anchoveta-biomass-variability/index.qmd
+    - software/index.qmd
+    - software/oceancube/index.qmd
+    - software/humboldt-ocean-watch/index.qmd
+    - software/seasignals/index.qmd
+    - software/pelagytics/index.qmd
+    - teaching/index.qmd
+    - teaching/git-github-training/index.qmd
+    - data/index.qmd
+    - blog/index.qmd
+    - blog/statistical-distributions-fisheries-marine-ecology/index.qmd
+    - engagement/index.qmd
+    - resources/index.qmd
+    - services/index.qmd
+    - follow/index.qmd
+    - terms/index.qmd
+    - cv/index.qmd
+    - resume/index.qmd
+    - contact/index.qmd
+
+execute:
+  freeze: auto
+
+website:
+  title: "Elmer Quispe-Salazar"
+  site-url: "https://qselmer.github.io"
+  description: "Quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, and reproducible scientific computing."
+  favicon: images/favicon.ico
+  open-graph: true
+  twitter-card: true
+  search: true
+  navbar:
+    left:
+      - href: research/index.qmd
+        text: Research
+      - href: projects/index.qmd
+        text: Projects
+      - href: publications/index.qmd
+        text: Publications
+      - href: talks/index.qmd
+        text: Conferences
+      - href: software/index.qmd
+        text: Software
+      - href: teaching/index.qmd
+        text: Teaching
+      - href: data/index.qmd
+        text: Data Sources
+      - href: blog/index.qmd
+        text: Blog
+      - href: cv/index.qmd
+        text: CV
+      - href: contact/index.qmd
+        text: Contact
+    right:
+      - icon: github
+        href: https://github.com/qselmer
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/
+        aria-label: LinkedIn
+  page-footer:
+    left: "© 2026 Elmer Quispe-Salazar"
+    right: "[Terms & privacy](/terms/) · Built with Quarto"
+
+format:
+  html:
+    theme: cosmo
+    css:
+      - styles.css
+      - accessibility.css
+    toc: true
+    link-external-newwindow: true
+    include-before-body: includes/skip-link.html
+
+lang: en

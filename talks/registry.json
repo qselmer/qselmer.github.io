@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "source": "assets/data/publications.json",
+  "records": [
+    {
+      "source_title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
+      "display_title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
+      "site_path": "/talks/2026-05-06-anchovy-health-index/",
+      "date": "2026-05-06",
+      "presentation_type": "Oral presentation",
+      "event": "SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities",
+      "location": "La Paz, Baja California Sur, Mexico",
+      "authors": ["Elmer Quispe-Salazar", "Jorge Tam"],
+      "presenter": "Elmer Quispe-Salazar",
+      "summary": "A multivariate stock-health framework integrating complementary biological, demographic, spatial, and reproductive signals for highly variable small-pelagic populations.",
+      "related_links": [
+        {"label": "SPF-2026 presentations", "url": "https://meetings.pices.int/publications/presentations/2026-SPF"},
+        {"label": "Book of abstracts", "url": "https://meetings.pices.int/publications/book-of-abstracts/2026-SPF-Book-of-Abstracts.pdf"}
+      ]
+    },
+    {
+      "source_title": "Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea",
+      "display_title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea",
+      "site_path": "/talks/2026-05-08-critical-points-anchovy-stock/",
+      "date": "2026-05-08",
+      "presentation_type": "Poster presentation",
+      "event": "SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities",
+      "location": "La Paz, Baja California Sur, Mexico",
+      "authors": ["Elmer Quispe-Salazar", "Álvaro Recoba", "Jorge Tam"],
+      "presenter": "Álvaro Recoba",
+      "summary": "A threshold-oriented diagnostic of natural and fishing-related pressures and their nonlinear relationships with the multidimensional state of the north-central Peruvian anchovy stock.",
+      "related_links": [
+        {"label": "SPF-2026 presentations", "url": "https://meetings.pices.int/publications/presentations/2026-SPF"},
+        {"label": "Book of abstracts", "url": "https://meetings.pices.int/publications/book-of-abstracts/2026-SPF-Book-of-Abstracts.pdf"}
+      ]
+    },
+    {
+      "source_title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
+      "display_title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
+      "site_path": "/talks/2024-11-11-anchoveta-gsi-sibecorp/",
+      "date": "2024-11-11",
+      "presentation_type": "Conference presentation",
+      "event": "VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca (VI SIBECORP)",
+      "location": "Lisbon, Portugal",
+      "authors": ["Elmer Quispe-Salazar", "Javier Sánchez"],
+      "presenter": "Elmer Quispe-Salazar",
+      "summary": "An evaluation of the gonadosomatic index as a reproducible indicator of gonadal maturity in Peruvian anchoveta, including classification models, critical-threshold estimation, and seasonal variation.",
+      "related_links": [
+        {"label": "VI SIBECORP", "url": "https://visibecorp.cetmar.org/indexPT.php"},
+        {"label": "ResearchGate record", "url": "https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767"}
+      ]
+    }
+  ],
+  "historical_records": [
+    {
+      "display_title": "Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System",
+      "site_path": "/talks/2022-09-01-anchoveta-biomass-variability/",
+      "date": "2022-09-01",
+      "presentation_type": "Conference presentation",
+      "event": "Open Science Conference on Eastern Boundary Upwelling Systems: Past, Present and Future and Second International Conference on the Humboldt Current System",
+      "location": "Peru",
+      "authors": ["E. Díaz", "P. Marín", "Elmer Quispe-Salazar"],
+      "presenter": "",
+      "summary": "Conference contribution examining anchoveta biomass variability from interannual to multi-decadal scales and its implications for monitoring and management in the Humboldt Current System.",
+      "source_status": "Historical website record retained from the legacy site. A stable public proceedings or abstract-book source has not yet been verified.",
+      "legacy_path": "/publication/ebus-hcs-abstract-anchoveta-biomass/",
+      "related_links": [
+        {"label": "Related project", "url": "/projects/anchovy-stock-state/"}
+      ]
+    }
+  ]
+}

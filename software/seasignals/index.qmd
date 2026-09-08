@@ -1,0 +1,31 @@
+---
+title: "seasignals"
+description: "Incubating R package for marine climate-state representations."
+status: "incubating"
+categories:
+  - R package
+  - climate variability
+---
+
+`seasignals` is retained as an incubating software record because a public repository exists, but it is **not currently listed as released or validated scientific software** on this website.
+
+[Repository](https://github.com/qselmer/seasignals)
+
+## Why it is not in the primary catalogue
+
+The current public README remains an R-package skeleton with placeholder text for the package goal, installation instructions, and example code. That is not sufficient documentation for an external user to understand, install, validate, or cite the software.
+
+## Intended direction
+
+The scientific concept remains relevant: reproducible representation of climate phase, magnitude, persistence, and transitions for marine ecological analyses. Before promotion to the primary software catalogue, the repository should establish at minimum:
+
+- a precise package scope and function boundary;
+- working installation instructions;
+- documented examples;
+- tests and continuous integration;
+- license and citation metadata;
+- stable public API;
+- versioned release;
+- package documentation.
+
+This page preserves the established `/software/seasignals/` URL while keeping the maturity claim accurate.

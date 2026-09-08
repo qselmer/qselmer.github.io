@@ -1,16 +1,14 @@
-# Normalize text files to LF in the repository and working tree.
+# Normalize text files to LF.
 * text=auto eol=lf
 
-# Common text formats used by this Jekyll site.
+# Text formats used by the Quarto website and metadata pipeline.
+*.qmd     text eol=lf
 *.md      text eol=lf
 *.html    text eol=lf
 *.yml     text eol=lf
 *.yaml    text eol=lf
 *.json    text eol=lf
-*.js      text eol=lf
 *.css     text eol=lf
-*.scss    text eol=lf
-*.rb      text eol=lf
 *.py      text eol=lf
 *.sh      text eol=lf
 *.xml     text eol=lf
@@ -27,10 +25,6 @@
 *.svgz    binary
 *.ico     binary
 *.pdf     binary
-*.woff    binary
-*.woff2   binary
-*.ttf     binary
-*.eot     binary
 *.zip     binary
 *.tar     binary
 *.gz      binary

@@ -1,19 +1,49 @@
 #!/usr/bin/env python3
 from __future__ import annotations
+
 import json
 import urllib.request
-from pathlib import Path
+from typing import Any
 
-SOURCE = "https://raw.githubusercontent.com/qselmer/qselmer/main/assets/data/publications.json"
-TARGET = Path(__file__).resolve().parents[1] / "_data" / "publications.json"
+from site_config import ROOT, profile_source
 
-request = urllib.request.Request(SOURCE, headers={"User-Agent": "qselmer-website-publication-sync/1.0"})
-with urllib.request.urlopen(request, timeout=30) as response:
-    payload = json.load(response)
+TARGET = ROOT / "assets" / "data" / "publications.json"
 
-if not isinstance(payload.get("publications"), list):
-    raise RuntimeError("Invalid publication payload")
 
-TARGET.parent.mkdir(parents=True, exist_ok=True)
-TARGET.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-print(f"Synchronized {len(payload['publications'])} publications")
+def validate(payload: dict[str, Any]) -> None:
+    publications = payload.get("publications")
+    if not isinstance(publications, list):
+        raise RuntimeError("Invalid publication payload: publications must be a list")
+    declared = payload.get("count")
+    if declared is not None and declared != len(publications):
+        raise RuntimeError("Invalid publication payload: count does not match publications list")
+    for index, publication in enumerate(publications, start=1):
+        if not isinstance(publication, dict):
+            raise RuntimeError(f"Invalid publication payload: item {index} is not an object")
+        for field in ("title", "year", "output_category"):
+            if not str(publication.get(field) or "").strip():
+                raise RuntimeError(f"Invalid publication payload: item {index} is missing {field}")
+
+
+def main() -> None:
+    source = profile_source("publications")
+    request = urllib.request.Request(
+        source["url"],
+        headers={"User-Agent": "qselmer.github.io academic-profile-sync/3.0"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        payload = json.load(response)
+
+    validate(payload)
+    rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    TARGET.parent.mkdir(parents=True, exist_ok=True)
+    current = TARGET.read_text(encoding="utf-8") if TARGET.exists() else ""
+    if current == rendered:
+        print(f"Publication catalogue already synchronized ({len(payload['publications'])} records)")
+    else:
+        TARGET.write_text(rendered, encoding="utf-8")
+        print(f"Synchronized {len(payload['publications'])} publication records")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,20 @@
+---
+title: "Engagement"
+description: "Scientific communication, teaching, and methodological material."
+---
+
+This section connects scientific communication, teaching, and methodological material developed for research, training, and professional exchange.
+
+## Conferences
+
+Conference presentations, posters, seminars, and other scientific contributions are catalogued under [Conferences](/talks/).
+
+## Teaching
+
+Structured courses, workshops, training activities, and reusable learning material are catalogued under [Teaching](/teaching/).
+
+## Extended explanations
+
+Educational and methodological articles intended for a broader technical audience are published in the [Blog](/blog/).
+
+Formal scholarly outputs remain under [Publications](/publications/).

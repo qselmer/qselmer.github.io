@@ -1,0 +1,32 @@
+---
+title: "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea"
+description: "SPF-2026 poster on pressure–state relationships, nonlinear responses, and potential thresholds in the north-central Peruvian anchovy stock."
+---
+
+**Poster presentation · 8 May 2026 · La Paz, Baja California Sur, Mexico**
+
+*SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities*
+
+## Overview
+
+This contribution examined how natural variability and fishing-related pressures can be associated with changes in the multidimensional state of the north-central Peruvian anchovy stock. The analytical perspective focuses on nonlinear pressure–response relationships, critical regions, potential thresholds, and warning signals rather than assuming that stock-state responses are gradual and linear.
+
+![](../../images/talks/anchovy-critical-points-full.png){fig-alt="Poster on critical points and stock-state responses of the north-central Peruvian anchovy" width=90%}
+
+The framework connects environmental and anthropogenic pressures with biological, demographic, reproductive, and spatial indicators of stock state. Its purpose is to support ecosystem-informed diagnosis and the development of adaptive management questions that can later be evaluated with formal statistical models and management strategy evaluation.
+
+## Authorship and presentation
+
+**Authors:** Elmer Quispe-Salazar, Álvaro Recoba, and Jorge Tam.
+
+**Presenter:** Álvaro Recoba.
+
+## Public materials
+
+- [Official poster PDF](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
+- [SPF-2026 presentations](https://meetings.pices.int/publications/presentations/2026-SPF)
+- [SPF-2026 Book of Abstracts](https://meetings.pices.int/publications/book-of-abstracts/2026-SPF-Book-of-Abstracts.pdf)
+
+## Related work
+
+See [Multivariate indicators for fisheries and ecosystem assessment](/projects/multivariate-indicators/) and [Multidimensional state of the north-central Peruvian anchovy stock](/projects/anchovy-stock-state/).

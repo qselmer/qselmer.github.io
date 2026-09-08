@@ -1,0 +1,12 @@
+---
+title: "Page not found"
+description: "The requested page is not available."
+page-layout: full
+toc: false
+---
+
+The requested page is not available at this address.
+
+[Return to the homepage](/){.btn .btn-primary} [Browse research](/research/){.btn .btn-secondary}
+
+If you followed an older link from the previous Academic Pages/Jekyll site, the route may be covered by the migration compatibility map and will be checked during final URL certification.

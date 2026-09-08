@@ -1,0 +1,72 @@
+.quarto-title-block {
+  display: block;
+}
+
+body {
+  overflow-x: clip;
+}
+
+.qs-skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 2000;
+  padding: 0.7rem 1rem;
+  border-radius: 0.35rem;
+  background: #ffffff;
+  color: #0b2630;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform 120ms ease;
+}
+
+.qs-skip-link:focus {
+  transform: translateY(0);
+}
+
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 3px;
+}
+
+a {
+  text-underline-offset: 0.14em;
+}
+
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+}
+
+main.content,
+.quarto-title-block,
+.qs-home-section,
+.qs-home-closing {
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .quarto-title-block {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .qs-hero-actions .qs-button,
+  .qs-home-closing .qs-button {
+    min-height: 44px;
+  }
+}

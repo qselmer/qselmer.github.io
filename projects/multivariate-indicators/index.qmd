@@ -1,0 +1,44 @@
+---
+title: "Multivariate indicators for fisheries and ecosystem assessment"
+description: "Developing interpretable multivariate indicators that integrate biological, spatial, environmental, and fishing dimensions for stock and ecosystem diagnosis."
+date: 2026-07-11
+status: active
+project-type: research-programme
+featured: false
+categories: [indicators, multivariate analysis, ecosystem assessment, decision support]
+---
+
+<div class="project-meta"><strong>Status:</strong> Active · <strong>Type:</strong> Research programme</div>
+
+## Scientific question
+
+How can heterogeneous biological, fisheries, spatial, and environmental indicators be integrated into transparent and interpretable diagnostics of stock and ecosystem state?
+
+## Scope
+
+This programme develops frameworks for combining indicators without obscuring their ecological meaning, temporal behaviour, uncertainty, or management relevance.
+
+## Methods
+
+- Indicator screening, redundancy analysis, and dimensional reduction.
+- Selection of representative indicators and assessment of domain dominance.
+- Transformation, standardization, biological orientation, and weighting diagnostics.
+- Dynamic and static multivariate integration.
+- Sensitivity, uncertainty, and robustness analysis.
+- Change-point, regime, and threshold detection.
+- Pressure–state interpretation and management-oriented visualization.
+
+## Current status
+
+Active methodological programme associated with multidimensional anchovy stock-state analyses and broader pressure–state applications in marine and fisheries assessment.
+
+## Expected outputs
+
+- Multivariate indicator frameworks and diagnostic protocols.
+- Peer-reviewed manuscripts and conference contributions.
+- Reproducible code for indicator construction and evaluation.
+- Visual products for communicating multidimensional stock condition.
+
+## Repository architecture
+
+This is a programme-level record. Method-specific software and paper repositories will be linked as independent source-of-truth components after their repository audits.

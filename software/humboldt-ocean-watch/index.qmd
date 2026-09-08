@@ -1,0 +1,55 @@
+---
+title: "Humboldt Ocean Watch"
+description: "Experimental thermal-monitoring application for Niño 1+2."
+status: "experimental"
+categories:
+  - Python
+  - Streamlit
+  - ocean monitoring
+  - SST
+---
+
+Humboldt Ocean Watch is an **experimental** Python and Streamlit system for reproducible daily sea-surface-temperature diagnostics in the Niño 1+2 region.
+
+[Repository](https://github.com/qselmer/humboldt-ocean-watch)
+
+## Current scientific scope
+
+The implemented operational scope is thermal. The system works with cached SST and climatological products to calculate and validate metrics such as:
+
+- daily SST and anomalies;
+- standardized anomalies;
+- daily and seven-day changes;
+- persistence and threshold-area diagnostics;
+- spatial and temporal feature summaries;
+- thermal-event detection;
+- connected thermal patches, tracks, and event families;
+- quality-control and provenance outputs;
+- optional scientific briefs grounded in locally calculated facts.
+
+## Important limitation
+
+This software **does not provide an official Coastal El Niño classification, causal attribution, forecast, or biological, fishery, economic, or social impact assessment**. It does not replace official oceanographic products.
+
+Language models, when enabled, interpret validated local outputs; they do not calculate the scientific metrics.
+
+## Architecture
+
+The application separates:
+
+1. data loading and geographic validation;
+2. climatology and anomaly calculations;
+3. deterministic scientific analytics;
+4. quality control and provenance;
+5. cached products for the interface;
+6. optional grounded natural-language interpretation.
+
+The dashboard reads prepared products rather than silently downloading or recalculating data during normal interaction.
+
+## Development status
+
+The application is suitable for methodological demonstration and continued scientific development. It remains labelled **experimental** until data-refresh infrastructure, broader-domain climatologies, operational governance, and external validation are mature enough for a stronger claim.
+
+## Related work
+
+See [Reproducible marine data systems](/projects/reproducible-marine-data-systems/) and [Environmental variability and ecosystem responses](/research/).
