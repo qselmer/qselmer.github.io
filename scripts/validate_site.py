@@ -72,6 +72,8 @@ EXPECTED_COMPATIBILITY_PAGES = (
     "talks/2022-09-01-anchoveta-biomass-variability/index.html",
 )
 
+SITE_URL = "https://qselmer.github.io"
+
 
 def load_json(path: Path) -> dict:
     payload = json.loads(path.read_text(encoding="utf-8"))
@@ -114,8 +116,17 @@ def validate_source() -> None:
             raise RuntimeError(f"Legacy Academic Pages/Jekyll residue is present: {relative}")
 
     routes = load_json(ROOT / "config/legacy-routes.json")
-    if routes.get("schema_version") != 1 or not routes.get("routes"):
+    route_items = routes.get("routes", [])
+    if routes.get("schema_version") != 1 or not route_items:
         raise RuntimeError("config/legacy-routes.json is missing a valid route inventory")
+    legacy_routes = [str(item.get("legacy", "")) for item in route_items]
+    if len(legacy_routes) != len(set(legacy_routes)):
+        raise RuntimeError("config/legacy-routes.json contains duplicate legacy routes")
+    for item in route_items:
+        if item.get("status") not in {"preserved", "redirect_required"}:
+            raise RuntimeError(f"Unsupported route status: {item}")
+        if not str(item.get("legacy", "")).startswith("/") or not str(item.get("target", "")).startswith("/"):
+            raise RuntimeError(f"Routes must be site-root absolute: {item}")
 
     json_paths = (
         ["config/site.json"]
@@ -144,28 +155,53 @@ def validate_source() -> None:
     contact = ROOT / "contact" / "index.qmd"
     quarto = ROOT / "_quarto.yml"
     home = ROOT / "index.qmd"
+    cv = ROOT / "cv" / "index.qmd"
+    styles = ROOT / "accessibility.css"
     historical_talk = ROOT / "talks" / "2022-09-01-anchoveta-biomass-variability" / "index.qmd"
 
     require_text(contact, identity["email"])
     require_text(contact, identity["linkedin"])
     require_text(quarto, identity["linkedin"])
+    require_text(quarto, "open-graph: true")
+    require_text(quarto, "twitter-card: true")
+    require_text(quarto, "scripts/postprocess_site.py")
+    require_text(quarto, "includes/skip-link.html")
     require_text(home, identity["headline"])
     require_text(home, identity["signature"])
     require_text(historical_talk, "stable public proceedings or abstract-book source has not yet been verified")
+    reject_text(cv, "# Elmer Quispe-Salazar")
+
+    for marker in (
+        ".qs-skip-link",
+        ":focus-visible",
+        "prefers-reduced-motion",
+        "@media (max-width: 760px)",
+        ".quarto-title-block",
+    ):
+        require_text(styles, marker)
+
+    for required in (
+        ROOT / "scripts" / "postprocess_site.py",
+        ROOT / "scripts" / "check_external_links.py",
+        ROOT / "includes" / "skip-link.html",
+    ):
+        if not required.is_file() or required.stat().st_size == 0:
+            raise RuntimeError(f"Missing Phase 7 source: {required.relative_to(ROOT)}")
 
     for forbidden in config.get("forbidden_legacy_identity", []):
         reject_text(contact, forbidden)
         reject_text(quarto, forbidden)
         reject_text(home, forbidden)
 
-    cv = ROOT / "files" / "CV.pdf"
-    if not cv.is_file() or cv.stat().st_size == 0:
+    cv_pdf = ROOT / "files" / "CV.pdf"
+    if not cv_pdf.is_file() or cv_pdf.stat().st_size == 0:
         raise RuntimeError("files/CV.pdf is missing or empty")
 
     run_build_checks()
     print(
-        "Source validation PASS: Quarto-only source, legacy route inventory, canonical identity, "
-        "JSON catalogues, registries, generated fragments, CV, and deterministic builders"
+        "Source validation PASS: Quarto-only source, route inventory, canonical identity, "
+        "SEO/accessibility hooks, JSON catalogues, registries, generated fragments, CV, "
+        "and deterministic builders"
     )
 
 
@@ -178,6 +214,83 @@ class ReferenceParser(HTMLParser):
         for name, value in attrs:
             if name in {"href", "src"} and value:
                 self.references.append(value)
+
+
+class PageAuditParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.lang = ""
+        self.h1_count = 0
+        self.missing_img_alt: list[str] = []
+        self.missing_iframe_title: list[str] = []
+        self.skip_link = False
+        self.main_target = False
+        self.description = ""
+        self.viewport = ""
+        self.canonical = ""
+        self.robots = ""
+        self.refresh = ""
+        self.og_title = ""
+        self.og_description = ""
+        self.twitter_card = ""
+        self.twitter_title = ""
+        self.insecure_blank_links: list[str] = []
+
+    @staticmethod
+    def attrmap(attrs: list[tuple[str, str | None]]) -> dict[str, str]:
+        return {k: (v or "") for k, v in attrs}
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        data = self.attrmap(attrs)
+        if tag == "html":
+            self.lang = data.get("lang", "")
+        elif tag == "h1":
+            self.h1_count += 1
+        elif tag == "img" and "alt" not in data:
+            self.missing_img_alt.append(data.get("src", "<unknown>"))
+        elif tag == "iframe" and not data.get("title"):
+            self.missing_iframe_title.append(data.get("src", "<unknown>"))
+        elif tag == "meta":
+            name = data.get("name", "").lower()
+            prop = data.get("property", "").lower()
+            equiv = data.get("http-equiv", "").lower()
+            content = data.get("content", "")
+            if name == "description":
+                self.description = content
+            elif name == "viewport":
+                self.viewport = content
+            elif name == "robots":
+                self.robots = content
+            elif name == "twitter:card":
+                self.twitter_card = content
+            elif name == "twitter:title":
+                self.twitter_title = content
+            if prop == "og:title":
+                self.og_title = content
+            elif prop == "og:description":
+                self.og_description = content
+            if equiv == "refresh":
+                self.refresh = content
+        elif tag == "link":
+            rel = data.get("rel", "").lower()
+            if "canonical" in rel:
+                self.canonical = data.get("href", "")
+        elif tag == "a":
+            classes = set(data.get("class", "").split())
+            if "qs-skip-link" in classes and data.get("href") == "#quarto-document-content":
+                self.skip_link = True
+            if data.get("target") == "_blank":
+                rel = set(data.get("rel", "").lower().split())
+                if not {"noopener", "noreferrer"}.issubset(rel):
+                    self.insecure_blank_links.append(data.get("href", "<unknown>"))
+        if data.get("id") == "quarto-document-content":
+            self.main_target = True
+
+
+def parse_page(path: Path) -> PageAuditParser:
+    parser = PageAuditParser()
+    parser.feed(path.read_text(encoding="utf-8", errors="replace"))
+    return parser
 
 
 def internal_target(site: Path, page: Path, reference: str) -> list[Path]:
@@ -223,12 +336,106 @@ def validate_internal_links(site: Path) -> tuple[int, int]:
     return len(html_files), checked
 
 
+def route_file(site: Path, route: str) -> Path:
+    if route == "/":
+        return site / "index.html"
+    relative = route.lstrip("/")
+    if route.endswith("/"):
+        return site / relative / "index.html"
+    return site / relative
+
+
+def validate_redirects(site: Path, routes: dict) -> set[Path]:
+    redirect_files: set[Path] = set()
+    for item in routes["routes"]:
+        if item.get("status") != "redirect_required":
+            continue
+        legacy = str(item["legacy"])
+        target = str(item["target"])
+        page = route_file(site, legacy)
+        target_file = route_file(site, target)
+        if not page.is_file():
+            raise RuntimeError(f"Missing legacy redirect page: {legacy}")
+        if not target_file.is_file():
+            raise RuntimeError(f"Redirect target is missing: {legacy} -> {target}")
+        audit = parse_page(page)
+        expected = SITE_URL + target
+        if "noindex" not in audit.robots.lower():
+            raise RuntimeError(f"Redirect page must be noindex: {legacy}")
+        if audit.canonical != expected:
+            raise RuntimeError(f"Redirect canonical mismatch: {legacy}")
+        if expected not in audit.refresh:
+            raise RuntimeError(f"Redirect meta-refresh mismatch: {legacy}")
+        if audit.h1_count != 1:
+            raise RuntimeError(f"Redirect page must have exactly one h1: {legacy}")
+        redirect_files.add(page.resolve())
+    return redirect_files
+
+
+def validate_page_metadata(site: Path, redirect_files: set[Path]) -> int:
+    audited = 0
+    for page in sorted(site.rglob("*.html")):
+        if page.resolve() in redirect_files:
+            continue
+        audit = parse_page(page)
+        rel = page.relative_to(site).as_posix()
+        audited += 1
+        if audit.lang.lower() != "en":
+            raise RuntimeError(f"Missing/incorrect html lang on {rel}")
+        if audit.h1_count != 1:
+            raise RuntimeError(f"Expected exactly one h1 on {rel}; found {audit.h1_count}")
+        if not audit.description.strip():
+            raise RuntimeError(f"Missing meta description on {rel}")
+        if "width=device-width" not in audit.viewport:
+            raise RuntimeError(f"Missing responsive viewport on {rel}")
+        if audit.missing_img_alt:
+            raise RuntimeError(f"Images without alt text on {rel}: {audit.missing_img_alt}")
+        if audit.missing_iframe_title:
+            raise RuntimeError(f"Iframes without title on {rel}: {audit.missing_iframe_title}")
+        if audit.insecure_blank_links:
+            raise RuntimeError(f"target=_blank links missing noopener/noreferrer on {rel}")
+        if not audit.skip_link or not audit.main_target:
+            raise RuntimeError(f"Skip-link/main target missing on {rel}")
+
+        if rel == "404.html":
+            if "noindex" not in audit.robots.lower():
+                raise RuntimeError("404 page must be noindex")
+            continue
+
+        if not audit.canonical.startswith(SITE_URL):
+            raise RuntimeError(f"Missing canonical URL on {rel}")
+        if not audit.og_title or not audit.og_description:
+            raise RuntimeError(f"Missing Open Graph metadata on {rel}")
+        if not audit.twitter_card or not audit.twitter_title:
+            raise RuntimeError(f"Missing Twitter card metadata on {rel}")
+    return audited
+
+
+def validate_sitemap(site: Path, routes: dict) -> None:
+    sitemap = site / "sitemap.xml"
+    robots = site / "robots.txt"
+    if not sitemap.is_file() or not robots.is_file():
+        raise RuntimeError("sitemap.xml or robots.txt is missing")
+    sitemap_text = sitemap.read_text(encoding="utf-8")
+    robots_text = robots.read_text(encoding="utf-8")
+    if f"Sitemap: {SITE_URL}/sitemap.xml" not in robots_text:
+        raise RuntimeError("robots.txt does not advertise the canonical sitemap")
+    for item in routes["routes"]:
+        if item.get("status") == "redirect_required":
+            legacy_url = SITE_URL + str(item["legacy"])
+            if f"<loc>{legacy_url}</loc>" in sitemap_text:
+                raise RuntimeError(f"Redirect route must not be indexed in sitemap: {legacy_url}")
+
+
 def validate_rendered() -> None:
     config = load_config()
     identity = config["identity"]
     site = ROOT / "_site"
     if not site.is_dir():
         raise RuntimeError("_site does not exist; render Quarto before rendered validation")
+
+    routes = load_json(ROOT / "config/legacy-routes.json")
+    redirect_files = validate_redirects(site, routes)
 
     home = site / "index.html"
     contact = site / "contact" / "index.html"
@@ -262,10 +469,12 @@ def validate_rendered() -> None:
     if source_pdf.stat().st_size != rendered_pdf.stat().st_size:
         raise RuntimeError("Rendered CV.pdf size differs from source CV.pdf")
 
+    audited = validate_page_metadata(site, redirect_files)
+    validate_sitemap(site, routes)
     pages, references = validate_internal_links(site)
     print(
-        f"Rendered validation PASS: {pages} HTML pages, "
-        f"{references} internal references checked, 0 missing"
+        f"Rendered validation PASS: {pages} HTML pages, {audited} substantive pages audited, "
+        f"{len(redirect_files)} redirects certified, {references} internal references checked, 0 missing"
     )
 
 
