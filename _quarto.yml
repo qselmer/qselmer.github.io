@@ -3,6 +3,7 @@ project:
   output-dir: _site
   resources:
     - images/**
+    - files/CV.pdf
   render:
     - index.qmd
     - research/index.qmd
@@ -29,6 +30,7 @@ project:
     - blog/index.qmd
     - blog/statistical-distributions-fisheries-marine-ecology/index.qmd
     - cv/index.qmd
+    - resume/index.qmd
     - contact/index.qmd
 
 execute:

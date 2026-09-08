@@ -47,6 +47,13 @@ jobs:
       - name: Render website
         uses: quarto-dev/quarto-actions/render@v2
 
+      - name: Validate CV routes and PDF
+        run: |
+          test -s files/CV.pdf
+          test -s _site/files/CV.pdf
+          test -f _site/cv/index.html
+          test -f _site/resume/index.html
+
       - name: Upload rendered preview
         uses: actions/upload-artifact@v4
         with:
