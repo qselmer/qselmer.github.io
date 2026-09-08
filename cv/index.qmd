@@ -1,8 +1,88 @@
 ---
 title: "Curriculum Vitae"
-description: "Academic and professional profile."
+description: "Professional profile and complete curriculum vitae of Elmer Quispe-Salazar."
+toc: false
+page-layout: full
 ---
 
-The CV section will consolidate education, research experience, peer-reviewed and technical publications, conference contributions, software, teaching, awards, and specialized training in fisheries science, quantitative marine ecology, statistical modelling, scientific programming, and geospatial analysis.
+# Elmer Quispe-Salazar
 
-The current CV files remain preserved while the Quarto version is migrated and validated.
+**Marine Quantitative Ecologist & Fisheries Scientist**
+
+I work at the intersection of quantitative marine ecology, fisheries science, marine data science, and decision science. My work focuses on pelagic fish and marine ecosystems, combining stock assessment, spatio-temporal modelling, population and life-history processes, environmental variability, multidimensional indicators, and reproducible scientific computing.
+
+[Open complete CV (PDF)](/files/CV.pdf){.btn .btn-primary target="_blank"} [ORCID](https://orcid.org/0000-0001-9229-6379){.btn} [Google Scholar](https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en){.btn} [GitHub](https://github.com/qselmer){.btn}
+
+## Research focus
+
+- quantitative marine ecology, fisheries science, and stock assessment;
+- population and community dynamics, recruitment, growth, and life-history variation;
+- spatio-temporal modelling, statistical ecology, and marine ecosystem indicators;
+- pelagic fish and ecosystem dynamics in the Humboldt Current and other Eastern Boundary Upwelling Systems;
+- multidimensional stock-state diagnostics, thresholds, regime shifts, and pressure–state relationships;
+- integration of biological, fishery, and environmental evidence for adaptive management;
+- reproducible scientific workflows in R, Python, C++, Julia, Git, and GitHub.
+
+## Research portfolio
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+### Publications
+Peer-reviewed articles, thesis work, and other formal scholarly outputs are maintained in the publication catalogue.
+
+[View Publications](/publications/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Conferences
+Oral presentations, posters, and other conference contributions are catalogued separately from formal publications.
+
+[View Conferences](/talks/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Research projects
+Current research programmes and manuscript-oriented projects document the scientific questions and analytical directions behind the portfolio.
+
+[View Projects](/projects/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Scientific software
+Released and sufficiently documented scientific software is presented separately from incubating packages and concepts.
+
+[View Software](/software/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Teaching
+Structured training activities and reusable teaching infrastructure are maintained in dedicated teaching repositories.
+
+[View Teaching](/teaching/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### External data sources
+A curated directory of external fisheries, oceanographic, ecological, climate, and geospatial data sources is available for students and collaborators.
+
+[View Data Sources](/data/)
+:::
+:::
+
+## Complete curriculum vitae
+
+The PDF below remains the **authoritative detailed CV** for education, research and professional experience, publications, conference contributions, training, awards, and other credentials. The website sections above are navigation and discovery layers rather than duplicate CV records.
+
+[Open the PDF in a new tab](/files/CV.pdf){.btn .btn-primary target="_blank"}
+
+<iframe
+  src="/files/CV.pdf#view=FitH&toolbar=1&navpanes=0"
+  title="Curriculum Vitae of Elmer Quispe-Salazar"
+  style="width:100%;height:80vh;min-height:720px;border:1px solid #dee2e6;border-radius:0.375rem;"
+></iframe>
+
+::: {.callout-note}
+## Record policy
+
+The PDF is the complete professional record. Publications, conferences, software, teaching, projects, and data-source pages use their own curated or synchronized catalogues and are linked from the CV rather than copied into it. This avoids inconsistent duplicate records across the site.
+:::
