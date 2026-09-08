@@ -4,6 +4,8 @@ project:
   resources:
     - images/**
     - files/CV.pdf
+  post-render:
+    - scripts/postprocess_site.py
   render:
     - 404.qmd
     - index.qmd
@@ -47,6 +49,9 @@ website:
   title: "Elmer Quispe-Salazar"
   site-url: "https://qselmer.github.io"
   description: "Quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, and reproducible scientific computing."
+  favicon: images/favicon.ico
+  open-graph: true
+  twitter-card: true
   search: true
   navbar:
     left:
@@ -84,8 +89,11 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css:
+      - styles.css
+      - accessibility.css
     toc: true
     link-external-newwindow: true
+    include-before-body: includes/skip-link.html
 
 lang: en
