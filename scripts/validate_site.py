@@ -55,6 +55,7 @@ LEGACY_JEKYLL_PATHS = (
     "markdown_generator",
     "package.json",
     "talkmap",
+    "talkmap.py",
     "talkmap.ipynb",
     "talkmap_out.ipynb",
     "scripts/cv_markdown_to_json.py",
