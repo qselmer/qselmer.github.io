@@ -54,7 +54,7 @@ body {
 }
 
 .home-card h3 {
-  margin-top: 0;
+  margin-top: 0.3rem;
 }
 
 .kicker {
@@ -68,6 +68,17 @@ body {
 .section-intro {
   max-width: 820px;
   font-size: 1.05rem;
+}
+
+.project-meta {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--qs-border);
+  border-radius: 0.4rem;
+  background: var(--qs-panel);
+  color: var(--qs-muted);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 760px) {

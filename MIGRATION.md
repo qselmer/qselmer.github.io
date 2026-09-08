@@ -19,15 +19,21 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
 - [x] Phase 2 — add minimal Quarto architecture and principal section routes.
 - [x] Phase 3 — validate automated Quarto rendering.
 - [ ] Phase 4 — migrate project, publication, software, conference, teaching, data, blog, CV, and contact content.
+  - [x] Phase 4.1 — migrate and classify all six project records while preserving project URLs.
+  - [ ] Phase 4.2 — publications.
+  - [ ] Phase 4.3 — software.
+  - [ ] Phase 4.4 — teaching.
+  - [ ] Phase 4.5 — conferences.
+  - [ ] Phase 4.6 — data.
+  - [ ] Phase 4.7 — blog / research notes.
+  - [ ] Phase 4.8 — CV.
+  - [ ] Phase 4.9 — contact.
+  - [ ] Phase 4.10 — final homepage integration.
 - [ ] Phase 5 — consolidate metadata and automation.
 - [ ] Phase 6 — remove Academic Pages/Jekyll technical debt.
 - [ ] Phase 7 — validate URLs, accessibility, links, metadata, and mobile layout.
 - [ ] Phase 8 — merge to production and standardize the default branch.
 
-## Phase 3 validation record
+## Validation checkpoint
 
-- Quarto GitHub Actions render: **PASS**.
-- Rendered HTML pages: **11**.
-- Missing internal link targets in rendered preview: **0**.
-- Existing `master` production branch modified: **NO**.
-- Legacy talk-map workflow isolated from the migration branch: **YES**.
+Quarto rendering has been validated successfully through GitHub Actions. The generated preview contains all explicitly rendered pages and passed the current internal-link target check with no missing internal targets. Project migration retains the established `/projects/<slug>/` routes while separating programme-level records from manuscript-oriented projects.

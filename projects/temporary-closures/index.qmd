@@ -1,0 +1,43 @@
+---
+title: "Fleet responses to temporary closures for juvenile anchovy"
+description: "Evaluating how industrial purse-seine fleets redistribute effort and catches in response to temporary spatial closures triggered by juvenile anchovy occurrence."
+date: 2026-07-12
+status: active
+project-type: manuscript-project
+featured: false
+categories: [anchovy, fleet behaviour, spatial management, juvenile protection]
+---
+
+<div class="project-meta"><strong>Status:</strong> Active · <strong>Type:</strong> Manuscript-oriented project</div>
+
+## Scientific question
+
+How does the industrial purse-seine fleet respond to temporary spatial closures established to reduce the capture of juvenile anchovy, and what do those responses imply for management effectiveness?
+
+## Evidence base
+
+The project integrates fishing-set positions, catches, effort, vessel characteristics, juvenile incidence, closure boundaries and dates, fishing-season context, and environmental or operational covariates.
+
+## Methods
+
+- Before–after and open–closed spatial comparisons.
+- Redistribution of effort, catches, and fleet concentration.
+- Distance-to-closure and displacement metrics.
+- Hotspot, centre-of-gravity, and spatial-overlap analysis.
+- Generalized and spatio-temporal models of fleet response.
+- Evaluation of heterogeneity among vessel groups and fishing seasons.
+
+## Current status
+
+Active methodological and manuscript-development project focused on temporary closures implemented in the north-central Peruvian anchovy fishery.
+
+## Expected outputs
+
+- Peer-reviewed manuscript on operational fleet responses.
+- Spatial indicators of displacement and concentration.
+- Reproducible workflow for evaluating temporary fisheries closures.
+- Evidence relevant to juvenile-protection measures and adaptive management.
+
+## Repository architecture
+
+A repository named `FisheryClose` exists in the account, but it is not designated as the canonical source here because its current public metadata do not yet document the scientific project sufficiently. That repository will be audited separately before any public project-to-repository link is established.

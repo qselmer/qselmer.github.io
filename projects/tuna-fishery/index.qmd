@@ -1,0 +1,43 @@
+---
+title: "Spatio-temporal patterns of the Peruvian tuna purse-seine fishery"
+description: "Characterizing catch, effort, operational behaviour, fishing modes, species composition, standardized CPUE, and environmental associations."
+date: 2026-07-13
+status: active
+project-type: manuscript-programme
+featured: true
+categories: [tuna, CPUE, fleet dynamics, spatio-temporal modelling]
+---
+
+<div class="project-meta"><strong>Status:</strong> Active · <strong>Type:</strong> Manuscript programme</div>
+
+## Scientific question
+
+How have catch, effort, operational behaviour, fishing modes, and species composition changed in the Peruvian tuna purse-seine fishery, and how are these patterns related to environmental variability?
+
+## Evidence base
+
+The project uses fishing logbooks, trip and set information, vessel characteristics, catch composition, size information, fishing-mode classifications, and environmental covariates inside and outside the Peruvian exclusive economic zone.
+
+## Methods
+
+- Descriptive analysis of catch, effort, and nominal CPUE.
+- Spatial grids, centres of gravity, distributional indices, and hotspot analysis.
+- Comparisons among fishing modes and fleet segments.
+- Standardized CPUE using generalized, mixed, additive, and spatio-temporal models.
+- Blocked spatial and temporal cross-validation.
+- Environmental association and habitat modelling.
+
+## Current status
+
+Active thesis and publication programme. One component focuses on the historical and operational characterization of the fishery, while another develops standardized abundance indices and environmental models.
+
+## Expected outputs
+
+- Fishery-characterization manuscript.
+- Standardized-CPUE manuscript.
+- Spatial products and reproducible analytical workflows.
+- Methodological guidance for a multispecies and multimodal fishery.
+
+## Repository architecture
+
+No public repository is designated here until the canonical analysis or paper repositories are verified. Future repository links will point to the source of truth rather than to copied website content.

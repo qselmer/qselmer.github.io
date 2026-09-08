@@ -1,0 +1,51 @@
+---
+title: "Multidimensional state of the north-central Peruvian anchovy stock"
+description: "Integrating population magnitude, condition, reproduction, demographic structure, spatial distribution, and environmental and fishing pressures."
+date: 2026-07-15
+status: active
+project-type: research-programme
+featured: true
+categories: [anchovy, stock assessment, ecosystem variability, multivariate indicators]
+---
+
+<div class="project-meta"><strong>Status:</strong> Active · <strong>Type:</strong> Research programme</div>
+
+## Scientific question
+
+How has the multidimensional state of the north-central Peruvian anchovy stock changed in response to natural variability and fishing pressure within the Humboldt Current System?
+
+## Study system
+
+The programme focuses on the north-central stock of Peruvian anchovy (*Engraulis ringens*) and treats stock condition as a multidimensional ecological state rather than a single biomass signal.
+
+## Evidence base
+
+The analytical framework integrates acoustic surveys, fishery-dependent observations, biological sampling, demographic information, spatial indicators, and environmental information from oceanographic and satellite sources.
+
+## Analytical framework
+
+- Dimension-specific indicators of population magnitude, condition, reproduction, demographic structure, spatial distribution, and size structure.
+- Multivariate integration and latent-state approaches.
+- Trend, breakpoint, regime, and threshold diagnostics.
+- Pressure–state relationships involving environmental and fishing variables.
+- Spatio-temporal analyses of abundance, distribution, and habitat conditions.
+- Sensitivity analysis to indicator composition and integration choices.
+
+## Current status
+
+Active research programme supporting complementary manuscripts on multidimensional stock state, pressure–response relationships, structural changes, and adaptive fisheries assessment.
+
+## Expected outputs
+
+- Multidimensional stock-state framework.
+- Peer-reviewed manuscripts and conference contributions.
+- Reproducible analytical workflows.
+- Diagnostic indicators for monitoring and adaptive management.
+
+## Repository architecture
+
+This is a programme-level page. Individual manuscripts and analytical components should link to dedicated canonical repositories as those repositories are finalized and audited; the website will not duplicate their source code or analysis files.
+
+## Related sections
+
+[Research](/research/) · [Publications](/publications/) · [Conferences](/talks/)

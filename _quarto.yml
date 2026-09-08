@@ -5,6 +5,12 @@ project:
     - index.qmd
     - research/index.qmd
     - projects/index.qmd
+    - projects/anchovy-stock-state/index.qmd
+    - projects/anchovy-selectivity/index.qmd
+    - projects/tuna-fishery/index.qmd
+    - projects/multivariate-indicators/index.qmd
+    - projects/temporary-closures/index.qmd
+    - projects/reproducible-marine-data-systems/index.qmd
     - publications/index.qmd
     - talks/index.qmd
     - software/index.qmd
