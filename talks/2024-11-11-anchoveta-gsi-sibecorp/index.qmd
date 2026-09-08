@@ -1,0 +1,31 @@
+---
+title: "Suitability of the gonadosomatic index in Peruvian Anchoveta"
+subtitle: "Sexual maturity, a 5% critical threshold, and seasonal variation"
+description: "VI SIBECORP conference presentation on gonadosomatic-index diagnostics and maturity classification in Peruvian anchoveta."
+---
+
+**Conference presentation · 11 November 2024 · Lisbon, Portugal**
+
+*VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca (VI SIBECORP)*
+
+## Overview
+
+This presentation evaluated the gonadosomatic index (GSI) as an operational indicator of gonadal maturity in Peruvian anchoveta (*Engraulis ringens*). The work examined whether GSI and complementary predictors can classify maturity stages, whether a critical GSI threshold can identify active maturity phases, and how that threshold varies through the reproductive cycle.
+
+The conference contribution formed part of the methodological development that was subsequently extended into peer-reviewed work on classification models for gonadal maturity.
+
+## Authorship
+
+**Authors:** Elmer Quispe-Salazar and Javier Sánchez.
+
+**Presenter:** Elmer Quispe-Salazar.
+
+## Public materials
+
+- [Conference record and presentation material](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767)
+- [DOI](https://doi.org/10.13140/RG.2.2.32795.73767)
+- [VI SIBECORP event page](https://visibecorp.cetmar.org/indexPT.php)
+
+## Related publication
+
+The subsequent peer-reviewed study is listed under [Publications](/publications/): *Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens* (2025, *Scientia Marina*).

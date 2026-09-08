@@ -36,28 +36,32 @@ jobs:
       - name: Rebuild generated fragments
         run: |
           python scripts/build_publications.py
+          python scripts/build_conferences.py
           python scripts/build_software.py
           python scripts/build_teaching.py
 
       - name: Validate synchronized catalogues
         run: |
           python -m json.tool assets/data/publications.json >/dev/null
+          python -m json.tool assets/data/conferences.json >/dev/null
           python -m json.tool assets/data/software.json >/dev/null
           python -m json.tool assets/data/teaching.json >/dev/null
+          python -m json.tool talks/registry.json >/dev/null
           python -m json.tool software/registry.json >/dev/null
           python -m json.tool teaching/registry.json >/dev/null
           python scripts/build_publications.py --check
+          python scripts/build_conferences.py --check
           python scripts/build_software.py --check
           python scripts/build_teaching.py --check
 
       - name: Commit changes
         run: |
-          if git diff --quiet -- assets/data/publications.json publications/_generated.md assets/data/software.json software/_generated.md assets/data/teaching.json teaching/_generated.md; then
+          if git diff --quiet -- assets/data/publications.json publications/_generated.md assets/data/conferences.json talks/_generated.md assets/data/software.json software/_generated.md assets/data/teaching.json teaching/_generated.md; then
             echo "No academic profile changes detected."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/publications.json publications/_generated.md assets/data/software.json software/_generated.md assets/data/teaching.json teaching/_generated.md
+          git add assets/data/publications.json publications/_generated.md assets/data/conferences.json talks/_generated.md assets/data/software.json software/_generated.md assets/data/teaching.json teaching/_generated.md
           git commit -m "chore: synchronize academic profile data"
           git push

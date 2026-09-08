@@ -26,11 +26,14 @@ jobs:
       - name: Validate generated catalogues
         run: |
           python -m json.tool assets/data/publications.json >/dev/null
+          python -m json.tool assets/data/conferences.json >/dev/null
           python -m json.tool assets/data/software.json >/dev/null
           python -m json.tool assets/data/teaching.json >/dev/null
+          python -m json.tool talks/registry.json >/dev/null
           python -m json.tool software/registry.json >/dev/null
           python -m json.tool teaching/registry.json >/dev/null
           python scripts/build_publications.py --check
+          python scripts/build_conferences.py --check
           python scripts/build_software.py --check
           python scripts/build_teaching.py --check
 

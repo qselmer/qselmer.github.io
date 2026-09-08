@@ -1,0 +1,33 @@
+---
+title: "Multivariate Health Index of the anchovy"
+subtitle: "Understanding the dynamics of small pelagic fish under environmental variability"
+description: "SPF-2026 oral presentation on a multidimensional health framework for small pelagic fish."
+---
+
+**Oral presentation · 6 May 2026 · La Paz, Baja California Sur, Mexico**
+
+*SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities*
+
+## Overview
+
+This presentation introduced a multidimensional framework for evaluating the state of highly variable small-pelagic populations using Peruvian anchoveta (*Engraulis ringens*) as the applied case. The central premise is that stock condition cannot always be represented adequately by biomass alone when biological condition, demographic structure, spatial organization, and reproductive output can change on different trajectories.
+
+![](../../../images/talks/anchovy-health-index-full.png){fig-alt="Multivariate Health Index presentation for Peruvian anchoveta" width=90%}
+
+The proposed framework integrates complementary stock-state dimensions into a synthetic diagnostic signal while retaining the underlying indicators needed for interpretation. The intended use is ecosystem-informed assessment, temporal comparison among years or regimes, and communication of changes in stock condition under strong environmental variability.
+
+## Authorship
+
+**Authors:** Elmer Quispe-Salazar and Jorge Tam.
+
+**Presenter:** Elmer Quispe-Salazar.
+
+## Public materials
+
+- [Pre-recorded oral presentation](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
+- [SPF-2026 presentations](https://meetings.pices.int/publications/presentations/2026-SPF)
+- [SPF-2026 Book of Abstracts](https://meetings.pices.int/publications/book-of-abstracts/2026-SPF-Book-of-Abstracts.pdf)
+
+## Related work
+
+See [Multivariate indicators for fisheries and ecosystem assessment](/projects/multivariate-indicators/) and [Multidimensional state of the north-central Peruvian anchovy stock](/projects/anchovy-stock-state/).

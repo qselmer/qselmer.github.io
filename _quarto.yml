@@ -13,6 +13,9 @@ project:
     - projects/reproducible-marine-data-systems/index.qmd
     - publications/index.qmd
     - talks/index.qmd
+    - talks/2026-05-08-critical-points-anchovy-stock/index.qmd
+    - talks/2026-05-06-anchovy-health-index/index.qmd
+    - talks/2024-11-11-anchoveta-gsi-sibecorp/index.qmd
     - software/index.qmd
     - software/oceancube/index.qmd
     - software/humboldt-ocean-watch/index.qmd

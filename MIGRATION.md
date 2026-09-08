@@ -12,7 +12,8 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
 6. The authoritative publication catalogue is `qselmer/qselmer/assets/data/publications.json`; the website stores only a synchronized mirror and generated presentation fragment.
 7. The authoritative repository inventory is `qselmer/qselmer/assets/data/repository-catalog.json`; website registries curate which software and teaching resources are mature enough to present.
 8. Teaching content remains in dedicated repositories. Actual activities use `type-training`; the reusable teaching scaffold uses `type-template`.
-9. Legacy template files are removed only after URL, content, and build parity are verified.
+9. Conference outputs retain ORCID-derived bibliographic identity; `talks/registry.json` adds only presentation-level metadata and stable routes.
+10. Legacy template files are removed only after URL, content, and build parity are verified.
 
 ## Migration phases
 
@@ -24,14 +25,14 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
   - [x] Phase 4.2 — consolidate publications around the profile catalogue and generate the Quarto publication list automatically.
   - [x] Phase 4.3 — curate scientific software from the canonical repository inventory and preserve software maturity boundaries.
   - [x] Phase 4.4 — curate structured teaching activities and teaching infrastructure without duplicating course content into the website.
-  - [ ] Phase 4.5 — conferences.
+  - [x] Phase 4.5 — reconcile all conference outputs with ORCID and preserve conference routes.
   - [ ] Phase 4.6 — data.
   - [ ] Phase 4.7 — blog / research notes.
   - [ ] Phase 4.8 — CV.
   - [ ] Phase 4.9 — contact.
   - [ ] Phase 4.10 — final homepage integration.
 - [ ] Phase 5 — consolidate metadata and automation.
-- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including the legacy `_publications/` collection and `_data/publications.json` mirror after final parity checks.
+- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, and `_data/publications.json` after final parity checks.
 - [ ] Phase 7 — validate URLs, accessibility, links, metadata, and mobile layout.
 - [ ] Phase 8 — merge to production and standardize the default branch.
 
@@ -44,3 +45,5 @@ Publication migration uses `qselmer/qselmer/assets/data/publications.json` as th
 Software migration uses the canonical repository inventory plus `software/registry.json` for website-level maturity decisions. Only repositories with defensible public documentation are promoted as scientific software; incubating and concept-stage records remain clearly separated.
 
 Teaching migration follows the same architecture. `teaching/registry.json` currently promotes `git-github-training` as the structured teaching activity and `.template-training` as teaching infrastructure. Practice repositories and clones are not promoted automatically. `bioacoustic-monitoring` is intentionally held for adaptation because its current public README identifies the Climate Change AI tutorial and original authors; it must become a distinct, explicitly attributed class before website promotion.
+
+Conference migration now reconciles every `Conference outputs` record in the synchronized publication catalogue against `talks/registry.json`. The two SPF-2026 legacy records preserve their established routes and presentation metadata; the 2024 VI SIBECORP contribution receives a stable route. `assets/data/conferences.json` and `talks/_generated.md` are deterministic derivatives checked by CI, so new ORCID conference outputs cannot silently disappear from the website catalogue.
