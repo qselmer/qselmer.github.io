@@ -1,16 +1,50 @@
 ---
 title: "Contact"
-description: "Academic and technical collaboration."
+description: "Research collaboration, quantitative fisheries science, teaching, and professional contact."
+toc: true
 ---
+
+For research collaboration, manuscript discussion, quantitative analysis, teaching, or professional exchange in marine ecology and fisheries science, use the contact details below.
+
+## Primary contact
+
+**Email:** [qselmers@gmail.com](mailto:qselmers@gmail.com)
+
+[Email me](mailto:qselmers@gmail.com){.btn .btn-primary} [Curriculum vitae](/cv/){.btn .btn-secondary}
+
+This personal email is the canonical contact address for this academic website and the public `qselmer` profile.
 
 ## Areas of collaboration
 
 - quantitative marine ecology and fisheries science;
-- stock assessment, population dynamics, selectivity, and recruitment;
-- spatio-temporal and habitat modelling;
-- environmental variability and ecosystem responses;
-- statistical modelling and reproducible scientific computing;
-- scientific software and marine data workflows.
+- stock assessment, population dynamics, selectivity, recruitment, growth, and life-history variation;
+- spatio-temporal, habitat, and species-distribution modelling;
+- environmental variability, ecosystem responses, and Eastern Boundary Upwelling Systems;
+- multivariate stock-state indicators, thresholds, regime shifts, and pressure–state relationships;
+- management strategy evaluation, adaptive fisheries management, and decision-support methods;
+- fisheries-dependent, acoustic, biological, and oceanographic data integration;
+- statistical modelling and reproducible workflows in R, Python, C++, Julia, Git, and GitHub;
+- scientific software, marine data workflows, workshops, and teaching activities;
+- conference, symposium, seminar, and collaborative research invitations.
 
-**GitHub:** [qselmer](https://github.com/qselmer)  
-**ORCID:** [0000-0001-9229-6379](https://orcid.org/0000-0001-9229-6379)
+## When contacting me
+
+A concise first message is usually sufficient. For research or technical collaboration, it is useful to include the scientific question, available data or expected data source, intended output, and approximate timeline.
+
+For projects involving confidential, restricted, or institutionally governed data, please describe the access conditions first rather than attaching sensitive data to the initial message.
+
+## Academic and professional profiles
+
+| Profile | Link | Primary use |
+|---|---|---|
+| ORCID | [0000-0001-9229-6379](https://orcid.org/0000-0001-9229-6379) | Canonical scholarly-output identity |
+| Google Scholar | [Elmer Quispe-Salazar](https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en) | Citation and publication discovery |
+| Web of Science | [Author record](https://www.webofscience.com/wos/author/record/AEA-6138-2022) | Indexed author record |
+| ResearchGate | [Elmer Quispe-Salazar](https://www.researchgate.net/profile/Elmer-Quispe-Salazar) | Research-network profile |
+| GitHub | [qselmer](https://github.com/qselmer) | Code, software, training, and reproducible workflows |
+| LinkedIn | [Elmer Quispe-Salazar](https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/) | Professional networking |
+| X | [@elmerseascient](https://x.com/elmerseascient) | Short-form scientific communication |
+
+## Site scope
+
+This is a personal academic and professional website. It does not represent an institutional communication channel. Official institutional requests should be directed through the appropriate institutional contact mechanism.
