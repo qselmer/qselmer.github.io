@@ -1,21 +1,20 @@
 # Website migration: Jekyll -> Quarto
 
-This branch contains the controlled migration of `qselmer.github.io` from Academic Pages/Jekyll to Quarto.
+This document records the controlled migration of `qselmer.github.io` from Academic Pages/Jekyll to Quarto and the production cutover completed on 8 September 2026.
 
 ## Governing rules
 
-1. `master` remains the production site until final deployment validation.
-2. GitHub repositories remain the scientific source of truth; the website is the discovery and presentation layer.
-3. Repository-specific code, analyses, manuscripts, and full teaching content are not duplicated into the website.
-4. Publications and research metrics use canonical public metadata from `qselmer/qselmer`.
-5. The canonical repository catalogue is used to curate Software and Teaching, but the complete catalogue is never persisted in the public website because it may contain private-repository metadata.
-6. Conference records retain ORCID-derived bibliographic identity with website-specific presentation metadata in `talks/registry.json`; legitimate legacy-only conference records are explicitly labelled as historical.
-7. Data Sources are external resources for students and collaborators, not datasets owned or produced by Elmer Quispe-Salazar.
-8. Blog is the educational communication layer: reader pathway `social post -> Blog -> class`; formal scholarly notes belong in Publications.
-9. Contact identity is personal and canonical: `qselmers@gmail.com` and the full LinkedIn profile URL. Legacy institutional contact metadata is not propagated.
-10. Homepage ORCID/OpenAlex metrics are displayed as reported and are never manually inflated.
-11. Legacy public content is preserved or mapped before its Jekyll source is removed.
-12. The pre-migration implementation remains recoverable from `legacy/jekyll-v0.9`.
+1. GitHub repositories remain the scientific source of truth; the website is the discovery and presentation layer.
+2. Repository-specific code, analyses, manuscripts, and full teaching content are not duplicated into the website.
+3. Publications and research metrics use canonical public metadata from `qselmer/qselmer`.
+4. The canonical repository catalogue is used to curate Software and Teaching, but the complete catalogue is never persisted in the public website because it may contain private-repository metadata.
+5. Conference records retain ORCID-derived bibliographic identity with website-specific presentation metadata in `talks/registry.json`; legitimate legacy-only conference records are explicitly labelled as historical.
+6. Data Sources are external resources for students and collaborators, not datasets owned or produced by Elmer Quispe-Salazar.
+7. Blog is the educational communication layer: reader pathway `social post -> Blog -> class`; formal scholarly notes belong in Publications.
+8. Contact identity is personal and canonical: `qselmers@gmail.com` and the full LinkedIn profile URL. Legacy institutional contact metadata is not propagated.
+9. Homepage ORCID/OpenAlex metrics are displayed as reported and are never manually inflated.
+10. Legacy public content is preserved or mapped before its Jekyll source is removed.
+11. The pre-migration implementation remains recoverable from `legacy/jekyll-v0.9`.
 
 ## Migration phases
 
@@ -34,9 +33,9 @@ This branch contains the controlled migration of `qselmer.github.io` from Academ
   - [x] 4.9 Contact
   - [x] 4.10 Final homepage
 - [x] Phase 5 - metadata and automation consolidation.
-- [x] Phase 6 - remove Academic Pages/Jekyll technical debt.
-- [x] Phase 7 - certify URLs, redirects, accessibility, metadata, external links, and responsive layout.
-- [ ] Phase 8 - production deployment and default-branch standardization.
+- [x] Phase 6 - Academic Pages/Jekyll technical-debt retirement.
+- [x] Phase 7 - URLs, redirects, accessibility, metadata, external links, and responsive-layout certification.
+- [x] Phase 8 - production cutover to Quarto on GitHub Pages.
 
 ## Phase 4 outcome
 
@@ -58,43 +57,58 @@ The weekly profile workflow is `.github/workflows/sync-academic-profile.yml`. `s
 
 ## Phase 6 outcome
 
-The final pre-migration Jekyll production state is preserved in branch `legacy/jekyll-v0.9` at commit `f84307690cc573b7b2e83a548d2d56102a05218d` before technical-debt removal.
+The final pre-migration Jekyll production state is preserved in branch `legacy/jekyll-v0.9` at commit `f84307690cc573b7b2e83a548d2d56102a05218d`.
 
 A final parity inventory identified meaningful residual routes before cleanup. Quarto equivalents were created for `/engagement/`, `/resources/`, `/services/`, `/follow/`, `/terms/`, and the 404 page. A 2022 anchoveta biomass conference contribution that existed only in the legacy `_publications` collection was retained as an explicitly historical Conferences record at `/talks/2022-09-01-anchoveta-biomass-variability/`; no unverified proceedings URL was invented.
 
-`config/legacy-routes.json` separates preserved routes from routes requiring redirects. Phase 7 implements and certifies those redirects.
+`config/legacy-routes.json` separates preserved routes from routes requiring redirects.
 
-The migration branch no longer contains the Academic Pages/Jekyll runtime or template machinery, including:
-
-- Jekyll `_config*`, `_data`, `_drafts`, `_includes`, `_layouts`, `_pages`, `_posts`, `_projects`, `_publications`, `_sass`, `_software`, and `_talks`;
-- Ruby/Bundler and Jekyll Docker development files;
-- Academic Pages JavaScript/Node build assets and `package.json`;
-- `markdown_generator` template-generation notebooks/scripts;
-- the geocoded talk-map notebook, generated map, and workflow;
-- obsolete Academic Pages CV conversion utilities and upstream issue/contribution templates.
-
-The retained source is Quarto plus the Python metadata/build pipeline, curated JSON registries/mirrors, site content, images, and CV resources. Source CI rejects reintroduction of the retired legacy paths.
+The production source no longer contains the Academic Pages/Jekyll runtime or template machinery, including Jekyll collections/configuration, layouts/includes/Sass, Ruby/Bundler, Docker legacy, Academic Pages JavaScript/Node assets, `markdown_generator`, legacy CV utilities, and talk-map machinery. Source CI rejects reintroduction of retired legacy paths.
 
 ## Phase 7 outcome
 
-Phase 7 is certified on commit `323a338507ac741b9314df00e2ad38ce0dcf8fa1`.
+Phase 7 was certified on commit `323a338507ac741b9314df00e2ad38ce0dcf8fa1`.
 
 Certification covers deterministic legacy redirects, current and historical route handling, canonical URLs, Open Graph/Twitter metadata, sitemap/robots, 404 `noindex`, one visible `h1` per page, keyboard skip link/focus states, reduced motion, image alternative text, iframe titles, responsive viewport structure, internal-link validation, and external-link auditing with confirmed GET `404`/`410` treated as blocking failures.
 
 Final Phase 7 workflow run `34272945869` completed successfully. The independent preproduction artifact audit found 42 HTML pages, 1,141 internal `href/src` references, 0 missing internal references, and 0 canonical/H1 anomalies.
 
-## Phase 8 staging
+## Phase 8 outcome
 
-Production deployment is staged in `.github/workflows/quarto-pages.yml`. On a push to `master`, it validates source state, renders the Quarto site, validates the rendered site and external links, uploads `_site` as the GitHub Pages artifact, and deploys with `actions/deploy-pages`.
+The user explicitly authorized the production cutover. PR #26 was merged with exact head-SHA protection into `master`.
 
-The cutover remains incomplete until the certified migration PR is merged, the production workflow succeeds on `master`, and the public `https://qselmer.github.io/` site is verified.
+Production merge commit:
 
-## Remaining work
+```text
+0cf243eb7f68e67fe322bb1036e7ac10e97d4f33
+```
 
-### Phase 8
+The Jekyll deployment workflow was replaced by `.github/workflows/quarto-pages.yml`. The production workflow validates source state, renders Quarto, validates the rendered site and external links, uploads `_site` as the GitHub Pages artifact, and deploys with `actions/deploy-pages`.
 
-1. Validate the staged production deployment workflow on the migration branch.
-2. Merge the certified migration into `master` under the user's explicit cutover authorization.
-3. Verify the production GitHub Pages workflow and public website.
-4. Record final cutover state.
-5. Standardize the default branch if repository settings and permissions permit it without weakening the preserved legacy rollback path.
+First Quarto production deployment:
+
+```text
+GitHub Actions run: 34276777663
+Result: SUCCESS
+Pages URL: https://qselmer.github.io/
+Pages artifact: 10076025275
+Artifact digest: sha256:b2298c715ace67b1e2af381defe67aaddb9b89bd3256ca1a0ed25102cfce4b25
+```
+
+The GitHub Pages deployment log reports success for build version `0cf243eb7f68e67fe322bb1036e7ac10e97d4f33` and evaluates the environment URL as `https://qselmer.github.io/`.
+
+The exact deployed artifact was independently audited: 42 HTML pages and 1,140 internal `href/src` references with 0 missing. The home page, Data Sources, Contact, sitemap, robots file, and representative legacy redirects are present in the deployed artifact.
+
+Direct HTTP retrieval of the public domain could not be independently repeated from the execution sandbox because its DNS/network policy did not resolve `qselmer.github.io`; therefore no browser/network verification is claimed beyond GitHub Pages' successful deployment status and inspection of the exact deployed artifact.
+
+### Branch state after cutover
+
+- `master` - active Quarto production/default branch.
+- `legacy/jekyll-v0.9` - immutable pre-migration Jekyll rollback snapshot.
+- `migration/quarto-v1` - retained migration history/candidate branch.
+
+The repository currently uses `master` as its default branch. Standardizing the branch name to `main` is an optional administrative follow-up and is deliberately not simulated by creating a parallel branch: the available GitHub connector can read `default_branch` but does not expose the repository-settings mutation required to change it safely.
+
+## Migration status
+
+**COMPLETE.** The website source, validation pipeline, and GitHub Pages production deployment are now Quarto-based. The preserved legacy branch provides a rollback/reference snapshot without participating in deployment.

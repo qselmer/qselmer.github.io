@@ -1,12 +1,10 @@
-name: Validate Quarto migration
+name: Validate Quarto website
 
 on:
-  push:
-    branches:
-      - migration/quarto-v1
   pull_request:
     branches:
       - master
+  workflow_dispatch:
 
 permissions:
   contents: read
