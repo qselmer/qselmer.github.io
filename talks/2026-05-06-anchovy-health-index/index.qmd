@@ -12,7 +12,7 @@ description: "SPF-2026 oral presentation on a multidimensional health framework 
 
 This presentation introduced a multidimensional framework for evaluating the state of highly variable small-pelagic populations using Peruvian anchoveta (*Engraulis ringens*) as the applied case. The central premise is that stock condition cannot always be represented adequately by biomass alone when biological condition, demographic structure, spatial organization, and reproductive output can change on different trajectories.
 
-![](../../../images/talks/anchovy-health-index-full.png){fig-alt="Multivariate Health Index presentation for Peruvian anchoveta" width=90%}
+![](../../images/talks/anchovy-health-index-full.png){fig-alt="Multivariate Health Index presentation for Peruvian anchoveta" width=90%}
 
 The proposed framework integrates complementary stock-state dimensions into a synthetic diagnostic signal while retaining the underlying indicators needed for interpretation. The intended use is ecosystem-informed assessment, temporal comparison among years or regimes, and communication of changes in stock condition under strong environmental variability.
 

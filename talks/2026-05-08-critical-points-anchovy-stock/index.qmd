@@ -11,7 +11,7 @@ description: "SPF-2026 poster on pressure–state relationships, nonlinear respo
 
 This contribution examined how natural variability and fishing-related pressures can be associated with changes in the multidimensional state of the north-central Peruvian anchovy stock. The analytical perspective focuses on nonlinear pressure–response relationships, critical regions, potential thresholds, and warning signals rather than assuming that stock-state responses are gradual and linear.
 
-![](../../../images/talks/anchovy-critical-points-full.png){fig-alt="Poster on critical points and stock-state responses of the north-central Peruvian anchovy" width=90%}
+![](../../images/talks/anchovy-critical-points-full.png){fig-alt="Poster on critical points and stock-state responses of the north-central Peruvian anchovy" width=90%}
 
 The framework connects environmental and anthropogenic pressures with biological, demographic, reproductive, and spatial indicators of stock state. Its purpose is to support ecosystem-informed diagnosis and the development of adaptive management questions that can later be evaluated with formal statistical models and management strategy evaluation.
 
