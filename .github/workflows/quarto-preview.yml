@@ -14,65 +14,28 @@ permissions:
 jobs:
   render:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate generated catalogues
-        run: |
-          python -m json.tool assets/data/publications.json >/dev/null
-          python -m json.tool assets/data/conferences.json >/dev/null
-          python -m json.tool assets/data/software.json >/dev/null
-          python -m json.tool assets/data/teaching.json >/dev/null
-          python -m json.tool assets/data/research-metrics.json >/dev/null
-          python -m json.tool talks/registry.json >/dev/null
-          python -m json.tool software/registry.json >/dev/null
-          python -m json.tool teaching/registry.json >/dev/null
-          python -m json.tool data/registry.json >/dev/null
-          python -m json.tool blog/registry.json >/dev/null
-          python scripts/build_publications.py --check
-          python scripts/build_conferences.py --check
-          python scripts/build_software.py --check
-          python scripts/build_teaching.py --check
-          python scripts/build_data_resources.py --check
-          python scripts/build_blog.py --check
-          python scripts/build_home.py --check
+
+      - name: Validate source state
+        run: python scripts/validate_site.py source
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+
       - name: Render website
         uses: quarto-dev/quarto-actions/render@v2
-      - name: Validate homepage identity and metrics
-        run: |
-          test -f _site/index.html
-          grep -Fq "Quantitative Marine Ecology" _site/index.html
-          grep -Fq "Measure change. Model uncertainty. Inform fisheries decisions." _site/index.html
-          grep -Fq "ORCID works" _site/index.html
-          grep -Fq "Citations" _site/index.html
-          grep -Fq "h-index" _site/index.html
-          grep -Fq "OpenAlex" _site/index.html
-          grep -Fq "research/index.html" _site/index.html
-      - name: Validate CV routes and PDF
-        run: |
-          test -s files/CV.pdf
-          test -s _site/files/CV.pdf
-          test -f _site/cv/index.html
-          test -f _site/resume/index.html
-      - name: Validate contact identity
-        run: |
-          test -f _site/contact/index.html
-          grep -Fq "qselmers@gmail.com" _site/contact/index.html
-          grep -Fq "elmer-quispe-salazar-104b6b1a4" _site/contact/index.html
-          if grep -Fq "oquispe@imarpe.gob.pe" _site/contact/index.html; then
-            echo "Legacy institutional email leaked into rendered Contact page"
-            exit 1
-          fi
-          if grep -Fq "linkedin.com/in/qselmer/" _site/contact/index.html; then
-            echo "Legacy LinkedIn slug leaked into rendered Contact page"
-            exit 1
-          fi
+
+      - name: Validate rendered site
+        run: python scripts/validate_site.py rendered
+
       - name: Upload rendered preview
         uses: actions/upload-artifact@v4
         with:

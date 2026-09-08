@@ -3,11 +3,10 @@ from __future__ import annotations
 
 import json
 import urllib.request
-from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
-SOURCE = "https://raw.githubusercontent.com/qselmer/qselmer/main/assets/data/publications.json"
+from site_config import ROOT, profile_source
+
 TARGET = ROOT / "assets" / "data" / "publications.json"
 
 
@@ -26,19 +25,25 @@ def validate(payload: dict[str, Any]) -> None:
                 raise RuntimeError(f"Invalid publication payload: item {index} is missing {field}")
 
 
-request = urllib.request.Request(
-    SOURCE,
-    headers={"User-Agent": "qselmer-website-publication-sync/2.0"},
-)
-with urllib.request.urlopen(request, timeout=30) as response:
-    payload = json.load(response)
+def main() -> None:
+    source = profile_source("publications")
+    request = urllib.request.Request(
+        source["url"],
+        headers={"User-Agent": "qselmer.github.io academic-profile-sync/3.0"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        payload = json.load(response)
 
-validate(payload)
-rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
-TARGET.parent.mkdir(parents=True, exist_ok=True)
-current = TARGET.read_text(encoding="utf-8") if TARGET.exists() else ""
-if current == rendered:
-    print(f"Publication catalogue already synchronized ({len(payload['publications'])} records)")
-else:
-    TARGET.write_text(rendered, encoding="utf-8")
-    print(f"Synchronized {len(payload['publications'])} publication records")
+    validate(payload)
+    rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    TARGET.parent.mkdir(parents=True, exist_ok=True)
+    current = TARGET.read_text(encoding="utf-8") if TARGET.exists() else ""
+    if current == rendered:
+        print(f"Publication catalogue already synchronized ({len(payload['publications'])} records)")
+    else:
+        TARGET.write_text(rendered, encoding="utf-8")
+        print(f"Synchronized {len(payload['publications'])} publication records")
+
+
+if __name__ == "__main__":
+    main()

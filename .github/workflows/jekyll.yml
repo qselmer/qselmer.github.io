@@ -1,9 +1,7 @@
-# Build and deploy the Jekyll website.
+# Legacy production deployment retained only until the Quarto production cutover.
 name: Build and deploy Jekyll site
 
 on:
-  pull_request:
-    branches: ["master"]
   push:
     branches: ["master"]
   workflow_dispatch:
@@ -64,11 +62,9 @@ jobs:
           if-no-files-found: ignore
 
       - name: Upload Pages artifact
-        if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v3
 
   deploy:
-    if: github.event_name == 'push'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

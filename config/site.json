@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "identity": {
+    "name": "Elmer Quispe-Salazar",
+    "headline": "Quantitative Marine Ecology & Fisheries Science",
+    "signature": "Measure change. Model uncertainty. Inform fisheries decisions.",
+    "email": "qselmers@gmail.com",
+    "orcid": "0000-0001-9229-6379",
+    "github": "https://github.com/qselmer",
+    "linkedin": "https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/",
+    "google_scholar": "https://scholar.google.com/citations?user=wz83egoAAAAJ",
+    "researchgate": "https://www.researchgate.net/profile/Elmer-Quispe-Salazar",
+    "web_of_science": "https://www.webofscience.com/wos/author/record/AEA-6138-2022",
+    "x": "https://x.com/elmerseascient"
+  },
+  "forbidden_legacy_identity": [
+    "oquispe@imarpe.gob.pe",
+    "https://www.linkedin.com/in/qselmer/"
+  ],
+  "canonical_profile": {
+    "repository": "qselmer/qselmer",
+    "branch": "main",
+    "sources": {
+      "publications": "assets/data/publications.json",
+      "research_metrics": "assets/data/research-metrics.json",
+      "repository_catalog": "assets/data/repository-catalog.json"
+    }
+  },
+  "website_mirrors": [
+    "assets/data/publications.json",
+    "assets/data/research-metrics.json"
+  ],
+  "website_registries": [
+    "talks/registry.json",
+    "software/registry.json",
+    "teaching/registry.json",
+    "data/registry.json",
+    "blog/registry.json"
+  ],
+  "derived_json": [
+    "assets/data/conferences.json",
+    "assets/data/software.json",
+    "assets/data/teaching.json"
+  ],
+  "generated_fragments": [
+    "publications/_generated.md",
+    "talks/_generated.md",
+    "software/_generated.md",
+    "teaching/_generated.md",
+    "data/_generated.md",
+    "blog/_generated.md",
+    "home/_metrics.md"
+  ],
+  "synchronized_artifacts": [
+    "assets/data/publications.json",
+    "publications/_generated.md",
+    "assets/data/conferences.json",
+    "talks/_generated.md",
+    "assets/data/software.json",
+    "software/_generated.md",
+    "assets/data/teaching.json",
+    "teaching/_generated.md",
+    "assets/data/research-metrics.json",
+    "home/_metrics.md"
+  ]
+}

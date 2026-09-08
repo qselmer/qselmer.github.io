@@ -1,64 +1,93 @@
 # Website migration: Jekyll → Quarto
 
-This branch contains the controlled migration of `qselmer.github.io` from the legacy Academic Pages/Jekyll implementation to Quarto.
+This branch contains the controlled migration of `qselmer.github.io` from Academic Pages/Jekyll to Quarto.
 
-## Rules
+## Governing rules
 
-1. `master` remains the production site until Quarto passes validation.
-2. Legacy Jekyll source is retained temporarily in this branch as a migration reference.
-3. Quarto renders only explicitly listed `.qmd` files during the transition.
-4. Repository-specific scientific content is not duplicated into the website.
-5. GitHub repositories remain the source of truth; the website is the discovery and presentation layer.
-6. The authoritative publication catalogue is `qselmer/qselmer/assets/data/publications.json`; the website stores only a synchronized mirror and generated presentation fragment.
-7. The authoritative repository inventory is `qselmer/qselmer/assets/data/repository-catalog.json`; website registries curate which software and teaching resources are mature enough to present.
-8. Teaching content remains in dedicated repositories. Actual activities use `type-training`; the reusable teaching scaffold uses `type-template`.
-9. Conference outputs retain ORCID-derived bibliographic identity; `talks/registry.json` adds only presentation-level metadata and stable routes.
-10. The Data section is an external-source directory for students and collaborators. `data/registry.json` contains discovery metadata only; no listed dataset is presented as owned or produced by Elmer Quispe-Salazar.
-11. The Blog is a teaching-communication layer: the audience pathway is social post → Blog → class, while content production should normally proceed class/theme → Blog → social post. New Blog articles require an explicit link to a published class; migrated legacy articles may be retained as documented exceptions until the class exists.
-12. Formal scholarly outputs and citable scientific notes belong in Publications, not in the Blog.
-13. Contact identity follows the currently maintained public `qselmer/qselmer` profile: `qselmers@gmail.com` is the personal collaboration address and the full LinkedIn profile slug is canonical. Legacy institutional email and obsolete LinkedIn metadata are not propagated into the Quarto site.
-14. Homepage research metrics are synchronized from `qselmer/qselmer/assets/data/research-metrics.json`; ORCID/OpenAlex values are displayed as reported and are never manually inflated. Google Scholar remains a discovery link rather than a scraped metric source.
-15. Legacy template files are removed only after URL, content, and build parity are verified.
+1. `master` remains the production site until final deployment validation.
+2. GitHub repositories remain the scientific source of truth; the website is the discovery and presentation layer.
+3. Repository-specific code, analyses, manuscripts, and full teaching content are not duplicated into the website.
+4. Publications and research metrics use canonical public metadata from `qselmer/qselmer`.
+5. The canonical repository catalogue is used to curate Software and Teaching, but the complete catalogue is never persisted in the public website because it may contain private-repository metadata.
+6. Conference records retain ORCID-derived bibliographic identity with website-specific presentation metadata in `talks/registry.json`.
+7. Data Sources are external resources for students and collaborators, not datasets owned or produced by Elmer Quispe-Salazar.
+8. Blog is the educational communication layer: reader pathway `social post → Blog → class`; formal scholarly notes belong in Publications.
+9. Contact identity is personal and canonical: `qselmers@gmail.com` and the full LinkedIn profile URL. Legacy institutional contact metadata is not propagated.
+10. Homepage ORCID/OpenAlex metrics are displayed as reported and are never manually inflated.
+11. Legacy Jekyll files are removed only after content, URL, build, and deployment parity are demonstrated.
 
 ## Migration phases
 
-- [x] Phase 1 — create isolated migration branch.
-- [x] Phase 2 — add minimal Quarto architecture and principal section routes.
-- [x] Phase 3 — validate automated Quarto rendering.
-- [x] Phase 4 — migrate project, publication, software, conference, teaching, data, blog, CV, contact, and homepage content.
-  - [x] Phase 4.1 — migrate and classify all six project records while preserving project URLs.
-  - [x] Phase 4.2 — consolidate publications around the profile catalogue and generate the Quarto publication list automatically.
-  - [x] Phase 4.3 — curate scientific software from the canonical repository inventory and preserve software maturity boundaries.
-  - [x] Phase 4.4 — curate structured teaching activities and teaching infrastructure without duplicating course content into the website.
-  - [x] Phase 4.5 — reconcile all conference outputs with ORCID and preserve conference routes.
-  - [x] Phase 4.6 — replace the ambiguous data-product concept with a curated external data-source directory for students and collaborators.
-  - [x] Phase 4.7 — define Blog as the social → extended article → class pathway, migrate the legacy statistical-distributions article, and enforce class linkage for new posts.
-  - [x] Phase 4.8 — retain the detailed PDF as the canonical CV while converting `/cv/` into a navigable professional landing page and preserving `/resume/`.
-  - [x] Phase 4.9 — consolidate personal contact identity, collaboration scope, and verified academic/professional profiles without using a third-party contact form.
-  - [x] Phase 4.10 — integrate the final homepage identity, personal research statements, automated research metrics, current research, and navigation across the scientific ecosystem.
-- [ ] Phase 5 — consolidate metadata and automation.
-- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, `_posts/`, `_data/publications.json`, `_data/data_resources.yml`, and obsolete Jekyll contact configuration after final parity checks.
-- [ ] Phase 7 — validate URLs, accessibility, links, metadata, and mobile layout.
-- [ ] Phase 8 — merge to production and standardize the default branch.
+- [x] Phase 1 — isolated migration branch.
+- [x] Phase 2 — Quarto architecture and principal routes.
+- [x] Phase 3 — automated Quarto rendering.
+- [x] Phase 4 — content migration and homepage integration.
+  - [x] 4.1 Projects
+  - [x] 4.2 Publications
+  - [x] 4.3 Software
+  - [x] 4.4 Teaching
+  - [x] 4.5 Conferences
+  - [x] 4.6 External Data Sources
+  - [x] 4.7 Blog teaching funnel
+  - [x] 4.8 CV
+  - [x] 4.9 Contact
+  - [x] 4.10 Final homepage
+- [x] Phase 5 — metadata and automation consolidation.
+- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt.
+- [ ] Phase 7 — certify URLs, redirects, accessibility, metadata, external links, and responsive layout.
+- [ ] Phase 8 — production deployment and default-branch standardization.
 
-## Validation checkpoint
+## Phase 4 outcome
 
-Quarto rendering has been validated successfully through GitHub Actions. The generated preview contains all explicitly rendered pages and passed the current internal-link target check with no missing internal targets. Project migration retains the established `/projects/<slug>/` routes while separating programme-level records from manuscript-oriented projects.
+The Quarto information architecture now has independent sections for Research, Projects, Publications, Conferences, Software, Teaching, External Data Sources, Blog, CV, and Contact.
 
-Publication migration uses `qselmer/qselmer/assets/data/publications.json` as the single authoritative catalogue. The website mirror at `assets/data/publications.json` is synchronized weekly, and `publications/_generated.md` is a derived presentation artifact checked by CI. Conference outputs remain in the same canonical dataset but are intentionally rendered under the Conferences section rather than duplicated as formal publications.
+The homepage provides the personal academic identity:
 
-Software migration uses the canonical repository inventory plus `software/registry.json` for website-level maturity decisions. Only repositories with defensible public documentation are promoted as scientific software; incubating and concept-stage records remain clearly separated.
+> **Quantitative Marine Ecology & Fisheries Science**
 
-Teaching migration follows the same architecture. `teaching/registry.json` currently promotes `git-github-training` as the structured teaching activity and `.template-training` as teaching infrastructure. Practice repositories and clones are not promoted automatically. `bioacoustic-monitoring` is intentionally held for adaptation because its current public README identifies the Climate Change AI tutorial and original authors; it must become a distinct, explicitly attributed class before website promotion.
+with the signature line:
 
-Conference migration reconciles every `Conference outputs` record in the synchronized publication catalogue against `talks/registry.json`. The two SPF-2026 legacy records preserve their established routes and presentation metadata; the 2024 VI SIBECORP contribution receives a stable route. `assets/data/conferences.json` and `talks/_generated.md` are deterministic derivatives checked by CI, so new ORCID conference outputs cannot silently disappear from the website catalogue.
+> **Measure change. Model uncertainty. Inform fisheries decisions.**
 
-Data migration now defines `/data/` exclusively as a curated directory of external sources for students and collaborators. `data/registry.json` contains 29 reviewed resources across fisheries, biodiversity, oceanography, satellite/reanalysis/climate, bathymetry/geospatial, Peru-specific public data, and licensed/commercial sources. The site does not mirror or claim ownership of these datasets. `data/_generated.md` is deterministic and checked by CI.
+Research metrics are generated from the synchronized ORCID/OpenAlex public metric record rather than edited manually.
 
-Blog migration now separates communication from scholarship. `blog/registry.json` records extended articles and their class relationship; `scripts/build_blog.py` rejects new non-legacy posts that are not linked to a published class. The established `/blog/statistical-distributions-fisheries-marine-ecology/` route is preserved as a `legacy-adapted` exception because no structured class for that topic is currently published. Social-media posts remain distribution entry points rather than website publication records, and formal scientific notes remain under Publications.
+## Phase 5 outcome
 
-CV migration keeps `files/CV.pdf` as the authoritative detailed curriculum vitae while `/cv/` acts as a professional discovery page linked to the site catalogues. `/resume/` is preserved as a compatibility route, and CI verifies both routes plus the rendered PDF resource.
+Metadata and automation now have explicit ownership boundaries.
 
-Contact migration uses the maintained public profile as the identity source for personal collaboration contact. The Quarto Contact page exposes `qselmers@gmail.com`, ORCID, Google Scholar, Web of Science, ResearchGate, GitHub, LinkedIn, and X; it clearly states that the website is personal rather than an institutional communication channel. The unused FormSubmit configuration remains only as legacy Jekyll material until Phase 6 and is not rendered or used by Quarto.
+### Canonical external sources
 
-Homepage integration gives the site a distinct personal identity rather than copying the reference design. The hero uses the name, field, portrait, and an original marine-data visual motif. The primary signature line is `Measure change. Model uncertainty. Inform fisheries decisions.` Supporting statements are `From marine observations to reproducible evidence` and `Connecting ecology, data, and decisions in dynamic marine systems.` Research metrics are generated deterministically from the synchronized ORCID/OpenAlex metric mirror. The navbar now separates the homepage from the dedicated Research page.
+- `qselmer/qselmer/assets/data/publications.json`
+- `qselmer/qselmer/assets/data/research-metrics.json`
+- `qselmer/qselmer/assets/data/repository-catalog.json`
+
+`config/site.json` records those sources plus canonical identity, local registries, generated artefacts, and synchronization permissions.
+
+The repository catalogue is downloaded once into a temporary directory during `sync_profile.py`; it is **not mirrored into the public website**. Software and Teaching receive only their curated public subsets.
+
+### Consolidated automation
+
+The weekly profile workflow is now `.github/workflows/sync-academic-profile.yml`; the obsolete filename `sync-publications.yml` is retired.
+
+The workflow delegates orchestration to:
+
+- `scripts/sync_profile.py` for synchronization and derivation;
+- `scripts/validate_site.py source` for source-state certification;
+- `scripts/validate_site.py rendered` for post-render certification.
+
+`quarto-preview.yml` therefore contains only the CI sequence rather than duplicated catalogue and identity checks.
+
+The rendered validator now checks all internal `href` and `src` targets automatically. Zero missing internal links/resources is therefore a CI property rather than a manual checkpoint.
+
+The legacy Jekyll deployment remains available only for production `master` during the migration and no longer runs as a redundant pull-request validator.
+
+## Remaining work
+
+### Phase 6
+Remove Jekyll-only collections, layouts, includes, Sass, generator/template residue, legacy metadata mirrors, obsolete talk-map infrastructure, Gem/Bundler dependencies, and other technical debt after a final parity inventory.
+
+### Phase 7
+Run full certification for route preservation/redirects, metadata/SEO, accessibility, external links, responsive layouts, and deployment artefact quality.
+
+### Phase 8
+Replace the production deployment with Quarto, merge only after final approval, and standardize the default branch if the repository settings permit it.
