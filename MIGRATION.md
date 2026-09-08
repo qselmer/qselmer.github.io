@@ -62,7 +62,7 @@ The final pre-migration Jekyll production state is preserved in branch `legacy/j
 
 A final parity inventory identified meaningful residual routes before cleanup. Quarto equivalents were created for `/engagement/`, `/resources/`, `/services/`, `/follow/`, `/terms/`, and the 404 page. A 2022 anchoveta biomass conference contribution that existed only in the legacy `_publications` collection was retained as an explicitly historical Conferences record at `/talks/2022-09-01-anchoveta-biomass-variability/`; no unverified proceedings URL was invented.
 
-`config/legacy-routes.json` separates preserved routes from routes requiring redirects. Phase 7 now generates and certifies those redirects deterministically.
+`config/legacy-routes.json` separates preserved routes from routes requiring redirects. Phase 7 implements and certifies those redirects.
 
 The migration branch no longer contains the Academic Pages/Jekyll runtime or template machinery, including:
 
@@ -77,19 +77,24 @@ The retained source is Quarto plus the Python metadata/build pipeline, curated J
 
 ## Phase 7 outcome
 
-Preproduction certification is complete.
+Phase 7 is certified on commit `323a338507ac741b9314df00e2ad38ce0dcf8fa1`.
 
-- Required legacy redirects are generated deterministically from `config/legacy-routes.json` and validated against the rendered site.
-- Current same-site URLs are validated directly against `_site`; historical website routes and project microsites are distinguished from true external URLs.
-- Canonical URLs, Open Graph metadata, Twitter cards, `sitemap.xml`, `robots.txt`, and a `noindex` 404 page are present.
-- Accessibility checks enforce visible page titles, exactly one `h1` per page, a keyboard skip link, visible focus states, reduced-motion support, image alternative text, iframe titles, and responsive viewport metadata.
-- External-link validation blocks confirmed `404`/`410` failures while separately reporting authentication, rate-limit, anti-bot, gateway, TLS, and timeout responses that cannot be conclusively validated from GitHub Actions.
-- The certified workflow run rendered successfully and passed source, rendered-site, redirect, SEO/accessibility, internal-link, and external-link checks.
-- Independent artefact inspection found **42 HTML pages**, **1,141 internal `href`/`src` references**, **0 missing internal references**, and **0 canonical/H1 semantic anomalies**.
-- Secondary layout rendering at **1440 x 900** and **390 x 844** for Home, Data Sources, CV, Contact, and a long Blog page found no obvious content overflow or clipping. The available Chromium runtime was blocked from local navigation by the execution environment, so JavaScript navbar behaviour is not represented as Chrome-certified.
+Certification covers deterministic legacy redirects, current and historical route handling, canonical URLs, Open Graph/Twitter metadata, sitemap/robots, 404 `noindex`, one visible `h1` per page, keyboard skip link/focus states, reduced motion, image alternative text, iframe titles, responsive viewport structure, internal-link validation, and external-link auditing with confirmed GET `404`/`410` treated as blocking failures.
+
+Final Phase 7 workflow run `34272945869` completed successfully. The independent preproduction artifact audit found 42 HTML pages, 1,141 internal `href/src` references, 0 missing internal references, and 0 canonical/H1 anomalies.
+
+## Phase 8 staging
+
+Production deployment is staged in `.github/workflows/quarto-pages.yml`. On a push to `master`, it validates source state, renders the Quarto site, validates the rendered site and external links, uploads `_site` as the GitHub Pages artifact, and deploys with `actions/deploy-pages`.
+
+The cutover remains incomplete until the certified migration PR is merged, the production workflow succeeds on `master`, and the public `https://qselmer.github.io/` site is verified.
 
 ## Remaining work
 
 ### Phase 8
 
-Add/verify the production Quarto Pages deployment, merge only after explicit final approval, and standardize the default branch if repository settings permit it. Production `master` remains unchanged until that cutover.
+1. Validate the staged production deployment workflow on the migration branch.
+2. Merge the certified migration into `master` under the user's explicit cutover authorization.
+3. Verify the production GitHub Pages workflow and public website.
+4. Record final cutover state.
+5. Standardize the default branch if repository settings and permissions permit it without weakening the preserved legacy rollback path.
