@@ -17,9 +17,17 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
 
 - [x] Phase 1 — create isolated migration branch.
 - [x] Phase 2 — add minimal Quarto architecture and principal section routes.
-- [ ] Phase 3 — validate automated Quarto rendering.
+- [x] Phase 3 — validate automated Quarto rendering.
 - [ ] Phase 4 — migrate project, publication, software, conference, teaching, data, blog, CV, and contact content.
 - [ ] Phase 5 — consolidate metadata and automation.
 - [ ] Phase 6 — remove Academic Pages/Jekyll technical debt.
 - [ ] Phase 7 — validate URLs, accessibility, links, metadata, and mobile layout.
 - [ ] Phase 8 — merge to production and standardize the default branch.
+
+## Phase 3 validation record
+
+- Quarto GitHub Actions render: **PASS**.
+- Rendered HTML pages: **11**.
+- Missing internal link targets in rendered preview: **0**.
+- Existing `master` production branch modified: **NO**.
+- Legacy talk-map workflow isolated from the migration branch: **YES**.
