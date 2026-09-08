@@ -1,7 +1,12 @@
 name: Scrape Talk Locations
 
+# Legacy Jekyll workflow retained temporarily during the Quarto migration.
+# It is restricted to the production branch until the conference records are
+# migrated and this workflow can be retired.
 on:
   push:
+    branches:
+      - master
     paths:
       - 'talks/**'
       - '_talks/**'
@@ -11,29 +16,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write           # This workflow pushes to the repository
+      contents: write
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'   # Specify the Python version you need
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    - name: Install dependencies
-      run: |
-        pip install jupyter pandas requests beautifulsoup4 geopy  # Add other dependencies as needed
-        pip install getorg --upgrade
+      - name: Install dependencies
+        run: |
+          pip install jupyter pandas requests beautifulsoup4 geopy
+          pip install getorg --upgrade
 
-    - name: Run Jupyter Notebook
-      run: |
-        jupyter nbconvert --to notebook --execute talkmap.ipynb --output talkmap_out.ipynb
+      - name: Run Jupyter Notebook
+        run: |
+          jupyter nbconvert --to notebook --execute talkmap.ipynb --output talkmap_out.ipynb
 
-    - name: Commit changes
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add .
-        git commit -m "Automated update of talk locations" || echo "No changes to commit"
-        git push
+      - name: Commit generated talk-map output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add talkmap_out.ipynb talkmap || true
+          git diff --cached --quiet || git commit -m "chore: update talk locations"
+          git push
