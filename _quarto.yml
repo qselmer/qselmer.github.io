@@ -27,6 +27,7 @@ project:
     - teaching/git-github-training/index.qmd
     - data/index.qmd
     - blog/index.qmd
+    - blog/statistical-distributions-fisheries-marine-ecology/index.qmd
     - cv/index.qmd
     - contact/index.qmd
 

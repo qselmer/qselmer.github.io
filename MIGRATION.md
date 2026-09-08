@@ -14,7 +14,9 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
 8. Teaching content remains in dedicated repositories. Actual activities use `type-training`; the reusable teaching scaffold uses `type-template`.
 9. Conference outputs retain ORCID-derived bibliographic identity; `talks/registry.json` adds only presentation-level metadata and stable routes.
 10. The Data section is an external-source directory for students and collaborators. `data/registry.json` contains discovery metadata only; no listed dataset is presented as owned or produced by Elmer Quispe-Salazar.
-11. Legacy template files are removed only after URL, content, and build parity are verified.
+11. The Blog is a teaching-communication layer: the audience pathway is social post → Blog → class, while content production should normally proceed class/theme → Blog → social post. New Blog articles require an explicit link to a published class; migrated legacy articles may be retained as documented exceptions until the class exists.
+12. Formal scholarly outputs and citable scientific notes belong in Publications, not in the Blog.
+13. Legacy template files are removed only after URL, content, and build parity are verified.
 
 ## Migration phases
 
@@ -28,12 +30,12 @@ This branch contains the controlled migration of `qselmer.github.io` from the le
   - [x] Phase 4.4 — curate structured teaching activities and teaching infrastructure without duplicating course content into the website.
   - [x] Phase 4.5 — reconcile all conference outputs with ORCID and preserve conference routes.
   - [x] Phase 4.6 — replace the ambiguous data-product concept with a curated external data-source directory for students and collaborators.
-  - [ ] Phase 4.7 — blog / research notes.
+  - [x] Phase 4.7 — define Blog as the social → extended article → class pathway, migrate the legacy statistical-distributions article, and enforce class linkage for new posts.
   - [ ] Phase 4.8 — CV.
   - [ ] Phase 4.9 — contact.
   - [ ] Phase 4.10 — final homepage integration.
 - [ ] Phase 5 — consolidate metadata and automation.
-- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, `_data/publications.json`, and `_data/data_resources.yml` after final parity checks.
+- [ ] Phase 6 — remove Academic Pages/Jekyll technical debt, including legacy `_publications/`, `_talks/`, `_posts/`, `_data/publications.json`, and `_data/data_resources.yml` after final parity checks.
 - [ ] Phase 7 — validate URLs, accessibility, links, metadata, and mobile layout.
 - [ ] Phase 8 — merge to production and standardize the default branch.
 
@@ -50,3 +52,5 @@ Teaching migration follows the same architecture. `teaching/registry.json` curre
 Conference migration reconciles every `Conference outputs` record in the synchronized publication catalogue against `talks/registry.json`. The two SPF-2026 legacy records preserve their established routes and presentation metadata; the 2024 VI SIBECORP contribution receives a stable route. `assets/data/conferences.json` and `talks/_generated.md` are deterministic derivatives checked by CI, so new ORCID conference outputs cannot silently disappear from the website catalogue.
 
 Data migration now defines `/data/` exclusively as a curated directory of external sources for students and collaborators. `data/registry.json` contains 29 reviewed resources across fisheries, biodiversity, oceanography, satellite/reanalysis/climate, bathymetry/geospatial, Peru-specific public data, and licensed/commercial sources. The site does not mirror or claim ownership of these datasets. `data/_generated.md` is deterministic and checked by CI.
+
+Blog migration now separates communication from scholarship. `blog/registry.json` records extended articles and their class relationship; `scripts/build_blog.py` rejects new non-legacy posts that are not linked to a published class. The established `/blog/statistical-distributions-fisheries-marine-ecology/` route is preserved as a `legacy-adapted` exception because no structured class for that topic is currently published. Social-media posts remain distribution entry points rather than website publication records, and formal scientific notes remain under Publications.

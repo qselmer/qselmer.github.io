@@ -33,11 +33,13 @@ jobs:
           python -m json.tool software/registry.json >/dev/null
           python -m json.tool teaching/registry.json >/dev/null
           python -m json.tool data/registry.json >/dev/null
+          python -m json.tool blog/registry.json >/dev/null
           python scripts/build_publications.py --check
           python scripts/build_conferences.py --check
           python scripts/build_software.py --check
           python scripts/build_teaching.py --check
           python scripts/build_data_resources.py --check
+          python scripts/build_blog.py --check
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2

@@ -1,8 +1,18 @@
 ---
 title: "Blog"
-description: "Technical notes on quantitative marine ecology, fisheries science, statistics, and reproducible computing."
+description: "Extended articles that connect short social-media communication with structured classes and training materials."
 ---
 
-This section will contain technical and scientific notes derived from research and teaching work without replacing the canonical repository that produced them.
+The Blog is the **middle layer of a teaching communication pathway**. It is not a publication catalogue and it is not a substitute for a class repository.
 
-A **class** remains part of a structured training repository; a **blog post** is a standalone communication product. The same scientific idea may support both, but they will be maintained as distinct outputs.
+The intended reader journey is:
+
+**Social post → extended Blog article → structured class in Teaching**
+
+The editorial workflow runs in the opposite direction:
+
+**Class or teaching theme → extended Blog article → short social-media post**
+
+Formal scholarly outputs, including scientific notes intended as citable research products, belong under [Publications](/publications/), not here.
+
+{{< include _generated.md >}}
