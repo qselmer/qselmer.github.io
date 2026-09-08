@@ -19,24 +19,24 @@ Humboldt Current, with particular emphasis on pelagic fish and Peruvian anchovy.
 </p>
 <div class="qs-hero-actions">
 <a class="qs-button qs-button-primary" href="research/">Research programme</a>
+<a class="qs-button" href="projects/">Projects</a>
 <a class="qs-button" href="publications/">Publications</a>
 <a class="qs-button" href="cv/">CV</a>
 </div>
 </div>
 
-<div class="qs-hero-visual" aria-label="Portrait of Elmer Quispe-Salazar with marine-data motif">
+<div class="qs-hero-visual" aria-label="Research identity area">
 <div class="qs-orbit qs-orbit-one"></div>
 <div class="qs-orbit qs-orbit-two"></div>
 <div class="qs-orbit qs-orbit-three"></div>
-<div class="qs-profile-disc">
-<img src="images/profile.png" alt="Elmer Quispe-Salazar">
+<div class="qs-brand-disc" aria-label="Elmer Quispe-Salazar research identity mark">
+<span class="qs-brand-monogram">EQS</span>
+<span class="qs-brand-caption">Marine ecology · Fisheries</span>
 </div>
 <p class="qs-visual-label">Humboldt Current · Pelagic fisheries · Reproducible science</p>
 </div>
 </section>
 ```
-
-{{< include home/_metrics.md >}}
 
 ```{=html}
 <section class="qs-home-section qs-philosophy">

@@ -49,7 +49,7 @@
     "teaching/_generated.md",
     "data/_generated.md",
     "blog/_generated.md",
-    "home/_metrics.md"
+    "includes/profile-sidebar.html"
   ],
   "synchronized_artifacts": [
     "assets/data/publications.json",
@@ -61,6 +61,6 @@
     "assets/data/teaching.json",
     "teaching/_generated.md",
     "assets/data/research-metrics.json",
-    "home/_metrics.md"
+    "includes/profile-sidebar.html"
   ]
 }

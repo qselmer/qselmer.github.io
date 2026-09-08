@@ -54,6 +54,7 @@ website:
   twitter-card: true
   search: true
   navbar:
+    title: "Home"
     left:
       - href: research/index.qmd
         text: Research
@@ -92,8 +93,11 @@ format:
     css:
       - styles.css
       - accessibility.css
+      - profile-sidebar.css
     toc: true
     link-external-newwindow: true
-    include-before-body: includes/skip-link.html
+    include-before-body:
+      - includes/skip-link.html
+      - includes/profile-sidebar.html
 
 lang: en
