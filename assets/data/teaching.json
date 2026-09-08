@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "source_repository": "qselmer/qselmer",
+  "source_path": "assets/data/repository-catalog.json",
+  "catalog_updated_at": "2026-09-07T16:34:34.264471+00:00",
+  "count": 1,
+  "infrastructure_count": 1,
+  "teaching": [
+    {
+      "name": "git-github-training",
+      "full_name": "qselmer/git-github-training",
+      "html_url": "https://github.com/qselmer/git-github-training",
+      "description": "Teaching materials, exercises and reusable resources for Git and GitHub",
+      "language": "R",
+      "updated_at": "2026-09-07T14:47:14Z",
+      "repository_type": "type-training",
+      "repository_type_label": "Courses & training",
+      "category": "Course materials",
+      "maturity": "Active",
+      "site_path": "/teaching/git-github-training/",
+      "summary": "Structured teaching materials, practices, and reusable resources for learning Git and GitHub through a progressive version-control workflow."
+    }
+  ],
+  "infrastructure": [
+    {
+      "name": ".template-training",
+      "full_name": "qselmer/.template-training",
+      "html_url": "https://github.com/qselmer/.template-training",
+      "description": "Reusable Quarto template for teaching, workshops and scientific training.",
+      "language": "Python",
+      "updated_at": "2026-09-07T16:11:13Z",
+      "repository_type": "type-template",
+      "repository_type_label": "Templates",
+      "category": "Teaching template",
+      "maturity": "Reusable template",
+      "site_path": "",
+      "summary": "Reusable Quarto structure for classes, workshops, short courses, technical training, and semester teaching, with modules, labs, exercises, metadata, and reproducible publishing."
+    }
+  ]
+}

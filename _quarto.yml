@@ -19,6 +19,7 @@ project:
     - software/seasignals/index.qmd
     - software/pelagytics/index.qmd
     - teaching/index.qmd
+    - teaching/git-github-training/index.qmd
     - data/index.qmd
     - blog/index.qmd
     - cv/index.qmd

@@ -1,0 +1,35 @@
+---
+title: "Git and GitHub Training"
+description: "Structured teaching materials and practical exercises for Git, GitHub, and reproducible version-control workflows."
+status: "Active"
+---
+
+`git-github-training` is the canonical teaching repository for a progressive introduction to Git and GitHub. This page is a discovery record; the instructional material itself remains in the repository.
+
+## Learning path
+
+The current sequence covers:
+
+1. the distinction between Git and GitHub;
+2. local Git configuration;
+3. creation of a local repository;
+4. staging and committing changes;
+5. connecting local work to GitHub;
+6. branches and merges;
+7. collaboration through pull requests.
+
+## Teaching structure
+
+The repository separates class material from reusable technical practice:
+
+- `classes/` for sessions organized as a teaching sequence;
+- `git-github/practices/` for guided exercises;
+- `git-github/cheatsheets/` for reusable command references.
+
+This structure can be migrated progressively toward the [`Scientific Training Template`](https://github.com/qselmer/.template-training) without changing the canonical repository or duplicating lesson content in this website.
+
+## Canonical source
+
+[Open the `git-github-training` repository](https://github.com/qselmer/git-github-training)
+
+The repository is the source of truth for lessons, exercises, corrections, and version history.
