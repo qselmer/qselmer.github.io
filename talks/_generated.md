@@ -45,3 +45,19 @@ An evaluation of the gonadosomatic index as a reproducible indicator of gonadal 
 **Presenter:** Elmer Quispe-Salazar.
 
 [Details](/talks/2024-11-11-anchoveta-gsi-sibecorp/) · [Public material](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767) · [DOI](https://doi.org/10.13140/rg.2.2.32795.73767)
+
+## 2022
+
+### Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System
+
+**Conference presentation · 1 September 2022 · Peru**
+
+*Open Science Conference on Eastern Boundary Upwelling Systems: Past, Present and Future and Second International Conference on the Humboldt Current System*
+
+Conference contribution examining anchoveta biomass variability from interannual to multi-decadal scales and its implications for monitoring and management in the Humboldt Current System.
+
+**Authors:** E. Díaz, P. Marín, Elmer Quispe-Salazar.
+
+*Source status:* Historical website record retained from the legacy site. A stable public proceedings or abstract-book source has not yet been verified.
+
+[Details](/talks/2022-09-01-anchoveta-biomass-variability/)

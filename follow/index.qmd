@@ -1,0 +1,14 @@
+---
+title: "Follow research updates"
+description: "Ways to follow new research, software, teaching, and conference outputs."
+---
+
+An email newsletter is not currently operated from this website. The previous Jekyll subscription placeholder has therefore been retired rather than carried forward as an inactive form.
+
+For current updates, use these public channels:
+
+- [Blog](/blog/) for extended educational and methodological articles;
+- [Publications](/publications/) for formal scholarly outputs;
+- [Conferences](/talks/) for talks and posters;
+- [Software](/software/) for scientific tools and applications;
+- [GitHub](https://github.com/qselmer) for repository activity and releases.

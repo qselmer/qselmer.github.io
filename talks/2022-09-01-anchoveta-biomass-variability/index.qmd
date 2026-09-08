@@ -1,0 +1,35 @@
+---
+title: "Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953-2022) within the Humboldt Current System"
+description: "Historical conference contribution on anchoveta biomass variability across multiple temporal scales."
+---
+
+**Conference presentation · September 2022 · Peru**
+
+*Open Science Conference on Eastern Boundary Upwelling Systems: Past, Present and Future and Second International Conference on the Humboldt Current System*
+
+## Overview
+
+This conference contribution examined variability in the biomass of the north-central Peruvian anchoveta stock from interannual to multi-decadal scales. The analysis was intended to distinguish short-term fluctuations from longer-term structural changes within the Humboldt Current System.
+
+## Main contribution
+
+- characterization of biomass variability across multiple temporal scales;
+- separation of short-term fluctuations from persistent changes in stock magnitude;
+- interpretation of long-term anchoveta dynamics within an eastern boundary upwelling system;
+- implications for monitoring, assessment, and management under strong environmental variability.
+
+## Authorship
+
+**Authors:** E. Díaz, P. Marín, and Elmer Quispe-Salazar.
+
+## Source status
+
+::: {.callout-note}
+This record is retained from the previous public website for migration parity. A stable public proceedings or abstract-book source has not yet been verified, so no external proceedings link is asserted here.
+:::
+
+The previous website route was `/publication/ebus-hcs-abstract-anchoveta-biomass/`. Phase 7 will certify its redirect to this page.
+
+## Related work
+
+See [Multidimensional state of the north-central Peruvian anchovy stock](/projects/anchovy-stock-state/).

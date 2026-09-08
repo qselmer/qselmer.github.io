@@ -1,0 +1,18 @@
+---
+title: "Software & Data"
+description: "Entry point to scientific software and curated external marine data sources."
+---
+
+This route brings together the two reusable technical layers of the website: scientific software and external data discovery.
+
+## Software
+
+The [Software catalogue](/software/) documents scientific packages, applications, and concepts with explicit maturity and canonical repository links. Repositories remain the source of truth for code, documentation, releases, and issues.
+
+## Data Sources
+
+[Data Sources](/data/) is a curated directory of external biological, fisheries, acoustic, oceanographic, satellite, climate, and geospatial resources. The site does not mirror or claim ownership of those source datasets.
+
+## Reproducible workflows
+
+The [Reproducible marine data systems](/projects/reproducible-marine-data-systems/) project describes the broader connection between acquisition, quality control, harmonization, modelling, visualization, and reporting.

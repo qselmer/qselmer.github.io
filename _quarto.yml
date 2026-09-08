@@ -5,6 +5,7 @@ project:
     - images/**
     - files/CV.pdf
   render:
+    - 404.qmd
     - index.qmd
     - research/index.qmd
     - projects/index.qmd
@@ -19,6 +20,7 @@ project:
     - talks/2026-05-08-critical-points-anchovy-stock/index.qmd
     - talks/2026-05-06-anchovy-health-index/index.qmd
     - talks/2024-11-11-anchoveta-gsi-sibecorp/index.qmd
+    - talks/2022-09-01-anchoveta-biomass-variability/index.qmd
     - software/index.qmd
     - software/oceancube/index.qmd
     - software/humboldt-ocean-watch/index.qmd
@@ -29,6 +31,11 @@ project:
     - data/index.qmd
     - blog/index.qmd
     - blog/statistical-distributions-fisheries-marine-ecology/index.qmd
+    - engagement/index.qmd
+    - resources/index.qmd
+    - services/index.qmd
+    - follow/index.qmd
+    - terms/index.qmd
     - cv/index.qmd
     - resume/index.qmd
     - contact/index.qmd
@@ -72,7 +79,7 @@ website:
         aria-label: LinkedIn
   page-footer:
     left: "© 2026 Elmer Quispe-Salazar"
-    right: "Built with Quarto"
+    right: "[Terms & privacy](/terms/) · Built with Quarto"
 
 format:
   html:

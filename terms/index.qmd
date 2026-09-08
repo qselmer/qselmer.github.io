@@ -1,0 +1,29 @@
+---
+title: "Terms & Privacy"
+description: "Scope, privacy, external services, and data-use notes for qselmer.github.io."
+toc: true
+---
+
+## Scope
+
+This is a personal academic and professional website used to present research, publications, conference contributions, software, teaching material, and curated external data resources.
+
+## Information submitted through the site
+
+The current website does not operate a site-hosted contact form, comment system, or email newsletter. Contact links open external email or professional-profile services. Do not send confidential, restricted, or institutionally governed datasets through an initial contact message.
+
+## Analytics, advertising, and cookies
+
+The website source does not intentionally include an advertising system or a first-party analytics tracker. External services reached through links may apply their own privacy, logging, cookie, and account policies.
+
+## Hosting and external services
+
+The site is hosted through GitHub Pages and links to third-party scholarly, repository, social, data-provider, and conference services. Those external services remain responsible for their own terms and privacy practices.
+
+## Scientific and data content
+
+Repositories remain the source of truth for code and research products. The Data Sources section is a discovery catalogue of external providers and does not imply ownership or redistribution rights. Users must verify the current licence, citation, access conditions, and provider documentation before using third-party data.
+
+## Contact
+
+Questions about this website can be sent through the [Contact page](/contact/).
