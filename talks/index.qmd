@@ -1,8 +1,16 @@
 ---
 title: "Conferences"
-description: "Conference talks, posters, workshops, and scientific presentations."
+description: "Conference talks, posters, and scientific presentations."
 ---
 
-Conference contributions will be recorded as structured scientific outputs with event, date, location, presentation type, abstract or poster link, and related project repository where applicable.
+<div class="section-intro">
+Conference contributions are treated as scholarly outputs, but they are presented here rather than duplicated under Publications. Bibliographic identity comes from the canonical research-output catalogue; this section adds verified presentation-level metadata and stable website routes.
+</div>
 
-The existing conference records remain preserved during migration and will be converted to this structure before deployment.
+{{< include _generated.md >}}
+
+## Catalogue policy
+
+The authoritative scholarly-output source is `qselmer/qselmer/assets/data/publications.json`, synchronized to this website as `assets/data/publications.json`. `talks/registry.json` stores only website-level metadata that ORCID does not reliably provide, such as presentation type, event date, location, presenter, and the stable `/talks/` route.
+
+Legacy `_talks/` files remain temporarily for migration parity and will be removed only after the preserved routes have passed final URL validation.
