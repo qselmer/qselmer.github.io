@@ -6,6 +6,11 @@ Authentication, anti-bot, rate-limit, gateway, TLS, timeout and other network
 conditions are reported separately as restricted or unverified. This avoids
 turning third-party availability and CI-proxy behaviour into false dead-link
 failures while still making every unresolved URL visible in the build log.
+
+Absolute URLs that point back to this website are intentionally excluded: they
+are internal links and are validated against the rendered ``_site`` tree by
+``validate_site.py``. This is especially important before the production
+cutover, while the public domain still serves the legacy site.
 """
 
 from __future__ import annotations
@@ -20,7 +25,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 
-USER_AGENT = "qselmer.github.io-link-check/1.1 (+https://qselmer.github.io)"
+USER_AGENT = "qselmer.github.io-link-check/1.2 (+https://qselmer.github.io)"
+INTERNAL_HOSTS = {"qselmer.github.io"}
 RESTRICTED_CODES = {401, 403, 405, 429}
 TERMINAL_CODES = {404, 410}
 TRANSIENT_CODES = {408, 425, 500, 502, 503, 504}
@@ -36,8 +42,13 @@ class LinkParser(HTMLParser):
             return
         data = dict(attrs)
         href = (data.get("href") or "").strip()
-        if urlsplit(href).scheme in {"http", "https"}:
-            self.links.add(href)
+        parsed = urlsplit(href)
+        if parsed.scheme not in {"http", "https"}:
+            return
+        host = (parsed.hostname or "").lower()
+        if host in INTERNAL_HOSTS:
+            return
+        self.links.add(href)
 
 
 def collect_links(site: Path) -> list[str]:
@@ -140,7 +151,7 @@ def main() -> None:
 
     print(
         "External-link audit PASS: "
-        f"{len(results)} unique HTTP(S) URLs; {len(ok)} reachable, "
+        f"{len(results)} unique external HTTP(S) URLs; {len(ok)} reachable, "
         f"{len(restricted)} restricted, {len(unverified)} unverified, "
         "0 confirmed 404/410"
     )
