@@ -54,6 +54,20 @@ jobs:
           test -f _site/cv/index.html
           test -f _site/resume/index.html
 
+      - name: Validate contact identity
+        run: |
+          test -f _site/contact/index.html
+          grep -Fq "qselmers@gmail.com" _site/contact/index.html
+          grep -Fq "elmer-quispe-salazar-104b6b1a4" _site/contact/index.html
+          if grep -Fq "oquispe@imarpe.gob.pe" _site/contact/index.html; then
+            echo "Legacy institutional email leaked into rendered Contact page"
+            exit 1
+          fi
+          if grep -Fq "linkedin.com/in/qselmer/" _site/contact/index.html; then
+            echo "Legacy LinkedIn slug leaked into rendered Contact page"
+            exit 1
+          fi
+
       - name: Upload rendered preview
         uses: actions/upload-artifact@v4
         with:
