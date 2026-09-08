@@ -1,0 +1,8 @@
+---
+title: "Conferences"
+description: "Conference talks, posters, workshops, and scientific presentations."
+---
+
+Conference contributions will be recorded as structured scientific outputs with event, date, location, presentation type, abstract or poster link, and related project repository where applicable.
+
+The existing conference records remain preserved during migration and will be converted to this structure before deployment.

@@ -1,0 +1,8 @@
+---
+title: "Blog"
+description: "Technical notes on quantitative marine ecology, fisheries science, statistics, and reproducible computing."
+---
+
+This section will contain technical and scientific notes derived from research and teaching work without replacing the canonical repository that produced them.
+
+A **class** remains part of a structured training repository; a **blog post** is a standalone communication product. The same scientific idea may support both, but they will be maintained as distinct outputs.

@@ -1,0 +1,15 @@
+---
+title: "Research"
+description: "Research programme in quantitative marine ecology and fisheries science."
+---
+
+My research programme integrates population dynamics, stock assessment, spatio-temporal ecology, environmental variability, statistical modelling, and reproducible scientific computing.
+
+## Core themes
+
+1. **Fisheries population dynamics and stock assessment** — recruitment, growth, selectivity, demographic structure, uncertainty, and management-oriented assessment.
+2. **Spatio-temporal marine ecology** — habitat, distribution shifts, accessibility, hotspots, fleet behaviour, and spatial models.
+3. **Environmental variability and ecosystem responses** — oceanographic and climatic drivers, ecosystem regimes, and pressure–state relationships.
+4. **Statistical ecology and scientific computing** — hierarchical, additive, mixed, Bayesian, multivariate, machine-learning, and reproducible workflows.
+
+Research projects, papers, software, and data products are maintained in dedicated repositories and linked from the corresponding sections of this site.

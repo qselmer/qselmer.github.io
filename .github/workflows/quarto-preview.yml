@@ -1,0 +1,31 @@
+name: Validate Quarto migration
+
+on:
+  push:
+    branches:
+      - migration/quarto-v1
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render website
+        uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Upload rendered preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: quarto-site-preview
+          path: _site

@@ -1,0 +1,8 @@
+---
+title: "Curriculum Vitae"
+description: "Academic and professional profile."
+---
+
+The CV section will consolidate education, research experience, peer-reviewed and technical publications, conference contributions, software, teaching, awards, and specialized training in fisheries science, quantitative marine ecology, statistical modelling, scientific programming, and geospatial analysis.
+
+The current CV files remain preserved while the Quarto version is migrated and validated.

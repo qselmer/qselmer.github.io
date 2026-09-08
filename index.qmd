@@ -1,0 +1,77 @@
+---
+title: "Quantitative Marine Ecology for Fisheries and Ecosystems"
+page-layout: full
+toc: false
+---
+
+::: {.hero}
+::: {}
+# Quantitative Marine Ecology for Fisheries and Ecosystems
+
+<p class="lead">Marine quantitative ecologist and fisheries scientist working across observations, data, models, and decision-relevant evidence.</p>
+
+I study how marine populations and fisheries respond to environmental variability, fishing pressure, and ecosystem change. My work integrates ecological theory, biological and fisheries observations, oceanographic information, statistical modelling, and reproducible scientific computing.
+
+My main study system is the Humboldt Current System, with particular emphasis on the north-central stock of Peruvian anchovy (*Engraulis ringens*). I also work on pelagic fisheries, fleet dynamics, multivariate stock indicators, and spatio-temporal analysis.
+:::
+
+![](images/profile.png){alt="Elmer Quispe-Salazar"}
+:::
+
+## Current work
+
+::: {.home-grid}
+::: {.home-card}
+<div class="kicker">Active · Manuscript development</div>
+
+### Multidimensional assessment of the north-central Peruvian anchovy stock
+
+Integrating population magnitude, condition, reproduction, demographic structure, spatial distribution, and pressure–state relationships.
+:::
+
+::: {.home-card}
+<div class="kicker">Active · Analysis and manuscript preparation</div>
+
+### Selectivity and demographic change in the anchovy fishery
+
+Evaluating long-term and seasonal changes in length selectivity, selection range, juvenile incidence, and demographic structure.
+:::
+
+::: {.home-card}
+<div class="kicker">Active · Data standardization and modelling</div>
+
+### Peruvian tuna purse-seine fishery
+
+Characterizing catch, effort, fishing modes, species composition, standardized CPUE, and environmental associations.
+:::
+:::
+
+## Research programme
+
+My research focuses on theoretical and applied questions in marine ecology and fisheries science. I combine ecological theory, statistical modelling, and reproducible scientific computing to understand how marine populations and fisheries respond to environmental variability, fishing pressure, and ecosystem change.
+
+::: {.home-grid}
+::: {.home-card}
+### Fisheries population dynamics and stock assessment
+Population dynamics, stock indicators, growth, recruitment, selectivity, demographic structure, uncertainty, and adaptive approaches to fisheries assessment and management.
+:::
+
+::: {.home-card}
+### Spatio-temporal marine ecology
+Spatial structure, habitat, distribution shifts, fishing-fleet behaviour, accessibility, hotspots, and spatio-temporal models for marine populations and fisheries.
+:::
+
+::: {.home-card}
+### Environmental variability and ecosystem responses
+Responses of marine populations to oceanographic and climatic variability, including productivity, oxygen, upwelling, habitat conditions, and ecosystem regimes.
+:::
+
+::: {.home-card}
+### Statistical ecology and scientific computing
+Hierarchical, additive, mixed, Bayesian, multivariate, and machine-learning methods supported by reproducible workflows in R, Python, Julia, Git, and GitHub.
+:::
+:::
+
+## Research infrastructure
+
+The website is being reorganized as a discovery layer over independent scientific repositories. Repositories remain the source of truth for code, analyses, teaching materials, software, and manuscripts; this site provides stable presentation, navigation, and cross-linking among them.

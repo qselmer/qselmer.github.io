@@ -1,0 +1,16 @@
+---
+title: "Projects"
+description: "Active and completed scientific projects."
+---
+
+This section will serve as the stable catalogue of research programmes and paper-oriented projects. Each project record will link to its canonical GitHub repository, scientific outputs, reproducible workflow, and status.
+
+## Current priorities
+
+- Multidimensional state of the north-central Peruvian anchovy stock.
+- Anchovy selectivity and demographic change.
+- Spatio-temporal and habitat modelling for pelagic resources.
+- Peruvian tuna purse-seine fishery.
+- Reproducible marine environmental data systems.
+
+During the migration, existing Jekyll project records remain preserved and will be transferred here one by one without duplicating the underlying project repositories.

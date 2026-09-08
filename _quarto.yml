@@ -1,0 +1,65 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - research/index.qmd
+    - projects/index.qmd
+    - publications/index.qmd
+    - talks/index.qmd
+    - software/index.qmd
+    - teaching/index.qmd
+    - data/index.qmd
+    - blog/index.qmd
+    - cv/index.qmd
+    - contact/index.qmd
+
+execute:
+  freeze: auto
+
+website:
+  title: "Elmer Quispe-Salazar"
+  site-url: "https://qselmer.github.io"
+  description: "Quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, and reproducible scientific computing."
+  search: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Research
+      - href: projects/index.qmd
+        text: Projects
+      - href: publications/index.qmd
+        text: Publications
+      - href: talks/index.qmd
+        text: Conferences
+      - href: software/index.qmd
+        text: Software
+      - href: teaching/index.qmd
+        text: Teaching
+      - href: data/index.qmd
+        text: Data
+      - href: blog/index.qmd
+        text: Blog
+      - href: cv/index.qmd
+        text: CV
+      - href: contact/index.qmd
+        text: Contact
+    right:
+      - icon: github
+        href: https://github.com/qselmer
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/qselmer/
+        aria-label: LinkedIn
+  page-footer:
+    left: "© 2026 Elmer Quispe-Salazar"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    link-external-newwindow: true
+
+lang: en

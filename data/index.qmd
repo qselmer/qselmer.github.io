@@ -1,0 +1,8 @@
+---
+title: "Data"
+description: "Curated marine and fisheries data resources and reproducible data products."
+---
+
+This section distinguishes external source data from project-specific derived products. Inclusion does not imply that all datasets are redistributed through this website.
+
+Records will document provenance, access conditions, spatial and temporal coverage, variables, processing level, and the repository or external service responsible for the data.

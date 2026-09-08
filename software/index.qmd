@@ -1,0 +1,8 @@
+---
+title: "Software"
+description: "Scientific software, analytical tools, and reusable computational infrastructure."
+---
+
+Software records on this site are discovery pages. The canonical source code, documentation, releases, tests, and development history remain in their independent GitHub repositories.
+
+Current development includes tools for marine environmental data, climate-state representation, fisheries analytics, and reproducible scientific workflows.

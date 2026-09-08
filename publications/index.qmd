@@ -1,0 +1,8 @@
+---
+title: "Publications"
+description: "Peer-reviewed articles and other scientific outputs."
+---
+
+This section will be generated from a **single authoritative publication catalogue** rather than maintained independently in multiple Jekyll collections and JSON files.
+
+The migration will consolidate metadata from the current publication records and the automated profile catalogue, preserving DOI, journal, year, authorship, output type, repository links, and citation metadata.

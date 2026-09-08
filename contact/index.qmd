@@ -1,0 +1,16 @@
+---
+title: "Contact"
+description: "Academic and technical collaboration."
+---
+
+## Areas of collaboration
+
+- quantitative marine ecology and fisheries science;
+- stock assessment, population dynamics, selectivity, and recruitment;
+- spatio-temporal and habitat modelling;
+- environmental variability and ecosystem responses;
+- statistical modelling and reproducible scientific computing;
+- scientific software and marine data workflows.
+
+**GitHub:** [qselmer](https://github.com/qselmer)  
+**ORCID:** [0000-0001-9229-6379](https://orcid.org/0000-0001-9229-6379)

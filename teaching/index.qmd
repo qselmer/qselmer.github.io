@@ -1,0 +1,18 @@
+---
+title: "Teaching"
+description: "Courses, classes, workshops, notebooks, and reproducible training materials."
+---
+
+Teaching materials will be linked from dedicated `type-training` repositories rather than copied into the website repository.
+
+## Publication model
+
+A training repository may contain:
+
+- Quarto lessons (`.qmd`);
+- Jupyter notebooks (`.ipynb`);
+- R or Python examples;
+- exercises and supporting data;
+- rendered course documentation.
+
+The website will provide the catalogue entry and stable navigation, while each training repository remains the source of truth for its instructional content and version history.
