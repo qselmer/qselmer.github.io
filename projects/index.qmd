@@ -12,7 +12,7 @@ Projects is the development layer of this website: active or planned research th
 ```{=html}
 <div class="qs-project-grid">
 <article class="qs-project-tile qs-project-tone-sand">
-<div class="qs-project-visual"><div class="qs-project-mark"><strong>ML</strong><span>Stock assessment diagnostics</span></div></div>
+<div class="qs-project-visual"><img class="qs-project-logo" src="/images/projects/stock-assessment-misspecification.svg" alt="Stock-assessment misspecification project mark"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="stock-assessment-misspecification/">Diagnosing stock-assessment misspecification with machine learning</a></h3>
@@ -22,7 +22,7 @@ Projects is the development layer of this website: active or planned research th
 </article>
 
 <article class="qs-project-tile qs-project-tone-blue">
-<div class="qs-project-visual"><div class="qs-project-mark"><strong>SB</strong><span>Season benchmarking</span></div></div>
+<div class="qs-project-visual"><img class="qs-project-logo" src="/images/projects/season-benchmarking.svg" alt="Season benchmarking project mark"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="season-benchmarking/">Standardizing in-season benchmarking for a highly variable small-pelagic fishery</a></h3>
@@ -32,7 +32,7 @@ Projects is the development layer of this website: active or planned research th
 </article>
 
 <article class="qs-project-tile qs-project-tone-aqua">
-<div class="qs-project-visual"><div class="qs-project-mark"><strong>PF</strong><span>Pelagic fisheries</span></div></div>
+<div class="qs-project-visual"><img class="qs-project-logo" src="/images/projects/pelagic-fishery-reorganization.svg" alt="Pelagic fishery reorganization project mark"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="pelagic-fishery-reorganization/">Long-term reorganization of Peruvian pelagic fisheries under environmental variability</a></h3>
@@ -48,7 +48,7 @@ Projects is the development layer of this website: active or planned research th
 ```{=html}
 <div class="qs-project-grid qs-project-grid-planned">
 <article class="qs-project-tile qs-project-tone-green qs-project-planned">
-<div class="qs-project-visual"><div class="qs-project-mark"><strong>FC</strong><span>fishcore</span></div></div>
+<div class="qs-project-visual"><img class="qs-project-logo" src="/images/projects/fishcore.svg" alt="fishcore project mark"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · PLANNED · DECISION GATE</p>
 <h3><a href="fishcore-software-paper/">fishcore software paper</a></h3>

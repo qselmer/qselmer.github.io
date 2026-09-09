@@ -1,0 +1,146 @@
+/* Final researcher-sidebar density and project-card visual layer. */
+
+/* The global navbar owns Home. The profile rail is identified as Researcher. */
+.qs-sidebar-inner {
+  padding: .72rem 1.3rem .95rem;
+}
+
+.qs-sidebar-home {
+  padding-bottom: .5rem;
+  font-size: 1.05rem;
+  line-height: 1.05;
+}
+
+.qs-sidebar-portrait {
+  width: 128px;
+  height: 128px;
+  margin: .65rem auto .42rem;
+}
+
+.qs-sidebar-name {
+  font-size: 1.17rem;
+  line-height: 1.05;
+}
+
+.qs-sidebar-role {
+  margin-top: .14rem;
+  font-size: .82rem;
+  line-height: 1.08;
+}
+
+.qs-sidebar-bio {
+  margin: .42rem 0 .38rem;
+  font-size: .82rem;
+  line-height: 1.18;
+}
+
+.qs-sidebar-context,
+.qs-sidebar-links a {
+  min-height: 23px;
+  gap: .48rem;
+  font-size: .82rem;
+  line-height: 1.05;
+}
+
+.qs-sidebar-links {
+  gap: 0;
+  margin-top: .16rem;
+}
+
+.qs-sidebar-section-label {
+  margin: .52rem 0 .34rem;
+  padding-top: .48rem;
+  font-size: .66rem;
+}
+
+.qs-sidebar-metrics-grid {
+  gap: .28rem;
+}
+
+.qs-sidebar-metric {
+  padding: .42rem .38rem;
+}
+
+.qs-sidebar-metric strong {
+  font-size: 1.08rem;
+}
+
+.qs-sidebar-metric span {
+  margin-top: .18rem;
+  font-size: .59rem;
+  line-height: 1.08;
+}
+
+.qs-sidebar-metrics-note {
+  margin-top: .3rem;
+  font-size: .59rem;
+  line-height: 1.15;
+}
+
+/* Project cards use a reusable image slot. Canonical repository logos can replace these marks 1:1. */
+.qs-project-visual {
+  min-height: 220px;
+  padding: 1rem;
+}
+
+.qs-project-logo {
+  display: block;
+  width: min(72%, 178px);
+  max-height: 178px;
+  object-fit: contain;
+}
+
+.qs-project-tile {
+  min-height: 420px;
+}
+
+@media (max-width: 1099px) {
+  .qs-sidebar-inner {
+    padding: .75rem .95rem;
+  }
+  .qs-sidebar-portrait {
+    width: 88px;
+    height: 88px;
+    margin-top: .65rem;
+  }
+  .qs-sidebar-name {
+    margin-top: .55rem;
+  }
+  .qs-sidebar-bio {
+    margin: .32rem 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .qs-sidebar-inner {
+    padding: .7rem .78rem;
+  }
+  .qs-sidebar-home {
+    padding-bottom: .42rem;
+  }
+  .qs-sidebar-portrait {
+    width: 96px;
+    height: 96px;
+    margin: .62rem auto .42rem;
+  }
+  .qs-sidebar-role {
+    line-height: 1.08;
+  }
+  .qs-sidebar-bio {
+    margin: .36rem 0;
+    font-size: .81rem;
+    line-height: 1.16;
+  }
+  .qs-sidebar-context,
+  .qs-sidebar-links a {
+    min-height: 22px;
+    font-size: .8rem;
+    line-height: 1.04;
+  }
+  .qs-project-visual {
+    min-height: 190px;
+  }
+  .qs-project-logo {
+    width: min(62%, 150px);
+  }
+}

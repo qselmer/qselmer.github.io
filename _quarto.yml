@@ -97,6 +97,7 @@ format:
       - accessibility.css
       - profile-sidebar.css
       - editorial.css
+      - refinements.css
     toc: true
     link-external-newwindow: true
     include-before-body:
