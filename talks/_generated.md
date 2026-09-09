@@ -2,62 +2,14 @@
 
 ## 2026
 
-### Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea
+- **Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea.** *Poster presentation* · *SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities* · 8 May 2026 · La Paz, Baja California Sur, Mexico. **Authors:** **Quispe-Salazar, E.**, Recoba, Á., & Tam, J. [Details](/talks/2026-05-08-critical-points-anchovy-stock/) · [Public material](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf) · [How to cite](/talks/2026-05-08-critical-points-anchovy-stock/#how-to-cite)
 
-**Poster presentation · 8 May 2026 · La Paz, Baja California Sur, Mexico**
-
-*SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities*
-
-A threshold-oriented diagnostic of natural and fishing-related pressures and their nonlinear relationships with the multidimensional state of the north-central Peruvian anchovy stock.
-
-**Authors:** Elmer Quispe-Salazar, Álvaro Recoba, Jorge Tam.
-
-**Presenter:** Álvaro Recoba.
-
-[Details](/talks/2026-05-08-critical-points-anchovy-stock/) · [Public material](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
-
-### Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability
-
-**Oral presentation · 6 May 2026 · La Paz, Baja California Sur, Mexico**
-
-*SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities*
-
-A multivariate stock-health framework integrating complementary biological, demographic, spatial, and reproductive signals for highly variable small-pelagic populations.
-
-**Authors:** Elmer Quispe-Salazar, Jorge Tam.
-
-**Presenter:** Elmer Quispe-Salazar.
-
-[Details](/talks/2026-05-06-anchovy-health-index/) · [Public material](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
+- **Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability.** *Oral presentation* · *SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities* · 6 May 2026 · La Paz, Baja California Sur, Mexico. **Authors:** **Quispe-Salazar, E.** & Tam, J. [Details](/talks/2026-05-06-anchovy-health-index/) · [Public material](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4) · [How to cite](/talks/2026-05-06-anchovy-health-index/#how-to-cite)
 
 ## 2024
 
-### Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation
-
-**Conference presentation · 11 November 2024 · Lisbon, Portugal**
-
-*VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca (VI SIBECORP)*
-
-An evaluation of the gonadosomatic index as a reproducible indicator of gonadal maturity in Peruvian anchoveta, including classification models, critical-threshold estimation, and seasonal variation.
-
-**Authors:** Elmer Quispe-Salazar, Javier Sánchez.
-
-**Presenter:** Elmer Quispe-Salazar.
-
-[Details](/talks/2024-11-11-anchoveta-gsi-sibecorp/) · [Public material](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767) · [https://doi.org/10.13140/rg.2.2.32795.73767](https://doi.org/10.13140/rg.2.2.32795.73767)
+- **Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation.** *Conference presentation* · *VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca (VI SIBECORP)* · 11 November 2024 · Lisbon, Portugal. **Authors:** **Quispe-Salazar, E.** & Sánchez, J. [Details](/talks/2024-11-11-anchoveta-gsi-sibecorp/) · [Public material](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767) · [How to cite](/talks/2024-11-11-anchoveta-gsi-sibecorp/#how-to-cite)
 
 ## 2022
 
-### Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System
-
-**Conference presentation · 1 September 2022 · Peru**
-
-*Open Science Conference on Eastern Boundary Upwelling Systems: Past, Present and Future and Second International Conference on the Humboldt Current System*
-
-Conference contribution examining anchoveta biomass variability from interannual to multi-decadal scales and its implications for monitoring and management in the Humboldt Current System.
-
-**Authors:** E. Díaz, P. Marín, Elmer Quispe-Salazar.
-
-*Source status:* Historical website record retained from the legacy site. A stable public proceedings or abstract-book source has not yet been verified.
-
-[Details](/talks/2022-09-01-anchoveta-biomass-variability/)
+- **Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System.** *Conference presentation* · *Open Science Conference on Eastern Boundary Upwelling Systems: Past, Present and Future and Second International Conference on the Humboldt Current System* · 1 September 2022 · Peru. **Authors:** Díaz, E., Marín, P., & **Quispe-Salazar, E.**. [Details](/talks/2022-09-01-anchoveta-biomass-variability/) · [Public material](/talks/2022-09-01-anchoveta-biomass-variability/#public-materials) · [How to cite](/talks/2022-09-01-anchoveta-biomass-variability/#how-to-cite)
