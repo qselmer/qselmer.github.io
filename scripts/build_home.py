@@ -6,7 +6,6 @@ from __future__ import annotations
 import argparse
 import html
 import json
-from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,27 +28,22 @@ def load_identity() -> dict:
     return data["identity"]
 
 
-def format_date(value: str) -> str:
-    return datetime.fromisoformat(value.replace("Z", "+00:00")).strftime("%d %b %Y")
-
-
 def render(data: dict, identity: dict) -> str:
     oa = data["openalex"]
-    updated = format_date(data["updated_at"])
     metrics = [
-        (data["public_orcid_works"], "ORCID works"),
-        (oa.get("works_count", 0), "OpenAlex works"),
-        (oa.get("cited_by_count", 0), "Citations"),
-        (oa.get("h_index", 0), "h-index"),
-        (oa.get("i10_index", 0), "i10-index"),
+        ("Citations", oa.get("cited_by_count", 0)),
+        ("h-index", oa.get("h_index", 0)),
+        ("i10-index", oa.get("i10_index", 0)),
+        ("ORCID works", data["public_orcid_works"]),
+        ("OpenAlex works", oa.get("works_count", 0)),
     ]
 
-    metric_cards = "\n".join(
-        '<div class="qs-sidebar-metric">'
-        f'<strong>{html.escape(str(value))}</strong>'
+    metric_rows = "\n".join(
+        '<div class="qs-sidebar-metric-row">'
         f'<span>{html.escape(label)}</span>'
+        f'<strong>{html.escape(str(value))}</strong>'
         '</div>'
-        for value, label in metrics
+        for label, value in metrics
     )
 
     name = html.escape(identity["name"])
@@ -71,7 +65,8 @@ def render(data: dict, identity: dict) -> str:
     <p class="qs-sidebar-bio">I study changing marine populations and fisheries using statistical modelling, stock assessment, spatio-temporal analysis, and reproducible scientific computing.</p>
     <div class="qs-sidebar-context"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span>Peru · Humboldt Current</span></div>
     <div class="qs-sidebar-context"><i class="bi bi-water" aria-hidden="true"></i><span>Pelagic fisheries · Statistical ecology</span></div>
-    <nav class="qs-sidebar-links" aria-label="Profile links">
+    <p class="qs-sidebar-section-label">Research profiles</p>
+    <nav class="qs-sidebar-links" aria-label="Research profiles">
       <a href="mailto:{email}"><i class="bi bi-envelope-fill" aria-hidden="true"></i><span>Email</span></a>
       <a href="https://orcid.org/{orcid}"><i class="bi bi-person-badge" aria-hidden="true"></i><span>ORCID</span></a>
       <a href="{scholar}"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i><span>Google Scholar</span></a>
@@ -79,10 +74,10 @@ def render(data: dict, identity: dict) -> str:
       <a href="{linkedin}"><i class="bi bi-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
     </nav>
     <p class="qs-sidebar-section-label">Research metrics</p>
-    <div class="qs-sidebar-metrics-grid" aria-label="Research metrics">
-      {metric_cards}
+    <div class="qs-sidebar-metrics-list" aria-label="Research metrics">
+      {metric_rows}
     </div>
-    <p class="qs-sidebar-metrics-note">ORCID and OpenAlex · updated {updated}. Google Scholar is linked for discovery and is not scraped.</p>
+    <p class="qs-sidebar-metrics-note">OpenAlex metrics · ORCID works. Google Scholar is linked above for profile discovery.</p>
   </div>
 </aside>
 '''

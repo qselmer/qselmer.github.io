@@ -12,7 +12,6 @@ Projects is the development layer of this website: active or planned research th
 ```{=html}
 <div class="qs-project-grid">
 <article class="qs-project-tile qs-project-tone-sand">
-<div class="qs-project-visual"><img class="qs-project-logo" src="/images/projects/stock-assessment-misspecification.svg" alt="Stock-assessment misspecification project mark"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="stock-assessment-misspecification/">Diagnosing stock-assessment misspecification with machine learning</a></h3>
@@ -22,7 +21,6 @@ Projects is the development layer of this website: active or planned research th
 </article>
 
 <article class="qs-project-tile qs-project-tone-blue">
-<div class="qs-project-visual"><img class="qs-project-logo" src="/images/projects/season-benchmarking.svg" alt="Season benchmarking project mark"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="season-benchmarking/">Standardizing in-season benchmarking for a highly variable small-pelagic fishery</a></h3>
@@ -32,7 +30,6 @@ Projects is the development layer of this website: active or planned research th
 </article>
 
 <article class="qs-project-tile qs-project-tone-aqua">
-<div class="qs-project-visual"><img class="qs-project-logo" src="/images/projects/pelagic-fishery-reorganization.svg" alt="Pelagic fishery reorganization project mark"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="pelagic-fishery-reorganization/">Long-term reorganization of Peruvian pelagic fisheries under environmental variability</a></h3>
@@ -48,7 +45,6 @@ Projects is the development layer of this website: active or planned research th
 ```{=html}
 <div class="qs-project-grid qs-project-grid-planned">
 <article class="qs-project-tile qs-project-tone-green qs-project-planned">
-<div class="qs-project-visual"><img class="qs-project-logo" src="/images/projects/fishcore.svg" alt="fishcore project mark"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · PLANNED · DECISION GATE</p>
 <h3><a href="fishcore-software-paper/">fishcore software paper</a></h3>
@@ -60,5 +56,5 @@ Projects is the development layer of this website: active or planned research th
 ```
 
 ::: {.qs-footnote-note}
-**Project model.** `type-paper` is reserved for one defined manuscript. `type-project` is for a broader or exploratory initiative that is not yet committed to one manuscript. Project cards use a repository logo when a web-safe mirrored asset is available; otherwise they use a neutral project mark until the repository receives `logo.svg` or `logo.png`.
+**Project logo rule.** Cards use only the repository's canonical `assets/images/logo.svg` or `assets/images/logo.png`, mirrored into this website under `images/projects/`. Substitute or invented logos are not used. If the canonical logo has not yet been mirrored, the card remains text-only.
 :::
