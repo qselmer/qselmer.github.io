@@ -7,7 +7,7 @@ An email newsletter is not currently operated from this website. The previous Je
 
 For current updates, use these public channels:
 
-- [Blog](/blog/) for extended educational and methodological articles;
+- [Posts](/blog/) for tutorials, technical notes, and practical methodological explanations;
 - [Publications](/publications/) for formal scholarly outputs;
 - [Conferences](/talks/) for talks and posters;
 - [Software](/software/) for scientific tools and applications;
