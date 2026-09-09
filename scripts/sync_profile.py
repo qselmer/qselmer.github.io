@@ -47,12 +47,16 @@ def main() -> None:
         run_script("sync_software.py", "--catalog", str(catalog_path))
         run_script("sync_teaching.py", "--catalog", str(catalog_path))
 
+    # Project artwork is mirrored only from canonical source-repository logos.
+    run_script("sync_project_logos.py")
+
     # Deterministic presentation layers.
     for script in (
         "build_publications.py",
         "build_conferences.py",
         "build_software.py",
         "build_teaching.py",
+        "build_projects.py",
         "build_home.py",
     ):
         run_script(script)
