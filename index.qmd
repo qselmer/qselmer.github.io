@@ -35,7 +35,7 @@ toc: false
 ```
 
 ```{=html}
-<section id="research" class="qs-home-section qs-philosophy">
+<section id="research" class="qs-home-section qs-philosophy" data-compatibility-route="research/index.html">
 <p class="qs-section-kicker">RESEARCH</p>
 <h2>From marine observations to reproducible evidence</h2>
 <p class="qs-section-lead">Connecting ecology, data, and decisions in dynamic marine systems.</p>
