@@ -1,5 +1,5 @@
 ---
-title: "Contact"
+pagetitle: "Contact | Elmer Quispe-Salazar"
 description: "Research collaboration, quantitative fisheries science, teaching, and professional contact."
 toc: false
 page-layout: full
