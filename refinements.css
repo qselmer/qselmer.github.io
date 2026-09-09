@@ -93,9 +93,21 @@
 }
 
 /* Contact page: visual hierarchy follows a compact institutional contact panel. */
+body:has(.qs-contact-shell) .qs-profile-sidebar {
+  display: none;
+}
+
 body:has(.qs-contact-shell) main.content {
   max-width: none;
   padding: 0;
+}
+
+@media (min-width: 1100px) {
+  body.nav-fixed:has(.qs-contact-shell) #quarto-content,
+  body.nav-fixed:has(.qs-contact-shell) footer.footer {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 .qs-contact-shell {
