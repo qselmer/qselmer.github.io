@@ -4,7 +4,7 @@ description: "Research manuscripts and collaborative work currently in developme
 ---
 
 <div class="section-intro">
-Projects is the development layer of this website: active or planned research that is not yet represented by a formal publication. Private manuscript repositories can be described here without exposing their source repository.
+Projects is the development layer of this website: active or planned research that is not yet represented by a formal publication. Private manuscript repositories can be represented here without exposing their code, data, model files, or development history.
 </div>
 
 {{< include _generated.md >}}
