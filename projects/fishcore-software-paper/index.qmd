@@ -1,0 +1,33 @@
+---
+title: "fishcore software paper"
+description: "Decision-gated software-paper concept for a reusable R framework for standardized fisheries indicators and spatio-temporal analysis."
+status: planned
+project-type: software-paper-concept
+categories: [R, fisheries software, reproducibility, indicators]
+---
+
+<div class="project-meta"><strong>Status:</strong> Planned · <strong>Type:</strong> Software-paper concept · <strong>Decision gate:</strong> 30 June 2027</div>
+
+## Purpose
+
+This manuscript will be activated only if the underlying `fishcore` R framework matures into a sufficiently general, documented, tested, and reusable scientific software product to justify a dedicated software publication.
+
+## Evidence required before activation
+
+- stable public API and semantic versioning;
+- comprehensive documentation and automated tests;
+- synthetic or open examples and reproducible vignettes;
+- demonstrated reuse across multiple downstream products;
+- a defensible gap relative to existing fisheries R packages.
+
+## Current stage
+
+No substantial manuscript development is planned before the decision gate. Development effort should remain focused on software stabilization and demonstrated reuse.
+
+## Candidate output
+
+A software paper, potentially for the *Journal of Open Source Software* or *The R Journal*, only if the publication criteria are met.
+
+::: {.qs-footnote-note}
+This is intentionally shown as a planned project rather than as an active publication. A private paper repository can exist as a decision gate without implying that a manuscript is already underway.
+:::

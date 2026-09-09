@@ -183,7 +183,8 @@ def render_markdown(records: list[dict]) -> str:
             if item.get("source_url"):
                 links.append(f"[Public material]({item['source_url']})")
             if item.get("doi"):
-                links.append(f"[DOI](https://doi.org/{item['doi']})")
+                doi_url = f"https://doi.org/{item['doi']}"
+                links.append(f"[{doi_url}]({doi_url})")
             if links:
                 lines += [" · ".join(links), ""]
     return "\n".join(lines).rstrip() + "\n"

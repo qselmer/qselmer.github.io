@@ -99,6 +99,12 @@ def source_apa(pub: dict[str, Any]) -> str:
     return source + "."
 
 
+def canonical_doi_url(value: str) -> str:
+    doi = value.strip()
+    doi = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", doi, flags=re.I)
+    return f"https://doi.org/{doi}" if doi else ""
+
+
 def reference(pub: dict[str, Any]) -> str:
     authors = authors_apa(pub)
     year = str(pub.get("year") or "n.d.")
@@ -109,9 +115,11 @@ def reference(pub: dict[str, Any]) -> str:
         parts.append(source)
     url = str(pub.get("url") or "").strip()
     doi = str(pub.get("doi") or "").strip()
-    if url:
-        label = "DOI" if doi else "View output"
-        parts.append(f"[{label}]({url})")
+    if doi:
+        doi_url = canonical_doi_url(doi)
+        parts.append(f"[{doi_url}]({doi_url})")
+    elif url:
+        parts.append(f"[View output]({url})")
     return " ".join(parts)
 
 

@@ -4,13 +4,15 @@ description: "Peer-reviewed articles, theses, and other formal scholarly outputs
 ---
 
 <div class="section-intro">
-This catalogue contains formal scholarly outputs associated with my research. Publication metadata is not maintained manually in the website: it is derived from the research-profile catalogue and synchronized from ORCID and Crossref metadata.
+Formal scholarly outputs associated with my research. Publication metadata is generated from the research-profile catalogue and synchronized from ORCID and Crossref metadata rather than maintained manually on this website.
 </div>
 
-Conference presentations and posters are maintained separately under [Conferences](/talks/). Scientific software is catalogued under [Software](/software/), while [Data Sources](/data/) is a curated directory of external datasets and services rather than a catalogue of data produced by me.
+Conference presentations and posters are maintained under [Conferences](/talks/); scientific software is catalogued under [Software](/software/); [Data](/data/) is a directory of external data sources rather than a catalogue of datasets produced by me.
 
+::: {.qs-compact-catalogue}
 {{< include _generated.md >}}
+:::
 
-## Metadata and provenance
-
-The authoritative publication catalogue is maintained in the [`qselmer/qselmer`](https://github.com/qselmer/qselmer) research-profile repository. This website stores a synchronized mirror at `assets/data/publications.json` and generates the formatted list above automatically. The generated fragment must not be edited by hand.
+::: {.qs-footnote-note}
+**Metadata note.** The authoritative publication catalogue is maintained in `qselmer/qselmer`; this website stores the synchronized mirror at `assets/data/publications.json` and generates the formatted list automatically.
+:::

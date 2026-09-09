@@ -17,6 +17,10 @@ project:
     - projects/multivariate-indicators/index.qmd
     - projects/temporary-closures/index.qmd
     - projects/reproducible-marine-data-systems/index.qmd
+    - projects/stock-assessment-misspecification/index.qmd
+    - projects/season-benchmarking/index.qmd
+    - projects/pelagic-fishery-reorganization/index.qmd
+    - projects/fishcore-software-paper/index.qmd
     - publications/index.qmd
     - talks/index.qmd
     - talks/2026-05-08-critical-points-anchovy-stock/index.qmd
@@ -56,8 +60,6 @@ website:
   navbar:
     title: "Home"
     left:
-      - href: research/index.qmd
-        text: Research
       - href: projects/index.qmd
         text: Projects
       - href: publications/index.qmd
@@ -69,7 +71,7 @@ website:
       - href: teaching/index.qmd
         text: Teaching
       - href: data/index.qmd
-        text: Data Sources
+        text: Data
       - href: blog/index.qmd
         text: Blog
       - href: cv/index.qmd
@@ -94,6 +96,7 @@ format:
       - styles.css
       - accessibility.css
       - profile-sidebar.css
+      - editorial.css
     toc: true
     link-external-newwindow: true
     include-before-body:

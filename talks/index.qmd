@@ -4,13 +4,13 @@ description: "Conference talks, posters, and scientific presentations."
 ---
 
 <div class="section-intro">
-Conference contributions are treated as scholarly outputs, but they are presented here rather than duplicated under Publications. Current formal conference outputs inherit bibliographic identity from the canonical research-output catalogue; historical records retained from the previous website are explicitly labelled until a stable external source is verified.
+Conference contributions are scholarly outputs, but they are presented here rather than duplicated under Publications. Current records inherit bibliographic identity from the canonical research-output catalogue; historical records are labelled explicitly until a stable external source is verified.
 </div>
 
+::: {.qs-compact-catalogue}
 {{< include _generated.md >}}
+:::
 
-## Catalogue policy
-
-The authoritative source for current formal scholarly outputs is `qselmer/qselmer/assets/data/publications.json`, synchronized to this website as `assets/data/publications.json`. `talks/registry.json` stores presentation-level metadata that ORCID does not reliably provide, such as presentation type, event date, location, presenter, and stable `/talks/` routes.
-
-A small `historical_records` block in the same registry may retain legitimate conference content from the previous public site when it is not yet represented in the canonical profile catalogue. Such records must be labelled as historical and cannot claim an external proceedings source until that source is verified.
+::: {.qs-footnote-note}
+**Catalogue note.** Current formal outputs are sourced from `qselmer/qselmer/assets/data/publications.json`; `talks/registry.json` adds presentation type, event date, location, presenter, and stable routes. Legitimate legacy-only records may be retained as explicitly historical, but cannot claim an external proceedings source until one is verified.
+:::

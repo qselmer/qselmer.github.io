@@ -1,0 +1,31 @@
+---
+title: "Diagnosing stock-assessment misspecification with machine learning"
+description: "Simulation-estimation research on probabilistic diagnosis of structural misspecification from multivariate stock-assessment diagnostics."
+status: active
+project-type: methodological-paper
+categories: [stock assessment, simulation, machine learning, diagnostics]
+---
+
+<div class="project-meta"><strong>Status:</strong> Active · <strong>Type:</strong> Methodological paper · <strong>Repository:</strong> Private during development</div>
+
+## Scientific question
+
+Can the multivariate diagnostic signature of a stock assessment identify the process responsible for structural misspecification, quantify uncertainty in that diagnosis, and recognize cases that are not identifiable from the available diagnostics?
+
+## Experimental framework
+
+The core study uses known simulated truth. Stock Synthesis operating models generate pseudo-data, correctly specified and deliberately misspecified estimation models are fitted, and the resulting multivariate diagnostics become features for transparent statistical and machine-learning classifiers.
+
+Initial mechanisms include natural mortality, selectivity, somatic growth, recruitment dynamics, catchability, observation error, ageing error, and catch error. Validation is scenario-aware rather than based on random replicate-level splitting.
+
+## Current stage
+
+The workflow architecture is established. Current development focuses on auditing the published sardine-like, flatfish-like, and cod-like operating-model configurations and certifying the assumptions that define simulated truth before controlled misspecification experiments begin.
+
+## Planned output
+
+A peer-reviewed methodological paper on probabilistic diagnosis of stock-assessment misspecification, with explicit tests of leave-scenario-out, leave-severity-out, leave-life-history-out, and multiple-misspecification generalization.
+
+::: {.qs-footnote-note}
+The analytical repository remains private during active methodological development. This page is the public project record; it does not duplicate code, model files, simulation outputs, or manuscript materials.
+:::
