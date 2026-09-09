@@ -28,6 +28,11 @@ jobs:
           python-version: "3.12"
 
       - name: Synchronize and validate academic profile data
+        env:
+          # Cross-repository private reads require PROFILE_REPO_TOKEN.
+          # GITHUB_TOKEN remains the safe fallback for public repositories.
+          PROFILE_REPO_TOKEN: ${{ secrets.PROFILE_REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/sync_profile.py
 
       - name: Commit synchronized artifacts

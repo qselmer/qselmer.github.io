@@ -35,7 +35,8 @@
     "software/registry.json",
     "teaching/registry.json",
     "data/registry.json",
-    "blog/registry.json"
+    "blog/registry.json",
+    "projects/registry.json"
   ],
   "derived_json": [
     "assets/data/conferences.json",
@@ -49,6 +50,7 @@
     "teaching/_generated.md",
     "data/_generated.md",
     "blog/_generated.md",
+    "projects/_generated.md",
     "includes/profile-sidebar.html"
   ],
   "synchronized_artifacts": [
@@ -61,6 +63,8 @@
     "assets/data/teaching.json",
     "teaching/_generated.md",
     "assets/data/research-metrics.json",
+    "projects/_generated.md",
+    "images/projects",
     "includes/profile-sidebar.html"
   ]
 }

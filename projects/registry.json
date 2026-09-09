@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "sections": [
+    {
+      "id": "active",
+      "heading": "Active manuscript projects",
+      "grid_class": "qs-project-grid"
+    },
+    {
+      "id": "planned",
+      "heading": "Planned manuscript project",
+      "grid_class": "qs-project-grid qs-project-grid-planned"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "stock-assessment-misspecification",
+      "section": "active",
+      "source_repository": "qselmer/fishstocks-misspecification-ml-paper",
+      "source_branch": "main",
+      "logo_candidates": [
+        "assets/images/logo.svg",
+        "assets/images/logo.png"
+      ],
+      "tone": "sand",
+      "meta": "TYPE-PAPER · ACTIVE · PRIVATE",
+      "title": "Diagnosing stock-assessment misspecification with machine learning",
+      "summary": "Simulation-estimation experiments testing whether multivariate diagnostics can identify structural sources of assessment misspecification.",
+      "footer": "Method development",
+      "site_path": "stock-assessment-misspecification/"
+    },
+    {
+      "slug": "season-benchmarking",
+      "section": "active",
+      "source_repository": "qselmer/pelagicPER-season-benchmark-paper",
+      "source_branch": "main",
+      "logo_candidates": [
+        "assets/images/logo.svg",
+        "assets/images/logo.png"
+      ],
+      "tone": "blue",
+      "meta": "TYPE-PAPER · ACTIVE · PRIVATE",
+      "title": "Standardizing in-season benchmarking for a highly variable small-pelagic fishery",
+      "summary": "Historical comparison using season day, effective fishing day, quota progress, functional envelopes, analogue seasons, and environmental adjustment.",
+      "footer": "Data preparation",
+      "site_path": "season-benchmarking/"
+    },
+    {
+      "slug": "pelagic-fishery-reorganization",
+      "section": "active",
+      "source_repository": "qselmer/pelagicPER-fishery-reorganization-paper",
+      "source_branch": "main",
+      "logo_candidates": [
+        "assets/images/logo.svg",
+        "assets/images/logo.png"
+      ],
+      "tone": "aqua",
+      "meta": "TYPE-PAPER · ACTIVE · PRIVATE",
+      "title": "Long-term reorganization of Peruvian pelagic fisheries under environmental variability",
+      "summary": "Long-term changes in species composition, effort, efficiency, seasonality, fleet structure, spatial footprint, and environmental context.",
+      "footer": "Concept / assembly",
+      "site_path": "pelagic-fishery-reorganization/"
+    },
+    {
+      "slug": "fishcore-software-paper",
+      "section": "planned",
+      "source_repository": "qselmer/fishcore-paper",
+      "source_branch": "main",
+      "logo_candidates": [
+        "assets/images/logo.svg",
+        "assets/images/logo.png"
+      ],
+      "tone": "green",
+      "meta": "TYPE-PAPER · PLANNED · DECISION GATE",
+      "title": "fishcore software paper",
+      "summary": "Potential software paper contingent on stable reuse, documentation, testing, and a defensible methodological gap in the underlying R framework.",
+      "footer": "Decision gate: 30 Jun 2027",
+      "site_path": "fishcore-software-paper/",
+      "extra_classes": [
+        "qs-project-planned"
+      ]
+    }
+  ]
+}
