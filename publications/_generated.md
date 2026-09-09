@@ -7,7 +7,3 @@
 ## Theses
 
 - **Quispe-Salazar, E.** (2025). Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022. *Cybertesis Revistas UNMSM Fondo editorial*. [https://doi.org/10.5281/zenodo.17452484](https://doi.org/10.5281/zenodo.17452484)
-
----
-
-*Catalogue metadata last updated 7 September 2026. Conference contributions are catalogued separately under [Conferences](/talks/).*

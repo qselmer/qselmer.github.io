@@ -4,7 +4,6 @@ from __future__ import annotations
 import argparse
 import json
 import re
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -130,17 +129,6 @@ def year_value(pub: dict[str, Any]) -> int:
         return 0
 
 
-def catalogue_date(value: Any) -> str:
-    text = str(value or "").strip()
-    if not text:
-        return "unknown"
-    try:
-        stamp = datetime.fromisoformat(text.replace("Z", "+00:00"))
-        return stamp.strftime("%d %B %Y").lstrip("0")
-    except ValueError:
-        return text[:10]
-
-
 def build_text(payload: dict[str, Any]) -> str:
     publications = payload["publications"]
     grouped: dict[str, list[dict[str, Any]]] = {category: [] for category in DISPLAY_ORDER}
@@ -167,12 +155,6 @@ def build_text(payload: dict[str, Any]) -> str:
     if rendered == 0:
         lines.extend(["_No formal publication outputs are currently available in the catalogue._", ""])
 
-    lines.extend([
-        "---",
-        "",
-        f"*Catalogue metadata last updated {catalogue_date(payload.get('updated_at'))}. Conference contributions are catalogued separately under [Conferences](/talks/).*",
-        "",
-    ])
     return "\n".join(lines)
 
 
