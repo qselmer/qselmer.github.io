@@ -29,13 +29,13 @@ def load_identity() -> dict:
 
 
 def display_metric(value: object) -> str:
-    """Render zero or unavailable metric values as an em dash."""
+    """Render zero or unavailable metric values as a short hyphen."""
     if value is None:
-        return "—"
+        return "-"
     if isinstance(value, (int, float)) and not isinstance(value, bool) and value == 0:
-        return "—"
+        return "-"
     text = str(value).strip()
-    return "—" if text in {"", "0", "0.0"} else text
+    return "-" if text in {"", "0", "0.0"} else text
 
 
 def render(data: dict, identity: dict) -> str:
@@ -57,7 +57,6 @@ def render(data: dict, identity: dict) -> str:
     )
 
     name = html.escape(identity["name"])
-    email = html.escape(identity["email"], quote=True)
     orcid = html.escape(identity["orcid"], quote=True)
     scholar = html.escape(identity["google_scholar"], quote=True)
     github = html.escape(identity["github"], quote=True)
@@ -77,7 +76,6 @@ def render(data: dict, identity: dict) -> str:
     <div class="qs-sidebar-context"><i class="bi bi-water" aria-hidden="true"></i><span>Pelagic fisheries · Statistical ecology</span></div>
     <p class="qs-sidebar-section-label">Research profiles</p>
     <nav class="qs-sidebar-links" aria-label="Research profiles">
-      <a href="mailto:{email}"><i class="bi bi-envelope-fill" aria-hidden="true"></i><span>Email</span></a>
       <a href="https://orcid.org/{orcid}"><i class="bi bi-person-badge" aria-hidden="true"></i><span>ORCID</span></a>
       <a href="{scholar}"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i><span>Google Scholar</span></a>
       <a href="{github}"><i class="bi bi-github" aria-hidden="true"></i><span>GitHub</span></a>
