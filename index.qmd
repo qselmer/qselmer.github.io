@@ -71,7 +71,7 @@ toc: false
 <a class="qs-ecosystem-card" href="talks/"><span>04</span><strong>Conferences</strong><small>Presentations, posters, and conference contributions</small></a>
 <a class="qs-ecosystem-card" href="software/"><span>05</span><strong>Software</strong><small>Scientific packages, applications, and computational tools</small></a>
 <a class="qs-ecosystem-card" href="teaching/"><span>06</span><strong>Teaching</strong><small>Structured classes, training, and reusable learning material</small></a>
-<a class="qs-ecosystem-card" href="blog/"><span>07</span><strong>Blog</strong><small>Extended explanations derived from teaching themes</small></a>
+<a class="qs-ecosystem-card" href="blog/"><span>07</span><strong>Posts</strong><small>Tutorials, technical notes, and practical explanations</small></a>
 <a class="qs-ecosystem-card" href="data/"><span>08</span><strong>Data</strong><small>Curated external marine and fisheries data resources</small></a>
 </div>
 </section>
