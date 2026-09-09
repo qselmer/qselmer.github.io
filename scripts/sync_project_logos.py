@@ -13,6 +13,7 @@ GITHUB_TOKEN.
 
 from __future__ import annotations
 
+import argparse
 import base64
 import json
 import os
@@ -40,18 +41,25 @@ def load_registry() -> dict:
     return payload
 
 
-def token() -> str:
-    for name in ("PROJECT_REPO_TOKEN", "PROFILE_REPO_TOKEN", "GITHUB_TOKEN"):
+def cross_repository_token() -> str:
+    for name in ("PROJECT_REPO_TOKEN", "PROFILE_REPO_TOKEN"):
         value = os.environ.get(name, "").strip()
         if value:
             return value
     return ""
 
 
+def token() -> str:
+    cross_repo = cross_repository_token()
+    if cross_repo:
+        return cross_repo
+    return os.environ.get("GITHUB_TOKEN", "").strip()
+
+
 def request_json(url: str, auth_token: str) -> dict:
     headers = {
         "Accept": "application/vnd.github+json",
-        "User-Agent": "qselmer.github.io project-logo-sync/1.0",
+        "User-Agent": "qselmer.github.io project-logo-sync/1.1",
         "X-GitHub-Api-Version": "2022-11-28",
     }
     if auth_token:
@@ -108,7 +116,7 @@ def remove_stale(target_dir: Path, keep_name: str | None = None) -> bool:
     return changed
 
 
-def sync_project(project: dict, auth_token: str) -> tuple[str, bool]:
+def sync_project(project: dict, auth_token: str) -> tuple[str, bool, str]:
     slug = str(project.get("slug") or "").strip()
     repository = str(project.get("source_repository") or "").strip()
     branch = str(project.get("source_branch") or "main").strip()
@@ -122,7 +130,11 @@ def sync_project(project: dict, auth_token: str) -> tuple[str, bool]:
     target_dir = TARGET_ROOT / slug
 
     if not repository_accessible(repository, auth_token):
-        return (f"SKIP {slug}: source repository is not accessible with the configured token", False)
+        return (
+            f"SKIP {slug}: source repository is not accessible with the configured token",
+            False,
+            "inaccessible",
+        )
 
     for source_path_raw in candidates:
         source_path = str(source_path_raw).strip()
@@ -141,7 +153,11 @@ def sync_project(project: dict, auth_token: str) -> tuple[str, bool]:
         if changed:
             target.write_bytes(content)
         changed = remove_stale(target_dir, keep_name=target_name) or changed
-        return (f"SYNC {slug}: {repository}/{source_path} -> {target.relative_to(ROOT)}", changed)
+        return (
+            f"SYNC {slug}: {repository}/{source_path} -> {target.relative_to(ROOT)}",
+            changed,
+            "synced",
+        )
 
     changed = False
     if target_dir.exists():
@@ -150,23 +166,56 @@ def sync_project(project: dict, auth_token: str) -> tuple[str, bool]:
             target_dir.rmdir()
         except OSError:
             pass
-    return (f"EMPTY {slug}: no canonical logo exists in the source repository", changed)
+    return (
+        f"EMPTY {slug}: no canonical logo exists in the source repository",
+        changed,
+        "missing",
+    )
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--fail-on-inaccessible",
+        action="store_true",
+        help="Fail when a configured source repository cannot be read.",
+    )
+    args = parser.parse_args()
+
     payload = load_registry()
     auth_token = token()
-    if not auth_token:
+    cross_repo_auth = bool(cross_repository_token())
+
+    if not cross_repo_auth:
         print(
-            "WARNING: no project repository token is configured; private source repositories will be skipped.",
+            "WARNING: PROJECT_REPO_TOKEN/PROFILE_REPO_TOKEN is not configured. "
+            "The repository GITHUB_TOKEN cannot read unrelated private repositories.",
             file=sys.stderr,
         )
 
     changed_any = False
+    counts = {"synced": 0, "missing": 0, "inaccessible": 0}
     for project in payload["projects"]:
-        message, changed = sync_project(project, auth_token)
+        message, changed, status = sync_project(project, auth_token)
         print(message)
         changed_any = changed_any or changed
+        counts[status] += 1
+
+    print(
+        "Project logo summary: "
+        f"{counts['synced']} source logo(s) available; "
+        f"{counts['missing']} source repository/repositories without a canonical logo; "
+        f"{counts['inaccessible']} inaccessible source repository/repositories."
+    )
+
+    if counts["inaccessible"]:
+        print(
+            "ACTION REQUIRED: configure PROFILE_REPO_TOKEN (or PROJECT_REPO_TOKEN) "
+            "with read access to the private source repositories.",
+            file=sys.stderr,
+        )
+        if args.fail_on_inaccessible:
+            raise SystemExit(2)
 
     print("Project logo mirrors updated." if changed_any else "Project logo mirrors already synchronized or unavailable.")
 
