@@ -1,11 +1,10 @@
 ---
+title: "Complete curriculum vitae"
 pagetitle: "Curriculum Vitae | Elmer Quispe-Salazar"
 description: "Complete curriculum vitae of Elmer Quispe-Salazar."
 toc: false
 page-layout: full
 ---
-
-## Complete curriculum vitae
 
 The PDF below remains the **authoritative detailed CV** for education, research and professional experience, publications, conference contributions, training, awards, and other credentials. The website sections above are navigation and discovery layers rather than duplicate CV records.
 
