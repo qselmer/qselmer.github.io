@@ -1,0 +1,29 @@
+---
+title: "Long-term reorganization of Peruvian pelagic fisheries under environmental variability"
+description: "Research on changes in composition, effort, efficiency, seasonality, spatial structure, and environmental context of Peruvian pelagic fisheries."
+status: active
+project-type: manuscript-project
+categories: [pelagic fisheries, long-term change, compositional analysis, environmental variability]
+---
+
+<div class="project-meta"><strong>Status:</strong> Concept / analytical assembly · <strong>Type:</strong> Manuscript project · <strong>Repository:</strong> Private during development</div>
+
+## Scientific question
+
+How have species composition, fishing effort, efficiency, seasonal timing, and spatial footprint of Peruvian pelagic fisheries changed through time, and how are those changes associated with environmental variability?
+
+## Analytical framework
+
+The study combines compositional data analysis, diversity and dominance, turnover, temporal trends, breakpoints and regime analysis, ordination, spatial indicators, and environmental covariates. The objective is to characterize reorganization that cannot be represented by total catch alone.
+
+## Current stage
+
+The current milestone is the historical species and source-coverage matrix, followed by a stable species dictionary, fleet categories, and monthly and annual analytical marts.
+
+## Planned output
+
+A peer-reviewed paper on long-term reorganization of Peruvian pelagic fisheries, with emphasis on composition, seasonality, spatial redistribution, and environmental regimes.
+
+::: {.qs-footnote-note}
+The analytical repository remains private during data assembly and methodological development. This page exposes only the scientific question, scope, and status.
+:::

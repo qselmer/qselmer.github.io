@@ -4,23 +4,13 @@ description: "Courses, classes, workshops, notebooks, and reproducible scientifi
 ---
 
 <div class="section-intro">
-This section is a discovery catalogue for structured teaching activities. The complete lessons, notebooks, exercises, data, code, and version history remain in their dedicated GitHub repositories.
+A discovery catalogue for structured teaching activities. Complete lessons, notebooks, exercises, data, code, and version history remain in their dedicated GitHub repositories.
 </div>
 
+::: {.qs-compact-catalogue .qs-teaching-catalogue}
 {{< include _generated.md >}}
+:::
 
-## Authoring model
-
-Teaching repositories are treated as independent scholarly resources rather than folders copied into the personal website.
-
-- An actual course, class, workshop, or training activity uses `type-training`.
-- The reusable [`Scientific Training Template`](https://github.com/qselmer/.template-training) uses `type-template`.
-- New lesson material should normally use Quarto (`.qmd`); Jupyter notebooks (`.ipynb`), R scripts, Python code, and other executable formats remain appropriate when they serve the learning objective.
-- A teaching repository may publish its own Quarto site under `qselmer.github.io/<repository>/`.
-- This website provides discovery, classification, and stable navigation only.
-
-## Inclusion policy
-
-A repository is promoted to this catalogue only when it has a defensible teaching identity: a defined learning purpose or sequence, sufficient documentation, explicit provenance and attribution, and a canonical public source.
-
-Practice repositories, clones, copied tutorials, and partially adapted external material are not presented as authored teaching activities until their pedagogical structure and provenance are clear. The website-level selection is recorded in `teaching/registry.json`; the canonical repository inventory remains in the academic-profile repository.
+::: {.qs-footnote-note}
+**Authoring and inclusion note.** Teaching repositories are independent scholarly resources, not folders copied into the personal website. Actual courses, classes, workshops, or training activities use `type-training`; the reusable Scientific Training Template uses `type-template`. New lesson material should normally use Quarto (`.qmd`), while notebooks and executable code remain appropriate when they serve the learning objective. A teaching repository may publish its own Quarto site under `qselmer.github.io/<repository>/`. Inclusion requires a defensible learning purpose or sequence, sufficient documentation, explicit provenance and attribution, and a canonical public source. Practice repositories, clones, copied tutorials, and partially adapted external material are not presented as authored teaching activities until their pedagogical structure and provenance are clear.
+:::

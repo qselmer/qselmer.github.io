@@ -44,7 +44,7 @@ An evaluation of the gonadosomatic index as a reproducible indicator of gonadal 
 
 **Presenter:** Elmer Quispe-Salazar.
 
-[Details](/talks/2024-11-11-anchoveta-gsi-sibecorp/) · [Public material](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767) · [DOI](https://doi.org/10.13140/rg.2.2.32795.73767)
+[Details](/talks/2024-11-11-anchoveta-gsi-sibecorp/) · [Public material](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767) · [https://doi.org/10.13140/rg.2.2.32795.73767](https://doi.org/10.13140/rg.2.2.32795.73767)
 
 ## 2022
 

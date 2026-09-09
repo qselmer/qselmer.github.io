@@ -1,0 +1,29 @@
+---
+title: "Standardizing in-season benchmarking for a highly variable small-pelagic fishery"
+description: "Research on historical comparison of active anchoveta fishing seasons using multiple standardized season clocks."
+status: active
+project-type: manuscript-project
+categories: [anchoveta, fisheries monitoring, benchmarking, environmental variability]
+---
+
+<div class="project-meta"><strong>Status:</strong> Concept / data preparation · <strong>Type:</strong> Manuscript project · <strong>Repository:</strong> Private during development</div>
+
+## Scientific question
+
+How can an active anchoveta fishing season be compared objectively with historical seasons when opening dates, closures, quota levels, effective fishing days, and environmental conditions differ among years?
+
+## Analytical framework
+
+The project evaluates three complementary season clocks—season day, effective fishing day, and quota progress—together with historical functional envelopes, indicator percentiles, analogue seasons, and environmental adjustment.
+
+## Current stage
+
+The immediate target is construction and validation of the historical season dataset, including season metadata and harmonized analytical marts. The three season clocks must be reproducible before historical envelopes and analogue-season analyses are interpreted.
+
+## Planned output
+
+A methodological fisheries paper on standardized in-season benchmarking for highly variable small-pelagic fisheries.
+
+::: {.qs-footnote-note}
+The manuscript repository is private because the analytical work is still being assembled and may depend on non-public institutional inputs. No confidential raw data are exposed through this website.
+:::

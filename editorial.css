@@ -1,0 +1,369 @@
+/* Editorial density and catalogue presentation layer. */
+
+:root {
+  --qs-profile-sidebar-width: 352px;
+  --qs-card-blue: #eef7f9;
+  --qs-card-aqua: #edf8f5;
+  --qs-card-sand: #faf6ed;
+}
+
+body {
+  line-height: 1.48;
+}
+
+main.content p {
+  margin-bottom: 0.58rem;
+}
+
+main.content ul,
+main.content ol {
+  margin-top: 0.3rem;
+  margin-bottom: 0.7rem;
+}
+
+main.content li {
+  line-height: 1.36;
+  margin-bottom: 0.12rem;
+}
+
+main.content h2 {
+  margin-top: 1.55rem;
+  margin-bottom: 0.55rem;
+}
+
+main.content h3 {
+  margin-top: 0.95rem;
+  margin-bottom: 0.38rem;
+}
+
+.section-intro {
+  max-width: 900px;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.43;
+}
+
+.qs-compact-catalogue p,
+.qs-compact-catalogue li {
+  line-height: 1.34;
+}
+
+.qs-compact-catalogue h2 {
+  margin-top: 1.3rem;
+}
+
+.qs-compact-catalogue h3 {
+  margin-top: 0.8rem;
+}
+
+.qs-footnote-note {
+  margin-top: 1.4rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--qs-border);
+  color: var(--qs-muted);
+  font-size: 0.72rem;
+  line-height: 1.38;
+}
+
+.qs-footnote-note p,
+.qs-footnote-note ul,
+.qs-footnote-note ol {
+  margin: 0.22rem 0;
+}
+
+.qs-footnote-note li {
+  line-height: 1.32;
+}
+
+/* Wider and more readable persistent profile rail. */
+.qs-sidebar-inner {
+  padding: 1.35rem 1.6rem 1.7rem;
+}
+
+.qs-sidebar-home {
+  font-size: 1.16rem;
+}
+
+.qs-sidebar-portrait {
+  width: 148px;
+  height: 148px;
+}
+
+.qs-sidebar-name {
+  font-size: 1.3rem;
+}
+
+.qs-sidebar-role {
+  font-size: 0.9rem;
+  line-height: 1.36;
+}
+
+.qs-sidebar-bio {
+  font-size: 0.92rem;
+  line-height: 1.44;
+}
+
+.qs-sidebar-context,
+.qs-sidebar-links a {
+  min-height: 34px;
+  font-size: 0.89rem;
+}
+
+.qs-sidebar-section-label {
+  font-size: 0.74rem;
+}
+
+.qs-sidebar-metric strong {
+  font-size: 1.3rem;
+}
+
+.qs-sidebar-metric span {
+  font-size: 0.69rem;
+}
+
+.qs-sidebar-metrics-note {
+  font-size: 0.68rem;
+}
+
+/* Research is integrated into Home. */
+.qs-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+}
+
+.qs-theme-item {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--qs-border);
+  border-radius: 0.6rem;
+  background: var(--qs-panel);
+}
+
+.qs-theme-item strong,
+.qs-theme-item span {
+  display: block;
+}
+
+.qs-theme-item strong {
+  color: var(--qs-ocean-deep);
+  font-size: 0.95rem;
+}
+
+.qs-theme-item span {
+  margin-top: 0.18rem;
+  color: var(--qs-ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.34;
+}
+
+/* Development projects: private paper repos and future type-project entries. */
+.qs-project-stack {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.8rem 0 1.2rem;
+}
+
+.qs-project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--qs-border);
+  border-left: 5px solid var(--qs-ocean-mid);
+  border-radius: 0.65rem;
+  background: linear-gradient(90deg, #f5fafb, #ffffff 62%);
+}
+
+.qs-project-card h3,
+.qs-project-card p {
+  margin: 0;
+}
+
+.qs-project-card h3 {
+  font-size: 1.08rem;
+  line-height: 1.24;
+}
+
+.qs-project-card .qs-card-meta {
+  margin-bottom: 0.25rem;
+  font-size: 0.68rem;
+}
+
+.qs-project-card-summary {
+  margin-top: 0.28rem !important;
+  color: var(--qs-ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.qs-project-card-side {
+  min-width: 145px;
+  text-align: right;
+}
+
+.qs-project-stage {
+  display: block;
+  margin-bottom: 0.28rem;
+  color: var(--qs-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.qs-project-card-side a {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.qs-project-card.qs-project-planned {
+  border-left-color: #9a7b44;
+  background: linear-gradient(90deg, #fbf7ee, #ffffff 62%);
+}
+
+/* Data: remove the redundant recommendation block and present rows as cards. */
+.qs-data-catalogue #recommended-starting-points,
+.qs-data-catalogue section#recommended-starting-points,
+.qs-data-catalogue #recommended-starting-points + p,
+.qs-data-catalogue #recommended-starting-points + p + ul,
+.qs-data-catalogue .callout-note,
+.qs-data-catalogue #use-in-teaching-and-collaboration,
+.qs-data-catalogue section#use-in-teaching-and-collaboration {
+  display: none !important;
+}
+
+.qs-data-catalogue #access-legend,
+.qs-data-catalogue section#access-legend {
+  margin-top: 0.7rem;
+}
+
+.qs-data-catalogue section#access-legend ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+  padding-left: 1rem;
+  font-size: 0.78rem;
+}
+
+.qs-data-catalogue .table-responsive {
+  overflow: visible;
+}
+
+.qs-data-catalogue table {
+  display: block;
+  width: 100%;
+  margin: 0.55rem 0 1rem;
+  border: 0;
+}
+
+.qs-data-catalogue thead {
+  display: none;
+}
+
+.qs-data-catalogue tbody {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.qs-data-catalogue tbody tr {
+  display: grid;
+  grid-template-columns: minmax(160px, 1.25fr) minmax(120px, 0.85fr) minmax(135px, 1fr) minmax(135px, 1fr) minmax(220px, 1.6fr);
+  gap: 0.3rem;
+  width: 100%;
+  padding: 0.48rem 0.58rem;
+  border: 1px solid var(--qs-border);
+  border-left: 5px solid var(--qs-ocean-mid);
+  border-radius: 0.62rem;
+  background: var(--qs-card-blue);
+  box-shadow: 0 4px 12px rgba(14, 45, 57, 0.035);
+}
+
+.qs-data-catalogue tbody tr:nth-child(3n + 2) {
+  border-left-color: #4b8a78;
+  background: var(--qs-card-aqua);
+}
+
+.qs-data-catalogue tbody tr:nth-child(3n) {
+  border-left-color: #a38349;
+  background: var(--qs-card-sand);
+}
+
+.qs-data-catalogue tbody td {
+  display: block;
+  padding: 0.28rem 0.42rem !important;
+  border: 0 !important;
+  background: transparent !important;
+  font-size: 0.8rem;
+  line-height: 1.28;
+  vertical-align: top;
+}
+
+.qs-data-catalogue tbody td:first-child {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.qs-data-catalogue tbody td:nth-child(n + 2)::before {
+  display: block;
+  margin-bottom: 0.08rem;
+  color: var(--qs-muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.qs-data-catalogue tbody td:nth-child(2)::before { content: "Access"; }
+.qs-data-catalogue tbody td:nth-child(3)::before { content: "Coverage"; }
+.qs-data-catalogue tbody td:nth-child(4)::before { content: "Formats"; }
+.qs-data-catalogue tbody td:nth-child(5)::before { content: "Useful for"; }
+
+@media (max-width: 1100px) {
+  .qs-theme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qs-data-catalogue tbody tr {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .qs-data-catalogue tbody td:first-child,
+  .qs-data-catalogue tbody td:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    line-height: 1.44;
+  }
+
+  .qs-sidebar-bio,
+  .qs-sidebar-context,
+  .qs-sidebar-links a {
+    font-size: 0.86rem;
+  }
+
+  .qs-sidebar-portrait {
+    width: 106px;
+    height: 106px;
+  }
+
+  .qs-project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .qs-project-card-side {
+    text-align: left;
+  }
+
+  .qs-data-catalogue tbody tr {
+    grid-template-columns: 1fr;
+  }
+
+  .qs-data-catalogue tbody td:first-child,
+  .qs-data-catalogue tbody td:last-child {
+    grid-column: auto;
+  }
+}

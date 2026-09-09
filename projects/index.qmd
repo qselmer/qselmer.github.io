@@ -1,68 +1,42 @@
 ---
 title: "Projects"
-description: "Research programmes and manuscript-oriented projects in quantitative marine ecology and fisheries science."
+description: "Research manuscripts and collaborative work currently in development."
 ---
 
 <div class="section-intro">
-This section is the stable catalogue of my active research programmes and focused analytical projects. The website documents the scientific question, scope, methods, status, and outputs of each project; code, data, manuscripts, and reusable workflows remain in their canonical repositories when those repositories are public and verified.
+Projects is the development layer of this website: work that is active or planned but is not yet represented by a formal publication. Private manuscript repositories can be described here without exposing their source repository; mature public outputs are surfaced under Publications, Software, or the appropriate final-product section.
 </div>
 
-## Featured projects
+## Active manuscript projects
 
-<div class="home-grid">
-<div class="home-card">
-<div class="kicker">Active · Research programme</div>
-
-### [Multidimensional state of the north-central Peruvian anchovy stock](anchovy-stock-state/)
-
-Integrating population magnitude, condition, reproduction, demographic structure, spatial distribution, and environmental and fishing pressures.
+```{=html}
+<div class="qs-project-stack">
+<article class="qs-project-card">
+<div><p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE DEVELOPMENT</p><h3><a href="stock-assessment-misspecification/">Diagnosing stock-assessment misspecification with machine learning</a></h3><p class="qs-project-card-summary">A simulation-estimation framework for identifying structural sources of misspecification from multivariate stock-assessment diagnostics.</p></div>
+<div class="qs-project-card-side"><span class="qs-project-stage">Method development</span><a href="stock-assessment-misspecification/">Project page →</a></div>
+</article>
+<article class="qs-project-card">
+<div><p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE DEVELOPMENT</p><h3><a href="season-benchmarking/">Standardizing in-season benchmarking for a highly variable small-pelagic fishery</a></h3><p class="qs-project-card-summary">Historical comparison using season day, effective fishing day, quota progress, functional envelopes, analogue seasons, and environmental adjustment.</p></div>
+<div class="qs-project-card-side"><span class="qs-project-stage">Data preparation</span><a href="season-benchmarking/">Project page →</a></div>
+</article>
+<article class="qs-project-card">
+<div><p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE DEVELOPMENT</p><h3><a href="pelagic-fishery-reorganization/">Long-term reorganization of Peruvian pelagic fisheries under environmental variability</a></h3><p class="qs-project-card-summary">Long-term changes in species composition, effort, efficiency, seasonality, fleet structure, spatial footprint, and environmental context.</p></div>
+<div class="qs-project-card-side"><span class="qs-project-stage">Concept / assembly</span><a href="pelagic-fishery-reorganization/">Project page →</a></div>
+</article>
 </div>
+```
 
-<div class="home-card">
-<div class="kicker">Active · Manuscript project</div>
+## Planned manuscript project
 
-### [Selectivity and demographic change in the anchovy fishery](anchovy-selectivity/)
-
-Evaluating long-term and seasonal changes in length selectivity, selection range, juvenile incidence, and demographic structure.
+```{=html}
+<div class="qs-project-stack">
+<article class="qs-project-card qs-project-planned">
+<div><p class="qs-card-meta">TYPE-PAPER · PLANNED · DECISION GATE</p><h3><a href="fishcore-software-paper/">fishcore software paper</a></h3><p class="qs-project-card-summary">A potential software paper that will proceed only if the underlying R framework demonstrates stable reuse, documentation, testing, and a defensible methodological gap.</p></div>
+<div class="qs-project-card-side"><span class="qs-project-stage">Decision gate: 30 Jun 2027</span><a href="fishcore-software-paper/">Project page →</a></div>
+</article>
 </div>
+```
 
-<div class="home-card">
-<div class="kicker">Active · Manuscript programme</div>
-
-### [Spatio-temporal patterns of the Peruvian tuna purse-seine fishery](tuna-fishery/)
-
-Characterizing catch, effort, operational behaviour, fishing modes, species composition, standardized CPUE, and environmental associations.
-</div>
-</div>
-
-## Additional research programmes
-
-<div class="home-grid">
-<div class="home-card">
-<div class="kicker">Active · Research programme</div>
-
-### [Multivariate indicators for fisheries and ecosystem assessment](multivariate-indicators/)
-
-Developing interpretable multidimensional diagnostics that preserve ecological meaning while integrating heterogeneous indicators.
-</div>
-
-<div class="home-card">
-<div class="kicker">Active · Manuscript project</div>
-
-### [Fleet responses to temporary closures for juvenile anchovy](temporary-closures/)
-
-Quantifying spatial displacement, effort redistribution, and operational responses to temporary management closures.
-</div>
-
-<div class="home-card">
-<div class="kicker">Active · Methods and software programme</div>
-
-### [Reproducible marine data systems](reproducible-marine-data-systems/)
-
-Building traceable systems for acquiring, harmonizing, documenting, analysing, and updating fisheries and oceanographic data.
-</div>
-</div>
-
-## Repository policy
-
-A project page is not a duplicate of its GitHub repository. A repository link is displayed only when a canonical project repository has been verified. Broader programmes may link to several paper, software, data, or training repositories as those components are audited.
+::: {.qs-footnote-note}
+**Project model.** `type-paper` is reserved for a repository tied to one scientific manuscript. Private `type-paper` work may appear here while it is under development, without a public repository link. `type-project` is reserved for a broader or exploratory research initiative that is not yet committed to one manuscript—for example an incubating collaboration, a multi-output research programme, or a project explicitly seeking collaborators. When a specific manuscript becomes defined, it should normally receive its own `*-paper` repository and `type-paper` classification. Public mature outputs are discovered through Publications, Software, or another final-product section rather than duplicated here.
+:::
