@@ -1,20 +1,14 @@
-/* Final researcher-sidebar density and project-card visual layer. */
+/* Final researcher-sidebar density, navigation spacing, and project-card visual layer. */
 
-/* Larger type with compact leading: use the full researcher rail without adding loose spacing. */
+/* Start the researcher rail directly with the portrait and use the available width efficiently. */
 .qs-sidebar-inner {
-  padding: .85rem 1.35rem 1.1rem;
-}
-
-.qs-sidebar-home {
-  padding-bottom: .58rem;
-  font-size: 1.28rem;
-  line-height: 1.08;
+  padding: .45rem 1.35rem 1.1rem;
 }
 
 .qs-sidebar-portrait {
-  width: 150px;
-  height: 150px;
-  margin: .78rem auto .55rem;
+  width: 180px;
+  height: 180px;
+  margin: .15rem auto .65rem;
 }
 
 .qs-sidebar-name {
@@ -71,6 +65,33 @@
   line-height: 1.22;
 }
 
+/* On desktop, expand the navigation tabs across the available navbar width. */
+@media (min-width: 992px) {
+  .navbar .navbar-nav.me-auto {
+    flex: 1 1 0;
+    justify-content: space-evenly;
+    margin-right: .65rem !important;
+  }
+
+  .navbar .navbar-nav.me-auto .nav-item {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .navbar .navbar-nav.me-auto .nav-link {
+    display: block;
+    padding-left: .8rem;
+    padding-right: .8rem;
+    font-size: 1.04rem;
+    white-space: nowrap;
+  }
+
+  .navbar-brand {
+    margin-right: .8rem;
+    font-size: 1.12rem;
+  }
+}
+
 /* Project cards show a visual panel only when a canonical repository logo exists. */
 .qs-project-visual {
   min-height: 215px;
@@ -99,9 +120,9 @@
 .qs-project-no-logo.qs-project-tone-green { border-top-color: #9db783; }
 
 @media (max-width: 1099px) {
-  .qs-sidebar-inner { padding: .85rem 1rem; }
-  .qs-sidebar-portrait { width: 108px; height: 108px; margin-top: .7rem; }
-  .qs-sidebar-name { margin-top: .62rem; font-size: 1.28rem; }
+  .qs-sidebar-inner { padding: .6rem 1rem; }
+  .qs-sidebar-portrait { width: 140px; height: 140px; margin: .2rem auto .55rem; }
+  .qs-sidebar-name { margin-top: .5rem; font-size: 1.28rem; }
   .qs-sidebar-role { font-size: .93rem; }
   .qs-sidebar-bio { margin: .42rem 0; font-size: .92rem; }
   .qs-sidebar-context, .qs-sidebar-links a { min-height: 28px; font-size: .9rem; }
@@ -110,9 +131,8 @@
 }
 
 @media (max-width: 760px) {
-  .qs-sidebar-inner { padding: .8rem .9rem; }
-  .qs-sidebar-home { padding-bottom: .5rem; font-size: 1.18rem; }
-  .qs-sidebar-portrait { width: 112px; height: 112px; margin: .68rem auto .48rem; }
+  .qs-sidebar-inner { padding: .6rem .9rem; }
+  .qs-sidebar-portrait { width: 120px; height: 120px; margin: .15rem auto .48rem; }
   .qs-sidebar-name { font-size: 1.28rem; }
   .qs-sidebar-role { font-size: .9rem; line-height: 1.16; }
   .qs-sidebar-bio { margin: .44rem 0; font-size: .9rem; line-height: 1.22; }
