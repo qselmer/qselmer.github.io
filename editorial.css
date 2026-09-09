@@ -75,9 +75,9 @@ main.content h3 {
   line-height: 1.32;
 }
 
-/* Wider and more readable persistent profile rail. */
+/* Wider, denser and more readable persistent researcher rail. */
 .qs-sidebar-inner {
-  padding: 1.35rem 1.6rem 1.7rem;
+  padding: 1.15rem 1.45rem 1.4rem;
 }
 
 .qs-sidebar-home {
@@ -87,42 +87,56 @@ main.content h3 {
 .qs-sidebar-portrait {
   width: 148px;
   height: 148px;
+  margin-top: 1.05rem;
+  margin-bottom: 0.7rem;
 }
 
 .qs-sidebar-name {
   font-size: 1.3rem;
+  line-height: 1.12;
 }
 
 .qs-sidebar-role {
+  margin-top: 0.22rem;
   font-size: 0.9rem;
-  line-height: 1.36;
+  line-height: 1.18;
 }
 
 .qs-sidebar-bio {
-  font-size: 0.92rem;
-  line-height: 1.44;
+  margin: 0.68rem 0 0.62rem;
+  font-size: 0.9rem;
+  line-height: 1.28;
 }
 
 .qs-sidebar-context,
 .qs-sidebar-links a {
-  min-height: 34px;
-  font-size: 0.89rem;
+  min-height: 28px;
+  font-size: 0.87rem;
+  line-height: 1.18;
+}
+
+.qs-sidebar-links {
+  gap: 0;
+  margin-top: 0.34rem;
 }
 
 .qs-sidebar-section-label {
-  font-size: 0.74rem;
+  margin-top: 0.78rem;
+  padding-top: 0.65rem;
+  font-size: 0.72rem;
 }
 
 .qs-sidebar-metric strong {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 }
 
 .qs-sidebar-metric span {
-  font-size: 0.69rem;
+  font-size: 0.67rem;
 }
 
 .qs-sidebar-metrics-note {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
+  line-height: 1.25;
 }
 
 /* Research is integrated into Home. */
@@ -157,68 +171,136 @@ main.content h3 {
   line-height: 1.34;
 }
 
-/* Development projects: private paper repos and future type-project entries. */
-.qs-project-stack {
+/* Development projects: visual cards with repository-logo slots. */
+.qs-project-grid {
   display: grid;
-  gap: 0.7rem;
-  margin: 0.8rem 0 1.2rem;
-}
-
-.qs-project-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  align-items: center;
-  padding: 0.9rem 1rem;
-  border: 1px solid var(--qs-border);
-  border-left: 5px solid var(--qs-ocean-mid);
-  border-radius: 0.65rem;
-  background: linear-gradient(90deg, #f5fafb, #ffffff 62%);
+  margin: 0.8rem 0 1.25rem;
 }
 
-.qs-project-card h3,
-.qs-project-card p {
+.qs-project-grid-planned {
+  grid-template-columns: minmax(260px, 1fr) repeat(2, minmax(0, 1fr));
+}
+
+.qs-project-tile {
+  display: flex;
+  min-width: 0;
+  min-height: 430px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--qs-border);
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(14, 45, 57, 0.055);
+}
+
+.qs-project-visual {
+  display: grid;
+  min-height: 205px;
+  place-items: center;
+  padding: 1.2rem;
+  border-bottom: 1px solid rgba(49, 79, 96, 0.1);
+}
+
+.qs-project-tone-sand .qs-project-visual { background: #f8e7d8; }
+.qs-project-tone-blue .qs-project-visual { background: #e7f1f6; }
+.qs-project-tone-aqua .qs-project-visual { background: #e5f3ef; }
+.qs-project-tone-green .qs-project-visual { background: #e5f0dc; }
+
+.qs-project-mark {
+  display: grid;
+  width: 150px;
+  aspect-ratio: 1;
+  place-content: center;
+  padding: 1rem;
+  border: 1px solid rgba(19, 43, 54, 0.14);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--qs-ocean-deep);
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(14, 45, 57, 0.06);
+}
+
+.qs-project-mark strong,
+.qs-project-mark span {
+  display: block;
+}
+
+.qs-project-mark strong {
+  font-size: 2.25rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.qs-project-mark span {
+  margin-top: 0.5rem;
+  color: var(--qs-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.qs-project-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem 1.05rem 1.1rem;
+}
+
+.qs-project-tile h3,
+.qs-project-tile p {
   margin: 0;
 }
 
-.qs-project-card h3 {
+.qs-project-tile h3 {
+  margin-top: 0.25rem;
   font-size: 1.08rem;
-  line-height: 1.24;
+  line-height: 1.22;
 }
 
-.qs-project-card .qs-card-meta {
-  margin-bottom: 0.25rem;
-  font-size: 0.68rem;
+.qs-project-tile h3 a {
+  color: var(--qs-ocean-deep);
+  text-decoration: none;
+}
+
+.qs-project-tile h3 a:hover {
+  text-decoration: underline;
+}
+
+.qs-project-tile .qs-card-meta {
+  margin-bottom: 0.18rem;
+  font-size: 0.66rem;
 }
 
 .qs-project-card-summary {
-  margin-top: 0.28rem !important;
+  margin-top: 0.45rem !important;
   color: var(--qs-ink-soft);
-  font-size: 0.86rem;
-  line-height: 1.35;
+  font-size: 0.84rem;
+  line-height: 1.32;
 }
 
-.qs-project-card-side {
-  min-width: 145px;
-  text-align: right;
+.qs-project-footer {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--qs-border);
 }
 
-.qs-project-stage {
-  display: block;
-  margin-bottom: 0.28rem;
+.qs-project-footer span {
   color: var(--qs-muted);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
 }
 
-.qs-project-card-side a {
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.qs-project-card.qs-project-planned {
-  border-left-color: #9a7b44;
-  background: linear-gradient(90deg, #fbf7ee, #ffffff 62%);
+.qs-project-footer a {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 /* Data: remove the redundant recommendation block and present rows as cards. */
@@ -324,6 +406,11 @@ main.content h3 {
     grid-template-columns: 1fr;
   }
 
+  .qs-project-grid,
+  .qs-project-grid-planned {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .qs-data-catalogue tbody tr {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -339,10 +426,21 @@ main.content h3 {
     line-height: 1.44;
   }
 
-  .qs-sidebar-bio,
+  .qs-sidebar-role {
+    line-height: 1.16;
+  }
+
+  .qs-sidebar-bio {
+    margin: 0.55rem 0;
+    font-size: 0.84rem;
+    line-height: 1.24;
+  }
+
   .qs-sidebar-context,
   .qs-sidebar-links a {
-    font-size: 0.86rem;
+    min-height: 27px;
+    font-size: 0.84rem;
+    line-height: 1.15;
   }
 
   .qs-sidebar-portrait {
@@ -350,12 +448,21 @@ main.content h3 {
     height: 106px;
   }
 
-  .qs-project-card {
+  .qs-project-grid,
+  .qs-project-grid-planned {
     grid-template-columns: 1fr;
   }
 
-  .qs-project-card-side {
-    text-align: left;
+  .qs-project-tile {
+    min-height: 0;
+  }
+
+  .qs-project-visual {
+    min-height: 180px;
+  }
+
+  .qs-project-mark {
+    width: 132px;
   }
 
   .qs-data-catalogue tbody tr {
