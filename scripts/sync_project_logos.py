@@ -56,20 +56,33 @@ def token() -> str:
     return os.environ.get("GITHUB_TOKEN", "").strip()
 
 
-def request_json(url: str, auth_token: str) -> dict:
+def request_headers(auth_token: str, accept: str = "application/vnd.github+json") -> dict[str, str]:
     headers = {
-        "Accept": "application/vnd.github+json",
-        "User-Agent": "qselmer.github.io project-logo-sync/1.1",
+        "Accept": accept,
+        "User-Agent": "qselmer.github.io project-logo-sync/1.2",
         "X-GitHub-Api-Version": "2022-11-28",
     }
     if auth_token:
         headers["Authorization"] = f"Bearer {auth_token}"
-    request = urllib.request.Request(url, headers=headers)
+    return headers
+
+
+def request_json(url: str, auth_token: str) -> dict:
+    request = urllib.request.Request(url, headers=request_headers(auth_token))
     with urllib.request.urlopen(request, timeout=30) as response:
         payload = json.load(response)
     if not isinstance(payload, dict):
         raise RuntimeError(f"Unexpected GitHub API response for {url}")
     return payload
+
+
+def request_bytes(url: str, auth_token: str) -> bytes:
+    request = urllib.request.Request(
+        url,
+        headers=request_headers(auth_token, "application/vnd.github.raw+json"),
+    )
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return response.read()
 
 
 def repository_accessible(repository: str, auth_token: str) -> bool:
@@ -101,9 +114,15 @@ def fetch_candidate(
 
     if payload.get("type") != "file":
         raise RuntimeError(f"Configured logo candidate is not a file: {repository}:{source_path}")
-    if payload.get("encoding") != "base64" or not payload.get("content"):
-        raise RuntimeError(f"GitHub did not return base64 logo content: {repository}:{source_path}")
-    return base64.b64decode(str(payload["content"]).encode("ascii"), validate=False)
+
+    content = payload.get("content")
+    if payload.get("encoding") == "base64" and content:
+        return base64.b64decode(str(content).encode("ascii"), validate=False)
+
+    # GitHub's Contents API does not inline files larger than 1 MB. Fetch the
+    # same authenticated endpoint with the raw media type so canonical PNG/SVG
+    # files up to the API limit are still synchronized without resizing them.
+    return request_bytes(url, auth_token)
 
 
 def remove_stale(target_dir: Path, keep_name: str | None = None) -> bool:
