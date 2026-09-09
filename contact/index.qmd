@@ -35,7 +35,7 @@ page-layout: full
         <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
         <span class="qs-contact-copy">
           <span class="qs-contact-label">Institutional address</span>
-          <strong>Esquina Gamarra y General Valle S/N, Callao 07021, Peru</strong>
+          <strong>Esquina Gamarra y General Valle S/N, Chucuito, Callao 07021, Peru</strong>
         </span>
       </div>
 
@@ -58,7 +58,7 @@ page-layout: full
       <div class="qs-contact-map">
         <iframe
           title="Map showing the IMARPE central office in Callao, Peru"
-          src="https://www.google.com/maps?q=Esquina%20Gamarra%20y%20General%20Valle%20S%2FN%2C%20Callao%2007021%2C%20Peru&output=embed"
+          src="https://www.google.com/maps?q=Esquina%20Gamarra%20y%20General%20Valle%20S%2FN%2C%20Chucuito%2C%20Callao%2007021%2C%20Peru&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           allowfullscreen>
