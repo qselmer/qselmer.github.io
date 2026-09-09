@@ -1,30 +1,34 @@
 {
-  "schema_version": 1,
-  "purpose": "Curated registry of extended blog articles derived from teaching themes. The audience pathway is social media to blog to class; the editorial workflow is class to blog to social media.",
+  "schema_version": 2,
+  "purpose": "Curated registry of public technical posts: tutorials, methodological notes, practical explanations, and reproducible-science guidance. Posts are distinct from formal scholarly outputs in Publications and may optionally connect to Teaching, Software, Data, or Projects.",
   "policy": {
-    "audience_path": ["social", "blog", "class"],
-    "editorial_path": ["class", "blog", "social"],
-    "publication_boundary": "Formal scholarly outputs and citable scientific notes belong in Publications, not in the Blog.",
-    "new_posts_require_class_link": true
+    "public_label": "Posts",
+    "publication_boundary": "Formal scholarly outputs and citable scientific notes belong in Publications, not in Posts.",
+    "class_link_optional": true,
+    "thumbnail_optional": true
   },
   "posts": [
     {
       "slug": "statistical-distributions-fisheries-marine-ecology",
       "title": "Statistical distributions for fisheries and marine ecology",
       "date": "2026-07-06",
+      "updated": "2026-09-09",
+      "author": "Elmer Quispe-Salazar",
       "route": "/blog/statistical-distributions-fisheries-marine-ecology/",
       "topic": "Statistical ecology",
       "level": "Intermediate",
-      "status": "legacy-adapted",
-      "excerpt": "A practical guide to choosing probability distributions for presence-absence, counts, CPUE, biomass, proportions, compositional data, and extreme events in fisheries and marine ecology.",
+      "status": "published",
+      "excerpt": "A practical guide to choosing probability distributions for common response variables in fisheries and marine ecology.",
+      "thumbnail": "/images/home/statistical-modelling-workflow.png",
+      "thumbnail_alt": "Statistical modelling workflow illustration",
+      "read_minutes": 8,
       "class_relation": {
         "status": "planned",
         "teaching_path": null,
         "repository": null,
-        "note": "Legacy article preserved during migration. A structured class has not yet been published, so no class link is claimed."
+        "note": "A structured class for this topic has not yet been published."
       },
-      "social_links": [],
-      "legacy_exception": true
+      "social_links": []
     }
   ]
 }

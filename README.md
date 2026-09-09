@@ -15,7 +15,7 @@ The website is a discovery and presentation layer. Scientific repositories remai
 - **Software** - curated scientific packages and applications with explicit maturity.
 - **Teaching** - structured courses/training and reusable teaching infrastructure.
 - **Data Sources** - curated external sources for students and collaborators; these are not datasets owned or produced by the site author.
-- **Blog** - extended educational articles in the pathway `social post -> Blog -> class`.
+- **Posts** - tutorials, technical notes, methodological explanations, and reproducible-science guidance for a broader technical audience.
 - **CV / Contact** - professional record and collaboration channels.
 
 Compatibility entry points such as `/resources/`, `/services/`, `/engagement/`, `/follow/`, and `/terms/` are retained as lightweight Quarto pages. Meaningful legacy URLs are either preserved or redirected deterministically.
@@ -34,7 +34,7 @@ The canonical repository catalogue is fetched transiently during automation beca
 - `assets/data/software.json`
 - `assets/data/teaching.json`
 
-Website-specific editorial decisions remain in local registries such as `software/registry.json`, `teaching/registry.json`, `talks/registry.json`, `data/registry.json`, and `blog/registry.json`.
+Website-specific editorial decisions remain in local registries such as `software/registry.json`, `teaching/registry.json`, `talks/registry.json`, `data/registry.json`, and `blog/registry.json` (public label: **Posts**).
 
 See [`AUTOMATION.md`](AUTOMATION.md) for the complete data flow.
 

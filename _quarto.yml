@@ -73,7 +73,7 @@ website:
       - href: data/index.qmd
         text: Data
       - href: blog/index.qmd
-        text: Blog
+        text: Posts
       - href: cv/index.qmd
         text: CV
       - href: contact/index.qmd
@@ -98,6 +98,7 @@ format:
       - profile-sidebar.css
       - editorial.css
       - refinements.css
+      - posts.css
     toc: true
     link-external-newwindow: true
     include-before-body:

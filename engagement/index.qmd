@@ -13,8 +13,8 @@ Conference presentations, posters, seminars, and other scientific contributions 
 
 Structured courses, workshops, training activities, and reusable learning material are catalogued under [Teaching](/teaching/).
 
-## Extended explanations
+## Technical posts
 
-Educational and methodological articles intended for a broader technical audience are published in the [Blog](/blog/).
+Tutorials, technical notes, and practical methodological explanations are published under [Posts](/blog/).
 
 Formal scholarly outputs remain under [Publications](/publications/).
