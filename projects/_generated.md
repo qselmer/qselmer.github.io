@@ -4,7 +4,10 @@
 
 ```{=html}
 <div class="qs-project-grid">
-<article class="qs-project-tile qs-project-tone-sand qs-project-no-logo">
+<article class="qs-project-tile qs-project-tone-sand">
+<div class="qs-project-visual">
+<img class="qs-project-logo" src="/images/projects/stock-assessment-misspecification/logo.png" alt="Diagnosing stock-assessment misspecification with machine learning project logo" loading="lazy">
+</div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="stock-assessment-misspecification/">Diagnosing stock-assessment misspecification with machine learning</a></h3>

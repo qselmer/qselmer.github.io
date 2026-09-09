@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source_repository": "qselmer/qselmer",
   "source_path": "assets/data/repository-catalog.json",
-  "catalog_updated_at": "2026-09-07T16:34:34.264471+00:00",
+  "catalog_updated_at": "2026-09-09T21:08:00.894465+00:00",
   "count": 2,
   "software": [
     {
@@ -11,7 +11,7 @@
       "html_url": "https://github.com/qselmer/oceancube",
       "description": "",
       "language": "R",
-      "updated_at": "2026-08-20T18:10:17Z",
+      "updated_at": "2026-09-08T19:32:59Z",
       "repository_type": "type-package",
       "repository_type_label": "Packages",
       "category": "R package",
