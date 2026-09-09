@@ -1,146 +1,119 @@
 /* Final researcher-sidebar density and project-card visual layer. */
 
-/* The global navbar owns Home. The profile rail is identified as Researcher. */
+/* Larger type with compact leading: use the full researcher rail without adding loose spacing. */
 .qs-sidebar-inner {
-  padding: .72rem 1.3rem .95rem;
+  padding: .85rem 1.35rem 1.1rem;
 }
 
 .qs-sidebar-home {
-  padding-bottom: .5rem;
-  font-size: 1.05rem;
-  line-height: 1.05;
-}
-
-.qs-sidebar-portrait {
-  width: 128px;
-  height: 128px;
-  margin: .65rem auto .42rem;
-}
-
-.qs-sidebar-name {
-  font-size: 1.17rem;
-  line-height: 1.05;
-}
-
-.qs-sidebar-role {
-  margin-top: .14rem;
-  font-size: .82rem;
+  padding-bottom: .58rem;
+  font-size: 1.28rem;
   line-height: 1.08;
 }
 
-.qs-sidebar-bio {
-  margin: .42rem 0 .38rem;
-  font-size: .82rem;
+.qs-sidebar-portrait {
+  width: 150px;
+  height: 150px;
+  margin: .78rem auto .55rem;
+}
+
+.qs-sidebar-name {
+  font-size: 1.42rem;
+  line-height: 1.08;
+}
+
+.qs-sidebar-role {
+  margin-top: .18rem;
+  font-size: .98rem;
   line-height: 1.18;
+}
+
+.qs-sidebar-bio {
+  margin: .58rem 0 .5rem;
+  font-size: .96rem;
+  line-height: 1.27;
 }
 
 .qs-sidebar-context,
 .qs-sidebar-links a {
-  min-height: 23px;
-  gap: .48rem;
-  font-size: .82rem;
-  line-height: 1.05;
+  min-height: 30px;
+  gap: .55rem;
+  font-size: .94rem;
+  line-height: 1.16;
 }
 
 .qs-sidebar-links {
   gap: 0;
-  margin-top: .16rem;
+  margin-top: .15rem;
 }
 
 .qs-sidebar-section-label {
-  margin: .52rem 0 .34rem;
-  padding-top: .48rem;
-  font-size: .66rem;
+  margin: .68rem 0 .32rem;
+  padding-top: .58rem;
+  font-size: .76rem;
+  line-height: 1.1;
 }
 
-.qs-sidebar-metrics-grid {
-  gap: .28rem;
-}
-
-.qs-sidebar-metric {
-  padding: .42rem .38rem;
-}
-
-.qs-sidebar-metric strong {
-  font-size: 1.08rem;
-}
-
-.qs-sidebar-metric span {
-  margin-top: .18rem;
-  font-size: .59rem;
-  line-height: 1.08;
-}
-
-.qs-sidebar-metrics-note {
-  margin-top: .3rem;
-  font-size: .59rem;
+.qs-sidebar-metric-row {
+  padding: .38rem 0;
+  font-size: .92rem;
   line-height: 1.15;
 }
 
-/* Project cards use a reusable image slot. Canonical repository logos can replace these marks 1:1. */
+.qs-sidebar-metric-row strong {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.qs-sidebar-metrics-note {
+  margin-top: .42rem;
+  font-size: .68rem;
+  line-height: 1.22;
+}
+
+/* Project cards keep a stable visual area. The area stays blank until a canonical logo is mirrored. */
 .qs-project-visual {
-  min-height: 220px;
+  min-height: 215px;
   padding: 1rem;
+}
+
+.qs-project-visual-empty {
+  background-image: none !important;
 }
 
 .qs-project-logo {
   display: block;
-  width: min(72%, 178px);
-  max-height: 178px;
+  width: min(78%, 188px);
+  max-height: 180px;
   object-fit: contain;
 }
 
 .qs-project-tile {
-  min-height: 420px;
+  min-height: 440px;
 }
 
 @media (max-width: 1099px) {
-  .qs-sidebar-inner {
-    padding: .75rem .95rem;
-  }
-  .qs-sidebar-portrait {
-    width: 88px;
-    height: 88px;
-    margin-top: .65rem;
-  }
-  .qs-sidebar-name {
-    margin-top: .55rem;
-  }
-  .qs-sidebar-bio {
-    margin: .32rem 0;
-  }
+  .qs-sidebar-inner { padding: .85rem 1rem; }
+  .qs-sidebar-portrait { width: 108px; height: 108px; margin-top: .7rem; }
+  .qs-sidebar-name { margin-top: .62rem; font-size: 1.28rem; }
+  .qs-sidebar-role { font-size: .93rem; }
+  .qs-sidebar-bio { margin: .42rem 0; font-size: .92rem; }
+  .qs-sidebar-context, .qs-sidebar-links a { min-height: 28px; font-size: .9rem; }
+  .qs-sidebar-section-label { font-size: .73rem; }
+  .qs-sidebar-metric-row { font-size: .88rem; }
 }
 
 @media (max-width: 760px) {
-  .qs-sidebar-inner {
-    padding: .7rem .78rem;
-  }
-  .qs-sidebar-home {
-    padding-bottom: .42rem;
-  }
-  .qs-sidebar-portrait {
-    width: 96px;
-    height: 96px;
-    margin: .62rem auto .42rem;
-  }
-  .qs-sidebar-role {
-    line-height: 1.08;
-  }
-  .qs-sidebar-bio {
-    margin: .36rem 0;
-    font-size: .81rem;
-    line-height: 1.16;
-  }
-  .qs-sidebar-context,
-  .qs-sidebar-links a {
-    min-height: 22px;
-    font-size: .8rem;
-    line-height: 1.04;
-  }
-  .qs-project-visual {
-    min-height: 190px;
-  }
-  .qs-project-logo {
-    width: min(62%, 150px);
-  }
+  .qs-sidebar-inner { padding: .8rem .9rem; }
+  .qs-sidebar-home { padding-bottom: .5rem; font-size: 1.18rem; }
+  .qs-sidebar-portrait { width: 112px; height: 112px; margin: .68rem auto .48rem; }
+  .qs-sidebar-name { font-size: 1.28rem; }
+  .qs-sidebar-role { font-size: .9rem; line-height: 1.16; }
+  .qs-sidebar-bio { margin: .44rem 0; font-size: .9rem; line-height: 1.22; }
+  .qs-sidebar-context, .qs-sidebar-links a { min-height: 28px; font-size: .89rem; line-height: 1.12; }
+  .qs-sidebar-section-label { margin-top: .56rem; font-size: .72rem; }
+  .qs-sidebar-metric-row { padding: .32rem 0; font-size: .86rem; }
+  .qs-sidebar-metric-row strong { font-size: 1.08rem; }
+  .qs-project-visual { min-height: 185px; }
+  .qs-project-logo { width: min(68%, 160px); }
 }

@@ -24,10 +24,6 @@ The conference contribution formed part of the methodological development that w
 - [https://doi.org/10.13140/RG.2.2.32795.73767](https://doi.org/10.13140/RG.2.2.32795.73767)
 - [VI SIBECORP event page](https://visibecorp.cetmar.org/indexPT.php)
 
-## How to cite
-
-Quispe-Salazar, E., & Sánchez, J. (2024, November 11). *Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation* [Conference presentation]. VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca (VI SIBECORP), Lisbon, Portugal. https://doi.org/10.13140/RG.2.2.32795.73767
-
 ## Related publication
 
 The subsequent peer-reviewed study is listed under [Publications](/publications/): *Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens* (2025, *Scientia Marina*).

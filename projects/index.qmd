@@ -12,6 +12,7 @@ Projects is the development layer of this website: active or planned research th
 ```{=html}
 <div class="qs-project-grid">
 <article class="qs-project-tile qs-project-tone-sand">
+<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="stock-assessment-misspecification/">Diagnosing stock-assessment misspecification with machine learning</a></h3>
@@ -21,6 +22,7 @@ Projects is the development layer of this website: active or planned research th
 </article>
 
 <article class="qs-project-tile qs-project-tone-blue">
+<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="season-benchmarking/">Standardizing in-season benchmarking for a highly variable small-pelagic fishery</a></h3>
@@ -30,6 +32,7 @@ Projects is the development layer of this website: active or planned research th
 </article>
 
 <article class="qs-project-tile qs-project-tone-aqua">
+<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="pelagic-fishery-reorganization/">Long-term reorganization of Peruvian pelagic fisheries under environmental variability</a></h3>
@@ -45,6 +48,7 @@ Projects is the development layer of this website: active or planned research th
 ```{=html}
 <div class="qs-project-grid qs-project-grid-planned">
 <article class="qs-project-tile qs-project-tone-green qs-project-planned">
+<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · PLANNED · DECISION GATE</p>
 <h3><a href="fishcore-software-paper/">fishcore software paper</a></h3>
@@ -56,5 +60,5 @@ Projects is the development layer of this website: active or planned research th
 ```
 
 ::: {.qs-footnote-note}
-**Project logo rule.** Cards use only the repository's canonical `assets/images/logo.svg` or `assets/images/logo.png`, mirrored into this website under `images/projects/`. Substitute or invented logos are not used. If the canonical logo has not yet been mirrored, the card remains text-only.
+**Project logo rule.** Cards use only the repository's canonical `assets/images/logo.svg` or `assets/images/logo.png`, mirrored into this website under `images/projects/`. If the canonical logo has not yet been mirrored, the visual slot remains empty; substitute or invented logos are not used.
 :::
