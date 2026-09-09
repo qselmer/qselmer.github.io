@@ -1,82 +1,53 @@
 ---
-pagetitle: "Contact | Elmer Quispe-Salazar"
+title: "Contact"
 description: "Research collaboration, quantitative fisheries science, teaching, and professional contact."
 toc: false
-page-layout: full
 ---
 
-```{=html}
-<section class="qs-contact-shell" aria-labelledby="qs-contact-title">
-  <div class="qs-contact-grid">
-    <header class="qs-contact-heading">
-      <p class="qs-contact-kicker">Research & scientific exchange</p>
-      <h1 id="qs-contact-title">Contact</h1>
-      <p class="qs-contact-lead">For research collaboration, manuscript discussion, quantitative analysis, teaching, or professional exchange in marine ecology and fisheries science.</p>
-    </header>
+For research collaboration, manuscript discussion, quantitative analysis, teaching, or professional exchange in marine ecology and fisheries science, the preferred direct channel is email.
 
-    <div class="qs-contact-details">
-      <a class="qs-contact-row qs-contact-row-link" href="mailto:qselmers@gmail.com">
-        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-envelope-fill"></i></span>
-        <span class="qs-contact-copy">
-          <span class="qs-contact-label">Email</span>
-          <strong>qselmers@gmail.com</strong>
-        </span>
-      </a>
+## Contact details
 
-      <a class="qs-contact-row qs-contact-row-link" href="tel:+5119040137">
-        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-telephone-fill"></i></span>
-        <span class="qs-contact-copy">
-          <span class="qs-contact-label">Institutional phone · IMARPE central office</span>
-          <strong>+51 1 904 0137</strong>
-        </span>
-      </a>
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+### Direct contact
 
-      <div class="qs-contact-row">
-        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
-        <span class="qs-contact-copy">
-          <span class="qs-contact-label">Institutional address</span>
-          <strong>Esquina Gamarra y General Valle S/N, Chucuito, Callao 07021, Peru</strong>
-        </span>
-      </div>
+**Email**  
+[qselmers@gmail.com](mailto:qselmers@gmail.com)
 
-      <a class="qs-contact-row qs-contact-row-link" href="https://www.gob.pe/imarpe" target="_blank" rel="noopener noreferrer">
-        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-building-fill"></i></span>
-        <span class="qs-contact-copy">
-          <span class="qs-contact-label">Institution</span>
-          <strong>Instituto del Mar del Perú (IMARPE)</strong>
-        </span>
-      </a>
+### Academic profiles
 
-      <div class="qs-contact-row">
-        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-clock-fill"></i></span>
-        <span class="qs-contact-copy">
-          <span class="qs-contact-label">Institutional service hours</span>
-          <strong>Monday–Friday · 08:00–16:30</strong>
-        </span>
-      </div>
+[ORCID](https://orcid.org/0000-0001-9229-6379) · [Google Scholar](https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en) · [GitHub](https://github.com/qselmer) · [LinkedIn](https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/) · [ResearchGate](https://www.researchgate.net/profile/Elmer-Quispe-Salazar)
+:::
 
-      <div class="qs-contact-map">
-        <iframe
-          title="Map showing the IMARPE central office in Callao, Peru"
-          src="https://www.google.com/maps?q=Esquina%20Gamarra%20y%20General%20Valle%20S%2FN%2C%20Chucuito%2C%20Callao%2007021%2C%20Peru&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
+::: {.g-col-12 .g-col-md-6}
+### Institutional context
 
-  <div class="qs-contact-footer">
-    <p><strong>Academic profiles</strong></p>
-    <nav class="qs-contact-profile-links" aria-label="Academic and professional profiles">
-      <a href="https://orcid.org/0000-0001-9229-6379" target="_blank" rel="noopener noreferrer">ORCID</a>
-      <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-      <a href="https://github.com/qselmer" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://www.researchgate.net/profile/Elmer-Quispe-Salazar" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-    </nav>
-    <p class="qs-contact-note">This is a personal academic website. Institutional address, telephone, and service hours are provided for orientation; official institutional requests should use the corresponding IMARPE communication channels.</p>
-  </div>
-</section>
-```
+**Institution**  
+[Instituto del Mar del Perú (IMARPE)](https://www.gob.pe/imarpe)
+
+**Institutional phone**  
+[+51 1 904 0137](tel:+5119040137)
+
+**Address**  
+Esquina Gamarra y General Valle S/N, Chucuito, Callao 07021, Peru
+
+**Service hours**  
+Monday–Friday · 08:00–16:30
+:::
+:::
+
+## Location
+
+<iframe
+  title="Map showing the IMARPE central office in Callao, Peru"
+  src="https://www.google.com/maps?q=Esquina%20Gamarra%20y%20General%20Valle%20S%2FN%2C%20Chucuito%2C%20Callao%2007021%2C%20Peru&output=embed"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  allowfullscreen
+  style="display:block;width:100%;height:430px;border:1px solid #dee2e6;border-radius:0.375rem;">
+</iframe>
+
+::: {.callout-note}
+The institutional address, telephone, and service hours are provided for orientation. Official institutional requests should use the corresponding IMARPE communication channels.
+:::

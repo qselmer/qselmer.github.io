@@ -28,6 +28,16 @@ def load_identity() -> dict:
     return data["identity"]
 
 
+def display_metric(value: object) -> str:
+    """Render zero or unavailable metric values as an em dash."""
+    if value is None:
+        return "—"
+    if isinstance(value, (int, float)) and not isinstance(value, bool) and value == 0:
+        return "—"
+    text = str(value).strip()
+    return "—" if text in {"", "0", "0.0"} else text
+
+
 def render(data: dict, identity: dict) -> str:
     oa = data["openalex"]
     metrics = [
@@ -41,7 +51,7 @@ def render(data: dict, identity: dict) -> str:
     metric_rows = "\n".join(
         '<div class="qs-sidebar-metric-row">'
         f'<span>{html.escape(label)}</span>'
-        f'<strong>{html.escape(str(value))}</strong>'
+        f'<strong>{html.escape(display_metric(value))}</strong>'
         '</div>'
         for label, value in metrics
     )

@@ -62,10 +62,13 @@ def render_card(project: dict) -> list[str]:
     if not all((title, summary, meta, footer, site_path)):
         raise RuntimeError(f"Project {slug} is missing card content")
 
+    logo_name = logo_for(slug)
     article_classes = ["qs-project-tile", f"qs-project-tone-{tone}", *extra_classes]
+    if not logo_name:
+        article_classes.append("qs-project-no-logo")
+
     lines = [f'<article class="{" ".join(article_classes)}">']
 
-    logo_name = logo_for(slug)
     if logo_name:
         src = f"/images/projects/{slug}/{logo_name}"
         lines += [
@@ -73,8 +76,6 @@ def render_card(project: dict) -> list[str]:
             f'<img class="qs-project-logo" src="{html.escape(src, quote=True)}" alt="{html.escape(title, quote=True)} project logo" loading="lazy">',
             "</div>",
         ]
-    else:
-        lines.append('<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>')
 
     lines += [
         '<div class="qs-project-body">',
