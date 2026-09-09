@@ -48,7 +48,9 @@ def main() -> None:
         run_script("sync_teaching.py", "--catalog", str(catalog_path))
 
     # Project artwork is mirrored only from canonical source-repository logos.
-    run_script("sync_project_logos.py")
+    # The scheduled profile sync is the strict audit: if a private source repo
+    # cannot be read, fail visibly instead of silently publishing stale/blank art.
+    run_script("sync_project_logos.py", "--fail-on-inaccessible")
 
     # Deterministic presentation layers.
     for script in (
