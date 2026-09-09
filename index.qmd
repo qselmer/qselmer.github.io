@@ -8,7 +8,6 @@ toc: false
 ```{=html}
 <section class="qs-hero" aria-labelledby="home-title">
 <div class="qs-hero-copy">
-<p class="qs-eyebrow">ELMER QUISPE-SALAZAR</p>
 <h1 id="home-title">Quantitative Marine Ecology<br>&amp; Fisheries Science</h1>
 <p class="qs-role">Marine quantitative ecologist · Fisheries scientist · Scientific computing</p>
 <p class="qs-signature">Measure change. Model uncertainty. Inform fisheries decisions.</p>
