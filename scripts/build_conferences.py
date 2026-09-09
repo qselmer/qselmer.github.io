@@ -32,9 +32,9 @@ def normalize_title(value: object) -> str:
     return " ".join(text.casefold().split())
 
 
-def date_label(value: str) -> str:
+def citation_date_label(value: str) -> str:
     date = dt.date.fromisoformat(value)
-    return f"{date.day} {MONTHS[date.month]} {date.year}"
+    return f"{date.year}, {MONTHS[date.month]} {date.day}"
 
 
 def validate_presentation(entry: dict, label: str) -> None:
@@ -196,12 +196,11 @@ def render_markdown(records: list[dict]) -> str:
                 links.append(f"[Details]({site_path})")
             if public_material:
                 links.append(f"[Public material]({public_material})")
-            if site_path:
-                links.append(f"[How to cite]({site_path}#how-to-cite)")
+            authors = authors_apa(item.get("authors", []))
             entry = (
-                f"- **{item['title']}.** *{item['presentation_type']}* · "
-                f"*{item['event']}* · {date_label(item['date'])} · {item['location']}. "
-                f"**Authors:** {authors_apa(item.get('authors', []))}"
+                f"- {authors} ({citation_date_label(item['date'])}). "
+                f"*{item['title']}* [{item['presentation_type']}]. "
+                f"*{item['event']}*, {item['location']}."
             )
             if links:
                 entry += " " + " · ".join(links)

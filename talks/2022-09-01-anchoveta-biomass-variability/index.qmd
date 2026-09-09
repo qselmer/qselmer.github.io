@@ -26,10 +26,6 @@ This conference contribution examined variability in the biomass of the north-ce
 
 A stable public proceedings or abstract-book source has not yet been verified. This historical record is retained for continuity with the previous public website.
 
-## How to cite
-
-Díaz, E., Marín, P., & Quispe-Salazar, E. (2022, September 1). *Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System* [Conference presentation]. Open Science Conference on Eastern Boundary Upwelling Systems: Past, Present and Future and Second International Conference on the Humboldt Current System, Peru.
-
 ## Source status
 
 ::: {.callout-note}
