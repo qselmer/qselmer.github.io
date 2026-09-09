@@ -201,7 +201,7 @@ def render_markdown(records: list[dict]) -> str:
             entry = (
                 f"- **{item['title']}.** *{item['presentation_type']}* · "
                 f"*{item['event']}* · {date_label(item['date'])} · {item['location']}. "
-                f"**Authors:** {authors_apa(item.get('authors', []))}."
+                f"**Authors:** {authors_apa(item.get('authors', []))}"
             )
             if links:
                 entry += " " + " · ".join(links)
