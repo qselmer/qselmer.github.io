@@ -4,8 +4,7 @@
 
 ```{=html}
 <div class="qs-project-grid">
-<article class="qs-project-tile qs-project-tone-sand">
-<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>
+<article class="qs-project-tile qs-project-tone-sand qs-project-no-logo">
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="stock-assessment-misspecification/">Diagnosing stock-assessment misspecification with machine learning</a></h3>
@@ -14,8 +13,7 @@
 </div>
 </article>
 
-<article class="qs-project-tile qs-project-tone-blue">
-<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>
+<article class="qs-project-tile qs-project-tone-blue qs-project-no-logo">
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="season-benchmarking/">Standardizing in-season benchmarking for a highly variable small-pelagic fishery</a></h3>
@@ -24,8 +22,7 @@
 </div>
 </article>
 
-<article class="qs-project-tile qs-project-tone-aqua">
-<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>
+<article class="qs-project-tile qs-project-tone-aqua qs-project-no-logo">
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
 <h3><a href="pelagic-fishery-reorganization/">Long-term reorganization of Peruvian pelagic fisheries under environmental variability</a></h3>
@@ -40,8 +37,7 @@
 
 ```{=html}
 <div class="qs-project-grid qs-project-grid-planned">
-<article class="qs-project-tile qs-project-tone-green qs-project-planned">
-<div class="qs-project-visual qs-project-visual-empty" aria-hidden="true"></div>
+<article class="qs-project-tile qs-project-tone-green qs-project-planned qs-project-no-logo">
 <div class="qs-project-body">
 <p class="qs-card-meta">TYPE-PAPER · PLANNED · DECISION GATE</p>
 <h3><a href="fishcore-software-paper/">fishcore software paper</a></h3>
