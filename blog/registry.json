@@ -21,6 +21,7 @@
       "excerpt": "A practical guide to choosing probability distributions for common response variables in fisheries and marine ecology.",
       "thumbnail": "/images/home/statistical-modelling-workflow.png",
       "thumbnail_alt": "Statistical modelling workflow illustration",
+      "read_minutes": 8,
       "class_relation": {
         "status": "planned",
         "teaching_path": null,
