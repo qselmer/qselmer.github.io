@@ -20,13 +20,15 @@ The proposed framework integrates complementary stock-state dimensions into a sy
 
 **Authors:** Elmer Quispe-Salazar and Jorge Tam.
 
-**Presenter:** Elmer Quispe-Salazar.
-
 ## Public materials
 
 - [Pre-recorded oral presentation](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
 - [SPF-2026 presentations](https://meetings.pices.int/publications/presentations/2026-SPF)
 - [SPF-2026 Book of Abstracts](https://meetings.pices.int/publications/book-of-abstracts/2026-SPF-Book-of-Abstracts.pdf)
+
+## How to cite
+
+Quispe-Salazar, E., & Tam, J. (2026, May 6). *Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability* [Oral presentation]. SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities, La Paz, Baja California Sur, Mexico.
 
 ## Related work
 

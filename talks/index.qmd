@@ -4,7 +4,7 @@ description: "Conference talks, posters, and scientific presentations."
 ---
 
 <div class="section-intro">
-Conference contributions are scholarly outputs, but they are presented here rather than duplicated under Publications. Current records inherit bibliographic identity from the canonical research-output catalogue; historical records are labelled explicitly until a stable external source is verified.
+Conference contributions are listed separately from Publications and use the same compact bibliographic presentation: title first, presentation metadata, authors, and direct links to supporting information.
 </div>
 
 ::: {.qs-compact-catalogue}
@@ -12,5 +12,5 @@ Conference contributions are scholarly outputs, but they are presented here rath
 :::
 
 ::: {.qs-footnote-note}
-**Catalogue note.** Current formal outputs are sourced from `qselmer/qselmer/assets/data/publications.json`; `talks/registry.json` adds presentation type, event date, location, presenter, and stable routes. Legitimate legacy-only records may be retained as explicitly historical, but cannot claim an external proceedings source until one is verified.
+**Catalogue note.** Current formal outputs are sourced from `qselmer/qselmer/assets/data/publications.json`; `talks/registry.json` adds presentation type, event, date, location, and stable detail routes. Legitimate legacy-only records may be retained as explicitly historical until a stable external source is verified.
 :::

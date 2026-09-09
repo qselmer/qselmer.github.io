@@ -3,7 +3,7 @@ title: "Multi-scale variability in the biomass dynamics of the north-central sto
 description: "Historical conference contribution on anchoveta biomass variability across multiple temporal scales."
 ---
 
-**Conference presentation · September 2022 · Peru**
+**Conference presentation · 1 September 2022 · Peru**
 
 *Open Science Conference on Eastern Boundary Upwelling Systems: Past, Present and Future and Second International Conference on the Humboldt Current System*
 
@@ -22,13 +22,21 @@ This conference contribution examined variability in the biomass of the north-ce
 
 **Authors:** E. Díaz, P. Marín, and Elmer Quispe-Salazar.
 
+## Public materials
+
+A stable public proceedings or abstract-book source has not yet been verified. This historical record is retained for continuity with the previous public website.
+
+## How to cite
+
+Díaz, E., Marín, P., & Quispe-Salazar, E. (2022, September 1). *Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System* [Conference presentation]. Open Science Conference on Eastern Boundary Upwelling Systems: Past, Present and Future and Second International Conference on the Humboldt Current System, Peru.
+
 ## Source status
 
 ::: {.callout-note}
 This record is retained from the previous public website for migration parity. A stable public proceedings or abstract-book source has not yet been verified, so no external proceedings link is asserted here.
 :::
 
-The previous website route was `/publication/ebus-hcs-abstract-anchoveta-biomass/`. Phase 7 will certify its redirect to this page.
+The previous website route was `/publication/ebus-hcs-abstract-anchoveta-biomass/`. Phase 7 certified its redirect to this page.
 
 ## Related work
 

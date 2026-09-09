@@ -15,17 +15,19 @@ This contribution examined how natural variability and fishing-related pressures
 
 The framework connects environmental and anthropogenic pressures with biological, demographic, reproductive, and spatial indicators of stock state. Its purpose is to support ecosystem-informed diagnosis and the development of adaptive management questions that can later be evaluated with formal statistical models and management strategy evaluation.
 
-## Authorship and presentation
+## Authorship
 
 **Authors:** Elmer Quispe-Salazar, Álvaro Recoba, and Jorge Tam.
-
-**Presenter:** Álvaro Recoba.
 
 ## Public materials
 
 - [Official poster PDF](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
 - [SPF-2026 presentations](https://meetings.pices.int/publications/presentations/2026-SPF)
 - [SPF-2026 Book of Abstracts](https://meetings.pices.int/publications/book-of-abstracts/2026-SPF-Book-of-Abstracts.pdf)
+
+## How to cite
+
+Quispe-Salazar, E., Recoba, Á., & Tam, J. (2026, May 8). *Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea* [Poster presentation]. SPF-2026 International Symposium: Navigating Changes in Small Pelagic Fish and Forage Communities, La Paz, Baja California Sur, Mexico.
 
 ## Related work
 
