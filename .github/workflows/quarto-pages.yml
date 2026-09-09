@@ -36,6 +36,14 @@ jobs:
           python -m py_compile scripts/sync_project_logos.py scripts/build_projects.py
           python scripts/build_projects.py --check
 
+      - name: Synchronize canonical project logos for this build
+        env:
+          PROFILE_REPO_TOKEN: ${{ secrets.PROFILE_REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/sync_project_logos.py
+          python scripts/build_projects.py
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
