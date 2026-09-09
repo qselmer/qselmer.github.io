@@ -1,50 +1,82 @@
 ---
 title: "Contact"
 description: "Research collaboration, quantitative fisheries science, teaching, and professional contact."
-toc: true
+toc: false
+page-layout: full
 ---
 
-For research collaboration, manuscript discussion, quantitative analysis, teaching, or professional exchange in marine ecology and fisheries science, use the contact details below.
+```{=html}
+<section class="qs-contact-shell" aria-labelledby="qs-contact-title">
+  <div class="qs-contact-grid">
+    <header class="qs-contact-heading">
+      <p class="qs-contact-kicker">Research & scientific exchange</p>
+      <h1 id="qs-contact-title">Contact</h1>
+      <p class="qs-contact-lead">For research collaboration, manuscript discussion, quantitative analysis, teaching, or professional exchange in marine ecology and fisheries science.</p>
+    </header>
 
-## Primary contact
+    <div class="qs-contact-details">
+      <a class="qs-contact-row qs-contact-row-link" href="mailto:qselmers@gmail.com">
+        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-envelope-fill"></i></span>
+        <span class="qs-contact-copy">
+          <span class="qs-contact-label">Email</span>
+          <strong>qselmers@gmail.com</strong>
+        </span>
+      </a>
 
-**Email:** [qselmers@gmail.com](mailto:qselmers@gmail.com)
+      <a class="qs-contact-row qs-contact-row-link" href="tel:+5119040137">
+        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-telephone-fill"></i></span>
+        <span class="qs-contact-copy">
+          <span class="qs-contact-label">Institutional phone · IMARPE central office</span>
+          <strong>+51 1 904 0137</strong>
+        </span>
+      </a>
 
-[Email me](mailto:qselmers@gmail.com){.btn .btn-primary} [Curriculum vitae](/cv/){.btn .btn-secondary}
+      <div class="qs-contact-row">
+        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+        <span class="qs-contact-copy">
+          <span class="qs-contact-label">Institutional address</span>
+          <strong>Esquina Gamarra y General Valle S/N, Callao 07021, Peru</strong>
+        </span>
+      </div>
 
-This personal email is the canonical contact address for this academic website and the public `qselmer` profile.
+      <a class="qs-contact-row qs-contact-row-link" href="https://www.gob.pe/imarpe" target="_blank" rel="noopener noreferrer">
+        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-building-fill"></i></span>
+        <span class="qs-contact-copy">
+          <span class="qs-contact-label">Institution</span>
+          <strong>Instituto del Mar del Perú (IMARPE)</strong>
+        </span>
+      </a>
 
-## Areas of collaboration
+      <div class="qs-contact-row">
+        <span class="qs-contact-icon" aria-hidden="true"><i class="bi bi-clock-fill"></i></span>
+        <span class="qs-contact-copy">
+          <span class="qs-contact-label">Institutional service hours</span>
+          <strong>Monday–Friday · 08:00–16:30</strong>
+        </span>
+      </div>
 
-- quantitative marine ecology and fisheries science;
-- stock assessment, population dynamics, selectivity, recruitment, growth, and life-history variation;
-- spatio-temporal, habitat, and species-distribution modelling;
-- environmental variability, ecosystem responses, and Eastern Boundary Upwelling Systems;
-- multivariate stock-state indicators, thresholds, regime shifts, and pressure–state relationships;
-- management strategy evaluation, adaptive fisheries management, and decision-support methods;
-- fisheries-dependent, acoustic, biological, and oceanographic data integration;
-- statistical modelling and reproducible workflows in R, Python, C++, Julia, Git, and GitHub;
-- scientific software, marine data workflows, workshops, and teaching activities;
-- conference, symposium, seminar, and collaborative research invitations.
+      <div class="qs-contact-map">
+        <iframe
+          title="Map showing the IMARPE central office in Callao, Peru"
+          src="https://www.google.com/maps?q=Esquina%20Gamarra%20y%20General%20Valle%20S%2FN%2C%20Callao%2007021%2C%20Peru&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
 
-## When contacting me
-
-A concise first message is usually sufficient. For research or technical collaboration, it is useful to include the scientific question, available data or expected data source, intended output, and approximate timeline.
-
-For projects involving confidential, restricted, or institutionally governed data, please describe the access conditions first rather than attaching sensitive data to the initial message.
-
-## Academic and professional profiles
-
-| Profile | Link | Primary use |
-|---|---|---|
-| ORCID | [0000-0001-9229-6379](https://orcid.org/0000-0001-9229-6379) | Canonical scholarly-output identity |
-| Google Scholar | [Elmer Quispe-Salazar](https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en) | Citation and publication discovery |
-| Web of Science | [Author record](https://www.webofscience.com/wos/author/record/AEA-6138-2022) | Indexed author record |
-| ResearchGate | [Elmer Quispe-Salazar](https://www.researchgate.net/profile/Elmer-Quispe-Salazar) | Research-network profile |
-| GitHub | [qselmer](https://github.com/qselmer) | Code, software, training, and reproducible workflows |
-| LinkedIn | [Elmer Quispe-Salazar](https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/) | Professional networking |
-| X | [@elmerseascient](https://x.com/elmerseascient) | Short-form scientific communication |
-
-## Site scope
-
-This is a personal academic and professional website. It does not represent an institutional communication channel. Official institutional requests should be directed through the appropriate institutional contact mechanism.
+  <div class="qs-contact-footer">
+    <p><strong>Academic profiles</strong></p>
+    <nav class="qs-contact-profile-links" aria-label="Academic and professional profiles">
+      <a href="https://orcid.org/0000-0001-9229-6379" target="_blank" rel="noopener noreferrer">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a href="https://github.com/qselmer" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.researchgate.net/profile/Elmer-Quispe-Salazar" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+    </nav>
+    <p class="qs-contact-note">This is a personal academic website. Institutional address, telephone, and service hours are provided for orientation; official institutional requests should use the corresponding IMARPE communication channels.</p>
+  </div>
+</section>
+```
