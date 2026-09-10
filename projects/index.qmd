@@ -3,10 +3,6 @@ title: "Projects"
 description: "Research projects grouped by theme, with related papers, reports, talks, theses, and software."
 ---
 
-<div class="section-intro">
-This page organizes my research by scientific theme rather than by repository status alone. Each theme brings together work in development and selected scholarly outputs so that manuscripts, publications, talks, reports, and software can be read as parts of the same research programme.
-</div>
-
 {{< include _generated.md >}}
 
 ::: {.qs-footnote-note}
