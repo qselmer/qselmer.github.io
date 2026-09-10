@@ -1,9 +1,10 @@
 ---
-title: "Quantitative Marine Ecology & Fisheries Science"
+title: "About"
 description: "Quantitative marine ecology, fisheries science, and reproducible scientific computing."
 ---
 
 <div class="section-intro">
+<strong>Quantitative Marine Ecology & Fisheries Science</strong><br>
 Marine quantitative ecologist and fisheries scientist working across ecological modelling, stock assessment, marine data science, population dynamics, and reproducible scientific computing.
 </div>
 
@@ -13,7 +14,7 @@ I connect ecological theory, marine observations, statistical modelling, and rep
 
 ## Research
 
-My work focuses on translating ecological and fisheries observations into quantitative evidence that can support interpretation, assessment, and decision-making in dynamic marine systems.
+My work focuses on translating ecological and fisheries observations into quantitative evidence that can support interpretation, assessment, and decision-making in dynamic marine systems. See the full [Research](research/index.qmd) page for the research themes, questions, and quantitative framework.
 
 ### Population dynamics and stock assessment
 
@@ -31,19 +32,15 @@ Oceanographic and climatic drivers, ecosystem regimes, pressure-state relationsh
 
 Hierarchical, additive, multivariate, machine-learning, and reproducible modelling workflows implemented primarily in R, Python, and related scientific computing tools.
 
-## Scientific ecosystem
+## Recent News and Posts
 
-This website connects research in development with formal scholarly outputs, scientific software, teaching, reusable data resources, and technical communication. Canonical repositories remain the source of truth for code, documentation, releases, and development history.
+### [Statistical distributions for fisheries and marine ecology](blog/statistical-distributions-fisheries-marine-ecology/)
 
-- [Research](research/index.qmd) - research themes, questions, and quantitative framework.
-- [Projects](projects/) - manuscripts and collaborative research in development.
-- [Publications](publications/) - peer-reviewed articles and other formal scholarly outputs.
-- [Conferences](talks/) - oral presentations, posters, and conference contributions.
-- [Software](software/) - scientific packages, applications, and computational tools.
-- [Teaching](teaching/) - structured classes, training, and reusable learning material.
-- [Data](data/) - curated external marine, fisheries, ecological, climate, and geospatial data resources.
-- [Posts](blog/) - tutorials, technical notes, and practical explanations.
-- [CV](cv/) - complete curriculum vitae.
+Updated Sep 9, 2026 - Statistical ecology - 8 min read
+
+A practical guide to choosing probability distributions for common response variables in fisheries and marine ecology.
+
+[View all posts](blog/)
 
 ## Contact
 
