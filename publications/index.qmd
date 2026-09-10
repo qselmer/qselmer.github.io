@@ -1,11 +1,12 @@
 ---
 title: "Publications"
-description: "Papers, preprints, theses, reports, and institutional technical outputs."
+description: "Papers, preprints, books and chapters, theses, reports, and institutional technical outputs."
 ---
 
 <div class="qs-publication-nav" aria-label="Publication sections">
   <a href="#papers"><strong>Papers</strong></a>
   <a href="#preprints"><strong>Preprints</strong></a>
+  <a href="#books"><strong>Books</strong></a>
   <a href="#theses"><strong>Theses</strong></a>
   <a href="#reports"><strong>Reports</strong></a>
 </div>
@@ -18,5 +19,5 @@ description: "Papers, preprints, theses, reports, and institutional technical ou
 :::
 
 ::: {.qs-footnote-note}
-**Metadata note.** Publication metadata is synchronized from the canonical `qselmer/qselmer` research profile. Journal articles are listed under Papers regardless of indexing status; preprints and forthcoming manuscripts, theses, and institutional or technical reports retain their own sections.
+**Metadata note.** Publication metadata is synchronized from the canonical `qselmer/qselmer` research profile. Peer-reviewed journal articles are listed under Papers regardless of indexing status; authored or edited books and chapters in edited volumes are listed under Books; preprints and forthcoming manuscripts, theses, and institutional or technical reports retain their own sections.
 :::
