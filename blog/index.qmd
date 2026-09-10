@@ -1,7 +1,8 @@
 ---
 title: "Posts"
 description: "Technical notes, tutorials, and practical explanations in quantitative marine ecology, fisheries science, statistics, and scientific computing."
-toc: false
 ---
 
+::: {.qs-compact-catalogue .qs-post-catalogue}
 {{< include _generated.md >}}
+:::
