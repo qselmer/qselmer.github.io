@@ -3,8 +3,16 @@ title: "Talks"
 description: "Conference talks, posters, and scientific presentations."
 ---
 
+```{=html}
+<nav class="qs-publication-nav" aria-label="Talk sections">
+<a href="#oral"><strong>Oral presentations</strong></a>
+<a href="#posters"><strong>Posters</strong></a>
+<a href="#other"><strong>Other presentations</strong></a>
+</nav>
+```
+
 <div class="section-intro">
-Conference contributions are listed separately from Publications and use the same compact bibliographic presentation: title first, presentation metadata, authors, and direct links to supporting information.
+Conference contributions are presented as a compact academic catalogue using the same visual system as Publications. Presentation type, DOI when available, public material, and the detailed record are exposed as compact metadata badges.
 </div>
 
 ::: {.qs-compact-catalogue}
