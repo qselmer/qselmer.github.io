@@ -1,14 +1,14 @@
 ---
 title: "Projects"
-description: "Research manuscripts and collaborative work currently in development."
+description: "Research projects grouped by theme, with related papers, reports, talks, theses, and software."
 ---
 
 <div class="section-intro">
-Projects is the development layer of this website: active or planned research that is not yet represented by a formal publication. Private manuscript repositories can be represented here without exposing their code, data, model files, or development history.
+This page organizes my research by scientific theme rather than by repository status alone. Each theme brings together work in development and selected scholarly outputs so that manuscripts, publications, talks, reports, and software can be read as parts of the same research programme.
 </div>
 
 {{< include _generated.md >}}
 
 ::: {.qs-footnote-note}
-**Project logo rule.** Project cards are generated from `projects/registry.json`. When a source repository contains its canonical `assets/images/logo.svg` or `assets/images/logo.png`, the weekly synchronization mirrors that exact file into `images/projects/` and the card displays it automatically. If the canonical logo does not exist or the source repository cannot be read, the visual slot remains empty; substitute or invented logos are never used.
+**Project catalogue.** Projects in development remain linked to their canonical repositories without exposing private code or data. Related outputs provide a thematic discovery layer; formal publication, talk, and software metadata remain authoritative in their respective catalogues.
 :::
