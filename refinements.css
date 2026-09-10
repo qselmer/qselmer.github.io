@@ -149,12 +149,28 @@ main.content > section > h3 {
   line-height: 1.28;
 }
 
-/* Dark research profile rail. */
+/* Dark research profile rail without a separate vertical divider. */
 .qs-profile-sidebar {
   background: #0b1320;
-  border-color: rgba(255, 255, 255, .12);
-  box-shadow: 10px 0 30px rgba(0, 0, 0, .16);
+  border-right: 0 !important;
+  box-shadow: none;
   color: #eef3f8;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, .30) #0b1320;
+}
+
+.qs-profile-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.qs-profile-sidebar::-webkit-scrollbar-track {
+  background: #0b1320;
+}
+
+.qs-profile-sidebar::-webkit-scrollbar-thumb {
+  border: 2px solid #0b1320;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .30);
 }
 
 .qs-sidebar-name {
