@@ -63,6 +63,8 @@
     "software/_generated.md",
     "assets/data/teaching.json",
     "teaching/_generated.md",
+    "data/_generated.md",
+    "blog/_generated.md",
     "assets/data/research-metrics.json",
     "assets/data/research-graph.json",
     "projects/_generated.md",
