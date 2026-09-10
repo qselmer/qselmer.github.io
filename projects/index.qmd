@@ -1,10 +1,10 @@
 ---
-title: "Projects"
-description: "Research projects grouped by theme, with related papers, reports, talks, theses, and software."
+title: "Research"
+description: "Research themes, active projects, and related papers, reports, talks, theses, and software."
 ---
 
 {{< include _generated.md >}}
 
 ::: {.qs-footnote-note}
-**Project catalogue.** Projects in development remain linked to their canonical repositories without exposing private code or data. Related outputs provide a thematic discovery layer; formal publication, talk, and software metadata remain authoritative in their respective catalogues.
+**Research catalogue.** Work in development remains linked to canonical repositories without exposing private code or data. Related outputs provide a thematic discovery layer; formal publication, talk, and software metadata remain authoritative in their respective catalogues.
 :::
