@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "sources": [
+    "projects/registry.json",
+    "assets/data/publications.json",
+    "assets/data/conferences.json",
+    "assets/data/software.json"
+  ],
+  "themes": [
+    {
+      "id": "stock-assessment",
+      "heading": "Stock assessment and population dynamics",
+      "description": "Population-state reconstruction, assessment diagnostics, biological parameters, and methods for understanding how structural assumptions affect fisheries inference.",
+      "projects": [
+        "stock-assessment-misspecification"
+      ],
+      "outputs": [
+        {
+          "id": "publication:interannual variability in the growth of the northern-central stock of peruvian anchovy engraulis ringens during the period 1960-2022:2025",
+          "type": "Thesis",
+          "year": "2025",
+          "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022",
+          "url": "/publications/#theses",
+          "source": "publications"
+        },
+        {
+          "id": "talk:2022-09-01:multi-scale variability in the biomass dynamics of the north-central stock of the peruvian anchoveta 1953-2022 within the humboldt current system",
+          "type": "Talk",
+          "year": "2022",
+          "title": "Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System",
+          "url": "/talks/2022-09-01-anchoveta-biomass-variability/",
+          "source": "talks"
+        }
+      ]
+    },
+    {
+      "id": "fisheries-dynamics",
+      "heading": "Fisheries dynamics and management",
+      "description": "Fishery season dynamics, fleet reorganization, fishing pressure, management benchmarks, and decision-relevant diagnostics under environmental variability.",
+      "projects": [
+        "season-benchmarking",
+        "pelagic-fishery-reorganization"
+      ],
+      "outputs": [
+        {
+          "id": "talk:2026-05-08:critical points of natural and anthropogenic pressures and responses in the state of the north-central anchovy stock in the pelagic system of the peruvian sea",
+          "type": "Poster",
+          "year": "2026",
+          "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea",
+          "url": "/talks/2026-05-08-critical-points-anchovy-stock/",
+          "source": "talks"
+        }
+      ]
+    },
+    {
+      "id": "stock-condition",
+      "heading": "Stock condition and reproductive ecology",
+      "description": "Multidimensional stock condition, reproductive indicators, maturity, and biological responses used to describe population state beyond biomass alone.",
+      "projects": [],
+      "outputs": [
+        {
+          "id": "talk:2026-05-06:multivariate health index of the anchovy understanding the dynamics of small pelagic fish under environmental variability",
+          "type": "Talk",
+          "year": "2026",
+          "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
+          "url": "/talks/2026-05-06-anchovy-health-index/",
+          "source": "talks"
+        },
+        {
+          "id": "publication:classification models based on the gonadosomatic index to determine gonadal maturity stages a case study in the peruvian anchovy engraulis ringens:2025",
+          "type": "Paper",
+          "year": "2025",
+          "title": "Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens",
+          "url": "/publications/#papers",
+          "source": "publications"
+        },
+        {
+          "id": "talk:2024-11-11:suitability of the gonadosomatic index in peruvian anchoveta engraulis ringens sexual maturity a 5 critical threshold and seasonal variation",
+          "type": "Talk",
+          "year": "2024",
+          "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
+          "url": "/talks/2024-11-11-anchoveta-gsi-sibecorp/",
+          "source": "talks"
+        }
+      ]
+    },
+    {
+      "id": "scientific-computing",
+      "heading": "Statistical ecology and scientific computing",
+      "description": "Reusable statistical methods, research software, reproducible workflows, and marine-data infrastructure developed to support quantitative ecological analysis.",
+      "projects": [
+        "fishcore-software-paper"
+      ],
+      "outputs": [
+        {
+          "id": "software:qselmer/oceancube",
+          "type": "Software",
+          "year": "2026",
+          "title": "oceancube",
+          "url": "/software/oceancube/",
+          "source": "software"
+        },
+        {
+          "id": "software:qselmer/humboldt-ocean-watch",
+          "type": "Software",
+          "year": "2026",
+          "title": "humboldt-ocean-watch",
+          "url": "/software/humboldt-ocean-watch/",
+          "source": "software"
+        }
+      ]
+    }
+  ],
+  "unclassified_outputs": []
+}
