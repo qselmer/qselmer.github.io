@@ -17,7 +17,13 @@
       "category": "R package",
       "maturity": "Stable source release",
       "site_path": "/software/oceancube/",
-      "summary": "Validated R infrastructure for representing, inspecting, subsetting, extracting, visualizing, and transforming multidimensional ocean data cubes for reproducible marine analysis."
+      "summary": "Validated R infrastructure for representing, inspecting, subsetting, extracting, visualizing, and transforming multidimensional ocean data cubes for reproducible marine analysis.",
+      "default_branch": "main",
+      "version": "0.3.0",
+      "documentation": "https://qselmer.github.io/oceancube/",
+      "r_cmd_check": "https://github.com/qselmer/oceancube/actions/workflows/R-CMD-check.yaml",
+      "latest_release": "v0.2.0",
+      "latest_release_url": "https://github.com/qselmer/oceancube/releases/tag/v0.2.0"
     },
     {
       "name": "humboldt-ocean-watch",
@@ -31,7 +37,9 @@
       "category": "Experimental application",
       "maturity": "Experimental",
       "site_path": "/software/humboldt-ocean-watch/",
-      "summary": "Python and Streamlit system for reproducible thermal monitoring of Niño 1+2 using validated local analytics, quality control, event diagnostics, and optional grounded scientific briefs."
+      "summary": "Python and Streamlit system for reproducible thermal monitoring of Niño 1+2 using validated local analytics, quality control, event diagnostics, and optional grounded scientific briefs.",
+      "default_branch": "main",
+      "application": "Streamlit"
     }
   ]
 }
