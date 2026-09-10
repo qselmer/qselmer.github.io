@@ -1,12 +1,12 @@
 ---
-title: "Complete curriculum vitae"
+title: "Curriculum Vitae"
 pagetitle: "Curriculum Vitae | Elmer Quispe-Salazar"
-description: "Complete curriculum vitae of Elmer Quispe-Salazar."
+description: "Curriculum vitae of Elmer Quispe-Salazar."
 toc: false
 page-layout: full
 ---
 
-The PDF below remains the **authoritative detailed CV** for education, research and professional experience, publications, conference contributions, training, awards, and other credentials. The website sections above are navigation and discovery layers rather than duplicate CV records.
+My full CV is available as [**PDF**](/files/CV.pdf).
 
 ## Download CV
 
