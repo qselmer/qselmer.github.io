@@ -1,9 +1,0 @@
----
-title: "Curriculum Vitae"
-description: "Professional profile and complete curriculum vitae of Elmer Quispe-Salazar."
-toc: false
----
-
-The curriculum vitae is available at the canonical [CV page](/cv/).
-
-[Open CV](/cv/){.btn .btn-primary}
