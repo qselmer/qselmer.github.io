@@ -1,44 +1,130 @@
-/* Final researcher-sidebar density, navigation spacing, and project-card visual layer. */
+/* Final researcher-sidebar density, navigation spacing, publication, and project-card visual layer. */
 
-/* Start the researcher rail directly with the portrait and use the available width efficiently. */
+/* Larger academic typography across the site while preserving compact cards. */
+.quarto-title-block .title {
+  font-size: 2.75rem;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.section-intro {
+  font-size: 1.12rem;
+  line-height: 1.52;
+}
+
+main.content > p,
+main.content > ul > li,
+main.content > ol > li,
+main.content > section > p,
+main.content > section > ul > li,
+main.content > section > ol > li {
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+main.content > h2,
+main.content > section > h2 {
+  font-size: 2rem;
+  line-height: 1.16;
+}
+
+main.content > h3,
+main.content > section > h3 {
+  font-size: 1.4rem;
+  line-height: 1.24;
+}
+
+.qs-compact-catalogue p,
+.qs-compact-catalogue li {
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
+.qs-compact-catalogue h2 {
+  font-size: 2rem;
+  line-height: 1.16;
+  margin-top: 1.75rem;
+}
+
+/* Publications: compact section navigation inspired by a conventional academic publication page. */
+.qs-publication-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem 1.35rem;
+  margin: .1rem 0 .55rem;
+  font-size: 1.16rem;
+  line-height: 1.4;
+}
+
+.qs-publication-nav a {
+  color: var(--qs-ocean-deep);
+  text-decoration: none;
+}
+
+.qs-publication-nav a:hover {
+  text-decoration: underline;
+}
+
+.qs-publication-profile {
+  margin: .08rem 0 !important;
+  font-size: 1.08rem !important;
+  line-height: 1.45 !important;
+}
+
+/* Start the dark researcher rail directly with a larger, unframed original portrait. */
 .qs-sidebar-inner {
-  padding: .45rem 1.35rem 1.1rem;
+  padding: .55rem 1.35rem 1.25rem;
 }
 
 .qs-sidebar-portrait {
-  width: 180px;
-  height: 180px;
-  margin: .15rem auto .65rem;
+  width: 260px;
+  height: auto;
+  margin: .15rem auto .8rem;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.qs-sidebar-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  object-fit: contain;
+  object-position: center;
 }
 
 .qs-sidebar-name {
-  font-size: 1.42rem;
+  font-size: 1.55rem;
   line-height: 1.08;
 }
 
 .qs-sidebar-role {
-  margin-top: .18rem;
-  font-size: .98rem;
-  line-height: 1.28;
+  margin-top: .24rem;
+  font-size: 1.08rem;
+  line-height: 1.32;
 }
 
 .qs-sidebar-context,
 .qs-sidebar-links a {
-  min-height: 30px;
-  gap: .55rem;
-  font-size: .94rem;
-  line-height: 1.16;
+  min-height: 32px;
+  gap: .58rem;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .qs-sidebar-links {
-  gap: 0;
-  margin-top: .15rem;
+  gap: .04rem;
+  margin-top: .2rem;
 }
 
 .qs-sidebar-section-label {
-  margin: .68rem 0 .32rem;
-  padding-top: .58rem;
-  font-size: .76rem;
+  margin: .8rem 0 .4rem;
+  padding-top: .68rem;
+  font-size: .82rem;
   line-height: 1.1;
 }
 
@@ -47,20 +133,20 @@
   align-items: center;
   justify-content: space-between;
   gap: .75rem;
-  padding: .38rem 0;
-  font-size: .92rem;
-  line-height: 1.15;
+  padding: .42rem 0;
+  font-size: .98rem;
+  line-height: 1.18;
 }
 
 .qs-sidebar-metric-row strong {
-  font-size: 1.2rem;
+  font-size: 1.28rem;
   line-height: 1;
 }
 
 .qs-sidebar-metrics-note {
-  margin-top: .42rem;
-  font-size: .68rem;
-  line-height: 1.22;
+  margin-top: .46rem;
+  font-size: .74rem;
+  line-height: 1.28;
 }
 
 /* Dark research profile rail. */
@@ -69,11 +155,6 @@
   border-color: rgba(255, 255, 255, .12);
   box-shadow: 10px 0 30px rgba(0, 0, 0, .16);
   color: #eef3f8;
-}
-
-.qs-sidebar-portrait {
-  border-color: rgba(255, 255, 255, .16);
-  background: #152235;
 }
 
 .qs-sidebar-name {
@@ -116,12 +197,12 @@
   color: #96a6b6;
 }
 
-/* On desktop, distribute the icon-labelled navigation across the available width. */
+/* On desktop, distribute the icon-labelled navigation and increase its type size. */
 @media (min-width: 992px) {
   .navbar .navbar-nav.me-auto {
     flex: 1 1 0;
     justify-content: space-evenly;
-    margin-right: .45rem !important;
+    margin-right: .35rem !important;
   }
 
   .navbar .navbar-nav.me-auto .nav-item {
@@ -131,14 +212,15 @@
 
   .navbar .navbar-nav.me-auto .nav-link {
     display: block;
-    padding-left: .42rem;
-    padding-right: .42rem;
-    font-size: .92rem;
+    padding-left: .3rem;
+    padding-right: .3rem;
+    font-size: 1.03rem;
     white-space: nowrap;
   }
 
   .navbar .navbar-nav.me-auto .nav-link i {
-    margin-right: .18rem;
+    margin-right: .2rem;
+    font-size: 1.03em;
   }
 }
 
@@ -170,24 +252,39 @@
 .qs-project-no-logo.qs-project-tone-green { border-top-color: #9db783; }
 
 @media (max-width: 1099px) {
-  .qs-sidebar-inner { padding: .6rem 1rem; }
-  .qs-sidebar-portrait { width: 140px; height: 140px; margin: .2rem auto .55rem; }
-  .qs-sidebar-name { margin-top: .5rem; font-size: 1.28rem; }
-  .qs-sidebar-role { font-size: .93rem; }
-  .qs-sidebar-context, .qs-sidebar-links a { min-height: 28px; font-size: .9rem; }
-  .qs-sidebar-section-label { font-size: .73rem; }
-  .qs-sidebar-metric-row { font-size: .88rem; }
+  .qs-sidebar-inner { padding: .7rem 1rem; }
+  .qs-sidebar-portrait { width: 190px; height: auto; margin: .2rem auto .65rem; }
+  .qs-sidebar-name { margin-top: .5rem; font-size: 1.4rem; }
+  .qs-sidebar-role { font-size: 1rem; }
+  .qs-sidebar-context, .qs-sidebar-links a { min-height: 30px; font-size: .96rem; }
+  .qs-sidebar-section-label { font-size: .78rem; }
+  .qs-sidebar-metric-row { font-size: .94rem; }
 }
 
 @media (max-width: 760px) {
-  .qs-sidebar-inner { padding: .6rem .9rem; }
-  .qs-sidebar-portrait { width: 120px; height: 120px; margin: .15rem auto .48rem; }
-  .qs-sidebar-name { font-size: 1.28rem; }
-  .qs-sidebar-role { font-size: .9rem; line-height: 1.22; }
-  .qs-sidebar-context, .qs-sidebar-links a { min-height: 28px; font-size: .89rem; line-height: 1.12; }
-  .qs-sidebar-section-label { margin-top: .56rem; font-size: .72rem; }
-  .qs-sidebar-metric-row { padding: .32rem 0; font-size: .86rem; }
-  .qs-sidebar-metric-row strong { font-size: 1.08rem; }
+  .quarto-title-block .title { font-size: 2.25rem; }
+  .section-intro { font-size: 1.04rem; }
+  main.content > p,
+  main.content > ul > li,
+  main.content > ol > li,
+  main.content > section > p,
+  main.content > section > ul > li,
+  main.content > section > ol > li,
+  .qs-compact-catalogue p,
+  .qs-compact-catalogue li { font-size: 1rem; }
+  main.content > h2,
+  main.content > section > h2,
+  .qs-compact-catalogue h2 { font-size: 1.7rem; }
+  .qs-publication-nav { font-size: 1.06rem; gap: .25rem 1rem; }
+  .qs-publication-profile { font-size: 1rem !important; }
+  .qs-sidebar-inner { padding: .7rem .95rem; }
+  .qs-sidebar-portrait { width: 170px; height: auto; margin: .15rem auto .58rem; }
+  .qs-sidebar-name { font-size: 1.38rem; }
+  .qs-sidebar-role { font-size: .98rem; line-height: 1.28; }
+  .qs-sidebar-context, .qs-sidebar-links a { min-height: 29px; font-size: .93rem; line-height: 1.16; }
+  .qs-sidebar-section-label { margin-top: .6rem; font-size: .76rem; }
+  .qs-sidebar-metric-row { padding: .34rem 0; font-size: .9rem; }
+  .qs-sidebar-metric-row strong { font-size: 1.12rem; }
   .qs-project-tile,
   .qs-project-tile.qs-project-no-logo { min-height: 0; }
   .qs-project-visual { min-height: 185px; }
