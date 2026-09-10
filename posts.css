@@ -1,7 +1,7 @@
-/* Posts index: compact editorial list with text on the left and visual on the right. */
+/* Posts index: compact editorial list aligned with the standard site content column. */
 .qs-post-list {
-  width: min(980px, 100%);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
 }
 
 .qs-post-row {
