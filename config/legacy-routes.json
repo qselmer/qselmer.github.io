@@ -5,7 +5,7 @@
     "commit": "f84307690cc573b7b2e83a548d2d56102a05218d",
     "stack": "Academic Pages / Jekyll"
   },
-  "policy": "Only meaningful public content routes are tracked here. Retired pages are intentionally excluded from rendering and indexing. Redirects are retained only when they preserve useful scholarly navigation.",
+  "policy": "Only meaningful public content routes are tracked here. Retired substantive pages are replaced by noindex compatibility redirects so old inbound links remain useful without reintroducing retired content into the public architecture.",
   "routes": [
     {"legacy": "/", "target": "/", "status": "preserved"},
     {"legacy": "/about/", "target": "/", "status": "redirect_required"},
@@ -18,6 +18,8 @@
     {"legacy": "/contact/thanks/", "target": "/contact/", "status": "redirect_required"},
     {"legacy": "/cv/", "target": "/cv/", "status": "preserved"},
     {"legacy": "/data/", "target": "/data/", "status": "preserved"},
+    {"legacy": "/engagement/", "target": "/talks/", "status": "redirect_required"},
+    {"legacy": "/follow/", "target": "/blog/", "status": "redirect_required"},
     {"legacy": "/projects/", "target": "/projects/", "status": "preserved"},
     {"legacy": "/projects/anchovy-selectivity/", "target": "/projects/anchovy-selectivity/", "status": "preserved"},
     {"legacy": "/projects/anchovy-stock-state/", "target": "/projects/anchovy-stock-state/", "status": "preserved"},
@@ -29,6 +31,9 @@
     {"legacy": "/publication/ebus-hcs-abstract-anchoveta-biomass/", "target": "/talks/2022-09-01-anchoveta-biomass-variability/", "status": "redirect_required"},
     {"legacy": "/publications/", "target": "/publications/", "status": "preserved"},
     {"legacy": "/research/", "target": "/projects/", "status": "redirect_required"},
+    {"legacy": "/resources/", "target": "/data/", "status": "redirect_required"},
+    {"legacy": "/resume/", "target": "/cv/", "status": "redirect_required"},
+    {"legacy": "/services/", "target": "/", "status": "redirect_required"},
     {"legacy": "/software/", "target": "/software/", "status": "preserved"},
     {"legacy": "/software/oceancube/", "target": "/software/oceancube/", "status": "preserved"},
     {"legacy": "/software/pelagytics/", "target": "/software/pelagytics/", "status": "preserved"},
@@ -44,8 +49,8 @@
     "/engagement/",
     "/follow/",
     "/resources/",
-    "/services/",
-    "/resume/"
+    "/resume/",
+    "/services/"
   ],
   "retired_template_sources": [
     "_pages/archive-layout-with-content.md",
