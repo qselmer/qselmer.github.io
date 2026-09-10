@@ -41,7 +41,8 @@
   "derived_json": [
     "assets/data/conferences.json",
     "assets/data/software.json",
-    "assets/data/teaching.json"
+    "assets/data/teaching.json",
+    "assets/data/research-graph.json"
   ],
   "generated_fragments": [
     "publications/_generated.md",
@@ -63,8 +64,10 @@
     "assets/data/teaching.json",
     "teaching/_generated.md",
     "assets/data/research-metrics.json",
+    "assets/data/research-graph.json",
     "projects/_generated.md",
     "images/projects",
+    "images/software",
     "includes/profile-sidebar.html"
   ]
 }
