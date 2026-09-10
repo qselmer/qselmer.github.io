@@ -52,7 +52,6 @@ def synchronized_logo(name: str) -> str:
 
 def software_entry(item: dict, curated: dict) -> list[str]:
     name = str(item.get("name") or "Unnamed software").strip()
-    full_name = str(item.get("full_name") or "").strip()
     category = str(item.get("category") or "Software").strip()
     maturity = str(item.get("maturity") or "Development").strip()
     language = str(item.get("language") or "-").strip()
@@ -116,12 +115,12 @@ def software_entry(item: dict, curated: dict) -> list[str]:
         '<div class="qs-software-copy">',
         f'<h3><a href="{html.escape(title_href, quote=True)}">{html.escape(name)}</a></h3>',
     ]
+    if links:
+        separator = ' <span aria-hidden="true">|</span> '
+        lines.append(f'<p class="qs-software-links qs-software-links-after-title">{separator.join(links)}</p>')
     if summary:
         lines.append(f'<p>{html.escape(summary)}</p>')
     lines.append(f'<div class="qs-badge-row">{"".join(badges)}</div>')
-    if links:
-        separator = ' <span aria-hidden="true">|</span> '
-        lines.append(f'<p class="qs-software-links">{separator.join(links)}</p>')
     lines += ["</div>", "</article>"]
     return lines
 
@@ -145,8 +144,8 @@ def render() -> str:
         )
 
     groups = [
-        ("R package", "Software packages I am a lead developer for"),
-        ("Experimental application", "Research applications I develop"),
+        ("R package", "Software packages I am a lead developer for", "packages"),
+        ("Experimental application", "Research applications I develop", "applications"),
     ]
 
     lines = [
@@ -154,11 +153,11 @@ def render() -> str:
         "",
     ]
 
-    for category, heading in groups:
+    for category, heading, anchor in groups:
         group = [item for item in items if item.get("category") == category]
         if not group:
             continue
-        lines += [f"## {heading}", "", "```{=html}"]
+        lines += [f"## {heading} {{#{anchor}}}", "", "```{=html}"]
         for item in sorted(group, key=lambda x: str(x.get("name") or "").casefold()):
             full_name = str(item.get("full_name") or "").strip()
             lines.extend(software_entry(item, curated.get(full_name, {})))
@@ -168,7 +167,7 @@ def render() -> str:
     concepts = registry.get("concepts") or []
     if incubating or concepts:
         lines += [
-            "## Incubating and concept-stage work",
+            "## Incubating and concept-stage work {#incubating}",
             "",
             "These records are preserved for continuity but are not presented as released or validated scientific software.",
             "",
