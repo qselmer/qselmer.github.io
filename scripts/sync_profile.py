@@ -23,7 +23,7 @@ def fetch_repository_catalog(target: Path) -> None:
     source = profile_source("repository_catalog")
     request = urllib.request.Request(
         source["url"],
-        headers={"User-Agent": "qselmer.github.io academic-profile-sync/3.0"},
+        headers={"User-Agent": "qselmer.github.io academic-profile-sync/4.0"},
     )
     with urllib.request.urlopen(request, timeout=30) as response:
         payload = json.load(response)
@@ -47,17 +47,17 @@ def main() -> None:
         run_script("sync_software.py", "--catalog", str(catalog_path))
         run_script("sync_teaching.py", "--catalog", str(catalog_path))
 
-    # Project artwork is mirrored only from canonical source-repository logos.
-    # The scheduled profile sync is the strict audit: if a private source repo
-    # cannot be read, fail visibly instead of silently publishing stale/blank art.
+    # Canonical artwork is mirrored unchanged from its source repositories.
     run_script("sync_project_logos.py", "--fail-on-inaccessible")
+    run_script("sync_software_logos.py")
 
-    # Deterministic presentation layers.
+    # Deterministic presentation and relationship layers.
     for script in (
         "build_publications.py",
         "build_conferences.py",
         "build_software.py",
         "build_teaching.py",
+        "build_research_graph.py",
         "build_projects.py",
         "build_home.py",
     ):
