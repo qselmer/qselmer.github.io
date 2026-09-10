@@ -8,7 +8,15 @@ page-layout: full
 
 The PDF below remains the **authoritative detailed CV** for education, research and professional experience, publications, conference contributions, training, awards, and other credentials. The website sections above are navigation and discovery layers rather than duplicate CV records.
 
-[Open the PDF in a new tab](/files/CV.pdf){.btn .btn-primary target="_blank" rel="noopener noreferrer"}
+## Download CV
+
+<div class="d-flex flex-wrap gap-2 mb-4" aria-label="Curriculum vitae language downloads">
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true" tabindex="-1">English CV - coming soon</a>
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true" tabindex="-1">French CV - coming soon</a>
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true" tabindex="-1">Spanish CV - coming soon</a>
+</div>
+
+[Open the current PDF in a new tab](/files/CV.pdf){.btn .btn-primary target="_blank" rel="noopener noreferrer"}
 
 <iframe
   src="/files/CV.pdf#view=FitH&toolbar=1&navpanes=0"
@@ -19,5 +27,5 @@ The PDF below remains the **authoritative detailed CV** for education, research 
 ::: {.callout-note}
 ## Record policy
 
-The PDF is the complete professional record. Publications, conferences, software, teaching, projects, and data-source pages use their own curated or synchronized catalogues and are linked from the CV rather than copied into it. This avoids inconsistent duplicate records across the site.
+The PDF is the complete professional record. Publications, talks, software, teaching, projects, and data-source pages use their own curated or synchronized catalogues and are linked from the CV rather than copied into it. This avoids inconsistent duplicate records across the site.
 :::
