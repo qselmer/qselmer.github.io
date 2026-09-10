@@ -1,4 +1,4 @@
-/* Shared academic catalogue components for publications, software, and thematic projects. */
+/* Shared academic catalogue components for publications, software, teaching, data, and thematic projects. */
 
 /* Compact two-part scholarly badges inspired by conventional repository and DOI badges. */
 .qs-badge-row {
@@ -56,7 +56,7 @@
   margin-bottom: .72rem;
 }
 
-/* Research software: flat academic entries with a prominent package mark and status badges. */
+/* Research software: publication-style catalogue entries with a visible software mark. */
 .qs-software-directory h2 {
   margin-top: 1.8rem;
 }
@@ -102,7 +102,7 @@
 }
 
 .qs-software-copy h3 {
-  margin: .02rem 0 .28rem;
+  margin: .02rem 0 .08rem;
   font-size: 1.35rem;
   line-height: 1.2;
 }
@@ -127,12 +127,17 @@
   margin: .3rem 0 .52rem;
 }
 
-.qs-software-links {
+.qs-software-links,
+.qs-software-links-after-title {
   color: var(--qs-muted);
   font-size: .92rem !important;
 }
 
-/* Thematic Projects page: research-program navigation and related scholarly outputs. */
+.qs-software-links-after-title {
+  margin: .08rem 0 .4rem !important;
+}
+
+/* Thematic Projects page: one horizontal project card per row. */
 .qs-project-theme-nav {
   display: flex;
   flex-wrap: wrap;
@@ -152,6 +157,58 @@
 
 .qs-project-theme-nav a:hover {
   text-decoration: underline;
+}
+
+.qs-project-grid,
+.qs-project-grid-planned {
+  grid-template-columns: 1fr !important;
+  gap: .8rem !important;
+}
+
+.qs-project-tile,
+.qs-project-tile.qs-project-no-logo {
+  display: grid !important;
+  grid-template-columns: 190px minmax(0, 1fr);
+  min-height: 0 !important;
+  border-top-width: 1px;
+}
+
+.qs-project-tile.qs-project-no-logo {
+  grid-template-columns: minmax(0, 1fr);
+  border-left-width: 5px;
+  border-top-color: var(--qs-border) !important;
+}
+
+.qs-project-no-logo.qs-project-tone-sand { border-left-color: #d9ae82; }
+.qs-project-no-logo.qs-project-tone-blue { border-left-color: #8fb8ca; }
+.qs-project-no-logo.qs-project-tone-aqua { border-left-color: #83b7a8; }
+.qs-project-no-logo.qs-project-tone-green { border-left-color: #9db783; }
+
+.qs-project-visual {
+  min-height: 185px !important;
+  padding: 1rem !important;
+  border-right: 1px solid rgba(49, 79, 96, .1);
+  border-bottom: 0 !important;
+}
+
+.qs-project-logo {
+  width: min(82%, 165px) !important;
+  max-height: 150px !important;
+}
+
+.qs-project-body {
+  min-width: 0;
+  padding: 1.1rem 1.25rem 1rem !important;
+}
+
+.qs-project-tile h3 {
+  font-size: 1.28rem !important;
+  line-height: 1.24 !important;
+}
+
+.qs-project-card-summary {
+  font-size: .98rem !important;
+  line-height: 1.45 !important;
 }
 
 .qs-related-output-list {
@@ -192,6 +249,69 @@
   text-decoration: underline;
 }
 
+/* Data catalogue: preserve cards, increase type, and give every source a data mark. */
+.qs-data-catalogue tbody {
+  gap: .72rem !important;
+}
+
+.qs-data-catalogue tbody tr {
+  grid-template-columns: 92px minmax(165px, 1.2fr) minmax(115px, .8fr) minmax(125px, .9fr) minmax(125px, .9fr) minmax(210px, 1.6fr) !important;
+  gap: .4rem !important;
+  align-items: center;
+  padding: .7rem .8rem !important;
+}
+
+.qs-data-catalogue tbody tr::before {
+  content: "DATA";
+  display: grid;
+  grid-column: 1;
+  place-items: center;
+  width: 76px;
+  min-height: 76px;
+  border: 1px solid rgba(49, 79, 96, .14);
+  border-radius: .35rem;
+  background: rgba(255, 255, 255, .72);
+  color: var(--qs-ocean-mid);
+  font-size: .82rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.qs-data-catalogue tbody td {
+  font-size: .94rem !important;
+  line-height: 1.38 !important;
+}
+
+.qs-data-catalogue tbody td:first-child {
+  grid-column: 2;
+  font-size: 1.05rem !important;
+}
+
+.qs-data-catalogue tbody td:nth-child(2) { grid-column: 3; }
+.qs-data-catalogue tbody td:nth-child(3) { grid-column: 4; }
+.qs-data-catalogue tbody td:nth-child(4) { grid-column: 5; }
+.qs-data-catalogue tbody td:nth-child(5) { grid-column: 6; }
+
+@media (max-width: 1100px) {
+  .qs-data-catalogue tbody tr {
+    grid-template-columns: 86px repeat(2, minmax(0, 1fr)) !important;
+    align-items: start;
+  }
+
+  .qs-data-catalogue tbody tr::before {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 70px;
+    min-height: 70px;
+  }
+
+  .qs-data-catalogue tbody td:first-child { grid-column: 2 / 4 !important; }
+  .qs-data-catalogue tbody td:nth-child(2) { grid-column: 2 !important; }
+  .qs-data-catalogue tbody td:nth-child(3) { grid-column: 3 !important; }
+  .qs-data-catalogue tbody td:nth-child(4) { grid-column: 2 !important; }
+  .qs-data-catalogue tbody td:nth-child(5) { grid-column: 3 !important; }
+}
+
 @media (max-width: 760px) {
   .qs-publication-badges {
     display: flex;
@@ -209,7 +329,37 @@
     min-height: 92px;
   }
 
+  .qs-project-tile,
+  .qs-project-tile.qs-project-no-logo {
+    grid-template-columns: 1fr;
+  }
+
+  .qs-project-visual {
+    min-height: 150px !important;
+    border-right: 0;
+    border-bottom: 1px solid rgba(49, 79, 96, .1) !important;
+  }
+
   .qs-related-output {
     grid-template-columns: 4.8rem minmax(0, 1fr);
+  }
+
+  .qs-data-catalogue tbody tr {
+    grid-template-columns: 1fr !important;
+  }
+
+  .qs-data-catalogue tbody tr::before,
+  .qs-data-catalogue tbody td:first-child,
+  .qs-data-catalogue tbody td:nth-child(2),
+  .qs-data-catalogue tbody td:nth-child(3),
+  .qs-data-catalogue tbody td:nth-child(4),
+  .qs-data-catalogue tbody td:nth-child(5) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .qs-data-catalogue tbody tr::before {
+    width: 62px;
+    min-height: 54px;
   }
 }
