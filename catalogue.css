@@ -1,0 +1,215 @@
+/* Shared academic catalogue components for publications, software, and thematic projects. */
+
+/* Compact two-part scholarly badges inspired by conventional repository and DOI badges. */
+.qs-badge-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: .28rem;
+  align-items: center;
+}
+
+.qs-badge {
+  --qs-badge-value-bg: #287da0;
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: .18rem;
+  color: #fff !important;
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-decoration: none !important;
+  vertical-align: middle;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+}
+
+.qs-badge-label,
+.qs-badge-value {
+  display: inline-block;
+  padding: .08rem .34rem;
+  white-space: nowrap;
+}
+
+.qs-badge-label {
+  background: #4d5358;
+}
+
+.qs-badge-value {
+  background: var(--qs-badge-value-bg);
+}
+
+.qs-badge-green { --qs-badge-value-bg: #42a812; }
+.qs-badge-blue { --qs-badge-value-bg: #147cac; }
+.qs-badge-amber { --qs-badge-value-bg: #b97913; }
+.qs-badge-neutral { --qs-badge-value-bg: #7a858d; }
+
+.qs-badge:hover,
+.qs-badge:focus-visible {
+  filter: brightness(.94);
+  text-decoration: none !important;
+}
+
+.qs-publication-badges {
+  margin-left: .45rem;
+}
+
+.qs-compact-catalogue li {
+  margin-bottom: .72rem;
+}
+
+/* Research software: flat academic entries with a prominent package mark and status badges. */
+.qs-software-directory h2 {
+  margin-top: 1.8rem;
+}
+
+.qs-software-entry {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: 1.35rem;
+  align-items: start;
+  padding: 1.15rem 0 1.45rem;
+  border-bottom: 1px solid rgba(49, 79, 96, .12);
+}
+
+.qs-software-entry:last-child {
+  border-bottom: 0;
+}
+
+.qs-software-visual {
+  display: grid;
+  place-items: center;
+  width: 145px;
+  min-height: 112px;
+  padding: .8rem;
+  border: 1px solid rgba(49, 79, 96, .14);
+  border-radius: .35rem;
+  background: #f4f8fa;
+  color: #0b3446;
+  text-align: center;
+}
+
+.qs-software-logo {
+  display: block;
+  max-width: 100%;
+  max-height: 105px;
+  object-fit: contain;
+}
+
+.qs-software-mark-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+.qs-software-copy h3 {
+  margin: .02rem 0 .28rem;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.qs-software-copy h3 a {
+  color: var(--qs-ocean-deep);
+  text-decoration: none;
+}
+
+.qs-software-copy h3 a:hover {
+  text-decoration: underline;
+}
+
+.qs-software-copy p {
+  margin: .25rem 0 .55rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.qs-software-copy .qs-badge-row {
+  display: flex;
+  margin: .3rem 0 .52rem;
+}
+
+.qs-software-links {
+  color: var(--qs-muted);
+  font-size: .92rem !important;
+}
+
+/* Thematic Projects page: research-program navigation and related scholarly outputs. */
+.qs-project-theme-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.25rem;
+  margin: .15rem 0 1.35rem;
+  padding-bottom: .85rem;
+  border-bottom: 1px solid rgba(49, 79, 96, .12);
+  font-size: 1.04rem;
+  line-height: 1.35;
+}
+
+.qs-project-theme-nav a {
+  color: var(--qs-ocean-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.qs-project-theme-nav a:hover {
+  text-decoration: underline;
+}
+
+.qs-related-output-list {
+  list-style: none;
+  margin: .25rem 0 1.2rem;
+  padding: 0;
+}
+
+.qs-related-output {
+  display: grid;
+  grid-template-columns: 5.4rem minmax(0, 1fr) auto;
+  gap: .55rem;
+  align-items: baseline;
+  margin: .38rem 0;
+  font-size: 1rem;
+  line-height: 1.42;
+}
+
+.qs-output-type {
+  display: inline-block;
+  width: fit-content;
+  padding: .08rem .38rem;
+  border-radius: .18rem;
+  background: #e9f1f4;
+  color: #1d5d70;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.qs-related-output a {
+  color: var(--qs-ocean-deep);
+  text-decoration: none;
+}
+
+.qs-related-output a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .qs-publication-badges {
+    display: flex;
+    width: fit-content;
+    margin: .38rem 0 0;
+  }
+
+  .qs-software-entry {
+    grid-template-columns: 1fr;
+    gap: .7rem;
+  }
+
+  .qs-software-visual {
+    width: min(180px, 100%);
+    min-height: 92px;
+  }
+
+  .qs-related-output {
+    grid-template-columns: 4.8rem minmax(0, 1fr);
+  }
+}
