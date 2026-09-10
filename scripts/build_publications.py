@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "assets" / "data" / "publications.json"
@@ -33,6 +35,20 @@ EMPTY_MESSAGE = {
     "Books & chapters": "_No books or book chapters are currently listed._",
     "Theses": "_No theses are currently listed._",
     "Reports & technical outputs": "_No reports or institutional technical outputs are currently listed._",
+}
+
+# Only outlets or repositories whose open-access status is known are labelled.
+# Scientia Marina distributes its online content under CC BY 4.0.
+OPEN_ACCESS_OUTLETS = {"scientia marina"}
+OPEN_ACCESS_HOSTS = {
+    "zenodo.org",
+    "www.zenodo.org",
+    "arxiv.org",
+    "www.arxiv.org",
+    "biorxiv.org",
+    "www.biorxiv.org",
+    "osf.io",
+    "www.osf.io",
 }
 
 
@@ -104,10 +120,37 @@ def source_apa(pub: dict[str, Any]) -> str:
     return source + "."
 
 
-def canonical_doi_url(value: str) -> str:
+def canonical_doi(value: str) -> str:
     doi = value.strip()
-    doi = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", doi, flags=re.I)
+    return re.sub(r"^https?://(?:dx\.)?doi\.org/", "", doi, flags=re.I)
+
+
+def canonical_doi_url(value: str) -> str:
+    doi = canonical_doi(value)
     return f"https://doi.org/{doi}" if doi else ""
+
+
+def badge(label: str, value: str, tone: str = "blue", url: str = "") -> str:
+    label_html = html.escape(label)
+    value_html = html.escape(value)
+    body = (
+        f'<span class="qs-badge-label">{label_html}</span>'
+        f'<span class="qs-badge-value">{value_html}</span>'
+    )
+    classes = f"qs-badge qs-badge-{tone}"
+    if url:
+        return f'<a class="{classes}" href="{html.escape(url, quote=True)}">{body}</a>'
+    return f'<span class="{classes}">{body}</span>'
+
+
+def is_open_access(pub: dict[str, Any]) -> bool:
+    journal = str(pub.get("journal") or pub.get("outlet") or "").strip().casefold()
+    if journal in OPEN_ACCESS_OUTLETS:
+        return True
+    url = str(pub.get("url") or "").strip()
+    if not url:
+        return False
+    return urlparse(url).netloc.casefold() in OPEN_ACCESS_HOSTS
 
 
 def reference(pub: dict[str, Any]) -> str:
@@ -118,13 +161,19 @@ def reference(pub: dict[str, Any]) -> str:
     source = source_apa(pub)
     if source:
         parts.append(source)
-    url = str(pub.get("url") or "").strip()
+
     doi = str(pub.get("doi") or "").strip()
+    url = str(pub.get("url") or "").strip()
+    badges: list[str] = []
     if doi:
-        doi_url = canonical_doi_url(doi)
-        parts.append(f"[{doi_url}]({doi_url})")
+        clean_doi = canonical_doi(doi)
+        badges.append(badge("DOI", clean_doi, "blue", canonical_doi_url(doi)))
     elif url:
         parts.append(f"[View output]({url})")
+    if is_open_access(pub):
+        badges.append(badge("Open", "access", "green", url or canonical_doi_url(doi)))
+    if badges:
+        parts.append(f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>')
     return " ".join(parts)
 
 
