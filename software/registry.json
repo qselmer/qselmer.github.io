@@ -8,10 +8,7 @@
       "category": "R package",
       "maturity": "Stable source release",
       "summary": "Validated R infrastructure for representing, inspecting, subsetting, extracting, visualizing, and transforming multidimensional ocean data cubes for reproducible marine analysis.",
-      "mark": "oceancube",
-      "version": "0.2.0",
-      "documentation": "https://qselmer.github.io/oceancube/",
-      "r_cmd_check": "https://github.com/qselmer/oceancube/actions/workflows/R-CMD-check.yaml"
+      "mark": "oceancube"
     },
     {
       "repository": "qselmer/humboldt-ocean-watch",
