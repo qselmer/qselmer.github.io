@@ -1,5 +1,5 @@
 ---
-title: "Data"
+title: "Data Sources"
 description: "Curated external data sources for fisheries, marine ecology, oceanography, climate, spatial analysis, and teaching."
 ---
 
