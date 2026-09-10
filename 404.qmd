@@ -7,6 +7,6 @@ toc: false
 
 The requested page is not available at this address.
 
-[Return to the homepage](/){.btn .btn-primary} [Browse research](/research/){.btn .btn-secondary}
+[Return to the homepage](/){.btn .btn-primary} [Browse research](/projects/){.btn .btn-secondary}
 
 If you followed an older link from the previous Academic Pages/Jekyll site, the route may be covered by the migration compatibility map and will be checked during final URL certification.
