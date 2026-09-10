@@ -2,20 +2,84 @@
   "schema_version": 1,
   "sections": [
     {
-      "id": "active",
-      "heading": "Active manuscript projects",
-      "grid_class": "qs-project-grid"
+      "id": "stock-assessment",
+      "heading": "Stock assessment and population dynamics",
+      "description": "Population-state reconstruction, assessment diagnostics, biological parameters, and methods for understanding how structural assumptions affect fisheries inference.",
+      "grid_class": "qs-project-grid",
+      "outputs": [
+        {
+          "type": "Thesis",
+          "year": "2025",
+          "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy during 1960-2022",
+          "url": "/publications/#theses"
+        },
+        {
+          "type": "Talk",
+          "year": "2022",
+          "title": "Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta",
+          "url": "/talks/2022-09-01-anchoveta-biomass-variability/"
+        }
+      ]
     },
     {
-      "id": "planned",
-      "heading": "Planned manuscript project",
-      "grid_class": "qs-project-grid qs-project-grid-planned"
+      "id": "fisheries-dynamics",
+      "heading": "Fisheries dynamics and management",
+      "description": "Fishery season dynamics, fleet reorganization, fishing pressure, management benchmarks, and decision-relevant diagnostics under environmental variability.",
+      "grid_class": "qs-project-grid",
+      "outputs": [
+        {
+          "type": "Poster",
+          "year": "2026",
+          "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north-central anchovy stock",
+          "url": "/talks/2026-05-08-critical-points-anchovy-stock/"
+        }
+      ]
+    },
+    {
+      "id": "stock-condition",
+      "heading": "Stock condition and reproductive ecology",
+      "description": "Multidimensional stock condition, reproductive indicators, maturity, and biological responses used to describe population state beyond biomass alone.",
+      "grid_class": "qs-project-grid",
+      "outputs": [
+        {
+          "type": "Paper",
+          "year": "2025",
+          "title": "Classification models based on the gonadosomatic index to determine gonadal maturity stages in Peruvian anchovy",
+          "url": "/publications/#papers"
+        },
+        {
+          "type": "Talk",
+          "year": "2026",
+          "title": "Multivariate Health Index of the anchovy under environmental variability",
+          "url": "/talks/2026-05-06-anchovy-health-index/"
+        },
+        {
+          "type": "Talk",
+          "year": "2024",
+          "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta",
+          "url": "/talks/2024-11-11-anchoveta-gsi-sibecorp/"
+        }
+      ]
+    },
+    {
+      "id": "scientific-computing",
+      "heading": "Statistical ecology and scientific computing",
+      "description": "Reusable statistical methods, research software, reproducible workflows, and marine-data infrastructure developed to support quantitative ecological analysis.",
+      "grid_class": "qs-project-grid",
+      "outputs": [
+        {
+          "type": "Software",
+          "year": "2026",
+          "title": "oceancube - reproducible multidimensional ocean-data infrastructure in R",
+          "url": "/software/oceancube/"
+        }
+      ]
     }
   ],
   "projects": [
     {
       "slug": "stock-assessment-misspecification",
-      "section": "active",
+      "section": "stock-assessment",
       "source_repository": "qselmer/fishstocks-misspecification-ml-paper",
       "source_branch": "main",
       "logo_candidates": [
@@ -31,7 +95,7 @@
     },
     {
       "slug": "season-benchmarking",
-      "section": "active",
+      "section": "fisheries-dynamics",
       "source_repository": "qselmer/pelagicPER-season-benchmark-paper",
       "source_branch": "main",
       "logo_candidates": [
@@ -47,7 +111,7 @@
     },
     {
       "slug": "pelagic-fishery-reorganization",
-      "section": "active",
+      "section": "fisheries-dynamics",
       "source_repository": "qselmer/pelagicPER-fishery-reorganization-paper",
       "source_branch": "main",
       "logo_candidates": [
@@ -63,7 +127,7 @@
     },
     {
       "slug": "fishcore-software-paper",
-      "section": "planned",
+      "section": "scientific-computing",
       "source_repository": "qselmer/fishcore-paper",
       "source_branch": "main",
       "logo_candidates": [
