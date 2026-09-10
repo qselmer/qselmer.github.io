@@ -37,6 +37,7 @@ project:
     - data/index.qmd
     - blog/index.qmd
     - blog/statistical-distributions-fisheries-marine-ecology/index.qmd
+    - miscellaneous/index.qmd
     - engagement/index.qmd
     - resources/index.qmd
     - services/index.qmd
@@ -58,26 +59,41 @@ website:
   twitter-card: true
   search: true
   navbar:
-    title: "Home"
+    title: false
     left:
+      - href: index.qmd
+        text: About
+        icon: person
       - href: projects/index.qmd
         text: Projects
+        icon: folder2-open
       - href: publications/index.qmd
         text: Publications
+        icon: journal-text
       - href: talks/index.qmd
-        text: Conferences
+        text: Talks
+        icon: mic
       - href: software/index.qmd
         text: Software
+        icon: code-slash
       - href: teaching/index.qmd
         text: Teaching
+        icon: mortarboard
       - href: data/index.qmd
         text: Data
+        icon: database
       - href: blog/index.qmd
         text: Posts
+        icon: pencil-square
+      - href: miscellaneous/index.qmd
+        text: Miscellaneous
+        icon: collection
       - href: cv/index.qmd
         text: CV
+        icon: file-earmark-person
       - href: contact/index.qmd
         text: Contact
+        icon: envelope
     right:
       - icon: github
         href: https://github.com/qselmer
