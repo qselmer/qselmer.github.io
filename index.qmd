@@ -14,7 +14,7 @@ I connect ecological theory, marine observations, statistical modelling, and rep
 
 ## Research
 
-My work focuses on translating ecological and fisheries observations into quantitative evidence that can support interpretation, assessment, and decision-making in dynamic marine systems. See the full [Research](projects/index.qmd) page for research themes, projects, questions, and related scholarly outputs.
+My work focuses on translating ecological and fisheries observations into quantitative evidence that can support interpretation, assessment, and decision-making in dynamic marine systems. See the full [Research](research/index.html) page for research themes, projects, questions, and related scholarly outputs.
 
 ### Population dynamics and stock assessment
 
