@@ -10,6 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "assets" / "data" / "software.json"
 REGISTRY = ROOT / "software" / "registry.json"
 TARGET = ROOT / "software" / "_generated.md"
+LOGO_ROOT = ROOT / "images" / "software"
+LOGO_NAMES = ("logo.svg", "logo.png")
 
 
 def load_json(path: Path) -> dict:
@@ -40,8 +42,17 @@ def registry_by_repo(registry: dict) -> dict[str, dict]:
     }
 
 
+def synchronized_logo(name: str) -> str:
+    directory = LOGO_ROOT / name
+    for filename in LOGO_NAMES:
+        if (directory / filename).is_file():
+            return f"/images/software/{name}/{filename}"
+    return ""
+
+
 def software_entry(item: dict, curated: dict) -> list[str]:
     name = str(item.get("name") or "Unnamed software").strip()
+    full_name = str(item.get("full_name") or "").strip()
     category = str(item.get("category") or "Software").strip()
     maturity = str(item.get("maturity") or "Development").strip()
     language = str(item.get("language") or "-").strip()
@@ -49,7 +60,7 @@ def software_entry(item: dict, curated: dict) -> list[str]:
     site_path = str(curated.get("site_path") or item.get("site_path") or "").strip()
     repo_url = str(item.get("html_url") or "").strip()
     mark = str(curated.get("mark") or name).strip()
-    logo = str(curated.get("logo") or "").strip()
+    logo = str(curated.get("logo") or item.get("logo") or synchronized_logo(name)).strip()
 
     if logo:
         visual = (
@@ -62,28 +73,38 @@ def software_entry(item: dict, curated: dict) -> list[str]:
     badges = [badge("repo status", "Active", "green", repo_url)]
     if category == "R package":
         badges.append(badge("package", "R", "blue"))
-        version = str(curated.get("version") or "").strip()
+        version = str(item.get("version") or curated.get("version") or "").strip()
         if version:
             badges.append(badge("version", version, "green"))
-        check_url = str(curated.get("r_cmd_check") or "").strip()
+        check_url = str(item.get("r_cmd_check") or curated.get("r_cmd_check") or "").strip()
         if check_url:
             badges.append(badge("R-CMD-check", "configured", "blue", check_url))
-        docs = str(curated.get("documentation") or "").strip()
+        docs = str(item.get("documentation") or curated.get("documentation") or "").strip()
         if docs:
             badges.append(badge("docs", "online", "blue", docs))
     else:
         badges.append(badge("stage", maturity, "amber" if maturity.casefold() == "experimental" else "neutral"))
         if language and language != "-":
             badges.append(badge("language", language, "blue"))
-        application = str(curated.get("application") or "").strip()
+        application = str(item.get("application") or curated.get("application") or "").strip()
         if application:
             badges.append(badge("app", application, "green"))
+
+    doi = str(item.get("doi") or "").strip()
+    if doi:
+        doi_url = doi if doi.startswith("http") else f"https://doi.org/{doi}"
+        badges.append(badge("DOI", doi.replace("https://doi.org/", ""), "blue", doi_url))
+
+    release = str(item.get("latest_release") or "").strip()
+    release_url = str(item.get("latest_release_url") or "").strip()
+    if release:
+        badges.append(badge("release", release, "green", release_url))
 
     title_href = site_path or repo_url or "#"
     links: list[str] = []
     if repo_url:
         links.append(f'<a href="{html.escape(repo_url, quote=True)}">Repository</a>')
-    docs = str(curated.get("documentation") or "").strip()
+    docs = str(item.get("documentation") or curated.get("documentation") or "").strip()
     if docs:
         links.append(f'<a href="{html.escape(docs, quote=True)}">Documentation</a>')
     if site_path:
@@ -91,7 +112,7 @@ def software_entry(item: dict, curated: dict) -> list[str]:
 
     lines = [
         '<article class="qs-software-entry">',
-        f'<div class="qs-software-visual" aria-label="{html.escape(name, quote=True)} package mark">{visual}</div>',
+        f'<div class="qs-software-visual" aria-label="{html.escape(name, quote=True)} software mark">{visual}</div>',
         '<div class="qs-software-copy">',
         f'<h3><a href="{html.escape(title_href, quote=True)}">{html.escape(name)}</a></h3>',
     ]
