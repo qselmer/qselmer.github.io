@@ -1,0 +1,20 @@
+---
+title: "Miscellaneous"
+description: "Photographs, short stories, field notes, and other material beyond formal research outputs."
+---
+
+<div class="section-intro">
+A personal space for material that sits outside the formal research catalogue, including photographs, short stories, field notes, visual records, and other occasional pieces.
+</div>
+
+## Photographs
+
+Photographic collections and selected field images will be added here.
+
+## Stories and field notes
+
+Short stories, observations, travel notes, and other non-formal writing will be added here.
+
+## Other material
+
+This section can also host small visual projects, personal notes, and material that does not belong in Publications, Projects, Software, Teaching, Data, or Posts.
