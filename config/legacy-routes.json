@@ -5,7 +5,7 @@
     "commit": "f84307690cc573b7b2e83a548d2d56102a05218d",
     "stack": "Academic Pages / Jekyll"
   },
-  "policy": "Only meaningful public content routes are tracked here. Template demonstration and archive-helper routes are intentionally retired. Phase 7 must certify every preserved route and every redirect_required route before production cutover.",
+  "policy": "Only meaningful public content routes are tracked here. Retired pages are intentionally excluded from rendering and indexing. Redirects are retained only when they preserve useful scholarly navigation.",
   "routes": [
     {"legacy": "/", "target": "/", "status": "preserved"},
     {"legacy": "/about/", "target": "/", "status": "redirect_required"},
@@ -18,8 +18,6 @@
     {"legacy": "/contact/thanks/", "target": "/contact/", "status": "redirect_required"},
     {"legacy": "/cv/", "target": "/cv/", "status": "preserved"},
     {"legacy": "/data/", "target": "/data/", "status": "preserved"},
-    {"legacy": "/engagement/", "target": "/engagement/", "status": "preserved"},
-    {"legacy": "/follow/", "target": "/follow/", "status": "preserved"},
     {"legacy": "/projects/", "target": "/projects/", "status": "preserved"},
     {"legacy": "/projects/anchovy-selectivity/", "target": "/projects/anchovy-selectivity/", "status": "preserved"},
     {"legacy": "/projects/anchovy-stock-state/", "target": "/projects/anchovy-stock-state/", "status": "preserved"},
@@ -30,9 +28,7 @@
     {"legacy": "/publication/2025-12-01-gsi-ml-maturity-anchovy/", "target": "/publications/", "status": "redirect_required"},
     {"legacy": "/publication/ebus-hcs-abstract-anchoveta-biomass/", "target": "/talks/2022-09-01-anchoveta-biomass-variability/", "status": "redirect_required"},
     {"legacy": "/publications/", "target": "/publications/", "status": "preserved"},
-    {"legacy": "/research/", "target": "/research/", "status": "preserved"},
-    {"legacy": "/resources/", "target": "/resources/", "status": "preserved"},
-    {"legacy": "/services/", "target": "/services/", "status": "preserved"},
+    {"legacy": "/research/", "target": "/projects/", "status": "redirect_required"},
     {"legacy": "/software/", "target": "/software/", "status": "preserved"},
     {"legacy": "/software/oceancube/", "target": "/software/oceancube/", "status": "preserved"},
     {"legacy": "/software/pelagytics/", "target": "/software/pelagytics/", "status": "preserved"},
@@ -43,6 +39,13 @@
     {"legacy": "/talks/2026-05-08-critical-points-anchovy-stock/", "target": "/talks/2026-05-08-critical-points-anchovy-stock/", "status": "preserved"},
     {"legacy": "/teaching/", "target": "/teaching/", "status": "preserved"},
     {"legacy": "/terms/", "target": "/terms/", "status": "preserved"}
+  ],
+  "retired_routes": [
+    "/engagement/",
+    "/follow/",
+    "/resources/",
+    "/services/",
+    "/resume/"
   ],
   "retired_template_sources": [
     "_pages/archive-layout-with-content.md",
