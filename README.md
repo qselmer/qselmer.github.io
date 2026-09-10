@@ -8,17 +8,17 @@ Personal academic website of **Elmer Quispe-Salazar**, implemented with Quarto a
 
 The website is a discovery and presentation layer. Scientific repositories remain the source of truth for code, analyses, manuscripts, software, and teaching materials.
 
-- **Research** - long-term scientific questions and methodological themes.
-- **Projects** - active research programmes and manuscript-oriented work.
-- **Publications** - formal scholarly outputs; conference outputs are separated.
-- **Conferences** - presentations, posters, and explicitly labelled historical conference contributions.
-- **Software** - curated scientific packages and applications with explicit maturity.
+- **About** - concise scientific identity, research focus, and recent posts.
+- **Research** - the unified thematic catalogue for research questions, active projects, and related papers, reports, talks, theses, and software. The stable public route remains `/projects/`.
+- **Publications** - formal scholarly outputs organized by publication type.
+- **Talks** - oral presentations, posters, and other scientific presentations.
+- **Software** - curated scientific packages and applications with explicit maturity and canonical repository links.
 - **Teaching** - structured courses/training and reusable teaching infrastructure.
-- **Data Sources** - curated external sources for students and collaborators; these are not datasets owned or produced by the site author.
-- **Posts** - tutorials, technical notes, methodological explanations, and reproducible-science guidance for a broader technical audience.
-- **CV / Contact** - professional record and collaboration channels.
+- **Posts** - tutorials, technical notes, methodological explanations, and reproducible-science guidance.
+- **CV** - curriculum vitae and language-specific download layer as files become available.
+- **More** - secondary navigation containing **Data Sources**, **Miscellaneous**, and **Contact**.
 
-Compatibility entry points such as `/resources/`, `/services/`, `/engagement/`, `/follow/`, and `/terms/` are retained as lightweight Quarto pages. Meaningful legacy URLs are either preserved or redirected deterministically.
+`/research/` is retained only as a noindex compatibility redirect to the unified Research catalogue at `/projects/`. Retired substantive routes such as `/services/`, `/engagement/`, `/resources/`, `/follow/`, and `/resume/` are no longer rendered as content pages; where useful, noindex redirects preserve older inbound links without exposing the retired material.
 
 ## Metadata sources
 
@@ -47,7 +47,7 @@ python scripts/validate_site.py rendered
 python scripts/check_external_links.py _site
 ```
 
-The source validator rejects obsolete Academic Pages/Jekyll runtime paths. The rendered validator checks identity consistency, deterministic generated fragments, CV delivery, expected compatibility pages, metadata, and internal `href`/`src` targets.
+The source validator rejects obsolete Academic Pages/Jekyll runtime paths. The rendered validator checks identity consistency, deterministic generated fragments, CV delivery, compatibility redirects, metadata, sitemap policy, and internal `href`/`src` targets.
 
 ## Synchronizing academic-profile metadata
 
