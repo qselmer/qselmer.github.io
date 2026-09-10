@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 from pathlib import Path
 
@@ -18,6 +19,92 @@ def load_json(path: Path) -> dict:
     return payload
 
 
+def badge(label: str, value: str, tone: str = "neutral", url: str = "") -> str:
+    label_html = html.escape(label)
+    value_html = html.escape(value)
+    body = (
+        f'<span class="qs-badge-label">{label_html}</span>'
+        f'<span class="qs-badge-value">{value_html}</span>'
+    )
+    classes = f"qs-badge qs-badge-{tone}"
+    if url:
+        return f'<a class="{classes}" href="{html.escape(url, quote=True)}">{body}</a>'
+    return f'<span class="{classes}">{body}</span>'
+
+
+def registry_by_repo(registry: dict) -> dict[str, dict]:
+    return {
+        str(item.get("repository") or "").strip(): item
+        for item in registry.get("published", [])
+        if str(item.get("repository") or "").strip()
+    }
+
+
+def software_entry(item: dict, curated: dict) -> list[str]:
+    name = str(item.get("name") or "Unnamed software").strip()
+    full_name = str(item.get("full_name") or "").strip()
+    category = str(item.get("category") or "Software").strip()
+    maturity = str(item.get("maturity") or "Development").strip()
+    language = str(item.get("language") or "-").strip()
+    summary = str(curated.get("summary") or item.get("summary") or item.get("description") or "").strip()
+    site_path = str(curated.get("site_path") or item.get("site_path") or "").strip()
+    repo_url = str(item.get("html_url") or "").strip()
+    mark = str(curated.get("mark") or name).strip()
+    logo = str(curated.get("logo") or "").strip()
+
+    if logo:
+        visual = (
+            f'<img class="qs-software-logo" src="{html.escape(logo, quote=True)}" '
+            f'alt="{html.escape(name, quote=True)} logo" loading="lazy">'
+        )
+    else:
+        visual = f'<span class="qs-software-mark-text">{html.escape(mark)}</span>'
+
+    badges = [badge("repo status", "Active", "green", repo_url)]
+    if category == "R package":
+        badges.append(badge("package", "R", "blue"))
+        version = str(curated.get("version") or "").strip()
+        if version:
+            badges.append(badge("version", version, "green"))
+        check_url = str(curated.get("r_cmd_check") or "").strip()
+        if check_url:
+            badges.append(badge("R-CMD-check", "configured", "blue", check_url))
+        docs = str(curated.get("documentation") or "").strip()
+        if docs:
+            badges.append(badge("docs", "online", "blue", docs))
+    else:
+        badges.append(badge("stage", maturity, "amber" if maturity.casefold() == "experimental" else "neutral"))
+        if language and language != "-":
+            badges.append(badge("language", language, "blue"))
+        application = str(curated.get("application") or "").strip()
+        if application:
+            badges.append(badge("app", application, "green"))
+
+    title_href = site_path or repo_url or "#"
+    links: list[str] = []
+    if repo_url:
+        links.append(f'<a href="{html.escape(repo_url, quote=True)}">Repository</a>')
+    docs = str(curated.get("documentation") or "").strip()
+    if docs:
+        links.append(f'<a href="{html.escape(docs, quote=True)}">Documentation</a>')
+    if site_path:
+        links.append(f'<a href="{html.escape(site_path, quote=True)}">Project page</a>')
+
+    lines = [
+        '<article class="qs-software-entry">',
+        f'<div class="qs-software-visual" aria-label="{html.escape(name, quote=True)} package mark">{visual}</div>',
+        '<div class="qs-software-copy">',
+        f'<h3><a href="{html.escape(title_href, quote=True)}">{html.escape(name)}</a></h3>',
+    ]
+    if summary:
+        lines.append(f'<p>{html.escape(summary)}</p>')
+    lines.append(f'<div class="qs-badge-row">{"".join(badges)}</div>')
+    if links:
+        lines.append(f'<p class="qs-software-links">{" <span aria-hidden="true">|</span> ".join(links)}</p>')
+    lines += ["</div>", "</article>"]
+    return lines
+
+
 def render() -> str:
     data = load_json(DATA)
     registry = load_json(REGISTRY)
@@ -26,11 +113,8 @@ def render() -> str:
     if not isinstance(items, list):
         raise RuntimeError("assets/data/software.json must contain a software list")
 
-    expected = {
-        str(item.get("repository") or "").strip()
-        for item in registry.get("published", [])
-        if str(item.get("repository") or "").strip()
-    }
+    curated = registry_by_repo(registry)
+    expected = set(curated)
     found = {str(item.get("full_name") or "").strip() for item in items}
     if found != expected:
         missing = sorted(expected - found)
@@ -40,8 +124,8 @@ def render() -> str:
         )
 
     groups = [
-        ("R package", "Scientific packages"),
-        ("Experimental application", "Experimental applications"),
+        ("R package", "Software packages I am a lead developer for"),
+        ("Experimental application", "Research applications I develop"),
     ]
 
     lines = [
@@ -53,30 +137,11 @@ def render() -> str:
         group = [item for item in items if item.get("category") == category]
         if not group:
             continue
-        lines += [f"## {heading}", ""]
+        lines += [f"## {heading}", "", "```{=html}"]
         for item in sorted(group, key=lambda x: str(x.get("name") or "").casefold()):
-            name = str(item.get("name") or "Unnamed software")
-            maturity = str(item.get("maturity") or "Development")
-            language = str(item.get("language") or "—")
-            summary = str(item.get("summary") or item.get("description") or "").strip()
-            site_path = str(item.get("site_path") or "").strip()
-            repo_url = str(item.get("html_url") or "").strip()
-
-            lines += [
-                f"### `{name}`",
-                "",
-                f"**{category} · {maturity} · {language}**",
-                "",
-            ]
-            if summary:
-                lines += [summary, ""]
-            links = []
-            if site_path:
-                links.append(f"[Project page]({site_path})")
-            if repo_url:
-                links.append(f"[Repository]({repo_url})")
-            if links:
-                lines += [" · ".join(links), ""]
+            full_name = str(item.get("full_name") or "").strip()
+            lines.extend(software_entry(item, curated.get(full_name, {})))
+        lines += ["```", ""]
 
     incubating = registry.get("incubating") or []
     concepts = registry.get("concepts") or []
@@ -93,13 +158,13 @@ def render() -> str:
             site_path = str(item.get("site_path") or "").strip()
             reason = str(item.get("reason") or "").strip()
             label = f"[`{name}`]({site_path})" if site_path else f"`{name}`"
-            lines.append(f"- {label} — {reason}")
+            lines.append(f"- {label} - {reason}")
         for item in concepts:
             name = str(item.get("name") or "Unnamed concept")
             site_path = str(item.get("site_path") or "").strip()
             reason = str(item.get("reason") or "").strip()
             label = f"[{name}]({site_path})" if site_path else name
-            lines.append(f"- {label} — {reason}")
+            lines.append(f"- {label} - {reason}")
         lines.append("")
 
     return "\n".join(lines).rstrip() + "\n"
