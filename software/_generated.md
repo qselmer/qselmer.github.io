@@ -4,11 +4,11 @@
 
 ```{=html}
 <article class="qs-software-entry">
-<div class="qs-software-visual" aria-label="oceancube package mark"><span class="qs-software-mark-text">oceancube</span></div>
+<div class="qs-software-visual" aria-label="oceancube software mark"><span class="qs-software-mark-text">oceancube</span></div>
 <div class="qs-software-copy">
 <h3><a href="/software/oceancube/">oceancube</a></h3>
 <p>Validated R infrastructure for representing, inspecting, subsetting, extracting, visualizing, and transforming multidimensional ocean data cubes for reproducible marine analysis.</p>
-<div class="qs-badge-row"><a class="qs-badge qs-badge-green" href="https://github.com/qselmer/oceancube"><span class="qs-badge-label">repo status</span><span class="qs-badge-value">Active</span></a><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">package</span><span class="qs-badge-value">R</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">version</span><span class="qs-badge-value">0.2.0</span></span><a class="qs-badge qs-badge-blue" href="https://github.com/qselmer/oceancube/actions/workflows/R-CMD-check.yaml"><span class="qs-badge-label">R-CMD-check</span><span class="qs-badge-value">configured</span></a><a class="qs-badge qs-badge-blue" href="https://qselmer.github.io/oceancube/"><span class="qs-badge-label">docs</span><span class="qs-badge-value">online</span></a></div>
+<div class="qs-badge-row"><a class="qs-badge qs-badge-green" href="https://github.com/qselmer/oceancube"><span class="qs-badge-label">repo status</span><span class="qs-badge-value">Active</span></a><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">package</span><span class="qs-badge-value">R</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">version</span><span class="qs-badge-value">0.3.0</span></span><a class="qs-badge qs-badge-blue" href="https://github.com/qselmer/oceancube/actions/workflows/R-CMD-check.yaml"><span class="qs-badge-label">R-CMD-check</span><span class="qs-badge-value">configured</span></a><a class="qs-badge qs-badge-blue" href="https://qselmer.github.io/oceancube/"><span class="qs-badge-label">docs</span><span class="qs-badge-value">online</span></a><a class="qs-badge qs-badge-green" href="https://github.com/qselmer/oceancube/releases/tag/v0.2.0"><span class="qs-badge-label">release</span><span class="qs-badge-value">v0.2.0</span></a></div>
 <p class="qs-software-links"><a href="https://github.com/qselmer/oceancube">Repository</a> <span aria-hidden="true">|</span> <a href="https://qselmer.github.io/oceancube/">Documentation</a> <span aria-hidden="true">|</span> <a href="/software/oceancube/">Project page</a></p>
 </div>
 </article>
@@ -18,7 +18,7 @@
 
 ```{=html}
 <article class="qs-software-entry">
-<div class="qs-software-visual" aria-label="humboldt-ocean-watch package mark"><span class="qs-software-mark-text">HOW</span></div>
+<div class="qs-software-visual" aria-label="humboldt-ocean-watch software mark"><span class="qs-software-mark-text">HOW</span></div>
 <div class="qs-software-copy">
 <h3><a href="/software/humboldt-ocean-watch/">humboldt-ocean-watch</a></h3>
 <p>Python and Streamlit system for reproducible thermal monitoring of Niño 1+2 using validated local analytics, quality control, event diagnostics, and optional grounded scientific briefs.</p>
