@@ -19,13 +19,7 @@
 .qs-sidebar-role {
   margin-top: .18rem;
   font-size: .98rem;
-  line-height: 1.18;
-}
-
-.qs-sidebar-bio {
-  margin: .58rem 0 .5rem;
-  font-size: .96rem;
-  line-height: 1.27;
+  line-height: 1.28;
 }
 
 .qs-sidebar-context,
@@ -49,6 +43,10 @@
 }
 
 .qs-sidebar-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
   padding: .38rem 0;
   font-size: .92rem;
   line-height: 1.15;
@@ -65,12 +63,65 @@
   line-height: 1.22;
 }
 
-/* On desktop, expand the navigation tabs across the available navbar width. */
+/* Dark research profile rail. */
+.qs-profile-sidebar {
+  background: #0b1320;
+  border-color: rgba(255, 255, 255, .12);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, .16);
+  color: #eef3f8;
+}
+
+.qs-sidebar-portrait {
+  border-color: rgba(255, 255, 255, .16);
+  background: #152235;
+}
+
+.qs-sidebar-name {
+  color: #ffffff;
+}
+
+.qs-sidebar-role {
+  color: #9bcbd8;
+}
+
+.qs-sidebar-context,
+.qs-sidebar-links a {
+  color: #d4dee8;
+}
+
+.qs-sidebar-context i,
+.qs-sidebar-links i {
+  color: #89c1d0;
+}
+
+.qs-sidebar-links a:hover {
+  color: #ffffff;
+}
+
+.qs-sidebar-section-label {
+  border-top-color: rgba(255, 255, 255, .14);
+  color: #89c1d0;
+}
+
+.qs-sidebar-metric-row {
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  color: #d4dee8;
+}
+
+.qs-sidebar-metric-row strong {
+  color: #ffffff;
+}
+
+.qs-sidebar-metrics-note {
+  color: #96a6b6;
+}
+
+/* On desktop, distribute the icon-labelled navigation across the available width. */
 @media (min-width: 992px) {
   .navbar .navbar-nav.me-auto {
     flex: 1 1 0;
     justify-content: space-evenly;
-    margin-right: .65rem !important;
+    margin-right: .45rem !important;
   }
 
   .navbar .navbar-nav.me-auto .nav-item {
@@ -80,15 +131,14 @@
 
   .navbar .navbar-nav.me-auto .nav-link {
     display: block;
-    padding-left: .8rem;
-    padding-right: .8rem;
-    font-size: 1.04rem;
+    padding-left: .42rem;
+    padding-right: .42rem;
+    font-size: .92rem;
     white-space: nowrap;
   }
 
-  .navbar-brand {
-    margin-right: .8rem;
-    font-size: 1.12rem;
+  .navbar .navbar-nav.me-auto .nav-link i {
+    margin-right: .18rem;
   }
 }
 
@@ -124,7 +174,6 @@
   .qs-sidebar-portrait { width: 140px; height: 140px; margin: .2rem auto .55rem; }
   .qs-sidebar-name { margin-top: .5rem; font-size: 1.28rem; }
   .qs-sidebar-role { font-size: .93rem; }
-  .qs-sidebar-bio { margin: .42rem 0; font-size: .92rem; }
   .qs-sidebar-context, .qs-sidebar-links a { min-height: 28px; font-size: .9rem; }
   .qs-sidebar-section-label { font-size: .73rem; }
   .qs-sidebar-metric-row { font-size: .88rem; }
@@ -134,8 +183,7 @@
   .qs-sidebar-inner { padding: .6rem .9rem; }
   .qs-sidebar-portrait { width: 120px; height: 120px; margin: .15rem auto .48rem; }
   .qs-sidebar-name { font-size: 1.28rem; }
-  .qs-sidebar-role { font-size: .9rem; line-height: 1.16; }
-  .qs-sidebar-bio { margin: .44rem 0; font-size: .9rem; line-height: 1.22; }
+  .qs-sidebar-role { font-size: .9rem; line-height: 1.22; }
   .qs-sidebar-context, .qs-sidebar-links a { min-height: 28px; font-size: .89rem; line-height: 1.12; }
   .qs-sidebar-section-label { margin-top: .56rem; font-size: .72rem; }
   .qs-sidebar-metric-row { padding: .32rem 0; font-size: .86rem; }
