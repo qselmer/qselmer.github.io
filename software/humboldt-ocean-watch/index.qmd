@@ -52,4 +52,4 @@ The application is suitable for methodological demonstration and continued scien
 
 ## Related work
 
-See [Reproducible marine data systems](/projects/reproducible-marine-data-systems/) and [Environmental variability and ecosystem responses](/research/).
+See [Reproducible marine data systems](/projects/reproducible-marine-data-systems/) and [Environmental variability and ecosystem responses](/projects/).
