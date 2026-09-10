@@ -4,7 +4,12 @@ description: "Courses, classes, workshops, notebooks, and reproducible scientifi
 ---
 
 <div class="section-intro">
-A discovery catalogue for structured teaching activities. Complete lessons, notebooks, exercises, data, code, and version history remain in their dedicated GitHub repositories.
+Structured teaching, training, and reusable learning resources for scientific computing, quantitative workflows, and reproducible research. Complete lessons, exercises, code, and version history remain in their canonical repositories.
+</div>
+
+<div class="qs-publication-nav" aria-label="Teaching sections">
+  <a href="#courses"><strong>Courses and training</strong></a>
+  <a href="#infrastructure"><strong>Teaching infrastructure</strong></a>
 </div>
 
 ::: {.qs-compact-catalogue .qs-teaching-catalogue}
@@ -12,5 +17,5 @@ A discovery catalogue for structured teaching activities. Complete lessons, note
 :::
 
 ::: {.qs-footnote-note}
-**Authoring and inclusion note.** Teaching repositories are independent scholarly resources, not folders copied into the personal website. Actual courses, classes, workshops, or training activities use `type-training`; the reusable Scientific Training Template uses `type-template`. New lesson material should normally use Quarto (`.qmd`), while notebooks and executable code remain appropriate when they serve the learning objective. A teaching repository may publish its own Quarto site under `qselmer.github.io/<repository>/`. Inclusion requires a defensible learning purpose or sequence, sufficient documentation, explicit provenance and attribution, and a canonical public source. Practice repositories, clones, copied tutorials, and partially adapted external material are not presented as authored teaching activities until their pedagogical structure and provenance are clear.
+**Teaching note.** Published teaching activities and reusable teaching infrastructure are maintained as independent scholarly resources. Repository links remain the authoritative source for lessons, exercises, provenance, releases, and development history.
 :::
