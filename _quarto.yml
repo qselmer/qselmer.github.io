@@ -114,6 +114,7 @@ format:
       - profile-sidebar.css
       - editorial.css
       - refinements.css
+      - catalogue.css
       - posts.css
     toc: true
     link-external-newwindow: true
