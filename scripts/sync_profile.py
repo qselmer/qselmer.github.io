@@ -57,6 +57,8 @@ def main() -> None:
         "build_conferences.py",
         "build_software.py",
         "build_teaching.py",
+        "build_data_resources.py",
+        "build_blog.py",
         "build_research_graph.py",
         "build_projects.py",
         "build_home.py",
