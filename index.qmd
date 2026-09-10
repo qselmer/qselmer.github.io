@@ -7,6 +7,8 @@ description: "Quantitative marine ecology, fisheries science, and reproducible s
 Marine quantitative ecologist and fisheries scientist working across ecological modelling, stock assessment, marine data science, population dynamics, and reproducible scientific computing.
 </div>
 
+**Measure change. Model uncertainty. Inform fisheries decisions.**
+
 I connect ecological theory, marine observations, statistical modelling, and reproducible computing to understand changing populations and fisheries. My main study system is the Humboldt Current, with particular emphasis on pelagic fish and Peruvian anchovy.
 
 ## Research
