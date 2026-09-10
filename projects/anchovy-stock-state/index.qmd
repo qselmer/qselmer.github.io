@@ -27,13 +27,13 @@ The analytical framework integrates acoustic surveys, fishery-dependent observat
 - Dimension-specific indicators of population magnitude, condition, reproduction, demographic structure, spatial distribution, and size structure.
 - Multivariate integration and latent-state approaches.
 - Trend, breakpoint, regime, and threshold diagnostics.
-- Pressure–state relationships involving environmental and fishing variables.
+- Pressure-state relationships involving environmental and fishing variables.
 - Spatio-temporal analyses of abundance, distribution, and habitat conditions.
 - Sensitivity analysis to indicator composition and integration choices.
 
 ## Current status
 
-Active research programme supporting complementary manuscripts on multidimensional stock state, pressure–response relationships, structural changes, and adaptive fisheries assessment.
+Active research programme supporting complementary manuscripts on multidimensional stock state, pressure-response relationships, structural changes, and adaptive fisheries assessment.
 
 ## Expected outputs
 
@@ -48,4 +48,4 @@ This is a programme-level page. Individual manuscripts and analytical components
 
 ## Related sections
 
-[Research](/research/) · [Publications](/publications/) · [Conferences](/talks/)
+[Research](/projects/) · [Publications](/publications/) · [Talks](/talks/)
