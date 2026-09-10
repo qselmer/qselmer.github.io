@@ -14,6 +14,7 @@ TARGET = ROOT / "publications" / "_generated.md"
 DISPLAY_ORDER = [
     "Journal articles",
     "Preprints & working papers",
+    "Books & chapters",
     "Theses",
     "Reports & technical outputs",
 ]
@@ -21,6 +22,7 @@ DISPLAY_ORDER = [
 HEADING = {
     "Journal articles": ("Peer-reviewed articles", "papers"),
     "Preprints & working papers": ("Preprints and forthcoming manuscripts", "preprints"),
+    "Books & chapters": ("Books and book chapters", "books"),
     "Theses": ("Theses", "theses"),
     "Reports & technical outputs": ("Reports and institutional technical outputs", "reports"),
 }
@@ -28,6 +30,7 @@ HEADING = {
 EMPTY_MESSAGE = {
     "Journal articles": "_No journal articles are currently listed._",
     "Preprints & working papers": "_No preprints or forthcoming manuscripts are currently listed._",
+    "Books & chapters": "_No books or book chapters are currently listed._",
     "Theses": "_No theses are currently listed._",
     "Reports & technical outputs": "_No reports or institutional technical outputs are currently listed._",
 }
