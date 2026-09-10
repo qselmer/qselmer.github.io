@@ -50,7 +50,7 @@ def github_token() -> str:
 def github_headers(token: str, accept: str = "application/vnd.github+json") -> dict[str, str]:
     values = {
         "Accept": accept,
-        "User-Agent": "qselmer.github.io software-metadata-sync/1.0",
+        "User-Agent": "qselmer.github.io software-metadata-sync/1.1",
         "X-GitHub-Api-Version": "2022-11-28",
     }
     if token:
@@ -106,12 +106,22 @@ def parse_description(text: str) -> dict[str, str]:
     return fields
 
 
-def first_http_url(value: str) -> str:
-    for candidate in re.split(r"[,\s]+", value or ""):
-        candidate = candidate.strip()
-        if candidate.startswith("https://") or candidate.startswith("http://"):
+def documentation_url(value: str, repository: str) -> str:
+    urls = [
+        candidate.strip()
+        for candidate in re.split(r"[,\s]+", value or "")
+        if candidate.strip().startswith(("https://", "http://"))
+    ]
+    if not urls:
+        return ""
+    repo_url = f"https://github.com/{repository}".rstrip("/").casefold()
+    for candidate in urls:
+        if "github.io" in candidate.casefold():
             return candidate
-    return ""
+    for candidate in urls:
+        if candidate.rstrip("/").casefold() != repo_url:
+            return candidate
+    return urls[0]
 
 
 def discover_metadata(full_name: str, category: str, curated: dict, token: str) -> dict[str, str]:
@@ -123,7 +133,11 @@ def discover_metadata(full_name: str, category: str, curated: dict, token: str) 
     description = parse_description(description_text) if description_text else {}
 
     version = str(description.get("Version") or curated.get("version") or "").strip()
-    documentation = homepage or first_http_url(str(description.get("URL") or "")) or str(curated.get("documentation") or "").strip()
+    documentation = (
+        homepage
+        or documentation_url(str(description.get("URL") or ""), full_name)
+        or str(curated.get("documentation") or "").strip()
+    )
 
     check_url = ""
     if category == "R package":
