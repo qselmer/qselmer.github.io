@@ -42,7 +42,6 @@ def registry_by_repo(registry: dict) -> dict[str, dict]:
 
 def software_entry(item: dict, curated: dict) -> list[str]:
     name = str(item.get("name") or "Unnamed software").strip()
-    full_name = str(item.get("full_name") or "").strip()
     category = str(item.get("category") or "Software").strip()
     maturity = str(item.get("maturity") or "Development").strip()
     language = str(item.get("language") or "-").strip()
@@ -100,7 +99,8 @@ def software_entry(item: dict, curated: dict) -> list[str]:
         lines.append(f'<p>{html.escape(summary)}</p>')
     lines.append(f'<div class="qs-badge-row">{"".join(badges)}</div>')
     if links:
-        lines.append(f'<p class="qs-software-links">{" <span aria-hidden="true">|</span> ".join(links)}</p>')
+        separator = ' <span aria-hidden="true">|</span> '
+        lines.append(f'<p class="qs-software-links">{separator.join(links)}</p>')
     lines += ["</div>", "</article>"]
     return lines
 
