@@ -35,6 +35,7 @@ Hierarchical, additive, multivariate, machine-learning, and reproducible modelli
 
 This website connects research in development with formal scholarly outputs, scientific software, teaching, reusable data resources, and technical communication. Canonical repositories remain the source of truth for code, documentation, releases, and development history.
 
+- [Research](research/index.qmd) - research themes, questions, and quantitative framework.
 - [Projects](projects/) - manuscripts and collaborative research in development.
 - [Publications](publications/) - peer-reviewed articles and other formal scholarly outputs.
 - [Conferences](talks/) - oral presentations, posters, and conference contributions.
