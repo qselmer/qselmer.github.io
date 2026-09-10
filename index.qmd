@@ -1,83 +1,47 @@
 ---
-pagetitle: "Elmer Quispe-Salazar | Quantitative Marine Ecology & Fisheries Science"
-description: "Marine quantitative ecologist and fisheries scientist working across observations, ecological modelling, stock assessment, scientific computing, and decision-relevant evidence."
-page-layout: full
-toc: false
+title: "Elmer Quispe-Salazar"
+description: "Quantitative marine ecology, fisheries science, and reproducible scientific computing."
 ---
 
-```{=html}
-<section class="qs-hero" aria-labelledby="home-title">
-<div class="qs-hero-copy">
-<h1 id="home-title">Quantitative Marine Ecology<br>&amp; Fisheries Science</h1>
-<p class="qs-role">Marine quantitative ecologist · Fisheries scientist · Scientific computing</p>
-<p class="qs-signature">Measure change. Model uncertainty. Inform fisheries decisions.</p>
-<p class="qs-hero-summary">I connect ecological theory, marine observations, statistical modelling, and reproducible computing to understand changing populations and fisheries. My main study system is the Humboldt Current, with particular emphasis on pelagic fish and Peruvian anchovy.</p>
-<div class="qs-hero-actions">
-<a class="qs-button qs-button-primary" href="#research">Research</a>
-<a class="qs-button" href="projects/">Projects</a>
-<a class="qs-button" href="publications/">Publications</a>
-<a class="qs-button" href="cv/">CV</a>
-</div>
+<div class="section-intro">
+Marine quantitative ecologist and fisheries scientist working across ecological modelling, stock assessment, marine data science, population dynamics, and reproducible scientific computing.
 </div>
 
-<div class="qs-hero-visual" aria-label="Research identity area">
-<div class="qs-orbit qs-orbit-one"></div>
-<div class="qs-orbit qs-orbit-two"></div>
-<div class="qs-orbit qs-orbit-three"></div>
-<div class="qs-brand-disc" aria-label="Elmer Quispe-Salazar research identity mark">
-<span class="qs-brand-monogram">EQS</span>
-<span class="qs-brand-caption">Marine ecology · Fisheries</span>
-</div>
-<p class="qs-visual-label">Humboldt Current · Pelagic fisheries · Reproducible science</p>
-</div>
-</section>
-```
+I connect ecological theory, marine observations, statistical modelling, and reproducible computing to understand changing populations and fisheries. My main study system is the Humboldt Current, with particular emphasis on pelagic fish and Peruvian anchovy.
 
-```{=html}
-<section id="research" class="qs-home-section qs-philosophy" data-compatibility-route="research/index.html">
-<p class="qs-section-kicker">RESEARCH</p>
-<h2>From marine observations to reproducible evidence</h2>
-<p class="qs-section-lead">Connecting ecology, data, and decisions in dynamic marine systems.</p>
-<div class="qs-principles">
-<article><span class="qs-principle-number">01</span><h3>Measure change.</h3><p>Marine populations are dynamic. Indicators and models should preserve their temporal and spatial structure.</p></article>
-<article><span class="qs-principle-number">02</span><h3>Model uncertainty.</h3><p>Evidence is more useful when uncertainty, alternative mechanisms, and model limitations are explicit.</p></article>
-<article><span class="qs-principle-number">03</span><h3>Inform decisions.</h3><p>Analytical complexity matters when it improves interpretation, reproducibility, and fisheries decisions.</p></article>
-</div>
-<div class="qs-theme-grid">
-<div class="qs-theme-item"><strong>Population dynamics &amp; stock assessment</strong><span>Recruitment, growth, selectivity, demographic structure, uncertainty, and management-oriented assessment.</span></div>
-<div class="qs-theme-item"><strong>Spatio-temporal marine ecology</strong><span>Habitat, distribution shifts, accessibility, hotspots, fleet behaviour, and spatial models.</span></div>
-<div class="qs-theme-item"><strong>Environmental variability &amp; ecosystem responses</strong><span>Oceanographic and climatic drivers, ecosystem regimes, and pressure–state relationships.</span></div>
-<div class="qs-theme-item"><strong>Statistical ecology &amp; scientific computing</strong><span>Hierarchical, additive, multivariate, machine-learning, and reproducible modelling workflows.</span></div>
-</div>
-</section>
+## Research
 
-<section class="qs-home-section">
-<div class="qs-section-heading"><div><p class="qs-section-kicker">CURRENT RESEARCH</p><h2>Manuscripts and analyses in development</h2></div><a class="qs-text-link" href="projects/">View all projects →</a></div>
-<div class="qs-feature-grid">
-<article class="qs-feature-card"><p class="qs-card-meta">STOCK ASSESSMENT · MACHINE LEARNING</p><h3>Diagnosing stock-assessment misspecification with machine learning</h3><p>Testing whether multivariate assessment diagnostics can identify the structural process responsible for model misspecification.</p><a href="projects/stock-assessment-misspecification/">Explore project →</a></article>
-<article class="qs-feature-card"><p class="qs-card-meta">ANCHOVETA · IN-SEASON BENCHMARKING</p><h3>Standardizing in-season benchmarking for a highly variable small-pelagic fishery</h3><p>Comparing active seasons through season day, effective fishing day, quota progress, historical envelopes, and environmental adjustment.</p><a href="projects/season-benchmarking/">Explore project →</a></article>
-<article class="qs-feature-card"><p class="qs-card-meta">PELAGIC FISHERIES · LONG-TERM CHANGE</p><h3>Long-term reorganization of Peruvian pelagic fisheries</h3><p>Evaluating changes in composition, effort, efficiency, seasonality, spatial footprint, and their relationship with environmental variability.</p><a href="projects/pelagic-fishery-reorganization/">Explore project →</a></article>
-</div>
-</section>
+My work focuses on translating ecological and fisheries observations into quantitative evidence that can support interpretation, assessment, and decision-making in dynamic marine systems.
 
-<section class="qs-home-section qs-ecosystem">
-<p class="qs-section-kicker">SCIENTIFIC ECOSYSTEM</p>
-<h2>Research, build, teach, and communicate</h2>
-<p class="qs-section-lead">Repositories remain the source of truth. This website connects work in development with formal outputs, software, teaching, and reusable data sources.</p>
-<div class="qs-ecosystem-grid">
-<a class="qs-ecosystem-card" href="#research"><span>01</span><strong>Research</strong><small>Scientific questions and research programme</small></a>
-<a class="qs-ecosystem-card" href="projects/"><span>02</span><strong>Projects</strong><small>Manuscripts and collaborative work in development</small></a>
-<a class="qs-ecosystem-card" href="publications/"><span>03</span><strong>Publications</strong><small>Peer-reviewed and formal scholarly outputs</small></a>
-<a class="qs-ecosystem-card" href="talks/"><span>04</span><strong>Conferences</strong><small>Presentations, posters, and conference contributions</small></a>
-<a class="qs-ecosystem-card" href="software/"><span>05</span><strong>Software</strong><small>Scientific packages, applications, and computational tools</small></a>
-<a class="qs-ecosystem-card" href="teaching/"><span>06</span><strong>Teaching</strong><small>Structured classes, training, and reusable learning material</small></a>
-<a class="qs-ecosystem-card" href="blog/"><span>07</span><strong>Posts</strong><small>Tutorials, technical notes, and practical explanations</small></a>
-<a class="qs-ecosystem-card" href="data/"><span>08</span><strong>Data</strong><small>Curated external marine and fisheries data resources</small></a>
-</div>
-</section>
+### Population dynamics and stock assessment
 
-<section class="qs-home-closing">
-<p class="qs-closing-quote">“Better fisheries evidence begins with better questions, transparent models, and reproducible analysis.”</p>
-<div><a class="qs-button qs-button-primary" href="cv/">View CV</a><a class="qs-button" href="contact/">Contact</a></div>
-</section>
-```
+Recruitment, growth, selectivity, demographic structure, uncertainty, model diagnostics, and management-oriented assessment.
+
+### Spatio-temporal marine ecology
+
+Habitat, distribution shifts, accessibility, hotspots, fleet behaviour, and spatial and spatio-temporal models.
+
+### Environmental variability and ecosystem responses
+
+Oceanographic and climatic drivers, ecosystem regimes, pressure-state relationships, and responses of pelagic populations to environmental variability.
+
+### Statistical ecology and scientific computing
+
+Hierarchical, additive, multivariate, machine-learning, and reproducible modelling workflows implemented primarily in R, Python, and related scientific computing tools.
+
+## Scientific ecosystem
+
+This website connects research in development with formal scholarly outputs, scientific software, teaching, reusable data resources, and technical communication. Canonical repositories remain the source of truth for code, documentation, releases, and development history.
+
+- [Projects](projects/) - manuscripts and collaborative research in development.
+- [Publications](publications/) - peer-reviewed articles and other formal scholarly outputs.
+- [Conferences](talks/) - oral presentations, posters, and conference contributions.
+- [Software](software/) - scientific packages, applications, and computational tools.
+- [Teaching](teaching/) - structured classes, training, and reusable learning material.
+- [Data](data/) - curated external marine, fisheries, ecological, climate, and geospatial data resources.
+- [Posts](blog/) - tutorials, technical notes, and practical explanations.
+- [CV](cv/) - complete curriculum vitae.
+
+## Contact
+
+For research collaboration, scientific discussion, or professional enquiries, see the [Contact](contact/) page.
