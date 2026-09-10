@@ -33,8 +33,8 @@ Population-state reconstruction, assessment diagnostics, biological parameters, 
 
 ```{=html}
 <ul class="qs-related-output-list">
-<li class="qs-related-output"><span class="qs-output-type">Thesis</span><a href="/publications/#theses">Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy during 1960-2022</a> (2025)</li>
-<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2022-09-01-anchoveta-biomass-variability/">Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta</a> (2022)</li>
+<li class="qs-related-output"><span class="qs-output-type">Thesis</span><a href="/publications/#theses">Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022</a> (2025)</li>
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2022-09-01-anchoveta-biomass-variability/">Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System</a> (2022)</li>
 </ul>
 ```
 
@@ -68,7 +68,7 @@ Fishery season dynamics, fleet reorganization, fishing pressure, management benc
 
 ```{=html}
 <ul class="qs-related-output-list">
-<li class="qs-related-output"><span class="qs-output-type">Poster</span><a href="/talks/2026-05-08-critical-points-anchovy-stock/">Critical points of natural and anthropogenic pressures and responses in the state of the north-central anchovy stock</a> (2026)</li>
+<li class="qs-related-output"><span class="qs-output-type">Poster</span><a href="/talks/2026-05-08-critical-points-anchovy-stock/">Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea</a> (2026)</li>
 </ul>
 ```
 
@@ -80,9 +80,9 @@ Multidimensional stock condition, reproductive indicators, maturity, and biologi
 
 ```{=html}
 <ul class="qs-related-output-list">
-<li class="qs-related-output"><span class="qs-output-type">Paper</span><a href="/publications/#papers">Classification models based on the gonadosomatic index to determine gonadal maturity stages in Peruvian anchovy</a> (2025)</li>
-<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2026-05-06-anchovy-health-index/">Multivariate Health Index of the anchovy under environmental variability</a> (2026)</li>
-<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2024-11-11-anchoveta-gsi-sibecorp/">Suitability of the gonadosomatic index in Peruvian Anchoveta</a> (2024)</li>
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2026-05-06-anchovy-health-index/">Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability</a> (2026)</li>
+<li class="qs-related-output"><span class="qs-output-type">Paper</span><a href="/publications/#papers">Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens</a> (2025)</li>
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2024-11-11-anchoveta-gsi-sibecorp/">Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation</a> (2024)</li>
 </ul>
 ```
 
@@ -107,6 +107,7 @@ Reusable statistical methods, research software, reproducible workflows, and mar
 
 ```{=html}
 <ul class="qs-related-output-list">
-<li class="qs-related-output"><span class="qs-output-type">Software</span><a href="/software/oceancube/">oceancube - reproducible multidimensional ocean-data infrastructure in R</a> (2026)</li>
+<li class="qs-related-output"><span class="qs-output-type">Software</span><a href="/software/oceancube/">oceancube</a> (2026)</li>
+<li class="qs-related-output"><span class="qs-output-type">Software</span><a href="/software/humboldt-ocean-watch/">humboldt-ocean-watch</a> (2026)</li>
 </ul>
 ```
