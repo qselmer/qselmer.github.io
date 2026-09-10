@@ -4,10 +4,16 @@ description: "Reusable software for fisheries science, marine ecology, environme
 ---
 
 <div class="section-intro">
-I develop computational tools when a research problem produces methods that can be generalized beyond a single analysis. The aim is to turn those solutions into documented, tested, and reusable research software. Development history, releases, documentation, and issues remain in the canonical GitHub repositories.
+The computational tools I develop in my own work are often useful beyond the particular question that motivated them. I aim to generalize these solutions for use in fisheries science, marine ecology, and related quantitative fields, and package them as open research software. You can follow my software development activity on <a href="https://github.com/qselmer"><strong>GitHub</strong></a>.
 </div>
 
-::: {.qs-software-directory}
+<div class="qs-publication-nav" aria-label="Software sections">
+  <a href="#packages"><strong>Packages</strong></a>
+  <a href="#applications"><strong>Applications</strong></a>
+  <a href="#incubating"><strong>Incubating</strong></a>
+</div>
+
+::: {.qs-software-directory .qs-compact-catalogue}
 {{< include _generated.md >}}
 :::
 
