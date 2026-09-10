@@ -14,19 +14,22 @@ TARGET = ROOT / "publications" / "_generated.md"
 DISPLAY_ORDER = [
     "Journal articles",
     "Preprints & working papers",
-    "Books & chapters",
     "Theses",
     "Reports & technical outputs",
-    "Other research outputs",
 ]
 
 HEADING = {
-    "Journal articles": "Journal articles",
-    "Preprints & working papers": "Preprints and working papers",
-    "Books & chapters": "Books and chapters",
-    "Theses": "Theses",
-    "Reports & technical outputs": "Reports and technical outputs",
-    "Other research outputs": "Other research outputs",
+    "Journal articles": ("Peer-reviewed articles", "papers"),
+    "Preprints & working papers": ("Preprints and forthcoming manuscripts", "preprints"),
+    "Theses": ("Theses", "theses"),
+    "Reports & technical outputs": ("Reports and institutional technical outputs", "reports"),
+}
+
+EMPTY_MESSAGE = {
+    "Journal articles": "_No journal articles are currently listed._",
+    "Preprints & working papers": "_No preprints or forthcoming manuscripts are currently listed._",
+    "Theses": "_No theses are currently listed._",
+    "Reports & technical outputs": "_No reports or institutional technical outputs are currently listed._",
 }
 
 
@@ -141,19 +144,16 @@ def build_text(payload: dict[str, Any]) -> str:
         "<!-- AUTO-GENERATED FROM assets/data/publications.json. DO NOT EDIT BY HAND. -->",
         "",
     ]
-    rendered = 0
     for category in DISPLAY_ORDER:
+        heading, anchor = HEADING[category]
         items = grouped[category]
-        if not items:
-            continue
-        lines.extend([f"## {HEADING[category]}", ""])
-        for pub in sorted(items, key=lambda item: (-year_value(item), str(item.get("title") or "").casefold())):
-            lines.append(reference(pub))
-            rendered += 1
-        lines.append("")
-
-    if rendered == 0:
-        lines.extend(["_No formal publication outputs are currently available in the catalogue._", ""])
+        lines.extend([f"## {heading} {{#{anchor}}}", ""])
+        if items:
+            for pub in sorted(items, key=lambda item: (-year_value(item), str(item.get("title") or "").casefold())):
+                lines.append(reference(pub))
+            lines.append("")
+        else:
+            lines.extend([EMPTY_MESSAGE[category], ""])
 
     return "\n".join(lines)
 
