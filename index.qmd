@@ -1,5 +1,5 @@
 ---
-title: "Elmer Quispe-Salazar"
+title: "Quantitative Marine Ecology & Fisheries Science"
 description: "Quantitative marine ecology, fisheries science, and reproducible scientific computing."
 ---
 
