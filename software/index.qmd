@@ -1,18 +1,16 @@
 ---
-title: "Software"
-description: "Scientific packages, analytical applications, and reusable computational infrastructure."
+title: "Research Software"
+description: "Reusable software for fisheries science, marine ecology, environmental data, and reproducible quantitative workflows."
 ---
 
 <div class="section-intro">
-A curated discovery layer for scientific software with a verifiable public repository and enough documentation for external use or technical review. Source code, issues, releases, tests, manuals, and development history remain in the canonical repositories.
+I develop computational tools when a research problem produces methods that can be generalized beyond a single analysis. The aim is to turn those solutions into documented, tested, and reusable research software. Development history, releases, documentation, and issues remain in the canonical GitHub repositories.
 </div>
 
-Repository classification alone is not enough for inclusion. Experimental applications are labelled explicitly and are not presented as official monitoring or management products.
-
-::: {.qs-compact-catalogue}
+::: {.qs-software-directory}
 {{< include _generated.md >}}
 :::
 
 ::: {.qs-footnote-note}
-**Catalogue note.** The authoritative repository inventory is maintained in `qselmer/qselmer`. This website synchronizes only the curated software subset into `assets/data/software.json`; editorial inclusion rules are stored in `software/registry.json`. Incomplete, undocumented, private, concept-stage, or not-yet-defensibly-classified repositories remain outside the primary software catalogue.
+**Software status.** Badges describe only properties that are currently documented in the source repository or local software registry. A package is not labelled as CRAN, peer reviewed, or archived with a DOI unless that status has been verified.
 :::
