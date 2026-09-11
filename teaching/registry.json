@@ -7,7 +7,12 @@
       "site_path": "/teaching/git-github-training/",
       "category": "Course materials",
       "maturity": "Active",
-      "summary": "Structured teaching materials, practices, and reusable resources for learning Git and GitHub through a progressive version-control workflow."
+      "summary": "Structured teaching materials, practices, and reusable resources for learning Git and GitHub through a progressive version-control workflow.",
+      "role": "Instructor",
+      "audience": "Beginners",
+      "duration": "Multi-session",
+      "language_display": "Spanish",
+      "materials": "Lessons, practices & cheatsheets"
     }
   ],
   "infrastructure": [
@@ -15,7 +20,12 @@
       "repository": "qselmer/.template-training",
       "category": "Teaching template",
       "maturity": "Reusable template",
-      "summary": "Reusable Quarto structure for classes, workshops, short courses, technical training, and semester teaching, with modules, labs, exercises, metadata, and reproducible publishing."
+      "summary": "Reusable Quarto structure for classes, workshops, short courses, technical training, and semester teaching, with modules, labs, exercises, metadata, and reproducible publishing.",
+      "role": "Template developer",
+      "audience": "Instructors",
+      "duration": "Reusable",
+      "language_display": "Spanish",
+      "materials": "Quarto modules, labs & exercises"
     }
   ],
   "under_review": [
