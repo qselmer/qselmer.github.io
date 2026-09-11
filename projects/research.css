@@ -1,15 +1,17 @@
 /* Page-specific refinements for the Research catalogue. */
 
-/* Keep the six research-theme links readable without a horizontal scrollbar:
-   three items per row on desktop, then adapt responsively. */
+/* Six research-theme links: three per row on desktop, then adapt responsively. */
 .qs-project-theme-nav {
   display: grid !important;
-  grid-template-columns: repeat(3, max-content);
-  column-gap: 1.65rem !important;
-  row-gap: .45rem !important;
+  grid-template-columns: repeat(3, minmax(0, max-content));
+  column-gap: 1.75rem !important;
+  row-gap: .5rem !important;
   align-items: baseline;
   justify-content: start;
-  overflow-x: visible !important;
+  margin: .15rem 0 1.35rem !important;
+  padding-bottom: .85rem !important;
+  overflow: visible !important;
+  border-bottom: 1px solid rgba(49, 79, 96, .12);
   white-space: normal !important;
   scrollbar-width: none !important;
 }
@@ -23,19 +25,46 @@
   white-space: nowrap;
 }
 
-/* Present the research question and rationale as one continuous paragraph.
-   The generator still emits a <br> separator, which is suppressed here. */
-.qs-theme-rationale br {
-  display: none;
+/* Theme metadata uses the same compact badge language as Publications and Talks. */
+.qs-theme-badges {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: .35rem !important;
+  margin: .15rem 0 .58rem;
 }
 
-.qs-theme-rationale br + strong::before {
-  content: " ";
+/* Research question and rationale read as one continuous paragraph. */
+.qs-theme-rationale {
+  margin: 0 0 1.05rem !important;
+  color: var(--qs-ink);
+  font-size: 1.06rem !important;
+  line-height: 1.62 !important;
+}
+
+.qs-theme-rationale strong {
+  font-weight: 800;
+}
+
+/* Keep project cards visually clean: retain the card boundary but remove internal divider lines. */
+.qs-project-tile,
+.qs-project-tile.qs-project-no-logo {
+  border: 1px solid rgba(49, 79, 96, .12) !important;
+  box-shadow: none !important;
+}
+
+.qs-project-visual {
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.qs-project-footer {
+  border-top: 0 !important;
+  padding-top: .45rem !important;
 }
 
 @media (max-width: 820px) {
   .qs-project-theme-nav {
-    grid-template-columns: repeat(2, max-content);
+    grid-template-columns: repeat(2, minmax(0, max-content));
     column-gap: 1.25rem !important;
   }
 }
