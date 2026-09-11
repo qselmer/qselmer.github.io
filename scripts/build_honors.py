@@ -31,7 +31,7 @@ def load_registry() -> dict[str, Any]:
     for index, item in enumerate(honors, start=1):
         if not isinstance(item, dict):
             raise RuntimeError(f"Honor {index} is not an object")
-        for field in ("id", "year", "category", "type", "title", "organization", "scope", "evidence"):
+        for field in ("id", "year", "category", "type", "title", "organization", "scope", "evidence_status"):
             if not str(item.get(field) or "").strip():
                 raise RuntimeError(f"Honor {index} is missing required field: {field}")
         item_id = str(item["id"])
@@ -42,9 +42,6 @@ def load_registry() -> dict[str, Any]:
             raise RuntimeError(f"Honor {item_id} references unknown category {item['category']}")
         if item.get("visibility") != "public":
             raise RuntimeError(f"Public honors catalogue cannot contain non-public item: {item_id}")
-        evidence = str(item.get("evidence") or "")
-        if not evidence.startswith("/files/honors/") or not evidence.lower().endswith(".pdf"):
-            raise RuntimeError(f"Honor evidence must be a public honors PDF path: {item_id}")
     return payload
 
 
@@ -63,8 +60,7 @@ def render_item(item: dict[str, Any]) -> str:
     location = html.escape(str(item.get("location") or ""))
     summary = html.escape(str(item.get("summary") or ""))
     work_title = html.escape(str(item.get("work_title") or ""))
-    evidence = html.escape(str(item["evidence"]), quote=True)
-    evidence_label = html.escape(str(item.get("evidence_label") or "Evidence"))
+    evidence_status = html.escape(str(item.get("evidence_status") or ""))
 
     reference = f'<strong>{year}.</strong> <span class="qs-academic-output-title">{title}</span>. {organization}.'
     if location:
@@ -74,7 +70,8 @@ def render_item(item: dict[str, Any]) -> str:
         details.append(summary)
     if work_title:
         details.append(f'<em>Recognized work:</em> “{work_title}”.')
-    details.append(f'<a href="{evidence}">{evidence_label}</a>')
+    if evidence_status:
+        details.append(f'<span class="qs-honor-evidence"><em>Evidence:</em> {evidence_status}.</span>')
     badges = "".join([
         badge("Type", str(item["type"]), "blue"),
         badge("Scope", str(item["scope"]), "neutral"),
