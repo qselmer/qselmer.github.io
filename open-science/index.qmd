@@ -4,3 +4,7 @@ description: "Persistent identifiers, scholarly interoperability, citation metad
 ---
 
 {{< include _generated.md >}}
+
+## Reproducibility certification
+
+The evidence-based technical assessment of approved public repositories is available on the [Reproducibility certification](/reproducibility/) page.
