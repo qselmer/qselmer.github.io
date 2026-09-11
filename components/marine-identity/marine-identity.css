@@ -11,13 +11,13 @@
   min-width: 0;
 }
 
-/* Keep the animation aligned with the scientific introduction, but place it
-   roughly two text lines lower than the previous layout. */
+/* Align the top of the circular animation with the opening scientific
+   identity heading in the left column. */
 .qs-about-identity-visual {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 9.5rem;
+  margin-top: 0;
   min-width: 0;
 }
 
@@ -45,7 +45,7 @@
   }
 
   .qs-about-identity-visual {
-    margin-top: 9.25rem;
+    margin-top: 0;
   }
 }
 
