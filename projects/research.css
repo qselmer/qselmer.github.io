@@ -1,0 +1,51 @@
+/* Page-specific refinements for the Research catalogue. */
+
+/* Keep the six research-theme links readable without a horizontal scrollbar:
+   three items per row on desktop, then adapt responsively. */
+.qs-project-theme-nav {
+  display: grid !important;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 1.65rem !important;
+  row-gap: .45rem !important;
+  align-items: baseline;
+  justify-content: start;
+  overflow-x: visible !important;
+  white-space: normal !important;
+  scrollbar-width: none !important;
+}
+
+.qs-project-theme-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.qs-project-theme-nav a {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+/* Present the research question and rationale as one continuous paragraph.
+   The generator still emits a <br> separator, which is suppressed here. */
+.qs-theme-rationale br {
+  display: none;
+}
+
+.qs-theme-rationale br + strong::before {
+  content: " ";
+}
+
+@media (max-width: 820px) {
+  .qs-project-theme-nav {
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 1.25rem !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .qs-project-theme-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .qs-project-theme-nav a {
+    white-space: normal;
+  }
+}
