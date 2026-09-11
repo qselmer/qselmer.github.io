@@ -1,0 +1,6 @@
+---
+title: "Reproducibility certification"
+description: "Evidence-based technical certification and remediation status for approved public scholarly repositories."
+---
+
+{{< include _generated.md >}}
