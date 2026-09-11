@@ -1,20 +1,19 @@
 ---
 title: "Miscellaneous"
 description: "Photographs, short stories, field notes, and other material beyond formal research outputs."
+image: /images/profile.png
 ---
 
 <div class="section-intro">
-A personal space for material that sits outside the formal research catalogue, including photographs, short stories, field notes, visual records, and other occasional pieces.
+A personal space for photographs, field notes, short stories, visual records, and other material that sits outside the formal research catalogue.
 </div>
 
 ## Photographs
 
-Photographic collections and selected field images will be added here.
+![Elmer Quispe-Salazar](/images/profile.png){fig-alt="Elmer Quispe-Salazar" width=55%}
 
-## Stories and field notes
+*Personal photograph.*
 
-Short stories, observations, travel notes, and other non-formal writing will be added here.
+## Notes and other material
 
-## Other material
-
-This section can also host small visual projects, personal notes, and material that does not belong in Publications, Projects, Software, Teaching, Data, or Posts.
+This section complements the formal research, publications, software, teaching, data, and posts catalogues with occasional personal and visual material.
