@@ -8,17 +8,16 @@ Personal academic website of **Elmer Quispe-Salazar**, implemented with Quarto a
 
 The website is a discovery and presentation layer. Scientific repositories remain the source of truth for code, analyses, manuscripts, software, and teaching materials.
 
-- **About** - concise scientific identity, research focus, and recent posts.
-- **Research** - the unified thematic catalogue for research questions, active projects, and related papers, reports, talks, theses, and software. The stable public route remains `/projects/`.
-- **Publications** - formal scholarly outputs organized by publication type.
-- **Talks** - oral presentations, posters, and other scientific presentations.
-- **Software** - curated scientific packages and applications with explicit maturity and canonical repository links.
+- **Research** - scientific questions and thematic programmes linking canonical project repositories with selected papers, talks, theses, reports, and software.
+- **Publications** - formal scholarly outputs; conference outputs are separated.
+- **Talks** - conference presentations, posters, and explicitly labelled historical conference contributions.
+- **Software** - curated scientific packages and applications with explicit maturity.
 - **Teaching** - structured courses/training and reusable teaching infrastructure.
-- **Posts** - tutorials, technical notes, methodological explanations, and reproducible-science guidance.
-- **CV** - curriculum vitae and language-specific download layer as files become available.
-- **More** - secondary navigation containing **Data Sources**, **Miscellaneous**, and **Contact**.
+- **Posts** - tutorials, technical notes, methodological explanations, and reproducible-science guidance for a broader technical audience.
+- **CV** - professional record.
+- **More** - curated Data Sources, Miscellaneous material, and Contact.
 
-`/research/` is retained only as a noindex compatibility redirect to the unified Research catalogue at `/projects/`. Retired substantive routes such as `/services/`, `/engagement/`, `/resources/`, `/follow/`, and `/resume/` are no longer rendered as content pages; where useful, noindex redirects preserve older inbound links without exposing the retired material.
+Legacy routes that no longer belong to the public architecture are retained only as deterministic `noindex` redirects when old inbound links remain meaningful. The retired substantive pages are not rendered as public content.
 
 ## Metadata sources
 
@@ -34,20 +33,29 @@ The canonical repository catalogue is fetched transiently during automation beca
 - `assets/data/software.json`
 - `assets/data/teaching.json`
 
-Website-specific editorial decisions remain in local registries such as `software/registry.json`, `teaching/registry.json`, `talks/registry.json`, `data/registry.json`, and `blog/registry.json` (public label: **Posts**).
+Website-specific editorial decisions remain in local registries such as `projects/registry.json`, `software/registry.json`, `teaching/registry.json`, `talks/registry.json`, `data/registry.json`, and `blog/registry.json` (public label: **Posts**).
 
 See [`AUTOMATION.md`](AUTOMATION.md) for the complete data flow.
 
 ## Local validation
 
 ```bash
+python scripts/build_publications.py
+python scripts/build_conferences.py
+python scripts/build_software.py
+python scripts/build_teaching.py
+python scripts/build_data_resources.py
+python scripts/build_blog.py
+python scripts/build_research_graph.py
+python scripts/build_projects.py
+python scripts/build_home.py
 python scripts/validate_site.py source
 quarto render
 python scripts/validate_site.py rendered
 python scripts/check_external_links.py _site
 ```
 
-The source validator rejects obsolete Academic Pages/Jekyll runtime paths. The rendered validator checks identity consistency, deterministic generated fragments, CV delivery, compatibility redirects, metadata, sitemap policy, and internal `href`/`src` targets.
+The source validator rejects obsolete Academic Pages/Jekyll runtime paths. The rendered validator checks identity consistency, deterministic generated fragments, CV delivery, compatibility redirects, metadata, and internal `href`/`src` targets.
 
 ## Synchronizing academic-profile metadata
 
@@ -59,7 +67,7 @@ This synchronizes canonical public profile metadata, derives the curated softwar
 
 ## Production deployment
 
-The production site is deployed through GitHub Pages Actions. `.github/workflows/quarto-pages.yml` validates the source, renders the Quarto project, validates the rendered site and external links, uploads `_site`, and deploys it to GitHub Pages on pushes to `master`.
+The production site is deployed through GitHub Pages Actions. `.github/workflows/quarto-pages.yml` rebuilds deterministic catalogue fragments, validates the source, synchronizes canonical visual assets, renders the Quarto project, validates the rendered site and external links, uploads `_site`, and deploys it to GitHub Pages on pushes to `master`.
 
 The first Quarto production cutover was deployed from merge commit `0cf243eb7f68e67fe322bb1036e7ac10e97d4f33` by GitHub Actions run `34276777663`.
 
