@@ -1,23 +1,33 @@
 /* Final cross-catalogue standardization layer. */
 
-.qs-theme-badges,
-.qs-project-badges {
+/* Academic links use one restrained colour and remain un-underlined outside About. */
+main.content a:not(.btn),
+main.content a:not(.btn):visited,
+main.content a:not(.btn):hover,
+main.content a:not(.btn):focus {
+  color: #0b1320;
+  text-decoration: none !important;
+}
+
+.qs-theme-badges {
   margin: 0 0 .55rem;
 }
 
-.qs-theme-badges > .qs-badge-row,
-.qs-project-badges > .qs-badge-row {
+.qs-theme-badges > .qs-badge-row {
   display: flex;
   width: fit-content;
   flex-wrap: wrap;
   gap: .28rem;
 }
 
-.qs-project-body .qs-project-badges {
-  margin-top: 0;
+/* Project cards are deliberately simpler than theme metadata: no repeated badges,
+   no internal dividers, and a fully white card surface. */
+.qs-project-tile,
+.qs-project-visual,
+.qs-project-body {
+  background: #ffffff !important;
 }
 
-/* Project cards retain one outer frame only; internal dividers add visual noise. */
 .qs-project-visual {
   border-right: 0 !important;
   border-bottom: 0 !important;
@@ -27,19 +37,45 @@
   border-top: 0 !important;
 }
 
-.qs-teaching-links {
-  white-space: nowrap;
-  font-size: .9em;
+/* Teaching entries use a clear title -> description -> metadata hierarchy. */
+.qs-teaching-entry {
+  margin: 0 0 1rem;
+  padding: 0 0 .9rem;
+  border-bottom: 1px solid rgba(49, 79, 96, .12);
 }
 
-.qs-teaching-links a {
-  color: #0b1320;
-  text-decoration-color: #0b1320;
+.qs-teaching-entry:last-child {
+  border-bottom: 0;
+}
+
+.qs-teaching-title {
+  margin: 0 0 .3rem !important;
+  font-size: 1.08rem !important;
+  line-height: 1.3 !important;
+}
+
+.qs-teaching-title-link {
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+.qs-teaching-summary {
+  margin: 0 0 .45rem !important;
+  color: var(--qs-ink-soft);
+  font-size: .97rem;
+  line-height: 1.45;
+}
+
+.qs-teaching-links {
+  margin: .4rem 0 0 !important;
+  white-space: nowrap;
+  font-size: .9em;
 }
 
 /* Keep standard badge rows compact and aligned across catalogues. */
 .qs-publication-badges,
 .qs-software-copy .qs-badge-row,
-.qs-data-catalogue .qs-badge-row {
+.qs-data-catalogue .qs-badge-row,
+.qs-teaching-entry .qs-badge-row {
   gap: .28rem;
 }
