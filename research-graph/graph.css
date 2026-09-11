@@ -1,0 +1,75 @@
+.qs-graph-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: .55rem;
+  margin: .8rem 0 1rem;
+}
+
+.qs-graph-stat {
+  display: grid;
+  gap: .08rem;
+  padding: .58rem .68rem;
+  border-top: 2px solid #0b1320;
+  background: #f7f8fa;
+}
+
+.qs-graph-stat strong {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.qs-graph-stat span {
+  color: var(--qs-ink-soft);
+  font-size: .8rem;
+}
+
+.qs-graph-contract,
+.qs-graph-rationale {
+  color: var(--qs-ink-soft);
+  line-height: 1.5;
+}
+
+.qs-graph-contract {
+  margin: .4rem 0 1.2rem !important;
+  padding: .55rem .7rem;
+  border-left: 3px solid #0b1320;
+  background: #f7f8fa;
+  font-size: .9rem;
+}
+
+.qs-graph-list {
+  margin: .2rem 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.qs-graph-list li {
+  margin: 0 0 .48rem;
+  line-height: 1.42;
+}
+
+.qs-graph-kind {
+  display: inline-block;
+  margin-right: .45rem;
+  padding: .12rem .38rem;
+  border-radius: .18rem;
+  background: #0b1320;
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.qs-graph-repo,
+.qs-graph-year {
+  margin-left: .45rem;
+  color: var(--qs-ink-soft);
+  font-size: .84rem;
+}
+
+@media (max-width: 760px) {
+  .qs-graph-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

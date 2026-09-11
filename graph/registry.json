@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "purpose": "Curated policy and relationship overrides for the public Unified Scholarly Graph. Descriptive metadata remains authoritative in its domain registry or public mirror; this file stores graph-only decisions.",
+  "visibility_policy": {
+    "public_only": true,
+    "forbidden_source_substrings": [
+      "repository-catalog.json"
+    ],
+    "note": "The raw repository catalogue may contain private-repository metadata. It is used only upstream to derive curated public mirrors and is never serialized into the public scholarly graph."
+  },
+  "public_repositories": [
+    "qselmer/pel-climate-adaptive-management-paper",
+    "qselmer/pelagicPER-availability-risk-paper",
+    "qselmer/oceancube",
+    "qselmer/humboldt-ocean-watch",
+    "qselmer/git-github-training",
+    "qselmer/.template-training"
+  ],
+  "theme_overrides": [
+    {
+      "kind": "Post",
+      "match": "Statistical distributions for fisheries and marine ecology",
+      "theme": "scientific-computing"
+    }
+  ],
+  "project_relations": [],
+  "featured": {
+    "project": "project:stock-assessment-misspecification",
+    "paper": "publication:doi:10.3989/scimar.05636.117",
+    "software": "software:github:qselmer/oceancube",
+    "talk": "talk:2026-05-06:multivariate-health-index-of-the-anchovy-understanding-the-dynamics-of-small-pelagic-fish-under-environmental-variability"
+  }
+}

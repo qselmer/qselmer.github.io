@@ -7,5 +7,5 @@ css: research.css
 {{< include _generated.md >}}
 
 ::: {.qs-footnote-note}
-**Research catalogue.** Each project card represents a canonical research repository or a stable public project record linked to its source repository. Formal publication, talk, and software metadata remain authoritative in their respective catalogues.
+**Research catalogue.** Each project card represents a canonical research repository or a stable public project record linked to its source repository. Formal publication, talk, software, teaching, and post metadata remain authoritative in their respective catalogues. [Explore the public Research Graph](/research-graph/) to see these records connected through common themes, projects, repositories, and provenance.
 :::

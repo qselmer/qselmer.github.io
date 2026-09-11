@@ -45,6 +45,7 @@ jobs:
           python scripts/build_data_resources.py
           python scripts/build_blog.py
           python scripts/build_research_graph.py
+          python scripts/build_scholarly_graph.py
           python scripts/build_projects.py
           python scripts/build_home.py
 
@@ -54,11 +55,16 @@ jobs:
       - name: Validate Phase 6 source quality
         run: python scripts/validate_quality.py source
 
+      - name: Validate Phase 7 scholarly graph
+        run: python scripts/validate_phase7.py source
+
       - name: Validate generated research automation
         run: |
-          python -m py_compile scripts/sync_project_logos.py scripts/sync_software_logos.py scripts/build_research_graph.py scripts/build_projects.py scripts/build_software.py scripts/validate_quality.py
+          python -m py_compile scripts/sync_project_logos.py scripts/sync_software_logos.py scripts/build_research_graph.py scripts/build_scholarly_graph.py scripts/build_projects.py scripts/build_software.py scripts/build_home.py scripts/validate_quality.py scripts/validate_phase7.py
           python scripts/build_research_graph.py --check
+          python scripts/build_scholarly_graph.py --check
           python scripts/build_projects.py --check
+          python scripts/build_home.py --check
 
       - name: Synchronize canonical visual assets for this build
         env:
@@ -69,7 +75,9 @@ jobs:
           python scripts/sync_software_logos.py
           python scripts/build_software.py
           python scripts/build_research_graph.py
+          python scripts/build_scholarly_graph.py
           python scripts/build_projects.py
+          python scripts/build_home.py
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -85,6 +93,9 @@ jobs:
 
       - name: Validate Phase 6 rendered quality
         run: python scripts/validate_quality.py rendered
+
+      - name: Validate Phase 7 rendered graph
+        run: python scripts/validate_phase7.py rendered
 
       - name: Validate external links
         run: python scripts/check_external_links.py _site
