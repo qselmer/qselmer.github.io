@@ -11,11 +11,16 @@
   min-width: 0;
 }
 
+/*
+ * Align the top of the scientific identity with the first line of
+ * “Quantitative Marine Ecology & Fisheries Science”, rather than with
+ * the page title/description above it.
+ */
 .qs-about-identity-visual {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 0;
+  margin-top: 7rem;
   min-width: 0;
 }
 
@@ -43,7 +48,7 @@
   }
 
   .qs-about-identity-visual {
-    margin-top: 0;
+    margin-top: 7rem;
   }
 }
 
