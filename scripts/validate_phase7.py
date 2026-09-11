@@ -51,6 +51,21 @@ def validate_graph() -> tuple[int, int]:
     if registry.get("schema_version") != 1:
         raise RuntimeError("graph/registry.json must use schema_version 1")
 
+    approved_repositories = {
+        str(value).strip()
+        for value in registry.get("public_repositories") or []
+        if str(value).strip()
+    }
+    if not approved_repositories:
+        raise RuntimeError("graph/registry.json must define a non-empty public_repositories allowlist")
+    graph_allowlist = {
+        str(value).strip()
+        for value in payload.get("public_repository_allowlist") or []
+        if str(value).strip()
+    }
+    if graph_allowlist != approved_repositories:
+        raise RuntimeError("Public graph repository allowlist does not match graph/registry.json")
+
     nodes = payload.get("nodes")
     edges = payload.get("edges")
     if not isinstance(nodes, list) or not isinstance(edges, list):
@@ -72,6 +87,15 @@ def validate_graph() -> tuple[int, int]:
             parsed = urlparse(url)
             if parsed.scheme not in {"http", "https"} or not parsed.netloc:
                 raise RuntimeError(f"Invalid canonical URL for {node_id}: {url}")
+
+        full_name = str(node.get("full_name") or "").strip()
+        repository = str(node.get("repository") or "").strip()
+        if node.get("kind") == "Repository":
+            if not full_name or full_name not in approved_repositories:
+                raise RuntimeError(f"Repository node bypasses public allowlist: {node_id} -> {full_name!r}")
+        if repository and repository not in approved_repositories:
+            raise RuntimeError(f"Node exposes repository outside public allowlist: {node_id} -> {repository}")
+
         doi = str((node.get("identifiers") or {}).get("doi") or "").casefold()
         if doi:
             if doi in dois:
@@ -124,8 +148,11 @@ def validate_graph() -> tuple[int, int]:
 
 def validate_rendered() -> None:
     page = SITE / "research-graph" / "index.html"
+    graph_json = SITE / "assets" / "data" / "scholarly-graph.json"
     if not page.is_file():
         raise RuntimeError("Rendered Research Graph page is missing")
+    if not graph_json.is_file() or graph_json.stat().st_size == 0:
+        raise RuntimeError("Machine-readable scholarly graph was not published")
     body = page.read_text(encoding="utf-8", errors="strict")
     for marker in ("qs-graph-summary", "Public graph:", "Provenance and graph contract"):
         if marker not in body:
@@ -139,10 +166,13 @@ def main() -> None:
 
     if args.mode in {"source", "all"}:
         nodes, edges = validate_graph()
-        print(f"Phase 7 source QA PASS: {nodes} public nodes, {edges} validated edges, privacy firewall active.")
+        print(
+            f"Phase 7 source QA PASS: {nodes} public nodes, {edges} validated edges, "
+            "repository allowlist and privacy firewall active."
+        )
     if args.mode in {"rendered", "all"}:
         validate_rendered()
-        print("Phase 7 rendered QA PASS: public Research Graph route rendered and graph contract visible.")
+        print("Phase 7 rendered QA PASS: public Research Graph page and machine-readable JSON deployed.")
 
 
 if __name__ == "__main__":
