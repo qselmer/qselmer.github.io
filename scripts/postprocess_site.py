@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Post-render certification helpers for qselmer.github.io.
+"""Post-render certification and scholarly metadata helpers for qselmer.github.io.
 
-This script runs from Quarto's project post-render hook. It adds canonical URLs
-and 404 indexing policy to rendered pages, hardens target=_blank links, and
-materializes static compatibility redirects declared in config/legacy-routes.json.
+This script runs from Quarto's project post-render hook. It adds canonical URLs,
+structured JSON-LD, route-specific social preview metadata, RSS discovery links,
+404 indexing policy, hardened target=_blank links, and compatibility redirects.
 """
 
 from __future__ import annotations
@@ -17,6 +17,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "_site"
 SITE_URL = "https://qselmer.github.io"
 ROUTES = ROOT / "config" / "legacy-routes.json"
+PUBLICATIONS = ROOT / "assets" / "data" / "publications.json"
+SOFTWARE = ROOT / "assets" / "data" / "software.json"
+BLOG = ROOT / "blog" / "registry.json"
+PERSON_ID = SITE_URL + "/#person"
 
 
 def route_for_page(page: Path) -> str:
@@ -39,6 +43,13 @@ def insert_before_head_end(text: str, fragment: str) -> str:
     return text.replace(marker, fragment + "\n" + marker, 1)
 
 
+def load_json(path: Path) -> dict:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise RuntimeError(f"{path} must contain a JSON object")
+    return payload
+
+
 def harden_blank_links(text: str) -> str:
     pattern = re.compile(r'<a(?P<attrs>[^>]*\btarget="_blank"[^>]*)>', re.IGNORECASE)
 
@@ -49,6 +60,232 @@ def harden_blank_links(text: str) -> str:
         return f'<a{attrs} rel="noopener noreferrer">'
 
     return pattern.sub(repl, text)
+
+
+def set_meta(text: str, attr: str, key: str, value: str) -> str:
+    escaped = html.escape(value, quote=True)
+    replacement = f'<meta {attr}="{html.escape(key, quote=True)}" content="{escaped}">'
+    pattern = re.compile(
+        rf'<meta(?=[^>]*\b{re.escape(attr)}=["\']{re.escape(key)}["\'])[^>]*>',
+        flags=re.IGNORECASE,
+    )
+    if pattern.search(text):
+        return pattern.sub(replacement, text, count=1)
+    return insert_before_head_end(text, replacement)
+
+
+def add_rss_discovery(text: str, route: str) -> str:
+    if route != "/blog/" and not route.startswith("/blog/"):
+        return text
+    if 'type="application/rss+xml"' in text:
+        return text
+    href = SITE_URL + "/blog/index.xml"
+    fragment = (
+        '<link rel="alternate" type="application/rss+xml" '
+        f'title="Elmer Quispe-Salazar - Posts" href="{html.escape(href, quote=True)}">'
+    )
+    return insert_before_head_end(text, fragment)
+
+
+def social_preview(route: str) -> tuple[str, str, str] | None:
+    if route == "/publications/":
+        return ("/images/profile.png", "Elmer Quispe-Salazar publications", "article")
+    if route in {"/talks/", "/talks/2024-11-11-anchoveta-gsi-sibecorp/", "/talks/2022-09-01-anchoveta-biomass-variability/"}:
+        return ("/images/editing-talk.png", "Scientific talks by Elmer Quispe-Salazar", "article")
+    if route == "/talks/2026-05-06-anchovy-health-index/":
+        return ("/images/talks/anchovy-health-index-thumbnail.png", "Multivariate Health Index of the anchovy presentation", "article")
+    if route == "/talks/2026-05-08-critical-points-anchovy-stock/":
+        return ("/images/talks/anchovy-critical-points-thumbnail.png", "Critical points in the anchovy stock presentation", "article")
+    if route == "/software/" or route.startswith("/software/"):
+        return ("/images/favicon-512x512.png", "Open research software by Elmer Quispe-Salazar", "website")
+    if route == "/blog/":
+        return ("/images/home/statistical-modelling-workflow.png", "Technical posts in fisheries and marine ecology", "website")
+    if route.startswith("/blog/"):
+        return ("/images/home/statistical-modelling-workflow.png", "Statistical modelling workflow for fisheries and marine ecology", "article")
+    return None
+
+
+def apply_social_preview(text: str, route: str) -> str:
+    preview = social_preview(route)
+    if preview is None:
+        return text
+    image_path, image_alt, og_type = preview
+    image_url = SITE_URL + image_path
+    text = set_meta(text, "property", "og:image", image_url)
+    text = set_meta(text, "property", "og:image:alt", image_alt)
+    text = set_meta(text, "property", "og:type", og_type)
+    text = set_meta(text, "name", "twitter:image", image_url)
+    text = set_meta(text, "name", "twitter:image:alt", image_alt)
+    text = set_meta(text, "name", "twitter:card", "summary_large_image")
+    return text
+
+
+def person_schema() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": PERSON_ID,
+        "name": "Elmer Quispe-Salazar",
+        "url": SITE_URL + "/",
+        "image": SITE_URL + "/images/profile.png",
+        "jobTitle": ["Marine Quantitative Ecologist", "Fisheries Scientist"],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Instituto del Mar del Perú (IMARPE)",
+            "url": "https://www.gob.pe/imarpe",
+        },
+        "sameAs": [
+            "https://orcid.org/0000-0001-9229-6379",
+            "https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en",
+            "https://github.com/qselmer",
+            "https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/",
+        ],
+        "knowsAbout": [
+            "quantitative marine ecology",
+            "fisheries science",
+            "stock assessment",
+            "population dynamics",
+            "spatial ecology",
+            "environmental variability",
+            "reproducible scientific computing",
+        ],
+    }
+
+
+def scholarly_schema() -> dict | None:
+    payload = load_json(PUBLICATIONS)
+    articles: list[dict] = []
+    for item in payload.get("publications", []):
+        if item.get("output_category") != "Journal articles":
+            continue
+        authors = []
+        for name in item.get("authors", []):
+            if name == "Elmer Quispe-Salazar":
+                authors.append({"@id": PERSON_ID})
+            else:
+                authors.append({"@type": "Person", "name": name})
+        node: dict = {
+            "@type": "ScholarlyArticle",
+            "headline": item.get("title", ""),
+            "name": item.get("title", ""),
+            "datePublished": item.get("year", ""),
+            "author": authors or [{"@id": PERSON_ID}],
+            "isPartOf": {"@type": "Periodical", "name": item.get("journal", "")},
+            "url": item.get("url", ""),
+            "mainEntityOfPage": SITE_URL + "/publications/#papers",
+        }
+        if item.get("volume"):
+            node["volumeNumber"] = item["volume"]
+        if item.get("issue"):
+            node["issueNumber"] = item["issue"]
+        if item.get("pages"):
+            node["pagination"] = item["pages"]
+        if item.get("doi"):
+            node["identifier"] = {
+                "@type": "PropertyValue",
+                "propertyID": "DOI",
+                "value": item["doi"],
+            }
+            node["sameAs"] = "https://doi.org/" + item["doi"]
+        articles.append(node)
+    if not articles:
+        return None
+    return {"@context": "https://schema.org", "@graph": [person_schema(), *articles]}
+
+
+def software_schema(route: str) -> dict | None:
+    payload = load_json(SOFTWARE)
+    for item in payload.get("software", []):
+        if item.get("site_path") != route:
+            continue
+        node: dict = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareSourceCode",
+            "name": item.get("name", ""),
+            "description": item.get("summary") or item.get("description") or "",
+            "url": canonical_url(route),
+            "codeRepository": item.get("html_url", ""),
+            "author": {"@id": PERSON_ID},
+        }
+        if item.get("language"):
+            node["programmingLanguage"] = item["language"]
+        if item.get("latest_release"):
+            node["version"] = item["latest_release"]
+        elif item.get("version"):
+            node["version"] = item["version"]
+        if item.get("documentation"):
+            node["softwareHelp"] = {"@type": "CreativeWork", "url": item["documentation"]}
+        return node
+    return None
+
+
+def course_schema(route: str) -> dict | None:
+    if route != "/teaching/git-github-training/":
+        return None
+    return {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Git and GitHub Training",
+        "description": "Structured teaching materials and practical exercises for Git, GitHub, and reproducible version-control workflows.",
+        "url": canonical_url(route),
+        "provider": {"@id": PERSON_ID},
+        "inLanguage": "es",
+        "educationalLevel": "Beginner",
+        "about": ["Git", "GitHub", "version control", "reproducible research"],
+    }
+
+
+def blog_schema(route: str) -> dict | None:
+    payload = load_json(BLOG)
+    for post in payload.get("posts", []):
+        if post.get("route") != route:
+            continue
+        image = str(post.get("thumbnail") or "/images/profile.png")
+        return {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.get("title", ""),
+            "description": post.get("excerpt", ""),
+            "datePublished": post.get("date", ""),
+            "dateModified": post.get("updated") or post.get("date", ""),
+            "author": {"@id": PERSON_ID},
+            "mainEntityOfPage": canonical_url(route),
+            "url": canonical_url(route),
+            "image": SITE_URL + image,
+            "articleSection": post.get("topic", ""),
+        }
+    return None
+
+
+def schema_for_route(route: str) -> dict | None:
+    if route == "/":
+        return person_schema()
+    if route == "/publications/":
+        return scholarly_schema()
+    software = software_schema(route)
+    if software is not None:
+        return software
+    course = course_schema(route)
+    if course is not None:
+        return course
+    blog = blog_schema(route)
+    if blog is not None:
+        return blog
+    return None
+
+
+def inject_json_ld(text: str, route: str) -> str:
+    schema = schema_for_route(route)
+    if schema is None:
+        return text
+    pattern = re.compile(
+        r'<script id="qs-structured-data" type="application/ld\+json">.*?</script>',
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    text = pattern.sub("", text)
+    payload = json.dumps(schema, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    fragment = f'<script id="qs-structured-data" type="application/ld+json">{payload}</script>'
+    return insert_before_head_end(text, fragment)
 
 
 def postprocess_rendered_pages() -> None:
@@ -68,6 +305,9 @@ def postprocess_rendered_pages() -> None:
                 text, '<meta name="robots" content="noindex,follow">'
             )
 
+        text = apply_social_preview(text, route)
+        text = add_rss_discovery(text, route)
+        text = inject_json_ld(text, route)
         text = harden_blank_links(text)
         page.write_text(text, encoding="utf-8")
 
@@ -130,7 +370,10 @@ def build_redirects() -> int:
 def main() -> None:
     postprocess_rendered_pages()
     count = build_redirects()
-    print(f"Post-render PASS: canonical metadata hardened; {count} legacy redirects generated")
+    print(
+        "Post-render PASS: canonical, structured-data, social, and RSS metadata hardened; "
+        f"{count} legacy redirects generated"
+    )
 
 
 if __name__ == "__main__":
