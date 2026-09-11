@@ -142,16 +142,16 @@ def render_post(post: dict) -> list[str]:
 
     reference = (
         f'<a class="qs-academic-output-title" href="{route}">{title}</a>. '
-        f'{excerpt}'
+        f'{excerpt} '
+        f'<span class="qs-badge-row qs-publication-badges qs-academic-output-badges-inline">{badges}</span>'
     )
 
     return [
         '<li class="qs-academic-output-item qs-post-output-item">',
-        '<div class="qs-academic-output-layout">',
+        '<div class="qs-academic-output-layout qs-academic-output-layout-inline">',
         media,
         '<div class="qs-academic-output-copy">',
-        f'<p class="qs-academic-output-reference">{reference}</p>',
-        f'<div class="qs-badge-row qs-publication-badges qs-academic-output-badges">{badges}</div>',
+        f'<p class="qs-academic-output-reference qs-academic-output-reference-inline">{reference}</p>',
         '</div>',
         '</div>',
         '</li>',
