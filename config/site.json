@@ -52,7 +52,8 @@
     "data/_generated.md",
     "blog/_generated.md",
     "projects/_generated.md",
-    "includes/profile-sidebar.html"
+    "includes/profile-sidebar.html",
+    "includes/about-selected.html"
   ],
   "synchronized_artifacts": [
     "assets/data/publications.json",
@@ -70,6 +71,7 @@
     "projects/_generated.md",
     "images/projects",
     "images/software",
-    "includes/profile-sidebar.html"
+    "includes/profile-sidebar.html",
+    "includes/about-selected.html"
   ]
 }
