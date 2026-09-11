@@ -87,9 +87,6 @@ def render_item(item: dict, curated: dict) -> str:
     title = html.escape(display)
     if target:
         title = f'<a class="qs-academic-output-title" href="{html.escape(target, quote=True)}">{title}</a>'
-    reference = f"{title}."
-    if summary:
-        reference += f" {html.escape(summary)}"
 
     links: list[str] = []
     if site_path:
@@ -97,24 +94,36 @@ def render_item(item: dict, curated: dict) -> str:
     if repo_url:
         links.append(f'<a href="{html.escape(repo_url, quote=True)}">Repository</a>')
 
-    parts = [
-        '<li class="qs-academic-output-item qs-teaching-output-item">',
-        '<div class="qs-academic-output-layout">',
-        teaching_visual(item, curated, display),
-        '<div class="qs-academic-output-copy">',
-        f'<p class="qs-academic-output-reference">{reference}</p>',
-        '<p class="qs-academic-output-meta">'
+    pieces = [f"{title}."]
+    if summary:
+        pieces.append(html.escape(summary))
+    pieces.append(
+        '<span class="qs-academic-output-meta-inline">'
         f'<strong>Duration:</strong> {html.escape(duration)} '
         '<span aria-hidden="true">·</span> '
-        f'<strong>Materials:</strong> {html.escape(materials)}'
-        '</p>',
-    ]
+        f'<strong>Materials:</strong> {html.escape(materials)}.'</n        '</span>'
+    )
     if links:
-        separator = ' <span aria-hidden="true">|</span> '
-        parts.append(f'<p class="qs-academic-output-links">{separator.join(links)}</p>')
-    parts.append(f'<div class="qs-badge-row qs-publication-badges qs-academic-output-badges">{"".join(badges)}</div>')
-    parts += ['</div>', '</div>', '</li>']
-    return "".join(parts)
+        pieces.append(
+            '<span class="qs-academic-output-links-inline">'
+            + ' <span aria-hidden="true">·</span> '.join(links)
+            + '.</span>'
+        )
+    pieces.append(
+        f'<span class="qs-badge-row qs-publication-badges qs-academic-output-badges-inline">'
+        f'{"".join(badges)}</span>'
+    )
+
+    return "".join([
+        '<li class="qs-academic-output-item qs-teaching-output-item">',
+        '<div class="qs-academic-output-layout qs-academic-output-layout-inline">',
+        teaching_visual(item, curated, display),
+        '<div class="qs-academic-output-copy">',
+        f'<p class="qs-academic-output-reference qs-academic-output-reference-inline">{" ".join(pieces)}</p>',
+        '</div>',
+        '</div>',
+        '</li>',
+    ])
 
 
 def render_group(lines: list[str], heading: str, anchor: str, items: list[dict], metadata: dict[str, dict]) -> None:
