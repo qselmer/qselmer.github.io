@@ -36,13 +36,15 @@
     "teaching/registry.json",
     "data/registry.json",
     "blog/registry.json",
-    "projects/registry.json"
+    "projects/registry.json",
+    "graph/registry.json"
   ],
   "derived_json": [
     "assets/data/conferences.json",
     "assets/data/software.json",
     "assets/data/teaching.json",
-    "assets/data/research-graph.json"
+    "assets/data/research-graph.json",
+    "assets/data/scholarly-graph.json"
   ],
   "generated_fragments": [
     "publications/_generated.md",
@@ -52,6 +54,7 @@
     "data/_generated.md",
     "blog/_generated.md",
     "projects/_generated.md",
+    "research-graph/_generated.md",
     "includes/profile-sidebar.html",
     "includes/about-selected.html"
   ],
@@ -68,7 +71,9 @@
     "blog/_generated.md",
     "assets/data/research-metrics.json",
     "assets/data/research-graph.json",
+    "assets/data/scholarly-graph.json",
     "projects/_generated.md",
+    "research-graph/_generated.md",
     "images/projects",
     "images/software",
     "includes/profile-sidebar.html",
