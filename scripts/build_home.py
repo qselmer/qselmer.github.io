@@ -120,6 +120,19 @@ def internal_project_url(site_path: str) -> str:
     return f"/projects/{text}"
 
 
+def render_selected_card(kind: str, title: str, url: str, summary: str) -> str:
+    """Reuse the canonical Research project-card markup on the About page."""
+    return (
+        '<article class="qs-project-tile">'
+        '<div class="qs-project-body">'
+        f'<span class="qs-project-type">{html.escape(kind.upper())}</span>'
+        f'<h3><a href="{html.escape(url, quote=True)}">{html.escape(title)}</a></h3>'
+        f'<p class="qs-project-card-summary">{html.escape(summary)}</p>'
+        '</div>'
+        '</article>'
+    )
+
+
 def render_selected_research() -> str:
     projects = load_json(PROJECTS_SOURCE).get("projects") or []
     publications = load_json(PUBLICATIONS_SOURCE).get("publications") or []
@@ -138,40 +151,44 @@ def render_selected_research() -> str:
     cards: list[str] = []
     if project:
         cards.append(
-            '<article class="qs-selected-item">'
-            '<span class="qs-selected-type">Project</span>'
-            f'<h3><a href="{html.escape(internal_project_url(str(project.get("site_path") or "")), quote=True)}">{html.escape(str(project.get("title") or ""))}</a></h3>'
-            f'<p>{html.escape(str(project.get("summary") or ""))}</p>'
-            '</article>'
+            render_selected_card(
+                "Project",
+                str(project.get("title") or ""),
+                internal_project_url(str(project.get("site_path") or "")),
+                str(project.get("summary") or ""),
+            )
         )
     if paper:
         journal = str(paper.get("journal") or "").strip()
         year = str(paper.get("year") or "").strip()
         meta = " · ".join(part for part in (journal, year) if part)
         cards.append(
-            '<article class="qs-selected-item">'
-            '<span class="qs-selected-type">Paper</span>'
-            f'<h3><a href="/publications/#papers">{html.escape(str(paper.get("title") or ""))}</a></h3>'
-            f'<p>{html.escape(meta)}</p>'
-            '</article>'
+            render_selected_card(
+                "Paper",
+                str(paper.get("title") or ""),
+                "/publications/#papers",
+                meta,
+            )
         )
     if software_item:
         repository = str(software_item.get("repository") or "").strip()
         name = repository.rsplit("/", 1)[-1]
         cards.append(
-            '<article class="qs-selected-item">'
-            '<span class="qs-selected-type">Software</span>'
-            f'<h3><a href="{html.escape(str(software_item.get("site_path") or ""), quote=True)}">{html.escape(name)}</a></h3>'
-            f'<p>{html.escape(str(software_item.get("summary") or ""))}</p>'
-            '</article>'
+            render_selected_card(
+                "Software",
+                name,
+                str(software_item.get("site_path") or ""),
+                str(software_item.get("summary") or ""),
+            )
         )
     if talk:
         cards.append(
-            '<article class="qs-selected-item">'
-            '<span class="qs-selected-type">Talk</span>'
-            f'<h3><a href="{html.escape(str(talk.get("site_path") or ""), quote=True)}">{html.escape(str(talk.get("display_title") or ""))}</a></h3>'
-            f'<p>{html.escape(str(talk.get("event") or ""))}</p>'
-            '</article>'
+            render_selected_card(
+                "Talk",
+                str(talk.get("display_title") or ""),
+                str(talk.get("site_path") or ""),
+                str(talk.get("event") or ""),
+            )
         )
 
     return (
