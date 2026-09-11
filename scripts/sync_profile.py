@@ -47,6 +47,9 @@ def main() -> None:
         run_script("sync_software.py", "--catalog", str(catalog_path))
         run_script("sync_teaching.py", "--catalog", str(catalog_path))
 
+    # Phase 9 audits only repositories that are explicitly approved as public.
+    run_script("sync_scholarly_metadata.py")
+
     # Canonical artwork is mirrored unchanged from its source repositories.
     run_script("sync_project_logos.py", "--fail-on-inaccessible")
     run_script("sync_software_logos.py")
@@ -61,6 +64,7 @@ def main() -> None:
         "build_blog.py",
         "build_research_graph.py",
         "build_scholarly_graph.py",
+        "build_scholarly_infrastructure.py",
         "build_projects.py",
         "build_home.py",
     ):
@@ -68,6 +72,7 @@ def main() -> None:
 
     run_script("validate_site.py", "source")
     run_script("validate_phase7.py", "source")
+    run_script("validate_phase9.py", "source")
     print("Academic profile synchronization complete")
 
 
