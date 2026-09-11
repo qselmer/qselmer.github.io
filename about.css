@@ -1,0 +1,97 @@
+/* Page-specific layout for the About landing page. */
+
+.qs-interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem .95rem;
+  margin: .4rem 0 .85rem;
+}
+
+.qs-interest-grid a {
+  display: block;
+  padding: .85rem .95rem;
+  border: 1px solid rgba(49, 79, 96, .12);
+  border-radius: .45rem;
+  color: var(--qs-ink);
+  text-decoration: none;
+  background: rgba(244, 248, 250, .55);
+}
+
+.qs-interest-grid a:hover {
+  border-color: rgba(20, 124, 172, .35);
+  background: rgba(244, 248, 250, .92);
+}
+
+.qs-interest-grid strong,
+.qs-interest-grid span {
+  display: block;
+}
+
+.qs-interest-grid strong {
+  margin-bottom: .2rem;
+  color: var(--qs-ocean-deep);
+  font-size: 1.03rem;
+  line-height: 1.3;
+}
+
+.qs-interest-grid span {
+  color: var(--qs-ink-soft);
+  font-size: .95rem;
+  line-height: 1.45;
+}
+
+.qs-selected-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .85rem 1rem;
+  margin: .45rem 0 1.15rem;
+}
+
+.qs-selected-item {
+  min-width: 0;
+  padding: .95rem 1rem 1rem;
+  border-top: 3px solid #8fb8ca;
+  background: #f8fafb;
+}
+
+.qs-selected-type {
+  display: inline-block;
+  margin-bottom: .42rem;
+  padding: .08rem .42rem;
+  border-radius: .18rem;
+  background: #e9f1f4;
+  color: #1d5d70;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.qs-selected-item h3 {
+  margin: 0 0 .42rem;
+  font-size: 1.15rem !important;
+  line-height: 1.3 !important;
+}
+
+.qs-selected-item h3 a {
+  color: var(--qs-ocean-deep);
+  text-decoration: none;
+}
+
+.qs-selected-item h3 a:hover {
+  text-decoration: underline;
+}
+
+.qs-selected-item p {
+  margin: 0;
+  color: var(--qs-ink-soft);
+  font-size: .96rem;
+  line-height: 1.48;
+}
+
+@media (max-width: 760px) {
+  .qs-interest-grid,
+  .qs-selected-grid {
+    grid-template-columns: 1fr;
+  }
+}
