@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +31,17 @@ def badge(label: str, value: str, tone: str = "neutral", url: str = "") -> str:
     return f'<span class="{classes}">{body}</span>'
 
 
+def display_name(name: str) -> str:
+    if name == ".template-training":
+        return "SCIENTIFIC TRAINING TEMPLATE"
+    cleaned = re.sub(r"-training$", "", name, flags=re.IGNORECASE)
+    cleaned = cleaned.replace("_", " ").replace("-", " ")
+    cleaned = " ".join(cleaned.split())
+    if cleaned.casefold() == "git github":
+        return "GIT & GITHUB"
+    return cleaned.upper()
+
+
 def render_item(item: dict, page_label: str) -> str:
     name = str(item.get("name") or "Unnamed resource").strip()
     category = str(item.get("category") or "Teaching resource").strip()
@@ -38,7 +50,7 @@ def render_item(item: dict, page_label: str) -> str:
     summary = str(item.get("summary") or item.get("description") or "").strip()
     site_path = str(item.get("site_path") or "").strip()
     repo_url = str(item.get("html_url") or "").strip()
-    display = "Scientific Training Template" if name == ".template-training" else name
+    display = display_name(name)
 
     badges = [
         badge("Type", category, "neutral"),

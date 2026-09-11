@@ -3,10 +3,6 @@ title: "Research Software"
 description: "Reusable software for fisheries science, marine ecology, environmental data, and reproducible quantitative workflows."
 ---
 
-<div class="section-intro">
-The computational tools I develop in my own work are often useful beyond the particular question that motivated them. I aim to generalize these solutions for use in fisheries science, marine ecology, and related quantitative fields, and package them as open research software. You can follow my software development activity on <a href="https://github.com/qselmer"><strong>GitHub</strong></a>.
-</div>
-
 <div class="qs-publication-nav" aria-label="Software sections">
   <a href="#packages"><strong>Packages</strong></a>
   <a href="#applications"><strong>Applications</strong></a>
@@ -15,8 +11,4 @@ The computational tools I develop in my own work are often useful beyond the par
 
 ::: {.qs-software-directory .qs-compact-catalogue}
 {{< include _generated.md >}}
-:::
-
-::: {.qs-footnote-note}
-**Software status.** Badges describe only properties that are currently documented in the source repository or local software registry. A package is not labelled as CRAN, peer reviewed, or archived with a DOI unless that status has been verified.
 :::

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the thematic project catalogue from registry and research graph."""
+"""Render the thematic Research catalogue from the project registry and research graph."""
 
 from __future__ import annotations
 
@@ -74,10 +74,11 @@ def render_card(project: dict) -> list[str]:
 
     title = str(project.get("title") or "").strip()
     summary = str(project.get("summary") or "").strip()
-    meta = str(project.get("meta") or "").strip()
-    footer = str(project.get("footer") or "").strip()
+    stage = str(project.get("stage") or "").strip()
+    context = str(project.get("context") or "").strip()
     site_path = str(project.get("site_path") or "").strip()
-    if not all((title, summary, meta, footer, site_path)):
+    link_label = str(project.get("link_label") or "Details").strip()
+    if not all((title, summary, stage, context, site_path, link_label)):
         raise RuntimeError(f"Project {slug} is missing card content")
 
     logo_name = logo_for(slug)
@@ -96,10 +97,10 @@ def render_card(project: dict) -> list[str]:
 
     lines += [
         '<div class="qs-project-body">',
-        f'<p class="qs-card-meta">{html.escape(meta)}</p>',
+        f'<p class="qs-project-stage">{html.escape(stage)}</p>',
         f'<h3><a href="{html.escape(site_path, quote=True)}">{html.escape(title)}</a></h3>',
         f'<p class="qs-project-card-summary">{html.escape(summary)}</p>',
-        f'<div class="qs-project-footer"><span>{html.escape(footer)}</span><a href="{html.escape(site_path, quote=True)}">Details</a></div>',
+        f'<div class="qs-project-footer"><span>{html.escape(context)}</span><a href="{html.escape(site_path, quote=True)}">{html.escape(link_label)}</a></div>',
         "</div>",
         "</article>",
     ]
@@ -120,6 +121,26 @@ def render_output(item: dict) -> str:
         f'<a href="{html.escape(url, quote=True)}">{html.escape(title)}</a>{year_text}'
         "</li>"
     )
+
+
+def render_schematic(section: dict) -> list[str]:
+    steps = section.get("visual_steps") or []
+    if not isinstance(steps, list) or not steps:
+        return []
+    clean_steps = [str(step or "").strip() for step in steps]
+    if any(not step for step in clean_steps):
+        raise RuntimeError(f"Theme visual_steps cannot contain empty values: {section}")
+    label = " → ".join(clean_steps)
+    lines = [
+        "```{=html}",
+        f'<div class="qs-theme-schematic" aria-label="Conceptual research pathway: {html.escape(label, quote=True)}">',
+    ]
+    for index, step in enumerate(clean_steps):
+        if index:
+            lines.append('<span class="qs-theme-arrow" aria-hidden="true">→</span>')
+        lines.append(f'<span class="qs-theme-node">{html.escape(step)}</span>')
+    lines += ["</div>", "```", ""]
+    return lines
 
 
 def render() -> str:
@@ -168,22 +189,23 @@ def render() -> str:
     for section in sections:
         section_id = str(section["id"]).strip()
         heading = str(section.get("heading") or "").strip()
-        description = str(section.get("description") or "").strip()
+        question = str(section.get("research_question") or "").strip()
+        why = str(section.get("why_it_matters") or "").strip()
         grid_class = str(section.get("grid_class") or "qs-project-grid").strip()
         class_tokens = [clean_class(token, f"{section_id} grid class") for token in grid_class.split()]
         group = [project for project in projects if project.get("section") == section_id]
         outputs = graph[section_id].get("outputs") or []
         if not isinstance(outputs, list):
             raise RuntimeError(f"Research graph outputs must be a list for {section_id}")
-        if not group and not outputs:
-            continue
+        if not question or not why:
+            raise RuntimeError(f"Research theme {section_id} needs research_question and why_it_matters")
 
         lines += [f"## {heading} {{#{section_id}}}", ""]
-        if description:
-            lines += [description, ""]
+        lines += ["### Research question", "", question, "", "### Why it matters", "", why, ""]
+        lines += render_schematic(section)
 
         if group:
-            lines += ["```{=html}", f'<div class="{" ".join(class_tokens)}">']
+            lines += ["### Current projects", "", "```{=html}", f'<div class="{" ".join(class_tokens)}">']
             for project in group:
                 lines.extend(render_card(project))
                 lines.append("")
@@ -192,7 +214,7 @@ def render() -> str:
             lines += ["</div>", "```", ""]
 
         if outputs:
-            lines += ["### Related outputs", "", "```{=html}", '<ul class="qs-related-output-list">']
+            lines += ["### Selected outputs", "", "```{=html}", '<ul class="qs-related-output-list">']
             for item in outputs:
                 lines.append(render_output(item))
             lines += ["</ul>", "```", ""]
@@ -210,7 +232,7 @@ def main() -> None:
         current = TARGET.read_text(encoding="utf-8") if TARGET.exists() else ""
         if current != expected:
             raise SystemExit("projects/_generated.md is stale; run python scripts/build_projects.py")
-        print("Project cards and related outputs are synchronized.")
+        print("Research themes, project cards, and selected outputs are synchronized.")
         return
 
     TARGET.write_text(expected, encoding="utf-8")

@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Build a deterministic research-theme graph from site catalogues.
-
-Theme definitions and keyword rules live in projects/registry.json. Project
-membership is explicit there, while scholarly outputs are classified
-conservatively from publications, talks, and software metadata. The generated
-graph is an auditable derived artefact used by the Projects page.
-"""
+"""Build a deterministic research-theme graph from site catalogues."""
 
 from __future__ import annotations
 
@@ -72,10 +66,7 @@ def candidates() -> list[dict[str, Any]]:
         title = str(pub.get("title") or "").strip()
         if not title:
             continue
-        text = " ".join(
-            str(pub.get(key) or "")
-            for key in ("title", "journal", "outlet", "type", "source")
-        )
+        text = " ".join(str(pub.get(key) or "") for key in ("title", "journal", "outlet", "type", "source"))
         outputs.append({
             "id": f"publication:{normalize(title)}:{pub.get('year', '')}",
             "type": output_type,
@@ -92,10 +83,7 @@ def candidates() -> list[dict[str, Any]]:
             continue
         presentation_type = str(talk.get("presentation_type") or "Talk").strip()
         output_type = "Poster" if "poster" in presentation_type.casefold() else "Talk"
-        text = " ".join(
-            str(talk.get(key) or "")
-            for key in ("title", "summary", "event", "presentation_type")
-        )
+        text = " ".join(str(talk.get(key) or "") for key in ("title", "summary", "event", "presentation_type"))
         outputs.append({
             "id": f"talk:{talk.get('date', '')}:{normalize(title)}",
             "type": output_type,
@@ -110,10 +98,7 @@ def candidates() -> list[dict[str, Any]]:
         name = str(item.get("name") or "").strip()
         if not name:
             continue
-        text = " ".join(
-            str(item.get(key) or "")
-            for key in ("name", "description", "summary", "category", "language")
-        )
+        text = " ".join(str(item.get(key) or "") for key in ("name", "description", "summary", "category", "language"))
         outputs.append({
             "id": f"software:{str(item.get('full_name') or name)}",
             "type": "Software",
@@ -125,6 +110,25 @@ def candidates() -> list[dict[str, Any]]:
         })
 
     return outputs
+
+
+def explicit_theme(output: dict[str, Any], registry: dict[str, Any], section_ids: set[str]) -> str | None:
+    rules = registry.get("output_theme_overrides") or []
+    if not isinstance(rules, list):
+        raise RuntimeError("output_theme_overrides must be a list")
+    source = str(output.get("source") or "").strip()
+    title = normalize(output.get("title"))
+    for rule in rules:
+        if not isinstance(rule, dict):
+            raise RuntimeError("Every output theme override must be an object")
+        rule_source = str(rule.get("source") or "").strip()
+        rule_title = normalize(rule.get("title"))
+        section = str(rule.get("section") or "").strip()
+        if section not in section_ids:
+            raise RuntimeError(f"Output override references unknown section: {section}")
+        if source == rule_source and title == rule_title:
+            return section
+    return None
 
 
 def classify(output: dict[str, Any], sections: list[dict[str, Any]]) -> str | None:
@@ -153,14 +157,15 @@ def build_payload() -> dict[str, Any]:
     if not isinstance(projects, list):
         raise RuntimeError("projects/registry.json must contain projects")
 
-    section_ids = [str(section.get("id") or "").strip() for section in sections]
-    if any(not value for value in section_ids) or len(set(section_ids)) != len(section_ids):
+    section_ids_list = [str(section.get("id") or "").strip() for section in sections]
+    if any(not value for value in section_ids_list) or len(set(section_ids_list)) != len(section_ids_list):
         raise RuntimeError("Research theme ids must be present and unique")
+    section_ids = set(section_ids_list)
 
-    output_groups: dict[str, list[dict[str, Any]]] = {section_id: [] for section_id in section_ids}
+    output_groups: dict[str, list[dict[str, Any]]] = {section_id: [] for section_id in section_ids_list}
     unclassified: list[dict[str, Any]] = []
     for output in candidates():
-        theme_id = classify(output, sections)
+        theme_id = explicit_theme(output, registry, section_ids) or classify(output, sections)
         clean = {key: value for key, value in output.items() if key != "search_text"}
         if theme_id is None:
             unclassified.append(clean)
@@ -183,7 +188,8 @@ def build_payload() -> dict[str, Any]:
         themes.append({
             "id": section_id,
             "heading": str(section.get("heading") or ""),
-            "description": str(section.get("description") or ""),
+            "research_question": str(section.get("research_question") or ""),
+            "why_it_matters": str(section.get("why_it_matters") or ""),
             "projects": theme_projects,
             "outputs": theme_outputs,
         })

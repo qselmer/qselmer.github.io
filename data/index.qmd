@@ -3,10 +3,6 @@ title: "Data Sources"
 description: "Curated external data sources for fisheries, marine ecology, oceanography, climate, spatial analysis, and teaching."
 ---
 
-<div class="section-intro">
-A curated directory of external data sources for fisheries science, marine ecology, oceanography, stock assessment, species-distribution modelling, climate analysis, spatial workflows, and teaching.
-</div>
-
 <div class="qs-publication-nav qs-data-nav" aria-label="Data sections">
   <a href="#fisheries-and-stock-assessment"><strong>Fisheries</strong></a>
   <a href="#biodiversity-and-ecological-modelling"><strong>Biodiversity</strong></a>
@@ -17,10 +13,12 @@ A curated directory of external data sources for fisheries science, marine ecolo
   <a href="#licensed-and-commercial-sources"><strong>Licensed sources</strong></a>
 </div>
 
+<p class="qs-publication-profile"><em>Curated external sources for reproducible fisheries, marine ecology, oceanographic, climate, biodiversity, and spatial workflows.</em></p>
+
 ::: {.qs-data-catalogue .qs-compact-catalogue}
 {{< include _generated.md >}}
 :::
 
 ::: {.qs-footnote-note}
-**Data note.** None of the datasets listed here are produced or owned by Elmer Quispe-Salazar. The website stores discovery metadata only and does not mirror or redistribute source data. `data/registry.json` records provider, access model, coverage, formats, intended use, licence/access notes, and the authoritative URL. For reproducible work, record the provider, product/version or access date, spatial and temporal subset, licence, citation, and exact download or API query; always verify current provider documentation before analysis.
+**Data-source policy.** These datasets are not produced or owned by Elmer Quispe-Salazar. The website stores discovery metadata and authoritative provider links only; users should verify current licences, citation requirements, versions, and access conditions before analysis.
 :::

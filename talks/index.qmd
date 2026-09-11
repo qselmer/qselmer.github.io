@@ -11,14 +11,6 @@ description: "Conference talks, posters, and scientific presentations."
 </nav>
 ```
 
-<div class="section-intro">
-Conference contributions are presented as a compact academic catalogue using the same visual system as Publications. Presentation type, DOI when available, public material, and the detailed record are exposed as compact metadata badges.
-</div>
-
 ::: {.qs-compact-catalogue}
 {{< include _generated.md >}}
-:::
-
-::: {.qs-footnote-note}
-**Catalogue note.** Current formal outputs are sourced from `qselmer/qselmer/assets/data/publications.json`; `talks/registry.json` adds presentation type, event, date, location, and stable detail routes. Legitimate legacy-only records may be retained as explicitly historical until a stable external source is verified.
 :::

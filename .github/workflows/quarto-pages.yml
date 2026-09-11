@@ -36,6 +36,18 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Rebuild deterministic catalogue fragments
+        run: |
+          python scripts/build_publications.py
+          python scripts/build_conferences.py
+          python scripts/build_software.py
+          python scripts/build_teaching.py
+          python scripts/build_data_resources.py
+          python scripts/build_blog.py
+          python scripts/build_research_graph.py
+          python scripts/build_projects.py
+          python scripts/build_home.py
+
       - name: Validate source state
         run: python scripts/validate_site.py source
 
