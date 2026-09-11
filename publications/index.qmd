@@ -3,21 +3,10 @@ title: "Publications"
 description: "Papers, preprints, books and chapters, theses, reports, and institutional technical outputs."
 ---
 
-<div class="qs-publication-nav" aria-label="Publication sections">
-  <a href="#papers"><strong>Papers</strong></a>
-  <a href="#preprints"><strong>Preprints</strong></a>
-  <a href="#books"><strong>Books</strong></a>
-  <a href="#theses"><strong>Theses</strong></a>
-  <a href="#reports"><strong>Reports</strong></a>
-</div>
-
-<p class="qs-publication-profile"><em>My ORCID iD is</em> <a href="https://orcid.org/0000-0001-9229-6379"><strong>0000-0001-9229-6379</strong></a>.</p>
-<p class="qs-publication-profile"><em>My Google Scholar profile is</em> <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ"><strong>here</strong></a>.</p>
-
 ::: {.qs-compact-catalogue}
 {{< include _generated.md >}}
 :::
 
 ::: {.qs-footnote-note}
-**Metadata note.** Publication metadata is synchronized from the canonical `qselmer/qselmer` research profile. Peer-reviewed journal articles are listed under Papers regardless of indexing status; authored or edited books and chapters in edited volumes are listed under Books; preprints and forthcoming manuscripts, theses, and institutional or technical reports retain their own sections.
+**Metadata note.** Publication metadata is synchronized from the canonical `qselmer/qselmer` research profile. Peer-reviewed journal articles are listed under Papers regardless of indexing status; authored or edited books and chapters in edited volumes are listed under Books; preprints and forthcoming manuscripts, theses, and institutional or technical reports retain their own sections. Empty publication categories are hidden automatically.
 :::
