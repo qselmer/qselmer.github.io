@@ -9,6 +9,17 @@ main.content a:not(.btn):focus {
   text-decoration: none !important;
 }
 
+/* About is the single narrative page where underlined links are retained. */
+.qs-about-page a:not(.btn),
+.qs-about-page a:not(.btn):visited,
+.qs-about-page a:not(.btn):hover,
+.qs-about-page a:not(.btn):focus {
+  color: #0b1320;
+  text-decoration: underline !important;
+  text-decoration-color: #0b1320 !important;
+  text-underline-offset: .14em;
+}
+
 .qs-theme-badges {
   margin: 0 0 .55rem;
 }
