@@ -1,5 +1,32 @@
 /* Page-specific layout for the About landing page. */
 
+/* About opens directly with the scientific narrative; the document title remains
+   in the HTML for metadata/accessibility but is not repeated visually. */
+.quarto-title-block {
+  display: none !important;
+}
+
+.qs-about-identity {
+  margin-top: .35rem;
+}
+
+.qs-about-story p {
+  margin: 0 0 1rem;
+  font-size: 1.06rem;
+  line-height: 1.62;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.qs-about-story p:last-child {
+  margin-bottom: 0;
+}
+
+.qs-about-story a {
+  font-weight: 600;
+}
+
 .qs-interest-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -62,7 +89,7 @@
   background: #e9f1f4;
   color: #1d5d70;
   font-size: .72rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: .035em;
   text-transform: uppercase;
 }
@@ -90,6 +117,11 @@
 }
 
 @media (max-width: 760px) {
+  .qs-about-story p {
+    text-align: left;
+    hyphens: none;
+  }
+
   .qs-interest-grid,
   .qs-selected-grid {
     grid-template-columns: 1fr;
