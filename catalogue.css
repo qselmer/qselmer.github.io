@@ -124,21 +124,21 @@
 
 /* Research themes */
 .qs-project-theme-nav {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: .35rem 1.15rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 1.35rem;
+  row-gap: .42rem;
   margin: .15rem 0 1.35rem;
   padding-bottom: .85rem;
-  overflow-x: auto;
+  overflow: visible;
   border-bottom: 1px solid rgba(49, 79, 96, .12);
   font-size: 1rem;
   line-height: 1.35;
-  white-space: nowrap;
-  scrollbar-width: thin;
+  white-space: normal;
 }
 
 .qs-project-theme-nav a {
-  flex: 0 0 auto;
+  min-width: 0;
   color: var(--qs-ocean-deep);
   font-weight: 700;
   text-decoration: none;
@@ -154,72 +154,106 @@
 }
 
 .qs-theme-rationale strong {
-  font-weight: 800;
+  color: #0b1320;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 600;
 }
 
+/* One project-card system for every Research project. Logos are intentionally
+   reserved for project detail pages so cards remain identical and lightweight. */
 .qs-project-grid,
 .qs-project-grid-planned {
-  grid-template-columns: 1fr !important;
-  gap: .9rem !important;
-}
-
-.qs-project-tile,
-.qs-project-tile.qs-project-no-logo {
   display: grid !important;
-  grid-template-columns: 245px minmax(0, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 1rem !important;
+  align-items: stretch;
+}
+
+.qs-project-tile {
+  display: flex !important;
+  min-width: 0;
   min-height: 0 !important;
-  border-top-width: 1px;
-}
-
-.qs-project-tile.qs-project-no-logo {
-  grid-template-columns: minmax(0, 1fr);
-  border-left-width: 5px;
-  border-top-color: var(--qs-border) !important;
-}
-
-.qs-project-no-logo.qs-project-tone-sand { border-left-color: #d9ae82; }
-.qs-project-no-logo.qs-project-tone-blue { border-left-color: #8fb8ca; }
-.qs-project-no-logo.qs-project-tone-aqua { border-left-color: #83b7a8; }
-.qs-project-no-logo.qs-project-tone-green { border-left-color: #9db783; }
-
-.qs-project-visual {
-  min-height: 215px !important;
-  padding: 1rem !important;
-  border-right: 1px solid rgba(49, 79, 96, .1);
-  border-bottom: 0 !important;
-}
-
-.qs-project-logo {
-  width: min(94%, 215px) !important;
-  max-height: 195px !important;
+  height: 100%;
+  border: 1px solid rgba(11, 19, 32, .12) !important;
+  border-top: 3px solid #0b1320 !important;
+  border-radius: 0 !important;
+  background: #f7f8fa !important;
+  box-shadow: none !important;
 }
 
 .qs-project-body {
+  display: flex;
+  flex: 1 1 auto;
   min-width: 0;
-  padding: 1.15rem 1.35rem 1.05rem !important;
+  flex-direction: column;
+  padding: 1.15rem 1.2rem 1.05rem !important;
+  background: transparent !important;
 }
 
-.qs-project-stage {
-  width: fit-content;
-  margin: 0 0 .45rem !important;
-  padding: .15rem .46rem;
-  border-radius: .2rem;
-  background: #e9f1f4;
-  color: #1d5d70;
-  font-size: .76rem !important;
-  font-weight: 800;
+.qs-project-type {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0 0 .85rem;
+  padding: .18rem .48rem;
+  border-radius: .16rem;
+  background: #0b1320;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1.35;
   letter-spacing: .025em;
-  line-height: 1.35 !important;
 }
 
 .qs-project-tile h3 {
-  font-size: 1.34rem !important;
-  line-height: 1.24 !important;
+  margin: 0 0 .62rem !important;
+  font-size: 1.2rem !important;
+  line-height: 1.3 !important;
+}
+
+.qs-project-tile h3 a {
+  color: #0b1320 !important;
+  text-decoration: none !important;
+}
+
+.qs-project-tile h3 a:hover,
+.qs-project-tile h3 a:focus-visible {
+  text-decoration: none !important;
 }
 
 .qs-project-card-summary {
+  margin: 0 0 .9rem !important;
+  color: var(--qs-ink-soft);
   font-size: 1rem !important;
-  line-height: 1.48 !important;
+  line-height: 1.5 !important;
+}
+
+.qs-project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .65rem 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: .15rem;
+  border-top: 0 !important;
+  color: var(--qs-muted);
+  font-size: .88rem;
+  line-height: 1.4;
+}
+
+.qs-project-footer span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.qs-project-footer a {
+  margin-left: auto;
+  color: #0b1320 !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  white-space: nowrap;
 }
 
 .qs-related-output-list {
@@ -282,6 +316,12 @@
   margin: .36rem 0 0;
 }
 
+@media (max-width: 900px) {
+  .qs-project-theme-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 760px) {
   .qs-publication-badges {
     display: flex;
@@ -300,24 +340,26 @@
   }
 
   .qs-project-theme-nav {
-    gap: .35rem .95rem;
+    grid-template-columns: 1fr;
+    gap: .35rem;
     font-size: .96rem;
   }
 
-  .qs-project-tile,
-  .qs-project-tile.qs-project-no-logo {
-    grid-template-columns: 1fr;
+  .qs-project-grid,
+  .qs-project-grid-planned {
+    grid-template-columns: 1fr !important;
   }
 
-  .qs-project-visual {
-    min-height: 180px !important;
-    border-right: 0;
-    border-bottom: 1px solid rgba(49, 79, 96, .1) !important;
+  .qs-project-body {
+    padding: 1rem !important;
   }
 
-  .qs-project-logo {
-    width: min(90%, 220px) !important;
-    max-height: 175px !important;
+  .qs-project-footer {
+    align-items: flex-start;
+  }
+
+  .qs-project-footer a {
+    margin-left: 0;
   }
 
   .qs-related-output {
