@@ -15,6 +15,7 @@ format:
         <script defer src="components/marine-identity/marine-identity.js"></script>
 ---
 
+::: {.qs-about-page}
 ::: {.qs-about-identity}
 ::: {.qs-about-identity-copy .qs-about-story}
 I try to understand how environmental variability, population processes, and fishing shape the distribution, abundance, productivity, and life-history strategies of pelagic fish. I address these questions primarily in the [**Humboldt Current System**](projects/), with particular emphasis on Peruvian anchovy, by combining fishery observations, scientific surveys, environmental information, and statistical, spatial, and stock-assessment models.
@@ -57,3 +58,4 @@ A practical guide to choosing probability distributions for common response vari
 ## Contact
 
 For research collaboration, scientific discussion, or professional enquiries, see the [Contact](contact/) page.
+:::
