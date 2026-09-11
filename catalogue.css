@@ -45,6 +45,11 @@
 .qs-compact-catalogue li { margin-bottom: .82rem; }
 
 /* Research software */
+.qs-software-nav {
+  column-gap: 1.8rem !important;
+  row-gap: .4rem !important;
+}
+
 .qs-software-directory h2 { margin-top: 1.8rem; }
 
 .qs-software-entry {
@@ -120,16 +125,20 @@
 /* Research themes */
 .qs-project-theme-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: .35rem 1.25rem;
+  flex-wrap: nowrap;
+  gap: .35rem 1.15rem;
   margin: .15rem 0 1.35rem;
   padding-bottom: .85rem;
+  overflow-x: auto;
   border-bottom: 1px solid rgba(49, 79, 96, .12);
-  font-size: 1.04rem;
+  font-size: 1rem;
   line-height: 1.35;
+  white-space: nowrap;
+  scrollbar-width: thin;
 }
 
 .qs-project-theme-nav a {
+  flex: 0 0 auto;
   color: var(--qs-ocean-deep);
   font-weight: 700;
   text-decoration: none;
@@ -137,31 +146,14 @@
 
 .qs-project-theme-nav a:hover { text-decoration: underline; }
 
-.qs-theme-schematic {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-  align-items: center;
-  margin: .35rem 0 1.25rem;
-  padding: .8rem .9rem;
-  border: 1px solid rgba(49, 79, 96, .12);
-  border-radius: .38rem;
-  background: #f6f9fa;
+.qs-theme-rationale {
+  margin: .15rem 0 1.15rem;
+  color: var(--qs-ink);
+  font-size: 1.08rem;
+  line-height: 1.55;
 }
 
-.qs-theme-node {
-  padding: .38rem .58rem;
-  border-radius: .28rem;
-  background: #e9f1f4;
-  color: #174f63;
-  font-size: .9rem;
-  font-weight: 750;
-  line-height: 1.25;
-}
-
-.qs-theme-arrow {
-  color: #607985;
-  font-size: 1.05rem;
+.qs-theme-rationale strong {
   font-weight: 800;
 }
 
@@ -307,6 +299,11 @@
     min-height: 92px;
   }
 
+  .qs-project-theme-nav {
+    gap: .35rem .95rem;
+    font-size: .96rem;
+  }
+
   .qs-project-tile,
   .qs-project-tile.qs-project-no-logo {
     grid-template-columns: 1fr;
@@ -325,19 +322,5 @@
 
   .qs-related-output {
     grid-template-columns: 4.8rem minmax(0, 1fr);
-  }
-
-  .qs-theme-schematic {
-    align-items: stretch;
-  }
-
-  .qs-theme-node {
-    flex: 1 1 100%;
-  }
-
-  .qs-theme-arrow {
-    width: 100%;
-    text-align: center;
-    transform: rotate(90deg);
   }
 }
