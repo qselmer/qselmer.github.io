@@ -5,6 +5,7 @@ project:
     - images/**
     - components/**
     - files/CV.pdf
+    - blog/index.xml
   post-render:
     - scripts/postprocess_site.py
   render:
@@ -37,6 +38,7 @@ project:
     - data/index.qmd
     - blog/index.qmd
     - blog/statistical-distributions-fisheries-marine-ecology/index.qmd
+    - miscellaneous/index.qmd
     - terms/index.qmd
     - cv/index.qmd
     - contact/index.qmd
@@ -49,8 +51,11 @@ website:
   site-url: "https://qselmer.github.io"
   description: "Quantitative marine ecology, fisheries science, stock assessment, spatio-temporal modelling, and reproducible scientific computing."
   favicon: images/favicon.ico
+  image: images/profile.png
+  image-alt: "Elmer Quispe-Salazar"
   open-graph: true
-  twitter-card: true
+  twitter-card:
+    card-style: summary_large_image
   search: true
   navbar:
     title: false
@@ -85,6 +90,9 @@ website:
           - href: data/index.qmd
             text: Data Sources
             icon: database
+          - href: miscellaneous/index.qmd
+            text: Miscellaneous
+            icon: collection
           - href: contact/index.qmd
             text: Contact
             icon: envelope
