@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build deterministic profile presentation fragments from research metrics."""
+"""Build deterministic About-page and profile fragments from canonical site data."""
 
 from __future__ import annotations
 
@@ -9,13 +9,25 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "assets" / "data" / "research-metrics.json"
+METRICS_SOURCE = ROOT / "assets" / "data" / "research-metrics.json"
+PUBLICATIONS_SOURCE = ROOT / "assets" / "data" / "publications.json"
+SOFTWARE_SOURCE = ROOT / "software" / "registry.json"
+TALKS_SOURCE = ROOT / "talks" / "registry.json"
+PROJECTS_SOURCE = ROOT / "projects" / "registry.json"
 CONFIG = ROOT / "config" / "site.json"
-OUTPUT = ROOT / "includes" / "profile-sidebar.html"
+SIDEBAR_OUTPUT = ROOT / "includes" / "profile-sidebar.html"
+SELECTED_OUTPUT = ROOT / "includes" / "about-selected.html"
+
+
+def load_json(path: Path) -> dict:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"{path.relative_to(ROOT)} must contain a JSON object")
+    return data
 
 
 def load_metrics() -> dict:
-    data = json.loads(SOURCE.read_text(encoding="utf-8"))
+    data = load_json(METRICS_SOURCE)
     required = {"updated_at", "orcid", "public_orcid_works", "openalex"}
     missing = required - data.keys()
     if missing:
@@ -24,29 +36,37 @@ def load_metrics() -> dict:
 
 
 def load_identity() -> dict:
-    data = json.loads(CONFIG.read_text(encoding="utf-8"))
-    return data["identity"]
+    return load_json(CONFIG)["identity"]
+
+
+def metric_available(value: object) -> bool:
+    if value is None or isinstance(value, bool):
+        return False
+    if isinstance(value, (int, float)):
+        return value > 0
+    text = str(value).strip()
+    if not text:
+        return False
+    try:
+        return float(text) > 0
+    except ValueError:
+        return True
 
 
 def display_metric(value: object) -> str:
-    """Render zero or unavailable metric values as a short hyphen."""
-    if value is None:
-        return "-"
-    if isinstance(value, (int, float)) and not isinstance(value, bool) and value == 0:
-        return "-"
-    text = str(value).strip()
-    return "-" if text in {"", "0", "0.0"} else text
+    return str(value).strip()
 
 
-def render(data: dict, identity: dict) -> str:
+def render_sidebar(data: dict, identity: dict) -> str:
     oa = data["openalex"]
     metrics = [
-        ("Citations", oa.get("cited_by_count", 0)),
-        ("h-index", oa.get("h_index", 0)),
-        ("i10-index", oa.get("i10_index", 0)),
-        ("ORCID works", data["public_orcid_works"]),
-        ("OpenAlex works", oa.get("works_count", 0)),
+        ("Citations", oa.get("cited_by_count")),
+        ("h-index", oa.get("h_index")),
+        ("i10-index", oa.get("i10_index")),
+        ("ORCID works", data.get("public_orcid_works")),
+        ("OpenAlex works", oa.get("works_count")),
     ]
+    metrics = [(label, value) for label, value in metrics if metric_available(value)]
 
     metric_rows = "\n".join(
         '<div class="qs-sidebar-metric-row">'
@@ -55,6 +75,14 @@ def render(data: dict, identity: dict) -> str:
         '</div>'
         for label, value in metrics
     )
+    metrics_block = ""
+    if metric_rows:
+        metrics_block = f'''    <p class="qs-sidebar-section-label">Research metrics</p>
+    <div class="qs-sidebar-metrics-list" aria-label="Research metrics">
+      {metric_rows}
+    </div>
+    <p class="qs-sidebar-metrics-note">Public ORCID and OpenAlex records.</p>
+'''
 
     name = html.escape(identity["name"])
     orcid = html.escape(identity["orcid"], quote=True)
@@ -70,6 +98,7 @@ def render(data: dict, identity: dict) -> str:
     </div>
     <p class="qs-sidebar-name">{name}</p>
     <p class="qs-sidebar-role">Marine Quantitative Ecologist<br>Fisheries Scientist</p>
+    <p class="qs-sidebar-affiliation">Instituto del Mar del Perú (IMARPE)</p>
     <div class="qs-sidebar-context"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span>Peru · Humboldt Current</span></div>
     <div class="qs-sidebar-context"><i class="bi bi-water" aria-hidden="true"></i><span>Pelagic fisheries · Statistical ecology</span></div>
     <p class="qs-sidebar-section-label">Research profiles</p>
@@ -79,33 +108,104 @@ def render(data: dict, identity: dict) -> str:
       <a href="{github}"><i class="bi bi-github" aria-hidden="true"></i><span>GitHub</span></a>
       <a href="{linkedin}"><i class="bi bi-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
     </nav>
-    <p class="qs-sidebar-section-label">Research metrics</p>
-    <div class="qs-sidebar-metrics-list" aria-label="Research metrics">
-      {metric_rows}
-    </div>
-    <p class="qs-sidebar-metrics-note">OpenAlex metrics · ORCID works. Google Scholar is linked above for profile discovery.</p>
-  </div>
+{metrics_block}  </div>
 </aside>
 '''
 
 
+def internal_project_url(site_path: str) -> str:
+    text = site_path.strip()
+    if text.startswith("http://") or text.startswith("https://") or text.startswith("/"):
+        return text
+    return f"/projects/{text}"
+
+
+def render_selected_research() -> str:
+    projects = load_json(PROJECTS_SOURCE).get("projects") or []
+    publications = load_json(PUBLICATIONS_SOURCE).get("publications") or []
+    software = load_json(SOFTWARE_SOURCE).get("published") or []
+    talks = load_json(TALKS_SOURCE).get("records") or []
+
+    project = next((item for item in projects if item.get("stage") != "Planned study"), projects[0] if projects else None)
+    paper_candidates = [item for item in publications if item.get("output_category") == "Journal articles"]
+    paper_candidates.sort(key=lambda item: str(item.get("year") or ""), reverse=True)
+    paper = paper_candidates[0] if paper_candidates else None
+    software_item = software[0] if software else None
+    talk_candidates = [item for item in talks if item.get("presenter") == "Elmer Quispe-Salazar"] or talks
+    talk_candidates.sort(key=lambda item: str(item.get("date") or ""), reverse=True)
+    talk = talk_candidates[0] if talk_candidates else None
+
+    cards: list[str] = []
+    if project:
+        cards.append(
+            '<article class="qs-selected-item">'
+            '<span class="qs-selected-type">Project</span>'
+            f'<h3><a href="{html.escape(internal_project_url(str(project.get("site_path") or "")), quote=True)}">{html.escape(str(project.get("title") or ""))}</a></h3>'
+            f'<p>{html.escape(str(project.get("summary") or ""))}</p>'
+            '</article>'
+        )
+    if paper:
+        journal = str(paper.get("journal") or "").strip()
+        year = str(paper.get("year") or "").strip()
+        meta = " · ".join(part for part in (journal, year) if part)
+        cards.append(
+            '<article class="qs-selected-item">'
+            '<span class="qs-selected-type">Paper</span>'
+            f'<h3><a href="/publications/#papers">{html.escape(str(paper.get("title") or ""))}</a></h3>'
+            f'<p>{html.escape(meta)}</p>'
+            '</article>'
+        )
+    if software_item:
+        repository = str(software_item.get("repository") or "").strip()
+        name = repository.rsplit("/", 1)[-1]
+        cards.append(
+            '<article class="qs-selected-item">'
+            '<span class="qs-selected-type">Software</span>'
+            f'<h3><a href="{html.escape(str(software_item.get("site_path") or ""), quote=True)}">{html.escape(name)}</a></h3>'
+            f'<p>{html.escape(str(software_item.get("summary") or ""))}</p>'
+            '</article>'
+        )
+    if talk:
+        cards.append(
+            '<article class="qs-selected-item">'
+            '<span class="qs-selected-type">Talk</span>'
+            f'<h3><a href="{html.escape(str(talk.get("site_path") or ""), quote=True)}">{html.escape(str(talk.get("display_title") or ""))}</a></h3>'
+            f'<p>{html.escape(str(talk.get("event") or ""))}</p>'
+            '</article>'
+        )
+
+    return (
+        '<!-- Generated by scripts/build_home.py. Do not edit manually. -->\n'
+        '<div class="qs-selected-grid">\n'
+        + "\n".join(cards)
+        + '\n</div>\n'
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--check", action="store_true", help="Fail if the generated profile sidebar is stale.")
+    parser.add_argument("--check", action="store_true", help="Fail if generated About/profile fragments are stale.")
     args = parser.parse_args()
 
-    expected = render(load_metrics(), load_identity())
+    expected_sidebar = render_sidebar(load_metrics(), load_identity())
+    expected_selected = render_selected_research()
 
     if args.check:
-        current = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else ""
-        if current != expected:
-            raise SystemExit("includes/profile-sidebar.html is stale; run python scripts/build_home.py")
-        print("Profile sidebar metrics fragment is current.")
+        checks = (
+            (SIDEBAR_OUTPUT, expected_sidebar),
+            (SELECTED_OUTPUT, expected_selected),
+        )
+        stale = [path.relative_to(ROOT) for path, expected in checks if (path.read_text(encoding="utf-8") if path.exists() else "") != expected]
+        if stale:
+            raise SystemExit(f"Generated About/profile fragments are stale: {', '.join(map(str, stale))}; run python scripts/build_home.py")
+        print("About and profile fragments are current.")
         return
 
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(expected, encoding="utf-8")
-    print(f"Generated {OUTPUT.relative_to(ROOT)}")
+    SIDEBAR_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    SIDEBAR_OUTPUT.write_text(expected_sidebar, encoding="utf-8")
+    SELECTED_OUTPUT.write_text(expected_selected, encoding="utf-8")
+    print(f"Generated {SIDEBAR_OUTPUT.relative_to(ROOT)}")
+    print(f"Generated {SELECTED_OUTPUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
