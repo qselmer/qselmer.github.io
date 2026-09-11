@@ -172,6 +172,14 @@ def build_payload() -> dict[str, Any]:
     if policy.get("public_only") is not True:
         raise RuntimeError("Unified Scholarly Graph must use public_only visibility policy")
 
+    public_repositories = {
+        str(value).strip()
+        for value in graph_registry.get("public_repositories") or []
+        if str(value).strip()
+    }
+    if not public_repositories:
+        raise RuntimeError("graph/registry.json must declare public_repositories")
+
     forbidden = [str(x).casefold() for x in policy.get("forbidden_source_substrings") or []]
     declared_sources = [
         "config/site.json",
@@ -261,8 +269,14 @@ def build_payload() -> dict[str, Any]:
         node_id = f"project:{project_slug}"
         project_ids.add(node_id)
         source_repository = str(project.get("source_repository") or "").strip()
-        canonical_url = absolute_url(project.get("site_path"), project_path=True)
-        add_node(nodes, {
+        repository_is_public = source_repository in public_repositories
+        site_path = str(project.get("site_path") or "").strip()
+        if source_repository and not repository_is_public and "github.com/" in site_path.casefold():
+            raise RuntimeError(
+                f"Project {project_slug} points directly to a repository that is not approved for public graph exposure"
+            )
+        canonical_url = absolute_url(site_path, project_path=True)
+        project_node = {
             "id": node_id,
             "kind": "Project",
             "title": str(project.get("title") or project_slug),
@@ -270,12 +284,14 @@ def build_payload() -> dict[str, Any]:
             "visibility": "public",
             "status": str(project.get("stage") or ""),
             "summary": str(project.get("summary") or ""),
-            "repository": source_repository,
             "provenance": [{"source": "projects/registry.json", "authority": "curated"}],
-        })
+        }
+        if repository_is_public:
+            project_node["repository"] = source_repository
+        add_node(nodes, project_node)
         add_edge(edges, seen_edges, node_id, "part_of_theme", f"theme:{theme_id}")
         add_edge(edges, seen_edges, node_id, "created_by", person_id)
-        if source_repository:
+        if repository_is_public:
             rid = repo_id(source_repository)
             add_node(nodes, {
                 "id": rid,
@@ -358,6 +374,10 @@ def build_payload() -> dict[str, Any]:
         name = str(item.get("name") or full_name.rsplit("/", 1)[-1]).strip()
         if not full_name:
             continue
+        if full_name not in public_repositories:
+            raise RuntimeError(
+                f"Software repository is not approved for public graph exposure: {full_name}"
+            )
         node_id = f"software:github:{full_name.casefold()}"
         text = " ".join(str(item.get(key) or "") for key in ("name", "summary", "description", "category", "language"))
         theme_id = theme_for_text(text, sections, overrides, "Software", full_name)
@@ -397,6 +417,10 @@ def build_payload() -> dict[str, Any]:
         name = str(item.get("name") or full_name.rsplit("/", 1)[-1]).strip()
         if not full_name:
             continue
+        if full_name not in public_repositories:
+            raise RuntimeError(
+                f"Teaching repository is not approved for public graph exposure: {full_name}"
+            )
         node_id = f"teaching:github:{full_name.casefold()}"
         text = " ".join(str(item.get(key) or "") for key in ("name", "summary", "description", "category"))
         theme_id = theme_for_text(text, sections, overrides, "Teaching", full_name)
@@ -510,6 +534,7 @@ def build_payload() -> dict[str, Any]:
             "forbidden": "Raw repository catalogue and private-repository metadata are never serialized into this graph"
         },
         "sources": declared_sources,
+        "public_repository_allowlist": sorted(public_repositories),
         "stats": {
             "nodes": len(nodes),
             "edges": len(edges),
