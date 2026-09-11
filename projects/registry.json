@@ -9,22 +9,11 @@
       "why_it_matters": "Reliable assessment requires integrating biomass with recruitment, mortality, selectivity, and productivity while accounting for structural uncertainty in the models used for fisheries advice.",
       "badges": [
         {"label": "System", "value": "Pelagic fish", "tone": "blue"},
-        {"label": "Focus", "value": "Assessment & productivity", "tone": "green"},
-        {"label": "Evidence", "value": "Surveys + fishery data", "tone": "amber"}
+        {"label": "Focus", "value": "Assessment", "tone": "green"},
+        {"label": "Data", "value": "Survey + fishery", "tone": "amber"}
       ],
       "grid_class": "qs-project-grid",
-      "keywords": [
-        "stock assessment",
-        "biomass dynamics",
-        "population dynamics",
-        "population state",
-        "productivity",
-        "recruitment",
-        "selectivity",
-        "mortality",
-        "health index",
-        "stock condition"
-      ]
+      "keywords": ["stock assessment", "biomass dynamics", "population dynamics", "population state", "productivity", "recruitment", "selectivity", "mortality", "health index", "stock condition"]
     },
     {
       "id": "environmental-variability",
@@ -34,27 +23,11 @@
       "why_it_matters": "Eastern Boundary Upwelling Systems are highly variable, so separating environmental forcing from fishing effects is essential for detecting pressure-state relationships, thresholds, and regime changes.",
       "badges": [
         {"label": "System", "value": "Humboldt Current", "tone": "blue"},
-        {"label": "Focus", "value": "Pressure-state relationships", "tone": "green"},
-        {"label": "Drivers", "value": "Climate & fishing", "tone": "amber"}
+        {"label": "Focus", "value": "Environment", "tone": "green"},
+        {"label": "Data", "value": "Ocean + fishery", "tone": "amber"}
       ],
       "grid_class": "qs-project-grid",
-      "keywords": [
-        "environment",
-        "environmental variability",
-        "climate",
-        "enso",
-        "el nino",
-        "la nina",
-        "oceanographic",
-        "temperature",
-        "oxygen",
-        "natural pressure",
-        "anthropogenic pressure",
-        "pressure-state",
-        "threshold",
-        "regime",
-        "breakpoint"
-      ]
+      "keywords": ["environment", "environmental variability", "climate", "enso", "el nino", "la nina", "oceanographic", "temperature", "oxygen", "natural pressure", "anthropogenic pressure", "pressure-state", "threshold", "regime", "breakpoint"]
     },
     {
       "id": "life-history",
@@ -63,26 +36,12 @@
       "research_question": "How do reproduction, growth, and individual condition vary through time, and how do these life-history processes contribute to changes in pelagic population state?",
       "why_it_matters": "Maturity, spawning, growth, and condition can respond before biomass does, providing complementary information on population performance and resilience.",
       "badges": [
-        {"label": "Focus", "value": "Maturity, growth & condition", "tone": "blue"},
-        {"label": "Indicators", "value": "GSI, growth, condition", "tone": "green"},
-        {"label": "Level", "value": "Population biology", "tone": "amber"}
+        {"label": "System", "value": "Anchovy", "tone": "blue"},
+        {"label": "Focus", "value": "Life history", "tone": "green"},
+        {"label": "Data", "value": "Biological", "tone": "amber"}
       ],
       "grid_class": "qs-project-grid",
-      "keywords": [
-        "gonadosomatic",
-        "gonadal",
-        "maturity",
-        "sexual maturity",
-        "reproductive",
-        "reproduction",
-        "spawning",
-        "fecundity",
-        "growth",
-        "condition",
-        "body condition",
-        "lipid",
-        "life history"
-      ]
+      "keywords": ["gonadosomatic", "gonadal", "maturity", "sexual maturity", "reproductive", "reproduction", "spawning", "fecundity", "growth", "condition", "body condition", "lipid", "life history"]
     },
     {
       "id": "spatial-biodiversity",
@@ -91,31 +50,12 @@
       "research_question": "How do pelagic species, associated fauna, and non-target interactions vary across space and time, and which environmental processes shape habitat suitability and species distributions?",
       "why_it_matters": "Spatially explicit information from niche models, species distribution models, biodiversity observations, and bycatch patterns is needed to interpret ecosystem change and support spatial fisheries management.",
       "badges": [
-        {"label": "Focus", "value": "SDM, habitat & biodiversity", "tone": "blue"},
-        {"label": "Scope", "value": "Pelagic species & bycatch", "tone": "green"},
-        {"label": "Methods", "value": "Spatial modelling", "tone": "amber"}
+        {"label": "System", "value": "Pelagic ecosystem", "tone": "blue"},
+        {"label": "Focus", "value": "Spatial ecology", "tone": "green"},
+        {"label": "Data", "value": "Survey + environment", "tone": "amber"}
       ],
       "grid_class": "qs-project-grid",
-      "keywords": [
-        "biodiversity",
-        "bycatch",
-        "associated fauna",
-        "accompanying fauna",
-        "non-target",
-        "species distribution",
-        "distribution model",
-        "sdm",
-        "niche model",
-        "ecological niche",
-        "habitat",
-        "habitat suitability",
-        "occurrence",
-        "species composition",
-        "community",
-        "marine mammal",
-        "seabird",
-        "turtle"
-      ]
+      "keywords": ["biodiversity", "bycatch", "associated fauna", "accompanying fauna", "non-target", "species distribution", "distribution model", "sdm", "niche model", "ecological niche", "habitat", "habitat suitability", "occurrence", "species composition", "community", "marine mammal", "seabird", "turtle"]
     },
     {
       "id": "fisheries-dynamics",
@@ -124,25 +64,12 @@
       "research_question": "How do pelagic fisheries reorganize through seasons, environmental variability, fleet behaviour, and management interventions, and how can those dynamics inform adaptive decisions?",
       "why_it_matters": "Fast changes in resource availability and fishing operations require diagnostics that separate ecological availability, biological risk, fishing pressure, and fleet response.",
       "badges": [
-        {"label": "Focus", "value": "Fishery behaviour & management", "tone": "blue"},
-        {"label": "Scope", "value": "Adaptive management", "tone": "green"},
-        {"label": "Evidence", "value": "Fleet & season dynamics", "tone": "amber"}
+        {"label": "System", "value": "Pelagic fisheries", "tone": "blue"},
+        {"label": "Focus", "value": "Management", "tone": "green"},
+        {"label": "Data", "value": "Fishery + environment", "tone": "amber"}
       ],
       "grid_class": "qs-project-grid",
-      "keywords": [
-        "fishery",
-        "fisheries",
-        "fishing",
-        "fleet",
-        "quota",
-        "season",
-        "management",
-        "availability",
-        "risk",
-        "closure",
-        "juvenile",
-        "climate adaptive"
-      ]
+      "keywords": ["fishery", "fisheries", "fishing", "fleet", "quota", "season", "management", "availability", "risk", "closure", "juvenile", "climate adaptive"]
     },
     {
       "id": "scientific-computing",
@@ -151,51 +78,20 @@
       "research_question": "How can statistical methods, reproducible workflows, and research software make complex marine and fisheries analyses more transparent, reusable, and auditable?",
       "why_it_matters": "Heterogeneous marine data and complex models create hidden analytical variation; reusable software and reproducible workflows improve validation, transferability, and scientific efficiency.",
       "badges": [
-        {"label": "Focus", "value": "Methods & software", "tone": "blue"},
-        {"label": "Outputs", "value": "Packages, workflows & tools", "tone": "green"},
-        {"label": "Approach", "value": "Reproducible science", "tone": "amber"}
+        {"label": "System", "value": "Marine data", "tone": "blue"},
+        {"label": "Focus", "value": "Methods + software", "tone": "green"},
+        {"label": "Data", "value": "Multi-source", "tone": "amber"}
       ],
       "grid_class": "qs-project-grid",
-      "keywords": [
-        "software",
-        "package",
-        "scientific computing",
-        "reproducible",
-        "data cube",
-        "ocean data",
-        "python",
-        "streamlit",
-        "r package",
-        "workflow"
-      ]
+      "keywords": ["software", "package", "scientific computing", "reproducible", "data cube", "ocean data", "python", "streamlit", "r package", "workflow"]
     }
   ],
   "output_theme_overrides": [
-    {
-      "source": "talks",
-      "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
-      "section": "stock-assessment"
-    },
-    {
-      "source": "talks",
-      "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea",
-      "section": "environmental-variability"
-    },
-    {
-      "source": "publications",
-      "title": "Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens",
-      "section": "life-history"
-    },
-    {
-      "source": "talks",
-      "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
-      "section": "life-history"
-    },
-    {
-      "source": "publications",
-      "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022",
-      "section": "life-history"
-    }
+    {"source": "talks", "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability", "section": "stock-assessment"},
+    {"source": "talks", "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea", "section": "environmental-variability"},
+    {"source": "publications", "title": "Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens", "section": "life-history"},
+    {"source": "talks", "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation", "section": "life-history"},
+    {"source": "publications", "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022", "section": "life-history"}
   ],
   "projects": [
     {
@@ -203,12 +99,14 @@
       "section": "stock-assessment",
       "source_repository": "qselmer/fishstocks-misspecification-ml-paper",
       "source_branch": "main",
-      "logo_candidates": [
-        "assets/images/logo.svg",
-        "assets/images/logo.png"
-      ],
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "sand",
       "stage": "Methods development",
+      "badges": [
+        {"label": "System", "value": "Pelagic fish", "tone": "blue"},
+        {"label": "Focus", "value": "Assessment", "tone": "green"},
+        {"label": "Data", "value": "Simulation", "tone": "amber"}
+      ],
       "title": "Diagnosing stock-assessment model misspecification with machine learning",
       "summary": "Simulation-estimation experiments testing whether multivariate diagnostics can identify structural sources of stock-assessment misspecification.",
       "context": "Stock-assessment methods · pelagic applications",
@@ -220,12 +118,14 @@
       "section": "fisheries-dynamics",
       "source_repository": "qselmer/pelagicPER-season-benchmark-paper",
       "source_branch": "main",
-      "logo_candidates": [
-        "assets/images/logo.svg",
-        "assets/images/logo.png"
-      ],
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "blue",
       "stage": "Data analysis",
+      "badges": [
+        {"label": "System", "value": "Anchovy", "tone": "blue"},
+        {"label": "Focus", "value": "Season dynamics", "tone": "green"},
+        {"label": "Data", "value": "Fishery + environment", "tone": "amber"}
+      ],
       "title": "In-season benchmarking for environmentally variable small-pelagic fisheries",
       "summary": "Historical comparison using season day, effective fishing day, quota progress, functional envelopes, analogue seasons, and environmental adjustment.",
       "context": "Pelagic fisheries · Humboldt Current",
@@ -237,12 +137,14 @@
       "section": "fisheries-dynamics",
       "source_repository": "qselmer/pelagicPER-fishery-reorganization-paper",
       "source_branch": "main",
-      "logo_candidates": [
-        "assets/images/logo.svg",
-        "assets/images/logo.png"
-      ],
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "aqua",
       "stage": "Manuscript in development",
+      "badges": [
+        {"label": "System", "value": "Pelagic fish", "tone": "blue"},
+        {"label": "Focus", "value": "Fishery change", "tone": "green"},
+        {"label": "Data", "value": "Fishery + environment", "tone": "amber"}
+      ],
       "title": "Long-term reorganization of Peruvian pelagic fisheries in a variable upwelling system",
       "summary": "Long-term changes in species composition, effort, efficiency, seasonality, fleet structure, spatial footprint, and environmental context.",
       "context": "Pelagic fisheries · Humboldt Current",
@@ -254,12 +156,14 @@
       "section": "fisheries-dynamics",
       "source_repository": "qselmer/pel-climate-adaptive-management-paper",
       "source_branch": "main",
-      "logo_candidates": [
-        "assets/images/logo.svg",
-        "assets/images/logo.png"
-      ],
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "green",
       "stage": "Systematic evidence synthesis",
+      "badges": [
+        {"label": "System", "value": "Small pelagics", "tone": "blue"},
+        {"label": "Focus", "value": "Adaptive management", "tone": "green"},
+        {"label": "Data", "value": "Literature", "tone": "amber"}
+      ],
       "title": "Climate-adaptive management of small pelagic fisheries in upwelling systems",
       "summary": "Systematic evidence synthesis evaluating management responses to environmental variability and climate change and their transferability to Peruvian anchovy.",
       "context": "Small pelagics · Eastern Boundary Upwelling Systems",
@@ -271,12 +175,14 @@
       "section": "fisheries-dynamics",
       "source_repository": "qselmer/pelagicPER-availability-risk-paper",
       "source_branch": "main",
-      "logo_candidates": [
-        "assets/images/logo.svg",
-        "assets/images/logo.png"
-      ],
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "sand",
       "stage": "Planned study",
+      "badges": [
+        {"label": "System", "value": "Anchovy", "tone": "blue"},
+        {"label": "Focus", "value": "Availability risk", "tone": "green"},
+        {"label": "Data", "value": "Fishery + environment", "tone": "amber"}
+      ],
       "title": "Dynamic environmental availability and biological risk in pelagic fisheries",
       "summary": "Framework separating resource availability, biological risk, operational risk, and regulation using environmental and fishery information with hindcast validation.",
       "context": "Pelagic fisheries · Humboldt Current",
@@ -288,20 +194,20 @@
       "section": "scientific-computing",
       "source_repository": "qselmer/fishcore-paper",
       "source_branch": "main",
-      "logo_candidates": [
-        "assets/images/logo.svg",
-        "assets/images/logo.png"
-      ],
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "green",
       "stage": "Planned study",
+      "badges": [
+        {"label": "System", "value": "Fisheries", "tone": "blue"},
+        {"label": "Focus", "value": "Indicators", "tone": "green"},
+        {"label": "Data", "value": "Multi-source", "tone": "amber"}
+      ],
       "title": "Standardized fisheries indicators as reusable research software",
       "summary": "Potential software paper contingent on stable reuse, documentation, testing, and a defensible methodological contribution in the underlying fisheries-indicator framework.",
       "context": "Fisheries indicators · reproducible computing",
       "site_path": "fishcore-software-paper/",
       "link_label": "Project page",
-      "extra_classes": [
-        "qs-project-planned"
-      ]
+      "extra_classes": ["qs-project-planned"]
     }
   ]
 }
