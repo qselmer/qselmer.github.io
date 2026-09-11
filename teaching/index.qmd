@@ -4,8 +4,8 @@ description: "Courses, workshops, teaching materials, and reproducible scientifi
 ---
 
 <div class="qs-publication-nav" aria-label="Teaching sections">
-  <a href="#courses"><strong>Courses & workshops</strong></a>
-  <a href="#infrastructure"><strong>Teaching infrastructure</strong></a>
+  <a href="#courses"><strong>Courses</strong></a>
+  <a href="#infrastructure"><strong>Infrastructure</strong></a>
 </div>
 
 ::: {.qs-compact-catalogue .qs-teaching-catalogue}
