@@ -6,6 +6,7 @@ project:
     - components/**
     - files/CV.pdf
     - blog/index.xml
+    - assets/data/honors.json
     - assets/data/scholarly-graph.json
     - assets/data/scholarly-infrastructure.json
     - assets/data/reproducibility-certification.json
@@ -42,6 +43,7 @@ project:
     - software/pelagytics/index.qmd
     - teaching/index.qmd
     - teaching/git-github-training/index.qmd
+    - honors/index.qmd
     - data/index.qmd
     - blog/index.qmd
     - blog/statistical-distributions-fisheries-marine-ecology/index.qmd
@@ -84,6 +86,9 @@ website:
       - href: teaching/index.qmd
         text: Teaching
         icon: mortarboard
+      - href: honors/index.qmd
+        text: Honors
+        icon: award
       - href: blog/index.qmd
         text: Posts
         icon: pencil-square
