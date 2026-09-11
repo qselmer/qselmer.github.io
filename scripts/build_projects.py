@@ -123,26 +123,6 @@ def render_output(item: dict) -> str:
     )
 
 
-def render_schematic(section: dict) -> list[str]:
-    steps = section.get("visual_steps") or []
-    if not isinstance(steps, list) or not steps:
-        return []
-    clean_steps = [str(step or "").strip() for step in steps]
-    if any(not step for step in clean_steps):
-        raise RuntimeError(f"Theme visual_steps cannot contain empty values: {section}")
-    label = " → ".join(clean_steps)
-    lines = [
-        "```{=html}",
-        f'<div class="qs-theme-schematic" aria-label="Conceptual research pathway: {html.escape(label, quote=True)}">',
-    ]
-    for index, step in enumerate(clean_steps):
-        if index:
-            lines.append('<span class="qs-theme-arrow" aria-hidden="true">→</span>')
-        lines.append(f'<span class="qs-theme-node">{html.escape(step)}</span>')
-    lines += ["</div>", "```", ""]
-    return lines
-
-
 def render() -> str:
     payload = load_registry()
     sections = payload["sections"]
@@ -181,9 +161,10 @@ def render() -> str:
     for section in sections:
         section_id = str(section["id"]).strip()
         heading = str(section.get("heading") or "").strip()
-        if not heading:
-            raise RuntimeError(f"Project section {section_id} is missing a heading")
-        lines.append(f'<a href="#{html.escape(section_id, quote=True)}">{html.escape(heading)}</a>')
+        nav_label = str(section.get("nav_label") or heading).strip()
+        if not heading or not nav_label:
+            raise RuntimeError(f"Project section {section_id} is missing a heading or nav label")
+        lines.append(f'<a href="#{html.escape(section_id, quote=True)}">{html.escape(nav_label)}</a>')
     lines += ["</nav>", "```", ""]
 
     for section in sections:
@@ -201,8 +182,15 @@ def render() -> str:
             raise RuntimeError(f"Research theme {section_id} needs research_question and why_it_matters")
 
         lines += [f"## {heading} {{#{section_id}}}", ""]
-        lines += ["### Research question", "", question, "", "### Why it matters", "", why, ""]
-        lines += render_schematic(section)
+        lines += [
+            "```{=html}",
+            '<p class="qs-theme-rationale">'
+            f'<strong>Research question:</strong> {html.escape(question)}<br>'
+            f'<strong>Why it matters:</strong> {html.escape(why)}'
+            "</p>",
+            "```",
+            "",
+        ]
 
         if group:
             lines += ["### Current projects", "", "```{=html}", f'<div class="{" ".join(class_tokens)}">']
