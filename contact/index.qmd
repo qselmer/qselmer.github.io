@@ -6,48 +6,16 @@ toc: false
 
 For research collaboration, manuscript discussion, quantitative analysis, teaching, or professional exchange in marine ecology and fisheries science, the preferred direct channel is email.
 
-## Contact details
+## Contact
 
-::: {.grid}
-::: {.g-col-12 .g-col-md-6}
-### Direct contact
+**Elmer Quispe-Salazar**  
+Marine Quantitative Ecologist · Fisheries Scientist  
+[Instituto del Mar del Perú (IMARPE)](https://www.gob.pe/imarpe)  
+Callao, Peru
 
 **Email**  
 [qselmers@gmail.com](mailto:qselmers@gmail.com)
 
-### Academic profiles
+## Academic profiles
 
-[ORCID](https://orcid.org/0000-0001-9229-6379) · [Google Scholar](https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en) · [GitHub](https://github.com/qselmer) · [LinkedIn](https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/) · [ResearchGate](https://www.researchgate.net/profile/Elmer-Quispe-Salazar)
-:::
-
-::: {.g-col-12 .g-col-md-6}
-### Institutional context
-
-**Institution**  
-[Instituto del Mar del Perú (IMARPE)](https://www.gob.pe/imarpe)
-
-**Institutional phone**  
-[+51 1 904 0137](tel:+5119040137)
-
-**Address**  
-Esquina Gamarra y General Valle S/N, Chucuito, Callao 07021, Peru
-
-**Service hours**  
-Monday–Friday · 08:00–16:30
-:::
-:::
-
-## Location
-
-<iframe
-  title="Map showing the IMARPE central office in Callao, Peru"
-  src="https://www.google.com/maps?q=Esquina%20Gamarra%20y%20General%20Valle%20S%2FN%2C%20Chucuito%2C%20Callao%2007021%2C%20Peru&output=embed"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-  allowfullscreen
-  style="display:block;width:100%;height:430px;border:1px solid #dee2e6;border-radius:0.375rem;">
-</iframe>
-
-::: {.callout-note}
-The institutional address, telephone, and service hours are provided for orientation. Official institutional requests should use the corresponding IMARPE communication channels.
-:::
+[ORCID](https://orcid.org/0000-0001-9229-6379) · [Google Scholar](https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en) · [GitHub](https://github.com/qselmer) · [LinkedIn](https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/)
