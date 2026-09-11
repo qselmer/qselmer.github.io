@@ -7,6 +7,11 @@
       "nav_label": "Stock assessment",
       "research_question": "How do population processes, productivity, and model assumptions shape inference about the state and dynamics of exploited pelagic populations?",
       "why_it_matters": "Reliable assessment requires integrating biomass with recruitment, mortality, selectivity, and productivity while accounting for structural uncertainty in the models used for fisheries advice.",
+      "badges": [
+        {"label": "System", "value": "Pelagic fish", "tone": "blue"},
+        {"label": "Focus", "value": "Assessment & productivity", "tone": "green"},
+        {"label": "Evidence", "value": "Surveys + fishery data", "tone": "amber"}
+      ],
       "grid_class": "qs-project-grid",
       "keywords": [
         "stock assessment",
@@ -27,6 +32,11 @@
       "nav_label": "Environment",
       "research_question": "How do climate and oceanographic variability, natural forcing, fishing pressure, and their interactions alter productivity and the state of pelagic populations?",
       "why_it_matters": "Eastern Boundary Upwelling Systems are highly variable, so separating environmental forcing from fishing effects is essential for detecting pressure-state relationships, thresholds, and regime changes.",
+      "badges": [
+        {"label": "System", "value": "Humboldt Current", "tone": "blue"},
+        {"label": "Focus", "value": "Pressure-state relationships", "tone": "green"},
+        {"label": "Drivers", "value": "Climate & fishing", "tone": "amber"}
+      ],
       "grid_class": "qs-project-grid",
       "keywords": [
         "environment",
@@ -52,6 +62,11 @@
       "nav_label": "Reproduction & growth",
       "research_question": "How do reproduction, growth, and individual condition vary through time, and how do these life-history processes contribute to changes in pelagic population state?",
       "why_it_matters": "Maturity, spawning, growth, and condition can respond before biomass does, providing complementary information on population performance and resilience.",
+      "badges": [
+        {"label": "Focus", "value": "Maturity, growth & condition", "tone": "blue"},
+        {"label": "Indicators", "value": "GSI, growth, condition", "tone": "green"},
+        {"label": "Level", "value": "Population biology", "tone": "amber"}
+      ],
       "grid_class": "qs-project-grid",
       "keywords": [
         "gonadosomatic",
@@ -75,6 +90,11 @@
       "nav_label": "Spatial ecology",
       "research_question": "How do pelagic species, associated fauna, and non-target interactions vary across space and time, and which environmental processes shape habitat suitability and species distributions?",
       "why_it_matters": "Spatially explicit information from niche models, species distribution models, biodiversity observations, and bycatch patterns is needed to interpret ecosystem change and support spatial fisheries management.",
+      "badges": [
+        {"label": "Focus", "value": "SDM, habitat & biodiversity", "tone": "blue"},
+        {"label": "Scope", "value": "Pelagic species & bycatch", "tone": "green"},
+        {"label": "Methods", "value": "Spatial modelling", "tone": "amber"}
+      ],
       "grid_class": "qs-project-grid",
       "keywords": [
         "biodiversity",
@@ -103,6 +123,11 @@
       "nav_label": "Fisheries dynamics",
       "research_question": "How do pelagic fisheries reorganize through seasons, environmental variability, fleet behaviour, and management interventions, and how can those dynamics inform adaptive decisions?",
       "why_it_matters": "Fast changes in resource availability and fishing operations require diagnostics that separate ecological availability, biological risk, fishing pressure, and fleet response.",
+      "badges": [
+        {"label": "Focus", "value": "Fishery behaviour & management", "tone": "blue"},
+        {"label": "Scope", "value": "Adaptive management", "tone": "green"},
+        {"label": "Evidence", "value": "Fleet & season dynamics", "tone": "amber"}
+      ],
       "grid_class": "qs-project-grid",
       "keywords": [
         "fishery",
@@ -125,6 +150,11 @@
       "nav_label": "Scientific computing",
       "research_question": "How can statistical methods, reproducible workflows, and research software make complex marine and fisheries analyses more transparent, reusable, and auditable?",
       "why_it_matters": "Heterogeneous marine data and complex models create hidden analytical variation; reusable software and reproducible workflows improve validation, transferability, and scientific efficiency.",
+      "badges": [
+        {"label": "Focus", "value": "Methods & software", "tone": "blue"},
+        {"label": "Outputs", "value": "Packages, workflows & tools", "tone": "green"},
+        {"label": "Approach", "value": "Reproducible science", "tone": "amber"}
+      ],
       "grid_class": "qs-project-grid",
       "keywords": [
         "software",
