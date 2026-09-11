@@ -23,14 +23,14 @@ I try to understand how environmental variability, population processes, and fis
 I am based at the [**Instituto del Mar del Perú (IMARPE)**](https://www.gob.pe/imarpe), where I work on quantitative analyses of pelagic resources and fisheries. My research spans [**stock assessment and population dynamics**](projects/#stock-assessment), [**environmental variability**](projects/#environmental-variability), [**reproduction, growth and condition**](projects/#life-history), [**spatial ecology and biodiversity**](projects/#spatial-biodiversity), and [**fisheries dynamics and adaptive management**](projects/#fisheries-dynamics).
 
 I also enjoy turning recurring analytical problems into reproducible methods and [**open research software**](software/). Across these themes, I aim to connect ecological mechanisms with decision-relevant evidence, especially changes that biomass alone may not reveal, including recruitment, growth, maturity, condition, availability, and spatial distribution.
+
+These questions are organized around six connected research interests:
 :::
 
 ::: {.qs-about-identity-visual}
 <div id="jsi-flying-fish-container" class="qs-marine-identity" role="img" aria-label="Animated marine quantitative ecology identity showing anchovy, tuna, ocean depth and local abundance curves."></div>
 :::
 :::
-
-These questions are organized around six connected research interests:
 
 <ul class="qs-interest-list">
 <li><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span><a href="projects/#stock-assessment"><strong>Stock assessment & population dynamics</strong></a>: productivity, recruitment, mortality, selectivity, model diagnostics, and structural uncertainty.</span></li>
