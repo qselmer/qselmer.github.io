@@ -91,7 +91,8 @@ def render_item(item: dict) -> str:
         parts.append(f'<p class="qs-teaching-summary">{html.escape(summary)}</p>')
     parts.append(f'<div class="qs-badge-row qs-publication-badges">{"".join(badges)}</div>')
     if links:
-        parts.append(f'<p class="qs-teaching-links">{" <span aria-hidden="true">|</span> ".join(links)}</p>')
+        separator = ' <span aria-hidden="true">|</span> '
+        parts.append(f'<p class="qs-teaching-links">{separator.join(links)}</p>')
     parts.append('</article>')
     return "".join(parts)
 
