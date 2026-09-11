@@ -101,7 +101,8 @@ def render_item(item: dict, curated: dict) -> str:
         '<span class="qs-academic-output-meta-inline">'
         f'<strong>Duration:</strong> {html.escape(duration)} '
         '<span aria-hidden="true">·</span> '
-        f'<strong>Materials:</strong> {html.escape(materials)}.'</n        '</span>'
+        f'<strong>Materials:</strong> {html.escape(materials)}.'
+        '</span>'
     )
     if links:
         pieces.append(
