@@ -222,7 +222,7 @@ def render_entry(item: dict) -> str:
     ]
     return (
         f"- {authors} ({date}). {title}. *{event}*, {location}. "
-        f'<span class="qs-badge-row qs-publication-badges'>{"".join(badges)}</span>'
+        f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>'
     )
 
 
