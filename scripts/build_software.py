@@ -87,9 +87,9 @@ def software_entry(item: dict, curated: dict) -> list[str]:
     stage = compact_stage(maturity)
     badges = [
         badge("Type", compact_type(category), "neutral"),
-        badge("Stage", stage, "green" if stage == "Stable" else "amber"),
+        badge("Stage", stage, "green"),
         badge("Language", language if language and language != "-" else "Mixed", "blue"),
-        badge("Release", release, "blue", release_url),
+        badge("Release", release, "amber", release_url),
     ]
 
     title_href = site_path or repo_url or "#"
