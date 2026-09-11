@@ -1,0 +1,6 @@
+---
+title: "Open science"
+description: "Persistent identifiers, scholarly interoperability, citation metadata, reproducibility readiness, and preservation for my public research outputs."
+---
+
+{{< include _generated.md >}}
