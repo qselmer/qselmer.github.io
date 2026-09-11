@@ -3,6 +3,7 @@ project:
   output-dir: _site
   resources:
     - images/**
+    - assets/**
     - files/CV.pdf
   post-render:
     - scripts/postprocess_site.py
