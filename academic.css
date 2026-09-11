@@ -1,5 +1,9 @@
 /* Final academic typography layer: lighter, cleaner, and less visually heavy. */
 
+:root {
+  --qs-academic-accent: #0b1320;
+}
+
 body {
   font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
   font-weight: 400;
@@ -54,6 +58,35 @@ b {
   font-weight: 600;
 }
 
+/* Academic links and underlines use one restrained ink throughout content.
+   Badge links are excluded because their contrast depends on their badge fill. */
+main.content a:not(.qs-badge),
+.quarto-title-block a,
+.qs-publication-nav a,
+.qs-related-output a,
+.qs-project-tile h3 a,
+.qs-software-copy h3 a,
+.qs-selected-item h3 a {
+  color: var(--qs-academic-accent) !important;
+  text-decoration-color: var(--qs-academic-accent) !important;
+}
+
+main.content a:not(.qs-badge):hover,
+main.content a:not(.qs-badge):focus,
+.qs-publication-nav a:hover,
+.qs-related-output a:hover,
+.qs-project-tile h3 a:hover,
+.qs-software-copy h3 a:hover,
+.qs-selected-item h3 a:hover {
+  color: var(--qs-academic-accent) !important;
+  text-decoration-color: var(--qs-academic-accent) !important;
+}
+
+main.content u,
+main.content ins {
+  text-decoration-color: var(--qs-academic-accent);
+}
+
 .navbar .nav-link,
 .navbar .dropdown-item {
   font-weight: 400;
@@ -76,7 +109,7 @@ b {
 .qs-project-tile h3,
 .qs-software-copy h3,
 .qs-selected-item h3,
-.qs-interest-grid strong {
+.qs-interest-list strong {
   font-weight: 500 !important;
 }
 
