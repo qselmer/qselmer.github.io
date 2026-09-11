@@ -1,6 +1,7 @@
 ---
 title: "Research"
 description: "Research themes, active projects, and related papers, reports, talks, theses, and software."
+css: research.css
 ---
 
 {{< include _generated.md >}}
