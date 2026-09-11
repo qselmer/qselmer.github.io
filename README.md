@@ -13,11 +13,11 @@ The website is a discovery and presentation layer. Scientific repositories remai
 - **Talks** - conference talks, invited talks and seminars, posters, and workshops when those record types are present.
 - **Software** - curated scientific packages and applications with explicit maturity.
 - **Teaching** - structured courses/training and reusable teaching infrastructure.
-- **Posts** - tutorials, technical notes, methodological explanations, and reproducible-science guidance for a broader technical audience.
+- **Posts** - tutorials, technical notes, methodological explanations, reproducible-science guidance, and an RSS feed.
 - **CV** - professional record and current PDF curriculum vitae.
-- **More** - curated Data Sources and Contact.
+- **More** - curated Data Sources, Miscellaneous material, and Contact.
 
-Unfinished or placeholder-only sections are kept out of the public navigation and production render until substantive content exists. Legacy routes that no longer belong to the public architecture are retained only as deterministic `noindex` redirects when old inbound links remain meaningful. The retired substantive pages are not rendered as public content.
+Legacy routes that no longer belong to the public architecture are retained only as deterministic `noindex` redirects when old inbound links remain meaningful. The retired substantive pages are not rendered as public content.
 
 ## Metadata sources
 
@@ -34,6 +34,8 @@ The canonical repository catalogue is fetched transiently during automation beca
 - `assets/data/teaching.json`
 
 Website-specific editorial decisions remain in local registries such as `projects/registry.json`, `software/registry.json`, `teaching/registry.json`, `talks/registry.json`, `data/registry.json`, and `blog/registry.json` (public label: **Posts**).
+
+Rendered pages receive canonical URLs, Open Graph/Twitter previews, RSS discovery metadata for Posts, and schema.org JSON-LD for the researcher profile, journal articles, published software, the Git/GitHub course, and technical posts.
 
 See [`AUTOMATION.md`](AUTOMATION.md) for the complete data flow.
 
