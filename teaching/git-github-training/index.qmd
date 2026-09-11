@@ -6,6 +6,8 @@ status: "Active"
 
 `git-github-training` is the canonical teaching repository for a progressive introduction to Git and GitHub. This page is a discovery record; the instructional material itself remains in the repository.
 
+**Role:** Instructor · **Audience:** Beginners · **Duration:** Multi-session · **Language:** Spanish · **Materials:** Lessons, practices, and cheatsheets.
+
 ## Learning path
 
 The current sequence covers:
