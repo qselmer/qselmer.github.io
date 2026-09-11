@@ -42,13 +42,18 @@
 }
 
 .qs-theme-rationale strong {
-  font-weight: 800;
+  color: #0b1320 !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  font-weight: 600 !important;
 }
 
-/* Keep project cards visually clean: retain the card boundary but remove internal divider lines. */
+/* Keep project cards visually clean: retain only the dark external boundary. */
 .qs-project-tile,
 .qs-project-tile.qs-project-no-logo {
-  border: 1px solid rgba(49, 79, 96, .12) !important;
+  border: 1px solid #0b1320 !important;
   box-shadow: none !important;
 }
 
