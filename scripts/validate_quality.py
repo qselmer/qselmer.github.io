@@ -20,7 +20,12 @@ SITE = ROOT / "_site"
 REGISTRY = ROOT / "projects" / "registry.json"
 GENERATED_PROJECTS = ROOT / "projects" / "_generated.md"
 ABOUT_SELECTED = ROOT / "includes" / "about-selected.html"
+PROFILE_SIDEBAR = ROOT / "includes" / "profile-sidebar.html"
+SOFTWARE_GENERATED = ROOT / "software" / "_generated.md"
+TEACHING_GENERATED = ROOT / "teaching" / "_generated.md"
+BLOG_GENERATED = ROOT / "blog" / "_generated.md"
 CATALOGUE_CSS = ROOT / "catalogue.css"
+STANDARDIZATION_CSS = ROOT / "standardization.css"
 ACCESSIBILITY_CSS = ROOT / "accessibility.css"
 BLOG_REGISTRY = ROOT / "blog" / "registry.json"
 RSS_SOURCE = ROOT / "blog" / "index.xml"
@@ -86,11 +91,23 @@ def validate_rss(path: Path) -> int:
     return len(items)
 
 
+def validate_output_catalogue(source: str, label: str, old_class: str) -> None:
+    require(source, 'class="qs-academic-output-list', label)
+    require(source, 'class="qs-academic-output-item', label)
+    require(source, 'qs-academic-output-badges', label)
+    reject(source, old_class, label)
+
+
 def validate_source() -> None:
     count = project_count()
     generated = text(GENERATED_PROJECTS)
     selected = text(ABOUT_SELECTED)
+    sidebar = text(PROFILE_SIDEBAR)
+    software = text(SOFTWARE_GENERATED)
+    teaching = text(TEACHING_GENERATED)
+    blog = text(BLOG_GENERATED)
     css = text(CATALOGUE_CSS)
+    standardized = text(STANDARDIZATION_CSS)
     accessibility = text(ACCESSIBILITY_CSS)
 
     # One project-card contract: every Research card uses the same editorial markup,
@@ -107,6 +124,16 @@ def validate_source() -> None:
     require(selected, 'class="qs-project-type"', "includes/about-selected.html")
     reject(selected, "qs-selected-item", "includes/about-selected.html")
     reject(selected, "qs-selected-type", "includes/about-selected.html")
+
+    # Software, Teaching, and Posts use the same publication/talk list grammar.
+    validate_output_catalogue(software, "software/_generated.md", "qs-software-entry")
+    validate_output_catalogue(teaching, "teaching/_generated.md", "qs-teaching-entry")
+    validate_output_catalogue(blog, "blog/_generated.md", "qs-post-row")
+    require(sidebar, 'class="qs-sidebar-metric-value"', "includes/profile-sidebar.html")
+    require(standardized, ".qs-academic-output-list", "standardization.css")
+    require(standardized, ".qs-academic-output-badges", "standardization.css")
+    require(standardized, ".qs-sidebar-metric-value", "standardization.css")
+    require(standardized, "font-weight: 400 !important", "standardization.css")
 
     # Responsive and visual contract for project cards and thematic navigation.
     # Research projects are full-width rows across themes; About can use its own
@@ -128,8 +155,8 @@ def validate_source() -> None:
     rss_items = validate_rss(RSS_SOURCE)
     print(
         f"Phase 6 source QA PASS: {count} projects use one card system; "
-        f"About reuses the Research cards; responsive/focus/reduced-motion contracts present; "
-        f"RSS has {rss_items} item(s)"
+        f"About reuses the Research cards; Software/Teaching/Posts share one scholarly list grammar; "
+        f"responsive/focus/reduced-motion contracts present; RSS has {rss_items} item(s)"
     )
 
 
@@ -162,6 +189,9 @@ def validate_rendered() -> None:
     count = project_count()
     research = text(rendered_file("/projects/"))
     about = text(rendered_file("/"))
+    software = text(rendered_file("/software/"))
+    teaching = text(rendered_file("/teaching/"))
+    blog = text(rendered_file("/blog/"))
     if research.count('class="qs-project-tile"') != count:
         raise RuntimeError("Rendered Research project-card count does not match registry")
     if research.count('class="qs-project-type"') != count:
@@ -173,6 +203,11 @@ def validate_rendered() -> None:
     require(about, 'class="qs-project-type"', "rendered About")
     reject(about, "qs-selected-item", "rendered About")
     reject(about, "qs-selected-type", "rendered About")
+
+    validate_output_catalogue(software, "rendered Software", "qs-software-entry")
+    validate_output_catalogue(teaching, "rendered Teaching", "qs-teaching-entry")
+    validate_output_catalogue(blog, "rendered Posts", "qs-post-row")
+    require(about, 'class="qs-sidebar-metric-value"', "rendered sidebar")
 
     # Route-specific scholarly structured data.
     require_jsonld("/", "Person")
@@ -186,12 +221,12 @@ def validate_rendered() -> None:
         require_social_image(route)
 
     rss_items = validate_rss(SITE / "blog" / "index.xml")
-    blog_index = text(rendered_file("/blog/"))
-    require(blog_index, 'type="application/rss+xml"', "rendered Posts")
+    require(blog, 'type="application/rss+xml"', "rendered Posts")
 
     print(
         f"Phase 6 rendered QA PASS: {count} uniform project cards, About card reuse, "
-        f"scholarly JSON-LD, social previews, responsive catalogue contract, and {rss_items} RSS item(s)"
+        f"unified scholarly output lists, scholarly JSON-LD, social previews, responsive catalogue contract, "
+        f"and {rss_items} RSS item(s)"
     )
 
 

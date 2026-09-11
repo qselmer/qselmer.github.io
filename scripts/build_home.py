@@ -71,7 +71,7 @@ def render_sidebar(data: dict, identity: dict) -> str:
     metric_rows = "\n".join(
         '<div class="qs-sidebar-metric-row">'
         f'<span>{html.escape(label)}</span>'
-        f'<strong>{html.escape(display_metric(value))}</strong>'
+        f'<span class="qs-sidebar-metric-value">{html.escape(display_metric(value))}</span>'
         '</div>'
         for label, value in metrics
     )

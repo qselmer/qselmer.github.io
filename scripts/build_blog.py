@@ -126,34 +126,36 @@ def render_post(post: dict) -> list[str]:
     ])
 
     thumbnail = str(post.get("thumbnail") or "").strip()
-    thumbnail_alt = html.escape(str(post.get("thumbnail_alt") or "").strip())
-    aria_title = html.escape(f"Open {post['title']}", quote=True)
-
-    lines = [
-        '<article class="qs-post-row">',
-        '<div class="qs-post-copy">',
-        f'<h3><a href="{route}">{title}</a></h3>',
-        f'<p class="qs-post-summary">{excerpt}</p>',
-        f'<div class="qs-badge-row qs-post-badges">{badges}</div>',
-        "</div>",
-    ]
-
+    thumbnail_alt = html.escape(str(post.get("thumbnail_alt") or "").strip(), quote=True)
     if thumbnail:
-        src = html.escape(thumbnail, quote=True)
-        lines += [
-            f'<a class="qs-post-thumb" href="{route}" aria-label="{aria_title}">',
-            f'<img src="{src}" alt="{thumbnail_alt}" loading="lazy" decoding="async">',
-            "</a>",
-        ]
+        media = (
+            f'<a class="qs-academic-output-media" href="{route}" aria-label="Open {title}">'
+            f'<img src="{html.escape(thumbnail, quote=True)}" alt="{thumbnail_alt}" '
+            'loading="lazy" decoding="async">'
+            '</a>'
+        )
     else:
-        lines += [
-            f'<a class="qs-post-thumb qs-post-thumb-fallback" href="{route}" aria-label="{aria_title}">',
-            '<span aria-hidden="true">EQS</span>',
-            "</a>",
-        ]
+        media = (
+            f'<a class="qs-academic-output-media qs-academic-output-media-fallback" href="{route}" '
+            f'aria-label="Open {title}"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></a>'
+        )
 
-    lines.append("</article>")
-    return lines
+    reference = (
+        f'<a class="qs-academic-output-title" href="{route}">{title}</a>. '
+        f'{excerpt}'
+    )
+
+    return [
+        '<li class="qs-academic-output-item qs-post-output-item">',
+        '<div class="qs-academic-output-layout">',
+        media,
+        '<div class="qs-academic-output-copy">',
+        f'<p class="qs-academic-output-reference">{reference}</p>',
+        f'<div class="qs-badge-row qs-publication-badges qs-academic-output-badges">{badges}</div>',
+        '</div>',
+        '</div>',
+        '</li>',
+    ]
 
 
 def validate_posts(posts: list[dict]) -> None:
@@ -195,11 +197,16 @@ def render() -> str:
     lines += ["</nav>", "```", ""]
 
     for topic in topics:
-        lines += [f"## {topic} {{#{anchor(topic)}}}", "", "```{=html}", '<div class="qs-post-list" aria-label="Technical posts">']
+        lines += [
+            f"## {topic} {{#{anchor(topic)}}}",
+            "",
+            "```{=html}",
+            '<ul class="qs-academic-output-list qs-post-output-list" aria-label="Technical posts">',
+        ]
         group = [post for post in posts if str(post["topic"]).strip() == topic]
         for post in sorted(group, key=lambda item: str(item.get("updated") or item["date"]), reverse=True):
             lines += render_post(post)
-        lines += ["</div>", "```", ""]
+        lines += ["</ul>", "```", ""]
 
     return "\n".join(lines).rstrip() + "\n"
 

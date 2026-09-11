@@ -74,13 +74,22 @@ def software_entry(item: dict, curated: dict) -> list[str]:
     mark = str(curated.get("mark") or name).strip()
     logo = str(curated.get("logo") or item.get("logo") or synchronized_logo(name)).strip()
 
+    title_href = site_path or repo_url or "#"
+    title = (
+        f'<a class="qs-academic-output-title" href="{html.escape(title_href, quote=True)}">'
+        f'{html.escape(name)}</a>'
+    )
+    reference = f"{title}."
+    if summary:
+        reference += f" {html.escape(summary)}"
+
     if logo:
-        visual = (
-            f'<img class="qs-software-logo" src="{html.escape(logo, quote=True)}" '
-            f'alt="{html.escape(name, quote=True)} logo" loading="lazy">'
+        media = (
+            f'<img src="{html.escape(logo, quote=True)}" '
+            f'alt="{html.escape(name, quote=True)} logo" loading="lazy" decoding="async">'
         )
     else:
-        visual = f'<span class="qs-software-mark-text">{html.escape(mark)}</span>'
+        media = f'<span class="qs-academic-output-mark">{html.escape(mark)}</span>'
 
     release = str(item.get("latest_release") or item.get("version") or "Unreleased").strip()
     release_url = str(item.get("latest_release_url") or "").strip()
@@ -92,7 +101,6 @@ def software_entry(item: dict, curated: dict) -> list[str]:
         badge("Release", release, "amber", release_url),
     ]
 
-    title_href = site_path or repo_url or "#"
     links: list[str] = []
     if repo_url:
         links.append(f'<a href="{html.escape(repo_url, quote=True)}">Repository</a>')
@@ -103,18 +111,17 @@ def software_entry(item: dict, curated: dict) -> list[str]:
         links.append(f'<a href="{html.escape(site_path, quote=True)}">Project page</a>')
 
     lines = [
-        '<article class="qs-software-entry">',
-        f'<div class="qs-software-visual" aria-label="{html.escape(name, quote=True)} software mark">{visual}</div>',
-        '<div class="qs-software-copy">',
-        f'<h3><a href="{html.escape(title_href, quote=True)}">{html.escape(name)}</a></h3>',
+        '<li class="qs-academic-output-item qs-software-output-item">',
+        '<div class="qs-academic-output-layout">',
+        f'<div class="qs-academic-output-media" aria-label="{html.escape(name, quote=True)} software mark">{media}</div>',
+        '<div class="qs-academic-output-copy">',
+        f'<p class="qs-academic-output-reference">{reference}</p>',
     ]
     if links:
         separator = ' <span aria-hidden="true">|</span> '
-        lines.append(f'<p class="qs-software-links qs-software-links-after-title">{separator.join(links)}</p>')
-    if summary:
-        lines.append(f'<p>{html.escape(summary)}</p>')
-    lines.append(f'<div class="qs-badge-row">{"".join(badges)}</div>')
-    lines += ["</div>", "</article>"]
+        lines.append(f'<p class="qs-academic-output-links">{separator.join(links)}</p>')
+    lines.append(f'<div class="qs-badge-row qs-publication-badges qs-academic-output-badges">{"".join(badges)}</div>')
+    lines += ["</div>", "</div>", "</li>"]
     return lines
 
 
@@ -140,11 +147,16 @@ def render() -> str:
         group = [item for item in items if item.get("category") == category]
         if not group:
             continue
-        lines += [f"## {heading} {{#{anchor}}}", "", "```{=html}"]
+        lines += [
+            f"## {heading} {{#{anchor}}}",
+            "",
+            "```{=html}",
+            '<ul class="qs-academic-output-list qs-software-output-list">',
+        ]
         for item in sorted(group, key=lambda x: str(x.get("name") or "").casefold()):
             full_name = str(item.get("full_name") or "").strip()
             lines.extend(software_entry(item, curated.get(full_name, {})))
-        lines += ["```", ""]
+        lines += ["</ul>", "```", ""]
 
     incubating = registry.get("incubating") or []
     concepts = registry.get("concepts") or []

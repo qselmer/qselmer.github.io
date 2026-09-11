@@ -113,3 +113,154 @@ main.content a:not(.btn):focus {
 .qs-teaching-entry .qs-badge-row {
   gap: .28rem;
 }
+
+/* Software, Teaching, and Posts use the same publication/talk grammar: bulleted
+   scholarly entries with a compact visual, continuous text, and badges last. */
+.qs-academic-output-list {
+  margin: .2rem 0 1.25rem;
+  padding-left: 1.35rem;
+}
+
+.qs-academic-output-item {
+  margin: 0 0 1.05rem;
+  padding: 0 0 .2rem .08rem;
+}
+
+.qs-academic-output-item::marker {
+  color: #0b1320;
+}
+
+.qs-academic-output-layout {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: .85rem;
+  align-items: start;
+  min-width: 0;
+}
+
+.qs-academic-output-media {
+  display: grid;
+  place-items: center;
+  width: 104px;
+  height: 78px;
+  overflow: hidden;
+  border: 1px solid rgba(11, 19, 32, .10);
+  background: #ffffff;
+  color: #0b1320;
+  text-decoration: none !important;
+}
+
+.qs-academic-output-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qs-academic-output-media-fallback {
+  background: #f7f8fa;
+}
+
+.qs-academic-output-media-fallback i {
+  font-size: 1.8rem;
+}
+
+.qs-academic-output-mark {
+  max-width: 90%;
+  overflow-wrap: anywhere;
+  font-size: .8rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.qs-academic-output-copy {
+  min-width: 0;
+}
+
+.qs-academic-output-reference,
+.qs-academic-output-meta,
+.qs-academic-output-links {
+  margin: 0 !important;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.qs-academic-output-reference {
+  font-size: inherit;
+}
+
+.qs-academic-output-title {
+  font-weight: 600;
+}
+
+.qs-academic-output-meta,
+.qs-academic-output-links {
+  margin-top: .32rem !important;
+  color: var(--qs-ink-soft);
+  font-size: .92rem;
+}
+
+.qs-academic-output-badges {
+  display: flex;
+  width: fit-content;
+  flex-wrap: wrap;
+  gap: .28rem;
+  margin: .48rem 0 0 !important;
+}
+
+/* Research metric values read as ordinary sidebar text rather than oversized
+   bibliometric counters. */
+.qs-sidebar-metric-row,
+.qs-sidebar-metric-value {
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+}
+
+.qs-sidebar-metric-value {
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 1099px) {
+  .qs-sidebar-metric-row,
+  .qs-sidebar-metric-value {
+    font-size: .96rem !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .qs-academic-output-layout {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: .72rem;
+  }
+
+  .qs-academic-output-media {
+    width: 82px;
+    height: 64px;
+  }
+
+  .qs-academic-output-meta,
+  .qs-academic-output-links {
+    font-size: .9rem;
+  }
+
+  .qs-sidebar-metric-row,
+  .qs-sidebar-metric-value {
+    font-size: .93rem !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .qs-academic-output-layout {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: .65rem;
+  }
+
+  .qs-academic-output-media {
+    width: 70px;
+    height: 56px;
+  }
+}
