@@ -29,18 +29,16 @@ I also enjoy turning recurring analytical problems into reproducible methods and
 :::
 :::
 
-## Research interests
+These questions are organized around six connected research interests:
 
 <ul class="qs-interest-list">
 <li><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span><a href="projects/#stock-assessment"><strong>Stock assessment & population dynamics</strong></a>: productivity, recruitment, mortality, selectivity, model diagnostics, and structural uncertainty.</span></li>
 <li><i class="bi bi-wind" aria-hidden="true"></i><span><a href="projects/#environmental-variability"><strong>Environmental variability</strong></a>: climate and oceanographic forcing, pressure-state relationships, thresholds, and regime change.</span></li>
-<li><i class="bi bi-heart-pulse" aria-hidden="true"></i><span><a href="projects/#life-history"><strong>Reproduction, growth & condition</strong></a>: maturity, spawning, growth, condition, and life-history variation beyond biomass alone.</span></li>
+<li><i class="bi bi-activity" aria-hidden="true"></i><span><a href="projects/#life-history"><strong>Reproduction, growth & condition</strong></a>: maturity, spawning, growth, condition, and life-history variation beyond biomass alone.</span></li>
 <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span><a href="projects/#spatial-biodiversity"><strong>Spatial ecology & biodiversity</strong></a>: species distributions, habitat suitability, SDMs, associated fauna, biodiversity, and bycatch.</span></li>
 <li><i class="bi bi-water" aria-hidden="true"></i><span><a href="projects/#fisheries-dynamics"><strong>Fisheries dynamics & management</strong></a>: fleet and season dynamics, resource availability, biological risk, and adaptive management.</span></li>
 <li><i class="bi bi-code-slash" aria-hidden="true"></i><span><a href="projects/#scientific-computing"><strong>Scientific computing</strong></a>: statistical methods, reusable software, data infrastructure, and reproducible research workflows.</span></li>
 </ul>
-
-See the full [Research](projects/) page for research questions, current projects, and related scholarly outputs.
 
 ## Selected research
 
