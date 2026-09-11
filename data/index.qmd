@@ -13,8 +13,6 @@ description: "Curated external data sources for fisheries, marine ecology, ocean
   <a href="#licensed-and-commercial-sources"><strong>Licensed sources</strong></a>
 </div>
 
-<p class="qs-publication-profile"><em>Curated external sources for reproducible fisheries, marine ecology, oceanographic, climate, biodiversity, and spatial workflows.</em></p>
-
 ::: {.qs-data-catalogue .qs-compact-catalogue}
 {{< include _generated.md >}}
 :::
