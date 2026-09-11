@@ -32,6 +32,7 @@ jobs:
           python scripts/build_blog.py
           python scripts/build_research_graph.py
           python scripts/build_scholarly_graph.py
+          python scripts/build_scholarly_infrastructure.py
           python scripts/build_projects.py
           python scripts/build_home.py
 
@@ -41,11 +42,15 @@ jobs:
       - name: Validate Phase 7 scholarly graph
         run: python scripts/validate_phase7.py source
 
+      - name: Validate Phase 9 scholarly infrastructure
+        run: python scripts/validate_phase9.py source
+
       - name: Validate generated research automation
         run: |
-          python -m py_compile scripts/sync_project_logos.py scripts/sync_software_logos.py scripts/build_research_graph.py scripts/build_scholarly_graph.py scripts/build_projects.py scripts/build_software.py scripts/build_home.py scripts/validate_phase7.py
+          python -m py_compile scripts/sync_project_logos.py scripts/sync_software_logos.py scripts/sync_scholarly_metadata.py scripts/build_research_graph.py scripts/build_scholarly_graph.py scripts/build_scholarly_infrastructure.py scripts/build_projects.py scripts/build_software.py scripts/build_home.py scripts/validate_phase7.py scripts/validate_phase9.py scripts/postprocess_phase9.py
           python scripts/build_research_graph.py --check
           python scripts/build_scholarly_graph.py --check
+          python scripts/build_scholarly_infrastructure.py --check
           python scripts/build_projects.py --check
           python scripts/build_home.py --check
 
@@ -59,6 +64,7 @@ jobs:
           python scripts/build_software.py
           python scripts/build_research_graph.py
           python scripts/build_scholarly_graph.py
+          python scripts/build_scholarly_infrastructure.py
           python scripts/build_projects.py
           python scripts/build_home.py
 
@@ -73,6 +79,9 @@ jobs:
 
       - name: Validate rendered Phase 7 graph
         run: python scripts/validate_phase7.py rendered
+
+      - name: Validate rendered Phase 9 infrastructure
+        run: python scripts/validate_phase9.py rendered
 
       - name: Validate external links
         run: python scripts/check_external_links.py _site
