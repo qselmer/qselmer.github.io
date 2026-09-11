@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: -5.35rem;
+  margin-top: 0;
   min-width: 0;
 }
 
@@ -43,7 +43,7 @@
   }
 
   .qs-about-identity-visual {
-    margin-top: -4.6rem;
+    margin-top: 0;
   }
 }
 
