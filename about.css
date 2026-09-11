@@ -27,44 +27,39 @@
   font-weight: 600;
 }
 
-.qs-interest-grid {
+/* Research interests read as a compact academic list rather than cards. */
+.qs-interest-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .75rem .95rem;
-  margin: .4rem 0 .85rem;
+  gap: .5rem;
+  margin: .35rem 0 .9rem;
+  padding: 0;
+  list-style: none;
 }
 
-.qs-interest-grid a {
-  display: block;
-  padding: .85rem .95rem;
-  border: 1px solid rgba(49, 79, 96, .12);
-  border-radius: .45rem;
-  color: var(--qs-ink);
-  text-decoration: none;
-  background: rgba(244, 248, 250, .55);
+.qs-interest-list li {
+  display: grid;
+  grid-template-columns: 1.2rem minmax(0, 1fr);
+  gap: .6rem;
+  align-items: start;
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.5;
 }
 
-.qs-interest-grid a:hover {
-  border-color: rgba(20, 124, 172, .35);
-  background: rgba(244, 248, 250, .92);
+.qs-interest-list i {
+  margin-top: .2rem;
+  color: #0b1320;
+  font-size: 1rem;
+  text-align: center;
 }
 
-.qs-interest-grid strong,
-.qs-interest-grid span {
-  display: block;
+.qs-interest-list a {
+  color: #0b1320;
+  text-decoration-color: #0b1320;
 }
 
-.qs-interest-grid strong {
-  margin-bottom: .2rem;
-  color: var(--qs-ocean-deep);
-  font-size: 1.03rem;
-  line-height: 1.3;
-}
-
-.qs-interest-grid span {
-  color: var(--qs-ink-soft);
-  font-size: .95rem;
-  line-height: 1.45;
+.qs-interest-list strong {
+  font-weight: 600;
 }
 
 .qs-selected-grid {
@@ -77,8 +72,8 @@
 .qs-selected-item {
   min-width: 0;
   padding: .95rem 1rem 1rem;
-  border-top: 3px solid #8fb8ca;
-  background: #f8fafb;
+  border-top: 3px solid #0b1320;
+  background: rgba(11, 19, 32, .045);
 }
 
 .qs-selected-type {
@@ -86,8 +81,8 @@
   margin-bottom: .42rem;
   padding: .08rem .42rem;
   border-radius: .18rem;
-  background: #e9f1f4;
-  color: #1d5d70;
+  background: #0b1320;
+  color: #ffffff;
   font-size: .72rem;
   font-weight: 700;
   letter-spacing: .035em;
@@ -101,8 +96,8 @@
 }
 
 .qs-selected-item h3 a {
-  color: var(--qs-ocean-deep);
-  text-decoration: none;
+  color: #0b1320;
+  text-decoration-color: #0b1320;
 }
 
 .qs-selected-item h3 a:hover {
@@ -122,7 +117,6 @@
     hyphens: none;
   }
 
-  .qs-interest-grid,
   .qs-selected-grid {
     grid-template-columns: 1fr;
   }
