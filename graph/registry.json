@@ -8,6 +8,14 @@
     ],
     "note": "The raw repository catalogue may contain private-repository metadata. It is used only upstream to derive curated public mirrors and is never serialized into the public scholarly graph."
   },
+  "public_repositories": [
+    "qselmer/pel-climate-adaptive-management-paper",
+    "qselmer/pelagicPER-availability-risk-paper",
+    "qselmer/oceancube",
+    "qselmer/humboldt-ocean-watch",
+    "qselmer/git-github-training",
+    "qselmer/.template-training"
+  ],
   "theme_overrides": [
     {
       "kind": "Post",
