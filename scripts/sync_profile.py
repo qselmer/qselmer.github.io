@@ -60,6 +60,7 @@ def main() -> None:
         "build_conferences.py",
         "build_software.py",
         "build_teaching.py",
+        "build_honors.py",
         "build_data_resources.py",
         "build_blog.py",
         "build_research_graph.py",
@@ -72,6 +73,7 @@ def main() -> None:
         run_script(script)
 
     run_script("validate_site.py", "source")
+    run_script("validate_honors.py", "source")
     run_script("validate_phase7.py", "source")
     run_script("validate_phase9.py", "source")
     run_script("validate_phase10.py", "source")
