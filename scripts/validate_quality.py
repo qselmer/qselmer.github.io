@@ -19,6 +19,7 @@ from site_config import ROOT
 SITE = ROOT / "_site"
 REGISTRY = ROOT / "projects" / "registry.json"
 GENERATED_PROJECTS = ROOT / "projects" / "_generated.md"
+ABOUT_SELECTED = ROOT / "includes" / "about-selected.html"
 CATALOGUE_CSS = ROOT / "catalogue.css"
 ACCESSIBILITY_CSS = ROOT / "accessibility.css"
 BLOG_REGISTRY = ROOT / "blog" / "registry.json"
@@ -88,11 +89,13 @@ def validate_rss(path: Path) -> int:
 def validate_source() -> None:
     count = project_count()
     generated = text(GENERATED_PROJECTS)
+    selected = text(ABOUT_SELECTED)
     css = text(CATALOGUE_CSS)
     accessibility = text(ACCESSIBILITY_CSS)
 
-    # One project-card contract: every card uses the same editorial markup and
-    # the Research catalogue never conditionally inserts logos.
+    # One project-card contract: every Research card uses the same editorial markup,
+    # the Research catalogue never conditionally inserts logos, and About reuses the
+    # same card component instead of maintaining a second card implementation.
     if generated.count('class="qs-project-tile"') != count:
         raise RuntimeError("Generated Research project-card count does not match registry")
     if generated.count('class="qs-project-type"') != count:
@@ -100,11 +103,17 @@ def validate_source() -> None:
     reject(generated, "qs-project-visual", "projects/_generated.md")
     reject(generated, "qs-project-logo", "projects/_generated.md")
     reject(generated, "/images/projects/", "projects/_generated.md")
+    require(selected, 'class="qs-project-tile"', "includes/about-selected.html")
+    require(selected, 'class="qs-project-type"', "includes/about-selected.html")
+    reject(selected, "qs-selected-item", "includes/about-selected.html")
+    reject(selected, "qs-selected-type", "includes/about-selected.html")
 
     # Responsive and visual contract for project cards and thematic navigation.
+    # Research projects are full-width rows across themes; About can use its own
+    # compact grid while reusing exactly the same card component.
     for marker in (
         "border-top: 3px solid #0b1320",
-        "grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))",
+        "grid-template-columns: 1fr !important",
         ".qs-project-type",
         "@media (max-width: 900px)",
         "@media (max-width: 760px)",
@@ -119,7 +128,8 @@ def validate_source() -> None:
     rss_items = validate_rss(RSS_SOURCE)
     print(
         f"Phase 6 source QA PASS: {count} projects use one card system; "
-        f"responsive/focus/reduced-motion contracts present; RSS has {rss_items} item(s)"
+        f"About reuses the Research cards; responsive/focus/reduced-motion contracts present; "
+        f"RSS has {rss_items} item(s)"
     )
 
 
@@ -151,6 +161,7 @@ def validate_rendered() -> None:
 
     count = project_count()
     research = text(rendered_file("/projects/"))
+    about = text(rendered_file("/"))
     if research.count('class="qs-project-tile"') != count:
         raise RuntimeError("Rendered Research project-card count does not match registry")
     if research.count('class="qs-project-type"') != count:
@@ -158,6 +169,10 @@ def validate_rendered() -> None:
     reject(research, "qs-project-visual", "rendered Research")
     reject(research, "qs-project-logo", "rendered Research")
     reject(research, "/images/projects/", "rendered Research")
+    require(about, 'class="qs-project-tile"', "rendered About")
+    require(about, 'class="qs-project-type"', "rendered About")
+    reject(about, "qs-selected-item", "rendered About")
+    reject(about, "qs-selected-type", "rendered About")
 
     # Route-specific scholarly structured data.
     require_jsonld("/", "Person")
@@ -175,8 +190,8 @@ def validate_rendered() -> None:
     require(blog_index, 'type="application/rss+xml"', "rendered Posts")
 
     print(
-        f"Phase 6 rendered QA PASS: {count} uniform project cards, scholarly JSON-LD, "
-        f"social previews, responsive catalogue contract, and {rss_items} RSS item(s)"
+        f"Phase 6 rendered QA PASS: {count} uniform project cards, About card reuse, "
+        f"scholarly JSON-LD, social previews, responsive catalogue contract, and {rss_items} RSS item(s)"
     )
 
 
