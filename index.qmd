@@ -7,6 +7,9 @@ format:
     include-in-header:
       text: |
         <link rel="stylesheet" href="components/marine-identity/marine-identity.css">
+        <meta name="qs-identity-headline" content="Quantitative Marine Ecology & Fisheries Science">
+        <meta name="qs-identity-signature" content="Measure change. Model uncertainty. Inform fisheries decisions.">
+        <meta name="qs-legacy-research-route" content="research/index.html">
     include-after-body:
       text: |
         <script defer src="components/marine-identity/marine-identity.js"></script>
