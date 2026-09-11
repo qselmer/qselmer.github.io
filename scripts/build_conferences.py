@@ -8,7 +8,6 @@ import json
 import re
 import unicodedata
 from pathlib import Path
-from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLICATIONS = ROOT / "assets" / "data" / "publications.json"
@@ -53,25 +52,19 @@ def build_records() -> tuple[dict, list[dict]]:
     outputs = publications.get("publications")
     records = registry.get("records")
     historical = registry.get("historical_records", [])
-    if not isinstance(outputs, list):
-        raise RuntimeError("assets/data/publications.json must contain publications")
-    if not isinstance(records, list):
-        raise RuntimeError("talks/registry.json must contain records")
-    if not isinstance(historical, list):
-        raise RuntimeError("talks/registry.json historical_records must be a list")
+    if not isinstance(outputs, list) or not isinstance(records, list) or not isinstance(historical, list):
+        raise RuntimeError("Invalid publications or talks registry structure")
 
     conference_outputs = [item for item in outputs if item.get("output_category") == "Conference outputs"]
-    by_title = {}
+    by_title: dict[str, dict] = {}
     for item in conference_outputs:
         key = normalize_title(item.get("title"))
-        if not key:
-            raise RuntimeError("Conference output is missing title")
-        if key in by_title:
-            raise RuntimeError(f"Duplicate normalized conference title: {item.get('title')}")
+        if not key or key in by_title:
+            raise RuntimeError(f"Invalid or duplicate normalized conference title: {item.get('title')}")
         by_title[key] = item
 
     selected: list[dict] = []
-    matched = set()
+    matched: set[str] = set()
     for entry in records:
         source_title = str(entry.get("source_title") or "").strip()
         if not source_title:
@@ -108,8 +101,7 @@ def build_records() -> tuple[dict, list[dict]]:
 
     unmatched = set(by_title) - matched
     if unmatched:
-        titles = [by_title[key].get("title", "") for key in sorted(unmatched)]
-        raise RuntimeError(f"Conference outputs are missing from talks/registry.json: {titles}")
+        raise RuntimeError(f"Conference outputs are missing from talks/registry.json: {[by_title[key].get('title', '') for key in sorted(unmatched)]}")
 
     historical_paths: set[str] = set()
     for entry in historical:
@@ -148,7 +140,7 @@ def build_records() -> tuple[dict, list[dict]]:
         })
 
     selected.sort(key=lambda item: item["date"], reverse=True)
-    payload = {
+    return {
         "schema_version": 1,
         "source": "assets/data/publications.json + talks/registry.json historical records",
         "source_updated_at": publications.get("updated_at", ""),
@@ -156,8 +148,7 @@ def build_records() -> tuple[dict, list[dict]]:
         "canonical_count": len(records),
         "historical_count": len(historical),
         "conferences": selected,
-    }
-    return payload, selected
+    }, selected
 
 
 def author_apa(name: str) -> str:
@@ -168,8 +159,7 @@ def author_apa(name: str) -> str:
         return "**Quispe-Salazar, E.**"
     parts = clean.split()
     family = parts[-1]
-    given = parts[:-1]
-    initials = " ".join(token if "." in token else f"{token[0]}." for token in given if token)
+    initials = " ".join(token if "." in token else f"{token[0]}." for token in parts[:-1] if token)
     return f"{family}, {initials}".strip().rstrip(",")
 
 
@@ -184,32 +174,10 @@ def authors_apa(authors: list[str]) -> str:
     return f"{', '.join(values[:-1])}, & {values[-1]}"
 
 
-def badge(label: str, value: str, tone: str = "blue", url: str = "") -> str:
-    body = (
-        f'<span class="qs-badge-label">{html.escape(label)}</span>'
-        f'<span class="qs-badge-value">{html.escape(value)}</span>'
-    )
+def badge(label: str, value: str, tone: str = "neutral", url: str = "") -> str:
+    body = f'<span class="qs-badge-label">{html.escape(label)}</span><span class="qs-badge-value">{html.escape(value)}</span>'
     classes = f"qs-badge qs-badge-{tone}"
-    if url:
-        return f'<a class="{classes}" href="{html.escape(url, quote=True)}">{body}</a>'
-    return f'<span class="{classes}">{body}</span>'
-
-
-def material_badge(item: dict) -> str:
-    url = str(item.get("source_url") or "").strip()
-    if not url:
-        return ""
-    path = urlparse(url).path.casefold()
-    if path.endswith(".mp4"):
-        return badge("Video", "public", "green", url)
-    if path.endswith(".pdf"):
-        return badge("Material", "PDF", "green", url)
-    return badge("Material", "public", "green", url)
-
-
-def canonical_doi(value: str) -> str:
-    doi = str(value or "").strip()
-    return re.sub(r"^https?://(?:dx\.)?doi\.org/", "", doi, flags=re.I)
+    return f'<a class="{classes}" href="{html.escape(url, quote=True)}">{body}</a>' if url else f'<span class="{classes}">{body}</span>'
 
 
 def group_key(item: dict) -> str:
@@ -221,27 +189,31 @@ def group_key(item: dict) -> str:
     return "other"
 
 
+def compact_type(value: str) -> str:
+    text = value.replace("presentation", "").strip().title()
+    return text or "Presentation"
+
+
 def render_entry(item: dict) -> str:
     authors = authors_apa(item.get("authors", []))
-    date = citation_date_label(str(item.get("date") or ""))
+    date_value = str(item.get("date") or "")
+    date = citation_date_label(date_value)
+    year = date_value[:4]
     title = str(item.get("title") or "").strip()
     event = str(item.get("event") or "").strip()
     location = str(item.get("location") or "").strip()
-    presentation_type = str(item.get("presentation_type") or "Presentation").strip()
     site_path = str(item.get("site_path") or "").strip()
+    presentation_type = compact_type(str(item.get("presentation_type") or "Presentation"))
 
-    parts = [f"- {authors} ({date}). {title}. *{event}*, {location}."]
-    badges = [badge("Type", presentation_type.replace(" presentation", "").title(), "neutral")]
-    doi = canonical_doi(str(item.get("doi") or ""))
-    if doi:
-        badges.append(badge("DOI", doi, "blue", f"https://doi.org/{doi}"))
-    material = material_badge(item)
-    if material:
-        badges.append(material)
-    if site_path:
-        badges.append(badge("Details", "page", "blue", site_path))
-    parts.append(f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>')
-    return " ".join(parts)
+    badges = [
+        badge("Type", presentation_type, "neutral"),
+        badge("Year", year, "blue"),
+        badge("Details", "page", "green", site_path),
+    ]
+    return (
+        f"- {authors} ({date}). {title}. *{event}*, {location}. "
+        f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>'
+    )
 
 
 def render_markdown(records: list[dict]) -> str:
@@ -253,17 +225,12 @@ def render_markdown(records: list[dict]) -> str:
     lines = ["<!-- Generated by scripts/build_conferences.py; do not edit manually. -->", ""]
     for key, heading in groups:
         group = [item for item in records if group_key(item) == key]
-        lines += [f"## {heading} {{#{key}}}", ""]
         if not group:
-            lines += [f"_No {heading.casefold()} are currently listed._", ""]
             continue
+        lines += [f"## {heading} {{#{key}}}", ""]
         for item in sorted(group, key=lambda value: str(value.get("date") or ""), reverse=True):
             lines += [render_entry(item), ""]
     return "\n".join(lines).rstrip() + "\n"
-
-
-def render_data(payload: dict) -> str:
-    return json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
 
 
 def main() -> None:
@@ -271,15 +238,13 @@ def main() -> None:
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     payload, records = build_records()
-    expected_data = render_data(payload)
+    expected_data = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     expected_markdown = render_markdown(records)
     if args.check:
-        current_data = DATA_TARGET.read_text(encoding="utf-8") if DATA_TARGET.exists() else ""
-        current_markdown = MARKDOWN_TARGET.read_text(encoding="utf-8") if MARKDOWN_TARGET.exists() else ""
         stale = []
-        if current_data != expected_data:
+        if (DATA_TARGET.read_text(encoding="utf-8") if DATA_TARGET.exists() else "") != expected_data:
             stale.append(str(DATA_TARGET.relative_to(ROOT)))
-        if current_markdown != expected_markdown:
+        if (MARKDOWN_TARGET.read_text(encoding="utf-8") if MARKDOWN_TARGET.exists() else "") != expected_markdown:
             stale.append(str(MARKDOWN_TARGET.relative_to(ROOT)))
         if stale:
             raise SystemExit("Conference outputs are stale; run python scripts/build_conferences.py: " + ", ".join(stale))
