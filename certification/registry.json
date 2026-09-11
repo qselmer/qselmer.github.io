@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "phase": 10,
+  "title": "Reproducibility Certification",
+  "purpose": "Deterministic technical self-certification of approved public scholarly repositories using verifiable repository evidence. This is an internal reproducibility and preservation standard, not external accreditation and not a measure of scientific quality.",
+  "scope": "graph/registry.json public_repositories",
+  "policy": {
+    "public_only": true,
+    "evidence_only": true,
+    "no_inference": true,
+    "no_identifier_invention": true,
+    "certified_from_level": 2,
+    "certificate_prefix": "QS-RC1"
+  },
+  "levels": [
+    {"level": 0, "label": "Repository", "requirements": ["public repository"]},
+    {"level": 1, "label": "Documented", "requirements": ["README/documentation"]},
+    {"level": 2, "label": "Reproducible", "requirements": ["README/documentation", "explicit license", "CITATION.cff", "tests or computational environment"]},
+    {"level": 3, "label": "Automated", "requirements": ["Level 2", "continuous integration"]},
+    {"level": 4, "label": "Archived", "requirements": ["Level 3", "versioned release", "archival DOI"]},
+    {"level": 5, "label": "Research object", "requirements": ["Level 4", "bounded machine-readable research object with provenance"]}
+  ],
+  "evidence_fields": [
+    "readme",
+    "license_file",
+    "citation_cff",
+    "citation_orcid",
+    "tests",
+    "environment",
+    "ci",
+    "release",
+    "archival_doi",
+    "codemeta",
+    "zenodo_metadata"
+  ],
+  "non_blocking_quality_signals": [
+    "ORCID in CITATION.cff",
+    "CodeMeta",
+    "changelog",
+    "Zenodo metadata"
+  ]
+}

@@ -45,7 +45,8 @@
     "blog/registry.json",
     "projects/registry.json",
     "graph/registry.json",
-    "scholarly/registry.json"
+    "scholarly/registry.json",
+    "certification/registry.json"
   ],
   "derived_json": [
     "assets/data/conferences.json",
@@ -53,7 +54,8 @@
     "assets/data/teaching.json",
     "assets/data/research-graph.json",
     "assets/data/scholarly-graph.json",
-    "assets/data/scholarly-infrastructure.json"
+    "assets/data/scholarly-infrastructure.json",
+    "assets/data/reproducibility-certification.json"
   ],
   "generated_fragments": [
     "publications/_generated.md",
@@ -65,6 +67,7 @@
     "projects/_generated.md",
     "research-graph/_generated.md",
     "open-science/_generated.md",
+    "reproducibility/_generated.md",
     "includes/profile-sidebar.html",
     "includes/about-selected.html"
   ],
@@ -84,9 +87,11 @@
     "assets/data/research-graph.json",
     "assets/data/scholarly-graph.json",
     "assets/data/scholarly-infrastructure.json",
+    "assets/data/reproducibility-certification.json",
     "projects/_generated.md",
     "research-graph/_generated.md",
     "open-science/_generated.md",
+    "reproducibility/_generated.md",
     "images/projects",
     "images/software",
     "includes/profile-sidebar.html",
