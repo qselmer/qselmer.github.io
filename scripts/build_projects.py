@@ -123,6 +123,29 @@ def render_output(item: dict) -> str:
     )
 
 
+def render_theme_badges(items: list[dict], section_id: str) -> str:
+    if not items:
+        return ""
+
+    parts = ['<div class="qs-theme-badges qs-badge-row">']
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            raise RuntimeError(f"Research theme {section_id} badge {index} must be an object")
+        label = str(item.get("label") or "").strip()
+        value = str(item.get("value") or "").strip()
+        tone = clean_class(item.get("tone") or "blue", f"{section_id} badge tone")
+        if not label or not value:
+            raise RuntimeError(f"Research theme {section_id} badge {index} needs label and value")
+        parts.append(
+            f'<span class="qs-badge qs-badge-{html.escape(tone, quote=True)}">'
+            f'<span class="qs-badge-label">{html.escape(label)}</span>'
+            f'<span class="qs-badge-value">{html.escape(value)}</span>'
+            '</span>'
+        )
+    parts.append("</div>")
+    return "".join(parts)
+
+
 def render() -> str:
     payload = load_registry()
     sections = payload["sections"]
@@ -172,6 +195,9 @@ def render() -> str:
         heading = str(section.get("heading") or "").strip()
         question = str(section.get("research_question") or "").strip()
         why = str(section.get("why_it_matters") or "").strip()
+        badges = section.get("badges") or []
+        if not isinstance(badges, list):
+            raise RuntimeError(f"Research theme {section_id} badges must be a list")
         grid_class = str(section.get("grid_class") or "qs-project-grid").strip()
         class_tokens = [clean_class(token, f"{section_id} grid class") for token in grid_class.split()]
         group = [project for project in projects if project.get("section") == section_id]
@@ -181,11 +207,13 @@ def render() -> str:
         if not question or not why:
             raise RuntimeError(f"Research theme {section_id} needs research_question and why_it_matters")
 
-        lines += [f"## {heading} {{#{section_id}}}", ""]
+        lines += [f"## {heading} {{#{section_id}}}", "", "```{=html}"]
+        badge_html = render_theme_badges(badges, section_id)
+        if badge_html:
+            lines.append(badge_html)
         lines += [
-            "```{=html}",
             '<p class="qs-theme-rationale">'
-            f'<strong>Research question:</strong> {html.escape(question)}<br>'
+            f'<strong>Research question:</strong> {html.escape(question)} '
             f'<strong>Why it matters:</strong> {html.escape(why)}'
             "</p>",
             "```",
@@ -202,7 +230,7 @@ def render() -> str:
             lines += ["</div>", "```", ""]
 
         if outputs:
-            lines += ["### Selected outputs", "", "```{=html}", '<ul class="qs-related-output-list">']
+            lines += ["### Outputs", "", "```{=html}", '<ul class="qs-related-output-list">']
             for item in outputs:
                 lines.append(render_output(item))
             lines += ["</ul>", "```", ""]
@@ -220,7 +248,7 @@ def main() -> None:
         current = TARGET.read_text(encoding="utf-8") if TARGET.exists() else ""
         if current != expected:
             raise SystemExit("projects/_generated.md is stale; run python scripts/build_projects.py")
-        print("Research themes, project cards, and selected outputs are synchronized.")
+        print("Research themes, project cards, and outputs are synchronized.")
         return
 
     TARGET.write_text(expected, encoding="utf-8")
