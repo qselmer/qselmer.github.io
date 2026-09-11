@@ -38,6 +38,13 @@ def citation_date_label(value: str) -> str:
     return f"{date.year}, {MONTHS[date.month]} {date.day}"
 
 
+def short_location(value: str) -> str:
+    parts = [part.strip() for part in str(value or "").split(",") if part.strip()]
+    if len(parts) <= 2:
+        return ", ".join(parts)
+    return f"{parts[0]}, {parts[-1]}"
+
+
 def validate_presentation(entry: dict, label: str) -> None:
     for field in REQUIRED_PRESENTATION_FIELDS:
         if not entry.get(field):
@@ -198,7 +205,6 @@ def render_entry(item: dict) -> str:
     authors = authors_apa(item.get("authors", []))
     date_value = str(item.get("date") or "")
     date = citation_date_label(date_value)
-    year = date_value[:4]
     title = str(item.get("title") or "").strip()
     event = str(item.get("event") or "").strip()
     location = str(item.get("location") or "").strip()
@@ -207,8 +213,8 @@ def render_entry(item: dict) -> str:
 
     badges = [
         badge("Type", presentation_type, "neutral"),
-        badge("Year", year, "blue"),
-        badge("Details", "page", "green", site_path),
+        badge("Location", short_location(location), "green"),
+        badge("Details", "page", "blue", site_path),
     ]
     return (
         f"- {authors} ({date}). {title}. *{event}*, {location}. "
