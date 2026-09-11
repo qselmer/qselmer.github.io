@@ -5,10 +5,10 @@ format:
   html:
     include-in-header:
       text: |
-        <link rel="stylesheet" href="assets/css/marine-identity.css">
+        <link rel="stylesheet" href="components/marine-identity/marine-identity.css">
     include-after-body:
       text: |
-        <script defer src="assets/js/marine-identity.js"></script>
+        <script defer src="components/marine-identity/marine-identity.js"></script>
 ---
 
 ::: {.qs-about-identity}
