@@ -3,10 +3,6 @@ title: "Teaching"
 description: "Courses, workshops, teaching materials, and reproducible scientific training."
 ---
 
-<div class="section-intro">
-Structured teaching, training, and reusable learning resources for scientific computing, quantitative workflows, and reproducible research.
-</div>
-
 <div class="qs-publication-nav" aria-label="Teaching sections">
   <a href="#courses"><strong>Courses & workshops</strong></a>
   <a href="#infrastructure"><strong>Teaching infrastructure</strong></a>
