@@ -1,8 +1,18 @@
 ---
 title: "About"
 description: "Quantitative marine ecology, fisheries science, and reproducible scientific computing."
+format:
+  html:
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="assets/css/marine-identity.css">
+    include-after-body:
+      text: |
+        <script defer src="assets/js/marine-identity.js"></script>
 ---
 
+::: {.qs-about-identity}
+::: {.qs-about-identity-copy}
 <div class="section-intro">
 <strong>Quantitative Marine Ecology & Fisheries Science</strong><br>
 Marine quantitative ecologist and fisheries scientist working across ecological modelling, stock assessment, marine data science, population dynamics, and reproducible scientific computing.
@@ -11,6 +21,12 @@ Marine quantitative ecologist and fisheries scientist working across ecological 
 **Measure change. Model uncertainty. Inform fisheries decisions.**
 
 I connect ecological theory, marine observations, statistical modelling, and reproducible computing to understand changing populations and fisheries. My main study system is the Humboldt Current, with particular emphasis on pelagic fish and Peruvian anchovy.
+:::
+
+::: {.qs-about-identity-visual}
+<div id="jsi-flying-fish-container" class="qs-marine-identity" role="img" aria-label="Animated marine quantitative ecology identity showing anchovy, tuna, ocean depth and local abundance curves."></div>
+:::
+:::
 
 ## Research
 
