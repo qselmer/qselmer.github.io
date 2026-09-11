@@ -1,0 +1,9 @@
+---
+title: "Research Graph"
+description: "A public graph connecting research themes, projects, repositories, publications, talks, software, teaching, and technical posts."
+css: graph.css
+---
+
+This page is generated from the same canonical sources that drive the rest of the website. It is a relationship layer rather than a second catalogue: domain metadata remain authoritative in Publications, Talks, Software, Teaching, Posts, and Research.
+
+{{< include _generated.md >}}
