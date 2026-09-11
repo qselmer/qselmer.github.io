@@ -1,6 +1,7 @@
 ---
 title: "Publications"
 description: "Papers, preprints, books and chapters, theses, reports, and institutional technical outputs."
+css: publications.css
 ---
 
 ::: {.qs-compact-catalogue}
