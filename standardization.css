@@ -9,6 +9,12 @@ main.content a:not(.btn):focus {
   text-decoration: none !important;
 }
 
+.qs-sidebar-links a,
+.qs-sidebar-links a:hover,
+.qs-sidebar-links a:focus {
+  text-decoration: none !important;
+}
+
 /* About is the single narrative page where underlined links are retained. */
 .qs-about-page a:not(.btn),
 .qs-about-page a:not(.btn):visited,
