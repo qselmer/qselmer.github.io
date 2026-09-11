@@ -106,6 +106,10 @@ website:
 format:
   html:
     theme: cosmo
+    grid:
+      body-width: 1040px
+      margin-width: 150px
+      gutter-width: 1.25rem
     css:
       - styles.css
       - accessibility.css
@@ -114,6 +118,7 @@ format:
       - refinements.css
       - catalogue.css
       - posts.css
+      - academic.css
     toc: true
     link-external-newwindow: true
     include-before-body:
