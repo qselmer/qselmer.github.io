@@ -17,7 +17,7 @@ TARGET = ROOT / "projects" / "_generated.md"
 LOGO_ROOT = ROOT / "images" / "projects"
 CLASS_TOKEN = re.compile(r"^[A-Za-z0-9_-]+$")
 LOGO_NAMES = ("logo.svg", "logo.png")
-PROJECT_BADGE_LABELS = ("System", "Focus", "Data")
+THEME_BADGE_LABELS = ("System", "Focus", "Data")
 
 
 def load_json(path: Path) -> dict:
@@ -104,13 +104,9 @@ def render_card(project: dict) -> list[str]:
     context = str(project.get("context") or "").strip()
     site_path = str(project.get("site_path") or "").strip()
     link_label = str(project.get("link_label") or "Details").strip()
-    badges = project.get("badges") or []
-    if not isinstance(badges, list):
-        raise RuntimeError(f"Project {slug} badges must be a list")
     if not all((title, summary, context, site_path, link_label)):
         raise RuntimeError(f"Project {slug} is missing card content")
 
-    badge_html = render_badges(badges, f"Project {slug}", PROJECT_BADGE_LABELS)
     logo_name = logo_for(slug)
     article_classes = ["qs-project-tile", f"qs-project-tone-{tone}", *extra_classes]
     if not logo_name:
@@ -127,7 +123,6 @@ def render_card(project: dict) -> list[str]:
 
     lines += [
         '<div class="qs-project-body">',
-        f'<div class="qs-project-badges">{badge_html}</div>',
         f'<h3><a href="{html.escape(site_path, quote=True)}">{html.escape(title)}</a></h3>',
         f'<p class="qs-project-card-summary">{html.escape(summary)}</p>',
         f'<div class="qs-project-footer"><span>{html.escape(context)}</span><a href="{html.escape(site_path, quote=True)}">{html.escape(link_label)}</a></div>',
@@ -215,7 +210,7 @@ def render() -> str:
             raise RuntimeError(f"Research theme {section_id} needs research_question and why_it_matters")
 
         lines += [f"## {heading} {{#{section_id}}}", "", "```{=html}"]
-        badge_html = render_badges(badges, f"Research theme {section_id}", PROJECT_BADGE_LABELS)
+        badge_html = render_badges(badges, f"Research theme {section_id}", THEME_BADGE_LABELS)
         if badge_html:
             lines.append(f'<div class="qs-theme-badges">{badge_html}</div>')
         lines += [
