@@ -3,10 +3,6 @@ title: "Research"
 description: "Research themes, active projects, and related papers, reports, talks, theses, and software."
 ---
 
-<div class="section-intro">
-My research programme is centered on pelagic fish and fisheries in Eastern Boundary Upwelling Systems, with the Humboldt Current as the primary empirical system. The themes below connect research questions with active repositories and selected scholarly outputs.
-</div>
-
 {{< include _generated.md >}}
 
 ::: {.qs-footnote-note}
