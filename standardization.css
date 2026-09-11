@@ -15,6 +15,16 @@ main.content a:not(.btn):focus {
   text-decoration: none !important;
 }
 
+/* Force profile labels to remain visible on the dark researcher rail. */
+.qs-sidebar-links a span {
+  color: #d4dee8 !important;
+}
+
+.qs-sidebar-links a:hover span,
+.qs-sidebar-links a:focus span {
+  color: #ffffff !important;
+}
+
 /* About is the single narrative page where underlined links are retained. */
 .qs-about-page a:not(.btn),
 .qs-about-page a:not(.btn):visited,
@@ -83,8 +93,15 @@ main.content a:not(.btn):focus {
   line-height: 1.45;
 }
 
-.qs-teaching-links {
+.qs-teaching-meta {
   margin: .4rem 0 0 !important;
+  color: var(--qs-ink-soft);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+.qs-teaching-links {
+  margin: .35rem 0 0 !important;
   white-space: nowrap;
   font-size: .9em;
 }
