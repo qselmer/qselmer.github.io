@@ -119,6 +119,7 @@ format:
       - catalogue.css
       - posts.css
       - academic.css
+      - standardization.css
     toc: true
     link-external-newwindow: true
     include-before-body:
