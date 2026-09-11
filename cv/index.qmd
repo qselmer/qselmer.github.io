@@ -8,6 +8,14 @@ page-layout: full
 
 My full CV is available as [**PDF**](/files/CV.pdf).
 
+## Download CV
+
+<div class="d-flex flex-wrap gap-2 mb-4" aria-label="Curriculum vitae language downloads">
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true" tabindex="-1">English CV - coming soon</a>
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true" tabindex="-1">French CV - coming soon</a>
+  <a class="btn btn-outline-primary disabled" href="#" role="button" aria-disabled="true" tabindex="-1">Spanish CV - coming soon</a>
+</div>
+
 [Open the current CV (PDF)](/files/CV.pdf){.btn .btn-primary target="_blank" rel="noopener noreferrer"}
 
 <iframe
