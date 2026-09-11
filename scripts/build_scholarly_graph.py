@@ -343,6 +343,7 @@ def build_payload() -> dict[str, Any]:
             "visibility": "public",
             "event": str(talk.get("event") or ""),
             "presentation_type": ptype,
+            "summary": str(talk.get("summary") or ""),
             "provenance": [{
                 "source": "assets/data/conferences.json",
                 "authority": str(talk.get("source") or talk.get("record_origin") or "curated"),
@@ -368,6 +369,7 @@ def build_payload() -> dict[str, Any]:
             "visibility": "public",
             "status": str(item.get("maturity") or ""),
             "language": str(item.get("language") or ""),
+            "summary": str(item.get("summary") or item.get("description") or ""),
             "repository": full_name,
             "provenance": [{"source": "assets/data/software.json", "authority": "curated public mirror"}],
         })
@@ -405,6 +407,7 @@ def build_payload() -> dict[str, Any]:
             "canonical_url": absolute_url(item.get("site_path") or item.get("html_url")),
             "visibility": "public",
             "status": str(item.get("maturity") or ""),
+            "summary": str(item.get("summary") or item.get("description") or ""),
             "repository": full_name,
             "provenance": [{"source": "assets/data/teaching.json", "authority": "curated public mirror"}],
         })
@@ -442,6 +445,7 @@ def build_payload() -> dict[str, Any]:
             "canonical_url": absolute_url(post.get("route")),
             "visibility": "public",
             "topic": str(post.get("topic") or ""),
+            "summary": str(post.get("excerpt") or ""),
             "provenance": [{"source": "blog/registry.json", "authority": "curated"}],
         })
         add_edge(edges, seen_edges, node_id, "created_by", person_id)
