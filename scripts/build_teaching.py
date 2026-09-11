@@ -20,15 +20,12 @@ def load_json(path: Path) -> dict:
     return payload
 
 
-def badge(label: str, value: str, tone: str = "neutral", url: str = "") -> str:
+def badge(label: str, value: str, tone: str = "neutral") -> str:
     body = (
         f'<span class="qs-badge-label">{html.escape(label)}</span>'
         f'<span class="qs-badge-value">{html.escape(value)}</span>'
     )
-    classes = f"qs-badge qs-badge-{tone}"
-    if url:
-        return f'<a class="{classes}" href="{html.escape(url, quote=True)}">{body}</a>'
-    return f'<span class="{classes}">{body}</span>'
+    return f'<span class="qs-badge qs-badge-{tone}">{body}</span>'
 
 
 def display_name(name: str) -> str:
@@ -42,7 +39,24 @@ def display_name(name: str) -> str:
     return cleaned.upper()
 
 
-def render_item(item: dict, page_label: str) -> str:
+def compact_type(category: str) -> str:
+    if "template" in category.casefold():
+        return "Template"
+    if "course" in category.casefold():
+        return "Course"
+    return "Resource"
+
+
+def compact_status(maturity: str) -> str:
+    low = maturity.casefold()
+    if "active" in low:
+        return "Active"
+    if "reusable" in low:
+        return "Reusable"
+    return maturity or "Development"
+
+
+def render_item(item: dict) -> str:
     name = str(item.get("name") or "Unnamed resource").strip()
     category = str(item.get("category") or "Teaching resource").strip()
     maturity = str(item.get("maturity") or "Development").strip()
@@ -51,21 +65,23 @@ def render_item(item: dict, page_label: str) -> str:
     site_path = str(item.get("site_path") or "").strip()
     repo_url = str(item.get("html_url") or "").strip()
     display = display_name(name)
+    target = site_path or repo_url
 
     badges = [
-        badge("Type", category, "neutral"),
-        badge("Status", maturity, "green" if maturity.casefold() == "active" else "blue"),
+        badge("Type", compact_type(category), "neutral"),
+        badge("Status", compact_status(maturity), "green" if "active" in maturity.casefold() or "reusable" in maturity.casefold() else "blue"),
+        badge("Language", language if language and language != "-" else "Mixed", "blue"),
     ]
-    if language and language != "-":
-        badges.append(badge("Language", language, "blue"))
+    title = f'<a href="{html.escape(target, quote=True)}"><strong>{html.escape(display)}</strong></a>' if target else f'<strong>{html.escape(display)}</strong>'
+    links: list[str] = []
     if site_path:
-        badges.append(badge(page_label, "page", "green", site_path))
+        links.append(f'<a href="{html.escape(site_path, quote=True)}">Teaching page</a>')
     if repo_url:
-        badges.append(badge("Repository", "GitHub", "blue", repo_url))
-
+        links.append(f'<a href="{html.escape(repo_url, quote=True)}">Repository</a>')
+    link_text = f' <span class="qs-teaching-links">{" | ".join(links)}</span>' if links else ""
     description = f" {html.escape(summary)}" if summary else ""
     return (
-        f'- <strong>{html.escape(display)}</strong>.{description} '
+        f'- {title}.{description}{link_text} '
         f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>'
     )
 
@@ -78,43 +94,25 @@ def render() -> str:
     if not isinstance(teaching, list) or not isinstance(infrastructure, list):
         raise RuntimeError("assets/data/teaching.json must contain teaching and infrastructure lists")
 
-    expected_teaching = {
-        str(item.get("repository") or "").strip()
-        for item in registry.get("published", [])
-        if str(item.get("repository") or "").strip()
-    }
+    expected_teaching = {str(item.get("repository") or "").strip() for item in registry.get("published", []) if str(item.get("repository") or "").strip()}
     found_teaching = {str(item.get("full_name") or "").strip() for item in teaching}
     if found_teaching != expected_teaching:
-        raise RuntimeError(
-            "Teaching mirror does not match registry; "
-            f"missing={sorted(expected_teaching - found_teaching)}, "
-            f"unexpected={sorted(found_teaching - expected_teaching)}"
-        )
+        raise RuntimeError(f"Teaching mirror does not match registry; missing={sorted(expected_teaching - found_teaching)}, unexpected={sorted(found_teaching - expected_teaching)}")
 
-    expected_infra = {
-        str(item.get("repository") or "").strip()
-        for item in registry.get("infrastructure", [])
-        if str(item.get("repository") or "").strip()
-    }
+    expected_infra = {str(item.get("repository") or "").strip() for item in registry.get("infrastructure", []) if str(item.get("repository") or "").strip()}
     found_infra = {str(item.get("full_name") or "").strip() for item in infrastructure}
     if found_infra != expected_infra:
-        raise RuntimeError(
-            "Teaching infrastructure mirror does not match registry; "
-            f"missing={sorted(expected_infra - found_infra)}, "
-            f"unexpected={sorted(found_infra - expected_infra)}"
-        )
+        raise RuntimeError(f"Teaching infrastructure mirror does not match registry; missing={sorted(expected_infra - found_infra)}, unexpected={sorted(found_infra - expected_infra)}")
 
     lines = ["<!-- Generated by scripts/build_teaching.py; do not edit manually. -->", ""]
     if teaching:
         lines += ["## Courses and training {#courses}", ""]
         for item in sorted(teaching, key=lambda x: str(x.get("name") or "").casefold()):
-            lines += [render_item(item, "Teaching"), ""]
-
+            lines += [render_item(item), ""]
     if infrastructure:
         lines += ["## Teaching infrastructure {#infrastructure}", ""]
         for item in sorted(infrastructure, key=lambda x: str(x.get("name") or "").casefold()):
-            lines += [render_item(item, "Resource"), ""]
-
+            lines += [render_item(item), ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
