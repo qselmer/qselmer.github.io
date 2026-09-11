@@ -54,7 +54,7 @@ def main() -> None:
     run_script("sync_project_logos.py", "--fail-on-inaccessible")
     run_script("sync_software_logos.py")
 
-    # Deterministic presentation and relationship layers.
+    # Deterministic presentation, relationship, infrastructure, and certification layers.
     for script in (
         "build_publications.py",
         "build_conferences.py",
@@ -65,6 +65,7 @@ def main() -> None:
         "build_research_graph.py",
         "build_scholarly_graph.py",
         "build_scholarly_infrastructure.py",
+        "build_reproducibility_certification.py",
         "build_projects.py",
         "build_home.py",
     ):
@@ -73,6 +74,7 @@ def main() -> None:
     run_script("validate_site.py", "source")
     run_script("validate_phase7.py", "source")
     run_script("validate_phase9.py", "source")
+    run_script("validate_phase10.py", "source")
     print("Academic profile synchronization complete")
 
 
