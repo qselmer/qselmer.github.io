@@ -17,6 +17,7 @@ TARGET = ROOT / "projects" / "_generated.md"
 LOGO_ROOT = ROOT / "images" / "projects"
 CLASS_TOKEN = re.compile(r"^[A-Za-z0-9_-]+$")
 LOGO_NAMES = ("logo.svg", "logo.png")
+PROJECT_BADGE_LABELS = ("System", "Focus", "Data")
 
 
 def load_json(path: Path) -> dict:
@@ -64,6 +65,32 @@ def logo_for(slug: str) -> str | None:
     return None
 
 
+def render_badges(items: list[dict], owner: str, expected_labels: tuple[str, ...] | None = None) -> str:
+    if not items:
+        return ""
+    if expected_labels is not None:
+        labels = tuple(str(item.get("label") or "").strip() for item in items if isinstance(item, dict))
+        if labels != expected_labels:
+            raise RuntimeError(f"{owner} badges must use labels {expected_labels}; found {labels}")
+    parts = ['<div class="qs-badge-row">']
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            raise RuntimeError(f"{owner} badge {index} must be an object")
+        label = str(item.get("label") or "").strip()
+        value = str(item.get("value") or "").strip()
+        tone = clean_class(item.get("tone") or "blue", f"{owner} badge tone")
+        if not label or not value:
+            raise RuntimeError(f"{owner} badge {index} needs label and value")
+        parts.append(
+            f'<span class="qs-badge qs-badge-{html.escape(tone, quote=True)}">'
+            f'<span class="qs-badge-label">{html.escape(label)}</span>'
+            f'<span class="qs-badge-value">{html.escape(value)}</span>'
+            '</span>'
+        )
+    parts.append("</div>")
+    return "".join(parts)
+
+
 def render_card(project: dict) -> list[str]:
     slug = clean_class(project.get("slug"), "project slug")
     tone = clean_class(project.get("tone"), f"{slug} tone")
@@ -74,13 +101,16 @@ def render_card(project: dict) -> list[str]:
 
     title = str(project.get("title") or "").strip()
     summary = str(project.get("summary") or "").strip()
-    stage = str(project.get("stage") or "").strip()
     context = str(project.get("context") or "").strip()
     site_path = str(project.get("site_path") or "").strip()
     link_label = str(project.get("link_label") or "Details").strip()
-    if not all((title, summary, stage, context, site_path, link_label)):
+    badges = project.get("badges") or []
+    if not isinstance(badges, list):
+        raise RuntimeError(f"Project {slug} badges must be a list")
+    if not all((title, summary, context, site_path, link_label)):
         raise RuntimeError(f"Project {slug} is missing card content")
 
+    badge_html = render_badges(badges, f"Project {slug}", PROJECT_BADGE_LABELS)
     logo_name = logo_for(slug)
     article_classes = ["qs-project-tile", f"qs-project-tone-{tone}", *extra_classes]
     if not logo_name:
@@ -97,7 +127,7 @@ def render_card(project: dict) -> list[str]:
 
     lines += [
         '<div class="qs-project-body">',
-        f'<p class="qs-project-stage">{html.escape(stage)}</p>',
+        f'<div class="qs-project-badges">{badge_html}</div>',
         f'<h3><a href="{html.escape(site_path, quote=True)}">{html.escape(title)}</a></h3>',
         f'<p class="qs-project-card-summary">{html.escape(summary)}</p>',
         f'<div class="qs-project-footer"><span>{html.escape(context)}</span><a href="{html.escape(site_path, quote=True)}">{html.escape(link_label)}</a></div>',
@@ -121,29 +151,6 @@ def render_output(item: dict) -> str:
         f'<a href="{html.escape(url, quote=True)}">{html.escape(title)}</a>{year_text}'
         "</li>"
     )
-
-
-def render_theme_badges(items: list[dict], section_id: str) -> str:
-    if not items:
-        return ""
-
-    parts = ['<div class="qs-theme-badges qs-badge-row">']
-    for index, item in enumerate(items, start=1):
-        if not isinstance(item, dict):
-            raise RuntimeError(f"Research theme {section_id} badge {index} must be an object")
-        label = str(item.get("label") or "").strip()
-        value = str(item.get("value") or "").strip()
-        tone = clean_class(item.get("tone") or "blue", f"{section_id} badge tone")
-        if not label or not value:
-            raise RuntimeError(f"Research theme {section_id} badge {index} needs label and value")
-        parts.append(
-            f'<span class="qs-badge qs-badge-{html.escape(tone, quote=True)}">'
-            f'<span class="qs-badge-label">{html.escape(label)}</span>'
-            f'<span class="qs-badge-value">{html.escape(value)}</span>'
-            '</span>'
-        )
-    parts.append("</div>")
-    return "".join(parts)
 
 
 def render() -> str:
@@ -208,9 +215,9 @@ def render() -> str:
             raise RuntimeError(f"Research theme {section_id} needs research_question and why_it_matters")
 
         lines += [f"## {heading} {{#{section_id}}}", "", "```{=html}"]
-        badge_html = render_theme_badges(badges, section_id)
+        badge_html = render_badges(badges, f"Research theme {section_id}", PROJECT_BADGE_LABELS)
         if badge_html:
-            lines.append(badge_html)
+            lines.append(f'<div class="qs-theme-badges">{badge_html}</div>')
         lines += [
             '<p class="qs-theme-rationale">'
             f'<strong>Research question:</strong> {html.escape(question)} '
