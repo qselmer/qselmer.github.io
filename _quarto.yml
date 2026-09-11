@@ -54,8 +54,7 @@ website:
   image: images/profile.png
   image-alt: "Elmer Quispe-Salazar"
   open-graph: true
-  twitter-card:
-    card-style: summary_large_image
+  twitter-card: true
   search: true
   navbar:
     title: false
