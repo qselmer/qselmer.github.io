@@ -62,53 +62,13 @@
   font-weight: 600;
 }
 
+/* Selected research reuses the canonical Research-card component. The grid may
+   remain compact on About, but the card itself has no second visual system. */
 .qs-selected-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: .85rem 1rem;
   margin: .45rem 0 1.15rem;
-}
-
-.qs-selected-item {
-  min-width: 0;
-  padding: .95rem 1rem 1rem;
-  border-top: 3px solid #0b1320;
-  background: rgba(11, 19, 32, .045);
-}
-
-.qs-selected-type {
-  display: inline-block;
-  margin-bottom: .42rem;
-  padding: .08rem .42rem;
-  border-radius: .18rem;
-  background: #0b1320;
-  color: #ffffff;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .035em;
-  text-transform: uppercase;
-}
-
-.qs-selected-item h3 {
-  margin: 0 0 .42rem;
-  font-size: 1.15rem !important;
-  line-height: 1.3 !important;
-}
-
-.qs-selected-item h3 a {
-  color: #0b1320;
-  text-decoration-color: #0b1320;
-}
-
-.qs-selected-item h3 a:hover {
-  text-decoration: underline;
-}
-
-.qs-selected-item p {
-  margin: 0;
-  color: var(--qs-ink-soft);
-  font-size: .96rem;
-  line-height: 1.48;
 }
 
 @media (max-width: 760px) {
