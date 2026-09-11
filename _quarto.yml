@@ -37,7 +37,6 @@ project:
     - data/index.qmd
     - blog/index.qmd
     - blog/statistical-distributions-fisheries-marine-ecology/index.qmd
-    - miscellaneous/index.qmd
     - terms/index.qmd
     - cv/index.qmd
     - contact/index.qmd
@@ -86,9 +85,6 @@ website:
           - href: data/index.qmd
             text: Data Sources
             icon: database
-          - href: miscellaneous/index.qmd
-            text: Miscellaneous
-            icon: collection
           - href: contact/index.qmd
             text: Contact
             icon: envelope
