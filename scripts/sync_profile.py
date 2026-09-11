@@ -60,12 +60,14 @@ def main() -> None:
         "build_data_resources.py",
         "build_blog.py",
         "build_research_graph.py",
+        "build_scholarly_graph.py",
         "build_projects.py",
         "build_home.py",
     ):
         run_script(script)
 
     run_script("validate_site.py", "source")
+    run_script("validate_phase7.py", "source")
     print("Academic profile synchronization complete")
 
 
