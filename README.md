@@ -10,14 +10,14 @@ The website is a discovery and presentation layer. Scientific repositories remai
 
 - **Research** - scientific questions and thematic programmes linking canonical project repositories with selected papers, talks, theses, reports, and software.
 - **Publications** - formal scholarly outputs; conference outputs are separated.
-- **Talks** - conference presentations, posters, and explicitly labelled historical conference contributions.
+- **Talks** - conference talks, invited talks and seminars, posters, and workshops when those record types are present.
 - **Software** - curated scientific packages and applications with explicit maturity.
 - **Teaching** - structured courses/training and reusable teaching infrastructure.
 - **Posts** - tutorials, technical notes, methodological explanations, and reproducible-science guidance for a broader technical audience.
-- **CV** - professional record.
-- **More** - curated Data Sources, Miscellaneous material, and Contact.
+- **CV** - professional record and current PDF curriculum vitae.
+- **More** - curated Data Sources and Contact.
 
-Legacy routes that no longer belong to the public architecture are retained only as deterministic `noindex` redirects when old inbound links remain meaningful. The retired substantive pages are not rendered as public content.
+Unfinished or placeholder-only sections are kept out of the public navigation and production render until substantive content exists. Legacy routes that no longer belong to the public architecture are retained only as deterministic `noindex` redirects when old inbound links remain meaningful. The retired substantive pages are not rendered as public content.
 
 ## Metadata sources
 
