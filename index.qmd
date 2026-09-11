@@ -13,15 +13,12 @@ format:
 ---
 
 ::: {.qs-about-identity}
-::: {.qs-about-identity-copy}
-<div class="section-intro">
-<strong>Quantitative Marine Ecology & Fisheries Science</strong><br>
-Marine quantitative ecologist and fisheries scientist at the Instituto del Mar del Perú (IMARPE), working on pelagic fish and fisheries in the Humboldt Current System.
-</div>
+::: {.qs-about-identity-copy .qs-about-story}
+I try to understand how environmental variability, population processes, and fishing shape the distribution, abundance, productivity, and life-history strategies of pelagic fish. I address these questions primarily in the [**Humboldt Current System**](projects/), with particular emphasis on Peruvian anchovy, by combining fishery observations, scientific surveys, environmental information, and statistical, spatial, and stock-assessment models.
 
-**Measure change. Model uncertainty. Inform fisheries decisions.**
+I am based at the [**Instituto del Mar del Perú (IMARPE)**](https://www.gob.pe/imarpe), where I work on quantitative analyses of pelagic resources and fisheries. My research spans [**stock assessment and population dynamics**](projects/#stock-assessment), [**environmental variability**](projects/#environmental-variability), [**reproduction, growth and condition**](projects/#life-history), [**spatial ecology and biodiversity**](projects/#spatial-biodiversity), and [**fisheries dynamics and adaptive management**](projects/#fisheries-dynamics).
 
-I integrate fisheries observations, ecological theory, statistical modelling, stock assessment, spatial ecology, environmental variability, and reproducible scientific computing to understand changing marine populations and support fisheries interpretation and decision-making.
+I also enjoy turning recurring analytical problems into reproducible methods and [**open research software**](software/). Across these themes, I aim to connect ecological mechanisms with decision-relevant evidence, especially changes that biomass alone may not reveal, including recruitment, growth, maturity, condition, availability, and spatial distribution.
 :::
 
 ::: {.qs-about-identity-visual}
@@ -40,7 +37,7 @@ I integrate fisheries observations, ecological theory, statistical modelling, st
 <a href="projects/#scientific-computing"><strong>Scientific computing</strong><span>Statistical methods, reusable software, data infrastructure, and reproducible research workflows.</span></a>
 </div>
 
-See the full [Research](research/index.html) page for research questions, current projects, and related scholarly outputs.
+See the full [Research](projects/) page for research questions, current projects, and related scholarly outputs.
 
 ## Selected research
 
