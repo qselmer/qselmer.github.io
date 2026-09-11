@@ -98,7 +98,7 @@ def render_sidebar(data: dict, identity: dict) -> str:
     </div>
     <p class="qs-sidebar-name">{name}</p>
     <p class="qs-sidebar-role">Marine Quantitative Ecologist<br>Fisheries Scientist</p>
-    <p class="qs-sidebar-affiliation">Instituto del Mar del Perú (IMARPE)</p>
+    <div class="qs-sidebar-context qs-sidebar-affiliation"><i class="bi bi-building" aria-hidden="true"></i><span>Instituto del Mar del Perú (IMARPE)</span></div>
     <div class="qs-sidebar-context"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span>Peru · Humboldt Current</span></div>
     <div class="qs-sidebar-context"><i class="bi bi-water" aria-hidden="true"></i><span>Pelagic fisheries · Statistical ecology</span></div>
     <p class="qs-sidebar-section-label">Research profiles</p>
