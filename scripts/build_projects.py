@@ -14,9 +14,7 @@ from site_config import ROOT
 REGISTRY = ROOT / "projects" / "registry.json"
 GRAPH = ROOT / "assets" / "data" / "research-graph.json"
 TARGET = ROOT / "projects" / "_generated.md"
-LOGO_ROOT = ROOT / "images" / "projects"
 CLASS_TOKEN = re.compile(r"^[A-Za-z0-9_-]+$")
-LOGO_NAMES = ("logo.svg", "logo.png")
 THEME_BADGE_LABELS = ("System", "Focus", "Data")
 
 
@@ -57,14 +55,6 @@ def clean_class(value: object, label: str) -> str:
     return text
 
 
-def logo_for(slug: str) -> str | None:
-    directory = LOGO_ROOT / slug
-    for name in LOGO_NAMES:
-        if (directory / name).is_file():
-            return name
-    return None
-
-
 def render_badges(items: list[dict], owner: str, expected_labels: tuple[str, ...] | None = None) -> str:
     if not items:
         return ""
@@ -92,13 +82,13 @@ def render_badges(items: list[dict], owner: str, expected_labels: tuple[str, ...
 
 
 def render_card(project: dict) -> list[str]:
-    slug = clean_class(project.get("slug"), "project slug")
-    tone = clean_class(project.get("tone"), f"{slug} tone")
-    extra = project.get("extra_classes") or []
-    if not isinstance(extra, list):
-        raise RuntimeError(f"extra_classes must be a list for {slug}")
-    extra_classes = [clean_class(item, f"{slug} extra class") for item in extra]
+    """Render every Research project with one editorial card format.
 
+    Project logos remain canonical assets for project detail pages, but the Research
+    catalogue intentionally does not use them. This keeps projects with and without
+    logos visually identical and avoids loading large logo files in the catalogue.
+    """
+    slug = clean_class(project.get("slug"), "project slug")
     title = str(project.get("title") or "").strip()
     summary = str(project.get("summary") or "").strip()
     context = str(project.get("context") or "").strip()
@@ -107,29 +97,16 @@ def render_card(project: dict) -> list[str]:
     if not all((title, summary, context, site_path, link_label)):
         raise RuntimeError(f"Project {slug} is missing card content")
 
-    logo_name = logo_for(slug)
-    article_classes = ["qs-project-tile", f"qs-project-tone-{tone}", *extra_classes]
-    if not logo_name:
-        article_classes.append("qs-project-no-logo")
-
-    lines = [f'<article class="{" ".join(article_classes)}">']
-    if logo_name:
-        src = f"/images/projects/{slug}/{logo_name}"
-        lines += [
-            '<div class="qs-project-visual">',
-            f'<img class="qs-project-logo" src="{html.escape(src, quote=True)}" alt="{html.escape(title, quote=True)} project logo" loading="lazy">',
-            "</div>",
-        ]
-
-    lines += [
+    return [
+        '<article class="qs-project-tile">',
         '<div class="qs-project-body">',
+        '<span class="qs-project-type">PROJECT</span>',
         f'<h3><a href="{html.escape(site_path, quote=True)}">{html.escape(title)}</a></h3>',
         f'<p class="qs-project-card-summary">{html.escape(summary)}</p>',
         f'<div class="qs-project-footer"><span>{html.escape(context)}</span><a href="{html.escape(site_path, quote=True)}">{html.escape(link_label)}</a></div>',
         "</div>",
         "</article>",
     ]
-    return lines
 
 
 def render_output(item: dict) -> str:
