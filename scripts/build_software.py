@@ -79,9 +79,6 @@ def software_entry(item: dict, curated: dict) -> list[str]:
         f'<a class="qs-academic-output-title" href="{html.escape(title_href, quote=True)}">'
         f'{html.escape(name)}</a>'
     )
-    reference = f"{title}."
-    if summary:
-        reference += f" {html.escape(summary)}"
 
     if logo:
         media = (
@@ -110,19 +107,26 @@ def software_entry(item: dict, curated: dict) -> list[str]:
     if site_path:
         links.append(f'<a href="{html.escape(site_path, quote=True)}">Project page</a>')
 
-    lines = [
+    pieces = [f"{title}."]
+    if summary:
+        pieces.append(html.escape(summary))
+    if links:
+        pieces.append(' <span class="qs-academic-output-links-inline">' + ' <span aria-hidden="true">·</span> '.join(links) + '.</span>')
+    pieces.append(
+        f' <span class="qs-badge-row qs-publication-badges qs-academic-output-badges-inline">'
+        f'{"".join(badges)}</span>'
+    )
+
+    return [
         '<li class="qs-academic-output-item qs-software-output-item">',
-        '<div class="qs-academic-output-layout">',
+        '<div class="qs-academic-output-layout qs-academic-output-layout-inline">',
         f'<div class="qs-academic-output-media" aria-label="{html.escape(name, quote=True)} software mark">{media}</div>',
         '<div class="qs-academic-output-copy">',
-        f'<p class="qs-academic-output-reference">{reference}</p>',
+        f'<p class="qs-academic-output-reference qs-academic-output-reference-inline">{" ".join(pieces)}</p>',
+        '</div>',
+        '</div>',
+        '</li>',
     ]
-    if links:
-        separator = ' <span aria-hidden="true">|</span> '
-        lines.append(f'<p class="qs-academic-output-links">{separator.join(links)}</p>')
-    lines.append(f'<div class="qs-badge-row qs-publication-badges qs-academic-output-badges">{"".join(badges)}</div>')
-    lines += ["</div>", "</div>", "</li>"]
-    return lines
 
 
 def render() -> str:

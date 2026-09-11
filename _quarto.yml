@@ -123,6 +123,7 @@ format:
       - posts.css
       - academic.css
       - standardization.css
+      - scholarly-v2.css
     toc: true
     link-external-newwindow: true
     include-before-body:

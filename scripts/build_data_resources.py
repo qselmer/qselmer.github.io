@@ -19,6 +19,36 @@ REQUIRED_FIELDS = {
 }
 ACCESS_GROUPS = {"open", "registered", "licensed_or_restricted"}
 
+PROVIDER_SHORT = {
+    "Global Fishing Watch": "GFW",
+    "International Council for the Exploration of the Sea": "ICES",
+    "RAM Legacy Stock Assessment Database": "RAM Legacy",
+    "University of British Columbia": "UBC",
+    "IOC-UNESCO / OBIS": "OBIS",
+    "Global Biodiversity Information Facility": "GBIF",
+    "Flanders Marine Institute and collaborators": "VLIZ",
+    "Flanders Marine Institute": "VLIZ",
+    "European Union / Mercator Ocean International": "Copernicus",
+    "NOAA CoastWatch / OceanWatch / PolarWatch": "NOAA CW",
+    "International Argo Program": "Argo",
+    "ECMWF / Copernicus Climate Change Service": "ECMWF/C3S",
+    "Met Office Hadley Centre": "Met Office",
+    "NOAA Physical Sciences Laboratory": "NOAA PSL",
+    "GEBCO / Seabed 2030": "GEBCO",
+    "IMARPE / PRODUCE Open Data": "IMARPE",
+    "Ministerio de la Producción, Peru": "PRODUCE",
+    "FONDEPES / PRODUCE": "FONDEPES",
+    "Kpler / MarineTraffic": "MarineTraffic",
+    "Planet Labs": "Planet",
+    "Spire Global": "Spire",
+}
+
+ACCESS_SHORT = {
+    "open": "Open",
+    "registered": "Register",
+    "licensed_or_restricted": "Licensed",
+}
+
 
 def load_registry() -> dict:
     payload = json.loads(REGISTRY.read_text(encoding="utf-8"))
@@ -66,12 +96,57 @@ def anchor(value: object) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text).strip("-")
 
 
-def badge(label: str, value: str, tone: str = "neutral") -> str:
+def badge(label: str, value: str, tone: str = "neutral", detail: str = "") -> str:
+    title = ""
+    if detail and detail != value:
+        title = f' title="{html.escape(detail, quote=True)}"'
     body = (
         f'<span class="qs-badge-label">{html.escape(label)}</span>'
         f'<span class="qs-badge-value">{html.escape(value)}</span>'
     )
-    return f'<span class="qs-badge qs-badge-{tone}">{body}</span>'
+    return f'<span class="qs-badge qs-badge-{tone}"{title}>{body}</span>'
+
+
+def compact_provider(value: str) -> str:
+    return PROVIDER_SHORT.get(value, value if len(value) <= 18 else value.split(" / ")[0])
+
+
+def compact_coverage(value: str) -> str:
+    lower = value.casefold()
+    if "peru" in lower or "peruvian" in lower:
+        return "Peru"
+    if "ices" in lower:
+        return "ICES"
+    if "global" in lower:
+        return "Global"
+    if "regional" in lower:
+        return "Regional"
+    return value if len(value) <= 18 else "Regional"
+
+
+def compact_format(value: str) -> str:
+    lower = value.casefold()
+    ordered = (
+        ("fishstatj", "FishStatJ"),
+        ("geoparquet", "GeoParquet"),
+        ("netcdf", "NetCDF"),
+        ("erddap", "ERDDAP"),
+        ("rest api", "API"),
+        ("graphql", "API"),
+        ("api", "API"),
+        ("geotiff", "GeoTIFF"),
+        ("geopackage", "GIS"),
+        ("shapefile", "GIS"),
+        ("csv", "CSV"),
+        ("excel", "Excel"),
+        ("xlsx", "Excel"),
+        ("text", "Text"),
+        ("ais", "AIS"),
+    )
+    for token, label in ordered:
+        if token in lower:
+            return label
+    return "Data"
 
 
 def render_resource(item: dict) -> str:
@@ -79,21 +154,22 @@ def render_resource(item: dict) -> str:
     url = str(item["url"]).strip()
     provider = str(item["provider"]).strip()
     access = str(item["access"]).strip()
+    access_group = str(item["access_group"]).strip()
     coverage = str(item["coverage"]).strip()
     formats = str(item["formats"]).strip()
     description = str(item["description"]).strip()
     use_case = str(item["use_case"]).strip()
 
     badges = [
-        badge("Provider", provider, "neutral"),
-        badge("Access", access, "green"),
-        badge("Coverage", coverage, "blue"),
-        badge("Formats", formats, "amber"),
+        badge("Provider", compact_provider(provider), "neutral", provider),
+        badge("Access", ACCESS_SHORT[access_group], "green", access),
+        badge("Coverage", compact_coverage(coverage), "blue", coverage),
+        badge("Format", compact_format(formats), "amber", formats),
     ]
     return (
         f'- <strong><a href="{html.escape(url, quote=True)}">{html.escape(name)}</a></strong>. '
         f'{html.escape(description)} <span class="qs-data-use"><strong>Useful for:</strong> {html.escape(use_case)}</span> '
-        f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>'
+        f'<span class="qs-badge-row qs-publication-badges qs-data-badges">{"".join(badges)}</span>'
     )
 
 

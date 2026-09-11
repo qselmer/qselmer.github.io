@@ -6,11 +6,11 @@ description: "Curated external data sources for fisheries, marine ecology, ocean
 <div class="qs-publication-nav qs-data-nav" aria-label="Data sections">
   <a href="#fisheries-and-stock-assessment"><strong>Fisheries</strong></a>
   <a href="#biodiversity-and-ecological-modelling"><strong>Biodiversity</strong></a>
-  <a href="#oceanographic-and-in-situ-observations"><strong>Ocean observations</strong></a>
+  <a href="#oceanographic-and-in-situ-observations"><strong>Ocean</strong></a>
   <a href="#satellite-reanalysis-and-climate"><strong>Climate</strong></a>
   <a href="#bathymetry-and-marine-geospatial"><strong>Geospatial</strong></a>
   <a href="#peru-fisheries-and-coastal-observations"><strong>Peru</strong></a>
-  <a href="#licensed-and-commercial-sources"><strong>Licensed sources</strong></a>
+  <a href="#licensed-and-commercial-sources"><strong>Licensed</strong></a>
 </div>
 
 ::: {.qs-data-catalogue .qs-compact-catalogue}

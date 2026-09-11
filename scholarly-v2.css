@@ -1,0 +1,168 @@
+/* Cache-busting final layer for the publication-style catalogue contract. */
+
+/* Quarto wraps raw navigation links in a paragraph. Make the links themselves
+   a spaced, wrapping navigation row instead of a run-on sentence. */
+.qs-publication-nav > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.35rem;
+  align-items: baseline;
+  margin: 0 !important;
+}
+
+.qs-data-nav > p {
+  gap: .45rem 1.5rem;
+}
+
+/* Software, Teaching, and Posts deliberately mirror Publications/Talks:
+   one real list item, one continuous reference paragraph, optional compact
+   visual, and badges at the literal end of the reference. */
+.qs-academic-output-list {
+  list-style: disc outside !important;
+  margin: .35rem 0 1.15rem !important;
+  padding-left: 1.45rem !important;
+}
+
+.qs-academic-output-list > .qs-academic-output-item {
+  display: list-item !important;
+  margin: 0 0 1rem !important;
+  padding: 0 !important;
+}
+
+.qs-academic-output-list > .qs-academic-output-item::marker {
+  color: #0b1320;
+  font-size: .95em;
+}
+
+.qs-academic-output-layout-inline {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: .8rem;
+  align-items: start;
+}
+
+.qs-academic-output-layout-inline .qs-academic-output-media {
+  width: 82px;
+  height: 60px;
+  margin-top: .1rem;
+  border: 0;
+  border-radius: .2rem;
+  background: #f7f8fa;
+}
+
+.qs-academic-output-layout-inline .qs-academic-output-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qs-academic-output-layout-inline .qs-academic-output-mark {
+  max-width: 94%;
+  font-size: .76rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.qs-academic-output-reference-inline {
+  margin: 0 !important;
+  color: var(--qs-ink);
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
+.qs-academic-output-title {
+  font-weight: 600;
+}
+
+.qs-academic-output-meta-inline,
+.qs-academic-output-links-inline {
+  color: var(--qs-ink-soft);
+  font-size: .9em;
+}
+
+.qs-academic-output-badges-inline {
+  display: inline-flex !important;
+  width: auto !important;
+  margin: 0 0 0 .35rem !important;
+  gap: .28rem;
+  vertical-align: middle;
+}
+
+/* Data-source badges carry compact display values. Their full canonical values
+   remain available as title tooltips in generated HTML. */
+.qs-data-badges {
+  gap: .28rem;
+}
+
+.qs-data-badges .qs-badge {
+  white-space: nowrap;
+}
+
+.qs-data-catalogue li {
+  margin-bottom: .72rem;
+}
+
+/* Research metrics use exactly the same typographic scale and weight as the
+   ordinary profile-sidebar text, on every route where the persistent rail is shown. */
+.qs-sidebar-metric-row,
+.qs-sidebar-metric-row > span,
+.qs-sidebar-metric-value {
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+}
+
+.qs-sidebar-metric-value {
+  color: inherit !important;
+  font-variant-numeric: normal !important;
+}
+
+@media (max-width: 1099px) {
+  .qs-sidebar-metric-row,
+  .qs-sidebar-metric-row > span,
+  .qs-sidebar-metric-value {
+    font-size: .96rem !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .qs-publication-nav > p,
+  .qs-data-nav > p {
+    gap: .3rem 1rem;
+  }
+
+  .qs-academic-output-layout-inline {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: .68rem;
+  }
+
+  .qs-academic-output-layout-inline .qs-academic-output-media {
+    width: 70px;
+    height: 52px;
+  }
+
+  .qs-academic-output-reference-inline {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .qs-sidebar-metric-row,
+  .qs-sidebar-metric-row > span,
+  .qs-sidebar-metric-value {
+    font-size: .93rem !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .qs-academic-output-layout-inline {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: .6rem;
+  }
+
+  .qs-academic-output-layout-inline .qs-academic-output-media {
+    width: 58px;
+    height: 46px;
+  }
+}
