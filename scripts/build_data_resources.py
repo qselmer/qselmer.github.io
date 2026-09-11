@@ -74,14 +74,6 @@ def badge(label: str, value: str, tone: str = "neutral") -> str:
     return f'<span class="qs-badge qs-badge-{tone}">{body}</span>'
 
 
-def access_tone(group: str) -> str:
-    if group == "open":
-        return "green"
-    if group == "registered":
-        return "blue"
-    return "amber"
-
-
 def render_resource(item: dict) -> str:
     name = str(item["name"]).strip()
     url = str(item["url"]).strip()
@@ -91,13 +83,12 @@ def render_resource(item: dict) -> str:
     formats = str(item["formats"]).strip()
     description = str(item["description"]).strip()
     use_case = str(item["use_case"]).strip()
-    group = str(item["access_group"]).strip()
 
     badges = [
         badge("Provider", provider, "neutral"),
-        badge("Access", access, access_tone(group)),
+        badge("Access", access, "green"),
         badge("Coverage", coverage, "blue"),
-        badge("Formats", formats, "neutral"),
+        badge("Formats", formats, "amber"),
     ]
     return (
         f'- <strong><a href="{html.escape(url, quote=True)}">{html.escape(name)}</a></strong>. '
