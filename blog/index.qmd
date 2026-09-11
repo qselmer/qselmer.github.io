@@ -1,7 +1,11 @@
 ---
 title: "Posts"
 description: "Technical notes, tutorials, and practical explanations in quantitative marine ecology, fisheries science, statistics, and scientific computing."
+image: /images/home/statistical-modelling-workflow.png
+image-alt: "Statistical modelling workflow for fisheries and marine ecology"
 ---
+
+[RSS feed](index.xml){.qs-rss-link}
 
 ::: {.qs-compact-catalogue .qs-post-catalogue}
 {{< include _generated.md >}}
