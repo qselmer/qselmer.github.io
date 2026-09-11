@@ -1,17 +1,12 @@
 {
   "schema_version": 1,
-  "programme_context": "Pelagic fish and fisheries in Eastern Boundary Upwelling Systems, with the Humboldt Current as the primary empirical system.",
   "sections": [
     {
       "id": "stock-assessment",
-      "heading": "Stock assessment, population dynamics and productivity",
-      "research_question": "How do productivity, demographic processes, environmental variability, and model assumptions shape inference about the state and dynamics of exploited pelagic populations?",
-      "why_it_matters": "Reliable assessment requires more than biomass alone. Recruitment, growth, reproduction, condition, productivity, selectivity, and structural model assumptions can alter how stock state is interpreted and how uncertainty is carried into fisheries advice.",
-      "visual_steps": [
-        "Surveys and fishery observations",
-        "Population processes and productivity",
-        "Assessment inference"
-      ],
+      "heading": "Stock assessment and population dynamics",
+      "nav_label": "Stock assessment",
+      "research_question": "How do population processes, productivity, and model assumptions shape inference about the state and dynamics of exploited pelagic populations?",
+      "why_it_matters": "Reliable assessment requires integrating biomass with recruitment, mortality, selectivity, and productivity while accounting for structural uncertainty in the models used for fisheries advice.",
       "grid_class": "qs-project-grid",
       "keywords": [
         "stock assessment",
@@ -19,57 +14,67 @@
         "population dynamics",
         "population state",
         "productivity",
-        "growth",
         "recruitment",
         "selectivity",
         "mortality",
         "health index",
-        "stock condition",
-        "gonadosomatic",
-        "gonadal",
-        "maturity",
-        "reproductive",
-        "reproduction"
+        "stock condition"
       ]
     },
     {
-      "id": "fisheries-dynamics",
-      "heading": "Fisheries dynamics and adaptive management",
-      "research_question": "How do pelagic fisheries reorganize through seasons, environmental variability, fleet behaviour, and management interventions, and how can those dynamics inform adaptive decisions?",
-      "why_it_matters": "Highly variable upwelling systems can change resource availability and fleet behaviour rapidly. Management diagnostics therefore need to separate ecological availability, biological risk, fishing pressure, and operational response rather than treating catch or effort as isolated signals.",
-      "visual_steps": [
-        "Fishery and fleet observations",
-        "Seasonal and environmental dynamics",
-        "Adaptive management"
-      ],
+      "id": "environmental-variability",
+      "heading": "Environmental variability and pressure-state relationships",
+      "nav_label": "Environment",
+      "research_question": "How do climate and oceanographic variability, natural forcing, fishing pressure, and their interactions alter productivity and the state of pelagic populations?",
+      "why_it_matters": "Eastern Boundary Upwelling Systems are highly variable, so separating environmental forcing from fishing effects is essential for detecting pressure-state relationships, thresholds, and regime changes.",
       "grid_class": "qs-project-grid",
       "keywords": [
-        "fishery",
-        "fisheries",
-        "fishing",
-        "fleet",
-        "quota",
-        "season",
-        "management",
-        "pressure",
-        "availability",
-        "risk",
-        "closure",
-        "juvenile",
-        "climate adaptive",
-        "environmental variability"
+        "environment",
+        "environmental variability",
+        "climate",
+        "enso",
+        "el nino",
+        "la nina",
+        "oceanographic",
+        "temperature",
+        "oxygen",
+        "natural pressure",
+        "anthropogenic pressure",
+        "pressure-state",
+        "threshold",
+        "regime",
+        "breakpoint"
+      ]
+    },
+    {
+      "id": "life-history",
+      "heading": "Reproductive biology, growth and condition",
+      "nav_label": "Reproduction & growth",
+      "research_question": "How do reproduction, growth, and individual condition vary through time, and how do these life-history processes contribute to changes in pelagic population state?",
+      "why_it_matters": "Maturity, spawning, growth, and condition can respond before biomass does, providing complementary information on population performance and resilience.",
+      "grid_class": "qs-project-grid",
+      "keywords": [
+        "gonadosomatic",
+        "gonadal",
+        "maturity",
+        "sexual maturity",
+        "reproductive",
+        "reproduction",
+        "spawning",
+        "fecundity",
+        "growth",
+        "condition",
+        "body condition",
+        "lipid",
+        "life history"
       ]
     },
     {
       "id": "spatial-biodiversity",
-      "heading": "Spatial ecology, biodiversity and bycatch",
-      "research_question": "How are pelagic species, associated fauna, and non-target interactions distributed through space and time, and how can ecological information reduce bycatch while preserving useful fisheries information?",
-      "why_it_matters": "Pelagic fisheries operate within dynamic food webs rather than on isolated target stocks. Understanding species distributions, accompanying fauna, community composition, and bycatch is necessary for ecosystem-based interpretation and spatially explicit management in upwelling systems.",
-      "visual_steps": [
-        "Occurrences and catch composition",
-        "Spatial biodiversity patterns",
-        "Bycatch and ecosystem interactions"
-      ],
+      "heading": "Spatial ecology, species distribution and biodiversity",
+      "nav_label": "Spatial ecology",
+      "research_question": "How do pelagic species, associated fauna, and non-target interactions vary across space and time, and which environmental processes shape habitat suitability and species distributions?",
+      "why_it_matters": "Spatially explicit information from niche models, species distribution models, biodiversity observations, and bycatch patterns is needed to interpret ecosystem change and support spatial fisheries management.",
       "grid_class": "qs-project-grid",
       "keywords": [
         "biodiversity",
@@ -78,8 +83,12 @@
         "accompanying fauna",
         "non-target",
         "species distribution",
-        "distribution",
+        "distribution model",
+        "sdm",
+        "niche model",
+        "ecological niche",
         "habitat",
+        "habitat suitability",
         "occurrence",
         "species composition",
         "community",
@@ -89,15 +98,33 @@
       ]
     },
     {
+      "id": "fisheries-dynamics",
+      "heading": "Fisheries dynamics and adaptive management",
+      "nav_label": "Fisheries dynamics",
+      "research_question": "How do pelagic fisheries reorganize through seasons, environmental variability, fleet behaviour, and management interventions, and how can those dynamics inform adaptive decisions?",
+      "why_it_matters": "Fast changes in resource availability and fishing operations require diagnostics that separate ecological availability, biological risk, fishing pressure, and fleet response.",
+      "grid_class": "qs-project-grid",
+      "keywords": [
+        "fishery",
+        "fisheries",
+        "fishing",
+        "fleet",
+        "quota",
+        "season",
+        "management",
+        "availability",
+        "risk",
+        "closure",
+        "juvenile",
+        "climate adaptive"
+      ]
+    },
+    {
       "id": "scientific-computing",
-      "heading": "Statistical ecology and scientific computing",
+      "heading": "Scientific computing and research software",
+      "nav_label": "Scientific computing",
       "research_question": "How can statistical methods, reproducible workflows, and research software make complex marine and fisheries analyses more transparent, reusable, and auditable?",
-      "why_it_matters": "Many marine analyses depend on heterogeneous data, repeated processing, and complex models. Reproducible computational systems reduce hidden analytical variation and make methods easier to validate, reuse, and extend across research questions.",
-      "visual_steps": [
-        "Heterogeneous marine data",
-        "Reproducible statistical workflows",
-        "Reusable research software"
-      ],
+      "why_it_matters": "Heterogeneous marine data and complex models create hidden analytical variation; reusable software and reproducible workflows improve validation, transferability, and scientific efficiency.",
       "grid_class": "qs-project-grid",
       "keywords": [
         "software",
@@ -122,7 +149,22 @@
     {
       "source": "talks",
       "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea",
-      "section": "stock-assessment"
+      "section": "environmental-variability"
+    },
+    {
+      "source": "publications",
+      "title": "Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens",
+      "section": "life-history"
+    },
+    {
+      "source": "talks",
+      "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
+      "section": "life-history"
+    },
+    {
+      "source": "publications",
+      "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022",
+      "section": "life-history"
     }
   ],
   "projects": [
