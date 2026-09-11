@@ -83,7 +83,7 @@ def render_item(item: dict, curated: dict) -> str:
     ]
     if summary:
         parts.append(f'<p class="qs-teaching-summary">{html.escape(summary)}</p>')
-    parts.append(f'<div class="qs-badge-row qs-publication-badges'>{"".join(badges)}</div>')
+    parts.append(f'<div class="qs-badge-row qs-publication-badges">{"".join(badges)}</div>')
     parts.append(
         '<p class="qs-teaching-meta">'
         f'<strong>Duration:</strong> {html.escape(duration)} '
