@@ -162,11 +162,12 @@
 }
 
 /* One project-card system for every Research project. Logos are intentionally
-   reserved for project detail pages so cards remain identical and lightweight. */
+   reserved for project detail pages so cards remain identical and lightweight.
+   Projects are stacked as full-width rows to keep every theme visually consistent. */
 .qs-project-grid,
 .qs-project-grid-planned {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  grid-template-columns: 1fr !important;
   gap: 1rem !important;
   align-items: stretch;
 }
