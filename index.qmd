@@ -20,7 +20,9 @@ format:
 ::: {.qs-about-identity-copy .qs-about-story}
 I try to understand how environmental variability, population processes, and fishing shape the distribution, abundance, productivity, and life-history strategies of pelagic fish. I address these questions primarily in the [**Humboldt Current System**](projects/), with particular emphasis on Peruvian anchovy, by combining fishery observations, scientific surveys, environmental information, and statistical, spatial, and stock-assessment models.
 
-I am based at the [**Instituto del Mar del Perú (IMARPE)**](https://www.gob.pe/imarpe), where I work on quantitative analyses of pelagic resources and fisheries. I also turn recurring analytical problems into reproducible methods and [**open research software**](software/), connecting ecological mechanisms to decision-relevant evidence beyond biomass alone.
+I am based at the [**Instituto del Mar del Perú (IMARPE)**](https://www.gob.pe/imarpe), where I work on quantitative analyses of pelagic resources and fisheries. I also turn recurring analytical problems into reproducible methods and [**open research software**](software/) for transparent and reusable analysis.
+
+A recurring goal is to connect biological change, environmental variability, and fishery response across scales of observation.
 
 My work is organized around six connected research interests:
 :::
