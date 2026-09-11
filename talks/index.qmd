@@ -1,15 +1,7 @@
 ---
 title: "Talks"
-description: "Conference talks, posters, and scientific presentations."
+description: "Conference talks, invited seminars, posters, and workshops."
 ---
-
-```{=html}
-<nav class="qs-publication-nav" aria-label="Talk sections">
-<a href="#oral"><strong>Oral presentations</strong></a>
-<a href="#posters"><strong>Posters</strong></a>
-<a href="#other"><strong>Other presentations</strong></a>
-</nav>
-```
 
 ::: {.qs-compact-catalogue}
 {{< include _generated.md >}}
