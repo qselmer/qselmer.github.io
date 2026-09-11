@@ -1,0 +1,6 @@
+---
+title: "Honors & Awards"
+description: "Awards, scholarships, fellowships, distinctions, and formal recognition in fisheries science and marine research."
+---
+
+{{< include _generated.md >}}

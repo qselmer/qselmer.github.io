@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "count": 2,
+  "categories": [
+    {
+      "id": "awards",
+      "heading": "Awards & distinctions",
+      "nav_label": "Awards"
+    },
+    {
+      "id": "scholarships",
+      "heading": "Scholarships & fellowships",
+      "nav_label": "Scholarships"
+    },
+    {
+      "id": "recognition",
+      "heading": "Other recognition",
+      "nav_label": "Recognition"
+    }
+  ],
+  "honors": [
+    {
+      "id": "honor-2024-sibecorp-best-doctoral-work-oral-presentation",
+      "year": 2024,
+      "date": "2024-11-15",
+      "category": "awards",
+      "type": "Award",
+      "title": "Best Doctoral Work - Oral Presentation",
+      "organization": "VI SIBECORP",
+      "event": "VI Ibero-American Symposium on Reproductive Ecology, Recruitment and Fisheries",
+      "location": "Algés, Portugal",
+      "scope": "International",
+      "work_title": "Identidad del índice gonadosomático en la anchoveta (Engraulis ringens): madurez sexual, valor crítico del 5% y su variación estacional",
+      "summary": "Awarded in the Best Doctoral Work category for an oral presentation at VI SIBECORP, held in Algés, Portugal, 11-15 November 2024.",
+      "evidence_status": "Verified certificate",
+      "featured": true,
+      "visibility": "public"
+    },
+    {
+      "id": "honor-2023-pucv-fisheries-resource-assessment-scholarship",
+      "year": 2023,
+      "date": "2023-12-04",
+      "category": "scholarships",
+      "type": "Scholarship",
+      "title": "Scholarship - Fisheries Resource Assessment Diploma",
+      "organization": "Pontificia Universidad Católica de Valparaíso",
+      "event": "Diploma in Fisheries Resource Assessment",
+      "location": "Valparaíso, Chile",
+      "scope": "International",
+      "summary": "Scholarship for the diploma Evaluación de Recursos Pesqueros, taught by the School of Marine Sciences at the Pontificia Universidad Católica de Valparaíso from 10 August to 26 October 2023.",
+      "evidence_status": "Verified certificate",
+      "featured": true,
+      "visibility": "public"
+    }
+  ],
+  "source": "honors/registry.json"
+}
