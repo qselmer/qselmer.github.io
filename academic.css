@@ -1,0 +1,93 @@
+/* Final academic typography layer: lighter, cleaner, and less visually heavy. */
+
+body {
+  font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
+  color: #17313e;
+}
+
+p,
+li,
+td,
+th,
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.quarto-title-block .title,
+main.content h1,
+main.content h2,
+main.content h3,
+main.content h4,
+main.content h5,
+main.content h6,
+.qs-compact-catalogue h2,
+.qs-compact-catalogue h3 {
+  font-family: inherit;
+  font-weight: 500 !important;
+  letter-spacing: -0.012em;
+  color: #102b38;
+}
+
+.quarto-title-block .title {
+  font-size: 2.55rem !important;
+  line-height: 1.1 !important;
+}
+
+main.content > h2,
+main.content > section > h2,
+.qs-compact-catalogue h2 {
+  font-size: 1.85rem !important;
+}
+
+main.content > h3,
+main.content > section > h3,
+.qs-compact-catalogue h3 {
+  font-size: 1.3rem !important;
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+.navbar .nav-link,
+.navbar .dropdown-item {
+  font-weight: 400;
+}
+
+.qs-publication-nav a,
+.qs-publication-nav strong {
+  font-weight: 500;
+}
+
+.qs-sidebar-name {
+  font-weight: 600;
+}
+
+.qs-sidebar-role,
+.qs-sidebar-section-label {
+  font-weight: 600;
+}
+
+.qs-project-tile h3,
+.qs-software-copy h3,
+.qs-selected-item h3,
+.qs-interest-grid strong {
+  font-weight: 500 !important;
+}
+
+@media (max-width: 760px) {
+  .quarto-title-block .title {
+    font-size: 2.15rem !important;
+  }
+
+  main.content > h2,
+  main.content > section > h2,
+  .qs-compact-catalogue h2 {
+    font-size: 1.65rem !important;
+  }
+}
