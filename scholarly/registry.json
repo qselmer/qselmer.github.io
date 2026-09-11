@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "purpose": "Curated policy for scholarly identity, persistent identifiers, citation metadata, reproducibility readiness, and long-term preservation. This registry records only verified public facts and does not create identifiers that do not exist.",
+  "identity_policy": {
+    "person_identifier": "ORCID",
+    "organization_identifier": "ROR",
+    "works_identifier": "DOI when assigned",
+    "software_identifier": "GitHub canonical URL until a DOI is assigned",
+    "no_identifier_invention": true
+  },
+  "affiliation_evidence": {
+    "name": "Instituto del Mar del Perú",
+    "acronym": "IMARPE",
+    "ror": "https://ror.org/01gbk3827",
+    "institution_url": "https://www.imarpe.gob.pe/",
+    "verification_source": "https://revistas.imarpe.gob.pe/index.php/boletin/contacto",
+    "verified_at": "2026-09-11"
+  },
+  "standards": {
+    "person": ["ORCID", "Schema.org Person"],
+    "organization": ["ROR", "Schema.org Organization"],
+    "publications": ["DOI", "Schema.org ScholarlyArticle"],
+    "software": ["CITATION.cff", "CodeMeta", "GitHub release", "archival DOI when available"],
+    "preservation": ["versioned release", "persistent identifier", "archival repository"],
+    "research_objects": ["RO-Crate when a project has a bounded reusable research object"]
+  },
+  "reproducibility_levels": [
+    {"level": 0, "label": "Repository", "criterion": "Public repository exists."},
+    {"level": 1, "label": "Documented", "criterion": "Repository has usable documentation."},
+    {"level": 2, "label": "Reproducible inputs", "criterion": "Documentation plus explicit license, citation metadata, and computational environment or tests."},
+    {"level": 3, "label": "Automated", "criterion": "Level 2 plus continuous integration or an equivalent automated validation workflow."},
+    {"level": 4, "label": "Archived release", "criterion": "Level 3 plus a versioned release and archival persistent identifier."},
+    {"level": 5, "label": "Research object", "criterion": "Level 4 plus a bounded, machine-readable research object with provenance."}
+  ],
+  "tracked_repository_scope": "graph/registry.json public_repositories",
+  "machine_outputs": [
+    "/assets/data/scholarly-graph.json",
+    "/assets/data/scholarly-infrastructure.json"
+  ]
+}
