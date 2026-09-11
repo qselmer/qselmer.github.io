@@ -1,0 +1,53 @@
+/* Publication-page details layered on top of the shared catalogue components. */
+
+.qs-publication-bibtex {
+  display: inline-block;
+  margin-left: .3rem;
+  vertical-align: middle;
+}
+
+.qs-publication-bibtex summary {
+  display: inline-block;
+  list-style: none;
+  cursor: pointer;
+}
+
+.qs-publication-bibtex summary::-webkit-details-marker {
+  display: none;
+}
+
+.qs-publication-bibtex summary::marker {
+  content: "";
+}
+
+.qs-publication-bibtex pre {
+  width: min(760px, calc(100vw - 5rem));
+  margin: .55rem 0 .75rem;
+  padding: .8rem .9rem;
+  overflow-x: auto;
+  border: 1px solid rgba(49, 79, 96, .12);
+  border-radius: .3rem;
+  background: #f7f9fa;
+  font-size: .82rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.qs-compact-catalogue h3 {
+  margin-top: 1.15rem;
+  color: var(--qs-ocean-deep);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 760px) {
+  .qs-publication-bibtex {
+    display: block;
+    width: fit-content;
+    margin: .38rem 0 0;
+  }
+
+  .qs-publication-bibtex pre {
+    width: min(86vw, 680px);
+  }
+}
