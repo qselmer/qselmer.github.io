@@ -1,0 +1,45 @@
+/* Final cross-catalogue standardization layer. */
+
+.qs-theme-badges,
+.qs-project-badges {
+  margin: 0 0 .55rem;
+}
+
+.qs-theme-badges > .qs-badge-row,
+.qs-project-badges > .qs-badge-row {
+  display: flex;
+  width: fit-content;
+  flex-wrap: wrap;
+  gap: .28rem;
+}
+
+.qs-project-body .qs-project-badges {
+  margin-top: 0;
+}
+
+/* Project cards retain one outer frame only; internal dividers add visual noise. */
+.qs-project-visual {
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.qs-project-footer {
+  border-top: 0 !important;
+}
+
+.qs-teaching-links {
+  white-space: nowrap;
+  font-size: .9em;
+}
+
+.qs-teaching-links a {
+  color: #0b1320;
+  text-decoration-color: #0b1320;
+}
+
+/* Keep standard badge rows compact and aligned across catalogues. */
+.qs-publication-badges,
+.qs-software-copy .qs-badge-row,
+.qs-data-catalogue .qs-badge-row {
+  gap: .28rem;
+}
