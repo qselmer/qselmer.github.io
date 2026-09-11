@@ -3,7 +3,7 @@ title: "Research Software"
 description: "Reusable software for fisheries science, marine ecology, environmental data, and reproducible quantitative workflows."
 ---
 
-<div class="qs-publication-nav" aria-label="Software sections">
+<div class="qs-publication-nav qs-software-nav" aria-label="Software sections">
   <a href="#packages"><strong>Packages</strong></a>
   <a href="#applications"><strong>Applications</strong></a>
   <a href="#incubating"><strong>Incubating</strong></a>
