@@ -452,7 +452,12 @@ def validate_rendered() -> None:
 
     require_text(home, identity["headline"])
     require_text(home, identity["signature"])
-    for label in ("ORCID works", "OpenAlex works", "Citations", "h-index", "i10-index", "OpenAlex"):
+    sidebar_source = ROOT / "includes" / "profile-sidebar.html"
+    sidebar_text = normalized_text(sidebar_source)
+    for label in ("ORCID works", "OpenAlex works", "Citations", "h-index", "i10-index"):
+        if label in sidebar_text:
+            require_text(home, label)
+    for label in ("ORCID", "Google Scholar", "GitHub", "LinkedIn"):
         require_text(home, label)
     require_text(home, "research/index.html")
     reject_text(home, '<pre><code><p class="qs-eyebrow">')
