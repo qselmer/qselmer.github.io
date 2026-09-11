@@ -6,12 +6,15 @@ import html
 import json
 import math
 import re
-from datetime import date
+from datetime import date, datetime, time, timezone
+from email.utils import format_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "blog" / "registry.json"
 TARGET = ROOT / "blog" / "_generated.md"
+FEED_TARGET = ROOT / "blog" / "index.xml"
+SITE_URL = "https://qselmer.github.io"
 MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
 
@@ -37,6 +40,12 @@ def parse_iso_date(value: object, label: str) -> date:
 def format_date(value: object) -> str:
     parsed = parse_iso_date(value, "post date")
     return f"{MONTHS[parsed.month - 1]} {parsed.day}, {parsed.year}"
+
+
+def rss_date(value: object) -> str:
+    parsed = parse_iso_date(value, "RSS date")
+    stamp = datetime.combine(parsed, time.min, tzinfo=timezone.utc)
+    return format_datetime(stamp, usegmt=True)
 
 
 def anchor(value: object) -> str:
@@ -147,12 +156,9 @@ def render_post(post: dict) -> list[str]:
     return lines
 
 
-def render() -> str:
-    payload = load_registry()
-    posts = payload["posts"]
+def validate_posts(posts: list[dict]) -> None:
     slugs: set[str] = set()
     routes: set[str] = set()
-
     for post in posts:
         if not isinstance(post, dict):
             raise RuntimeError("Every post record must be a JSON object")
@@ -165,6 +171,12 @@ def render() -> str:
             raise RuntimeError(f"Duplicate post route: {route}")
         slugs.add(slug)
         routes.add(route)
+
+
+def render() -> str:
+    payload = load_registry()
+    posts = payload["posts"]
+    validate_posts(posts)
 
     topics: list[str] = []
     for post in sorted(posts, key=lambda item: str(item["topic"]).casefold()):
@@ -192,22 +204,70 @@ def render() -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
+def render_feed() -> str:
+    payload = load_registry()
+    posts = [post for post in payload["posts"] if str(post.get("status") or "published") == "published"]
+    validate_posts(posts)
+    posts.sort(key=lambda item: str(item.get("updated") or item["date"]), reverse=True)
+    last_build = rss_date(posts[0].get("updated") or posts[0]["date"]) if posts else rss_date(date.today())
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+        '<channel>',
+        '<title>Elmer Quispe-Salazar - Posts</title>',
+        f'<link>{SITE_URL}/blog/</link>',
+        '<description>Technical notes, tutorials, and practical explanations in quantitative marine ecology, fisheries science, statistics, and scientific computing.</description>',
+        '<language>en</language>',
+        f'<lastBuildDate>{last_build}</lastBuildDate>',
+        f'<atom:link href="{SITE_URL}/blog/index.xml" rel="self" type="application/rss+xml" />',
+    ]
+    for post in posts:
+        url = SITE_URL + str(post["route"])
+        title = html.escape(str(post["title"]).strip(), quote=False)
+        excerpt = html.escape(str(post["excerpt"]).strip(), quote=False)
+        author = html.escape(str(post["author"]).strip(), quote=False)
+        topic = html.escape(str(post["topic"]).strip(), quote=False)
+        lines += [
+            '<item>',
+            f'<title>{title}</title>',
+            f'<link>{url}</link>',
+            f'<guid isPermaLink="true">{url}</guid>',
+            f'<pubDate>{rss_date(post["date"])}</pubDate>',
+            f'<author>{author}</author>',
+            f'<category>{topic}</category>',
+            f'<description>{excerpt}</description>',
+            '</item>',
+        ]
+    lines += ['</channel>', '</rss>']
+    return "\n".join(lines) + "\n"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
     expected = render()
+    expected_feed = render_feed()
     if args.check:
+        stale: list[str] = []
         current = TARGET.read_text(encoding="utf-8") if TARGET.exists() else ""
+        current_feed = FEED_TARGET.read_text(encoding="utf-8") if FEED_TARGET.exists() else ""
         if current != expected:
-            raise SystemExit("blog/_generated.md is stale; run python scripts/build_blog.py")
-        print("Posts fragment is synchronized.")
+            stale.append(str(TARGET.relative_to(ROOT)))
+        if current_feed != expected_feed:
+            stale.append(str(FEED_TARGET.relative_to(ROOT)))
+        if stale:
+            raise SystemExit("Posts outputs are stale; run python scripts/build_blog.py: " + ", ".join(stale))
+        print("Posts fragment and RSS feed are synchronized.")
         return
 
     TARGET.parent.mkdir(parents=True, exist_ok=True)
     TARGET.write_text(expected, encoding="utf-8")
+    FEED_TARGET.write_text(expected_feed, encoding="utf-8")
     print(f"Wrote {TARGET.relative_to(ROOT)}")
+    print(f"Wrote {FEED_TARGET.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
