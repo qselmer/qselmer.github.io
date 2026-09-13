@@ -1,0 +1,44 @@
+---
+title: "Books & Research Resources"
+description: "Open books, reusable scientific templates, and reproducible research infrastructure for fisheries science and quantitative marine ecology."
+---
+
+This page collects **public, reusable research outputs** that complement journal articles and software. The emphasis is on scientific methods, reproducible workflows, training resources, and infrastructure that can be inspected and reused.
+
+## Books & learning resources
+
+### [Digital Workflows for Fisheries Science and Quantitative Ecology](https://qselmer.github.io/fisheries-research-workflows-book/)
+
+**Ongoing open web book · Quarto · CC BY 4.0**
+
+A developing collection on data, code, reproducibility, automation, collaboration, and artificial intelligence for fisheries science and quantitative ecology. It includes reproducible classes, learning materials, exercises, and technical notes.
+
+[Read the web book](https://qselmer.github.io/fisheries-research-workflows-book/) · [GitHub repository](https://github.com/qselmer/fisheries-research-workflows-book)
+
+## Reusable scientific templates
+
+### [Fisheries MSE Template](https://github.com/qselmer/.template-mse)
+
+**Version 1.0.0 · Stable template · MIT / CC BY 4.0**
+
+A reusable structure for fisheries **Management Strategy Evaluation (MSE)** projects, covering management objectives and risk tolerances, operating and observation models, management procedures, uncertainty scenarios, closed-loop simulation, performance metrics, provenance, and auditable certification.
+
+### [Scientific Training Template](https://github.com/qselmer/.template-training)
+
+**Active reusable template · Quarto · MIT / CC BY 4.0**
+
+A modular structure for reproducible quantitative and computational science teaching, including lesson notes, slides, laboratories, exercises, environments, metadata, validation, and publication workflows.
+
+## Research data workflows
+
+### [Humboldt Current Environmental Data Workflow](https://github.com/qselmer/oceHCS-environmental-data-workflow)
+
+**Development release 0.1.0 · MIT**
+
+A reproducible environmental-data workflow for the Humboldt Current System. It separates reusable software operations from the scientific data contract and external data store, and records product and variable registries, processing rules, provenance, coverage, checksums, and quality-control decisions for downstream fisheries, ecosystem, habitat, SDM, stock-assessment, MSE, and climate-risk analyses.
+
+The workflow is in active development: geographic bounds and provider product identifiers remain deliberately unfrozen until scientific review is complete.
+
+## Related software
+
+Reusable software products are catalogued separately on the [Research Software](../software/) page. Current highlighted tools include [**oceancube**](../software/oceancube/) for multidimensional ocean-data workflows and [**Humboldt Ocean Watch**](../software/humboldt-ocean-watch/) for experimental Niño 1+2 thermal monitoring.
