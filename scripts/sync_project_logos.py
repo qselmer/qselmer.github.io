@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Mirror canonical project logos from explicitly public source repositories.
+"""Mirror canonical project logos from their source repositories.
 
-The public website must never depend on, name, or read private working
-repositories. A project may therefore omit ``source_repository`` entirely; in
-that case the project remains publishable from its curated public metadata but
-logo synchronization is skipped. When a source repository is configured, this
-script copies only an existing canonical ``assets/images/logo.svg`` or
-``assets/images/logo.png`` into ``images/projects/<slug>/`` and never generates
-substitute artwork.
+The source repository remains authoritative. This script copies only an existing
+canonical ``assets/images/logo.svg`` or ``assets/images/logo.png`` into the
+website's ``images/projects/<slug>/`` directory. It never generates substitute
+artwork.
+
+Private cross-repository reads require a token with read access to the source
+repositories. Token preference is PROJECT_REPO_TOKEN, PROFILE_REPO_TOKEN, then
+GITHUB_TOKEN.
 """
 
 from __future__ import annotations
@@ -16,6 +17,7 @@ import argparse
 import base64
 import json
 import os
+import sys
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -39,15 +41,25 @@ def load_registry() -> dict:
     return payload
 
 
+def cross_repository_token() -> str:
+    for name in ("PROJECT_REPO_TOKEN", "PROFILE_REPO_TOKEN"):
+        value = os.environ.get(name, "").strip()
+        if value:
+            return value
+    return ""
+
+
 def token() -> str:
-    """Use only the current repository token; private cross-repo tokens are ignored."""
+    cross_repo = cross_repository_token()
+    if cross_repo:
+        return cross_repo
     return os.environ.get("GITHUB_TOKEN", "").strip()
 
 
 def request_headers(auth_token: str, accept: str = "application/vnd.github+json") -> dict[str, str]:
     headers = {
         "Accept": accept,
-        "User-Agent": "qselmer.github.io public-project-logo-sync/2.0",
+        "User-Agent": "qselmer.github.io project-logo-sync/1.2",
         "X-GitHub-Api-Version": "2022-11-28",
     }
     if auth_token:
@@ -76,13 +88,12 @@ def request_bytes(url: str, auth_token: str) -> bytes:
 def repository_accessible(repository: str, auth_token: str) -> bool:
     url = f"{API_ROOT}/repos/{repository}"
     try:
-        payload = request_json(url, auth_token)
+        request_json(url, auth_token)
+        return True
     except urllib.error.HTTPError as exc:
         if exc.code in {401, 403, 404}:
             return False
         raise
-    # Defense in depth: even if token scope changes, never read a private source.
-    return payload.get("private") is False
 
 
 def fetch_candidate(
@@ -108,6 +119,9 @@ def fetch_candidate(
     if payload.get("encoding") == "base64" and content:
         return base64.b64decode(str(content).encode("ascii"), validate=False)
 
+    # GitHub's Contents API does not inline files larger than 1 MB. Fetch the
+    # same authenticated endpoint with the raw media type so canonical PNG/SVG
+    # files up to the API limit are still synchronized without resizing them.
     return request_bytes(url, auth_token)
 
 
@@ -127,26 +141,16 @@ def sync_project(project: dict, auth_token: str) -> tuple[str, bool, str]:
     branch = str(project.get("source_branch") or "main").strip()
     candidates = project.get("logo_candidates") or []
 
-    if not slug:
-        raise RuntimeError(f"Project registry entry lacks slug: {project}")
-
-    # Public project descriptions do not require a public code repository.
-    # This is the expected state for work whose development repository is private.
-    if not repository:
-        return (
-            f"SKIP {slug}: no public source repository configured",
-            False,
-            "not_configured",
-        )
-
+    if not slug or not repository:
+        raise RuntimeError(f"Project registry entry lacks slug/source_repository: {project}")
     if not isinstance(candidates, list) or not candidates:
-        raise RuntimeError(f"Project {slug} has a public source repository but no logo_candidates")
+        raise RuntimeError(f"Project {slug} has no logo_candidates")
 
     target_dir = TARGET_ROOT / slug
 
     if not repository_accessible(repository, auth_token):
         return (
-            f"SKIP {slug}: configured source is inaccessible or not public",
+            f"SKIP {slug}: source repository is not accessible with the configured token",
             False,
             "inaccessible",
         )
@@ -182,7 +186,7 @@ def sync_project(project: dict, auth_token: str) -> tuple[str, bool, str]:
         except OSError:
             pass
     return (
-        f"EMPTY {slug}: no canonical logo exists in the public source repository",
+        f"EMPTY {slug}: no canonical logo exists in the source repository",
         changed,
         "missing",
     )
@@ -193,15 +197,23 @@ def main() -> None:
     parser.add_argument(
         "--fail-on-inaccessible",
         action="store_true",
-        help="Fail when a configured public source repository cannot be read.",
+        help="Fail when a configured source repository cannot be read.",
     )
     args = parser.parse_args()
 
     payload = load_registry()
     auth_token = token()
+    cross_repo_auth = bool(cross_repository_token())
+
+    if not cross_repo_auth:
+        print(
+            "WARNING: PROJECT_REPO_TOKEN/PROFILE_REPO_TOKEN is not configured. "
+            "The repository GITHUB_TOKEN cannot read unrelated private repositories.",
+            file=sys.stderr,
+        )
 
     changed_any = False
-    counts = {"synced": 0, "missing": 0, "inaccessible": 0, "not_configured": 0}
+    counts = {"synced": 0, "missing": 0, "inaccessible": 0}
     for project in payload["projects"]:
         message, changed, status = sync_project(project, auth_token)
         print(message)
@@ -210,14 +222,19 @@ def main() -> None:
 
     print(
         "Project logo summary: "
-        f"{counts['synced']} public source logo(s) available; "
-        f"{counts['missing']} public source repository/repositories without a canonical logo; "
-        f"{counts['not_configured']} project(s) without a public source repository; "
-        f"{counts['inaccessible']} inaccessible/non-public configured source repository/repositories."
+        f"{counts['synced']} source logo(s) available; "
+        f"{counts['missing']} source repository/repositories without a canonical logo; "
+        f"{counts['inaccessible']} inaccessible source repository/repositories."
     )
 
-    if counts["inaccessible"] and args.fail_on_inaccessible:
-        raise SystemExit(2)
+    if counts["inaccessible"]:
+        print(
+            "ACTION REQUIRED: configure PROFILE_REPO_TOKEN (or PROJECT_REPO_TOKEN) "
+            "with read access to the private source repositories.",
+            file=sys.stderr,
+        )
+        if args.fail_on_inaccessible:
+            raise SystemExit(2)
 
     print("Project logo mirrors updated." if changed_any else "Project logo mirrors already synchronized or unavailable.")
 

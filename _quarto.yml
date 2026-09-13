@@ -39,7 +39,8 @@ project:
     - software/index.qmd
     - software/oceancube/index.qmd
     - software/humboldt-ocean-watch/index.qmd
-    - resources/index.qmd
+    - software/seasignals/index.qmd
+    - software/pelagytics/index.qmd
     - teaching/index.qmd
     - teaching/git-github-training/index.qmd
     - honors/index.qmd
@@ -71,38 +72,32 @@ website:
         text: About
         icon: person
       - href: projects/index.qmd
-        text: Projects
+        text: Research
         icon: diagram-3
       - href: publications/index.qmd
         text: Publications
         icon: journal-text
-      - href: data/index.qmd
-        text: Data
-        icon: database
+      - href: talks/index.qmd
+        text: Talks
+        icon: mic
       - href: software/index.qmd
         text: Software
         icon: code-slash
-      - href: resources/index.qmd
-        text: Books & Resources
-        icon: book
+      - href: teaching/index.qmd
+        text: Teaching
+        icon: mortarboard
+      - href: honors/index.qmd
+        text: Honors
+        icon: award
       - href: blog/index.qmd
-        text: Blog
+        text: Posts
         icon: pencil-square
+      - href: cv/index.qmd
+        text: CV
+        icon: file-earmark-person
       - text: More
         icon: three-dots
         menu:
-          - href: talks/index.qmd
-            text: Talks
-            icon: mic
-          - href: teaching/index.qmd
-            text: Teaching
-            icon: mortarboard
-          - href: honors/index.qmd
-            text: Honors
-            icon: award
-          - href: cv/index.qmd
-            text: CV
-            icon: file-earmark-person
           - href: research-graph/index.qmd
             text: Research Graph
             icon: share
@@ -112,6 +107,12 @@ website:
           - href: reproducibility/index.qmd
             text: Reproducibility
             icon: check2-square
+          - href: data/index.qmd
+            text: Data Sources
+            icon: database
+          - href: miscellaneous/index.qmd
+            text: Miscellaneous
+            icon: collection
           - href: contact/index.qmd
             text: Contact
             icon: envelope
