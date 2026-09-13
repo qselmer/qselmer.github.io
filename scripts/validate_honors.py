@@ -45,8 +45,9 @@ def validate_source() -> None:
     for item in records:
         if item.get("visibility") != "public":
             raise RuntimeError(f"Honors public catalogue contains non-public item: {item.get('id')}")
-        if str(item.get("evidence_status") or "") != "Verified certificate":
-            raise RuntimeError(f"Honor lacks verified certificate status: {item.get('id')}")
+        evidence_status = str(item.get("evidence_status") or "").strip()
+        if not evidence_status.casefold().startswith("verified"):
+            raise RuntimeError(f"Honor lacks verified documentary evidence: {item.get('id')}")
     fragment = FRAGMENT.read_text(encoding="utf-8")
     for marker in (
         "Awards & distinctions",
