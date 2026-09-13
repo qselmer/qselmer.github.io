@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "qselmer/qselmer/assets/data/repository-catalog.json",
+  "source": "career master public curation + qselmer/qselmer public repository catalog",
   "published": [
     {
       "repository": "qselmer/oceancube",
@@ -20,32 +20,7 @@
       "application": "Streamlit"
     }
   ],
-  "incubating": [
-    {
-      "repository": "qselmer/seasignals",
-      "site_path": "/software/seasignals/",
-      "reason": "Public R-package repository exists, but its current README is still a package skeleton with placeholder installation and example sections."
-    }
-  ],
-  "concepts": [
-    {
-      "name": "Pelagytics",
-      "site_path": "/software/pelagytics/",
-      "reason": "Concept and prototype only; no canonical public repository has been verified."
-    }
-  ],
-  "not_listed": [
-    {
-      "repository": "qselmer/FisheryClose",
-      "reason": "Repository is classified as a package in the profile catalogue, but the public README currently contains only the repository title."
-    },
-    {
-      "repository": "qselmer/postHub",
-      "reason": "Repository is classified as a package in the profile catalogue, but the public README does not document a scientific software product."
-    },
-    {
-      "repository": "qselmer/fish-byte",
-      "reason": "Repository is classified as a package in the profile catalogue, but current public documentation is insufficient for the academic software catalogue."
-    }
-  ]
+  "incubating": [],
+  "concepts": [],
+  "not_listed": []
 }
