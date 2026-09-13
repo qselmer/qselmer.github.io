@@ -3,10 +3,11 @@ title: "Research Software"
 description: "Reusable software for fisheries science, marine ecology, environmental data, and reproducible quantitative workflows."
 ---
 
+The catalogue below includes **public scientific software with verified scope and contribution metadata**. Reusable templates, books, and broader workflow infrastructure are listed separately under [Books & Research Resources](../resources/).
+
 <div class="qs-publication-nav qs-software-nav" aria-label="Software sections">
   <a href="#packages"><strong>Packages</strong></a>
   <a href="#applications"><strong>Applications</strong></a>
-  <a href="#incubating"><strong>Incubating</strong></a>
 </div>
 
 ::: {.qs-software-directory .qs-compact-catalogue}
