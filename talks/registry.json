@@ -35,6 +35,21 @@
       ]
     },
     {
+      "source_title": "Determinación del estado poblacional del perico (Coryphaena hippurus) en las aguas del mar peruano utilizando un modelo de producción Bayesiano estado-espacio",
+      "display_title": "Bayesian state-space assessment of Peruvian dolphinfish (Coryphaena hippurus)",
+      "site_path": "https://www.iattc.org/en-US/Event/DetailMeeting/Meeting-DOR-04",
+      "date": "2026-03-12",
+      "presentation_type": "International technical presentation",
+      "event": "4th IATTC Technical Meeting on Dorado",
+      "location": "San José, Costa Rica",
+      "authors": ["Elmer Quispe-Salazar"],
+      "presenter": "Elmer Quispe-Salazar",
+      "summary": "A Bayesian state-space production assessment of Peruvian dolphinfish integrating standardized CPUE, stock-status inference, biological reference levels, and a pathway toward management strategy evaluation.",
+      "related_links": [
+        {"label": "IATTC DOR-04 meeting", "url": "https://www.iattc.org/en-US/Event/DetailMeeting/Meeting-DOR-04"}
+      ]
+    },
+    {
       "source_title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
       "display_title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
       "site_path": "/talks/2024-11-11-anchoveta-gsi-sibecorp/",
@@ -49,6 +64,19 @@
         {"label": "VI SIBECORP", "url": "https://visibecorp.cetmar.org/indexPT.php"},
         {"label": "ResearchGate record", "url": "https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767"}
       ]
+    },
+    {
+      "source_title": "PelagicSurveys: Un paquete en R para el análisis de datos biométricos y biológicos recopilados en los cruceros de evaluación hidroacústica de recursos pelágicos",
+      "display_title": "PelagicSurveys: an R package for biometric and biological data from pelagic hydroacoustic surveys",
+      "site_path": "/talks/",
+      "date": "2024-12-12",
+      "presentation_type": "Invited scientific presentation",
+      "event": "Conecta Pesquero 2024 — III Encuentro de Investigación, Desarrollo e Innovación, Facultad de Pesquería, UNALM",
+      "location": "Lima, Peru",
+      "authors": ["Elmer Quispe-Salazar"],
+      "presenter": "Elmer Quispe-Salazar",
+      "summary": "Invited presentation on reproducible R workflows for biometric and biological data collected during pelagic-resource hydroacoustic assessment surveys.",
+      "related_links": []
     }
   ],
   "historical_records": [

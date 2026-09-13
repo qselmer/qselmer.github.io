@@ -1,13 +1,13 @@
 ---
 title: "About"
-description: "Quantitative marine ecology, fisheries science, and reproducible scientific computing."
+description: "Quantitative fisheries science at the intersection of stock assessment, marine ecology, statistical modelling, machine learning, and reproducible scientific computing."
 css: about.css
 format:
   html:
     include-in-header:
       text: |
         <link rel="stylesheet" href="components/marine-identity/marine-identity.css">
-        <meta name="qs-identity-headline" content="Quantitative Marine Ecology & Fisheries Science">
+        <meta name="qs-identity-headline" content="Quantitative Fisheries Scientist">
         <meta name="qs-identity-signature" content="Measure change. Model uncertainty. Inform fisheries decisions.">
         <meta name="qs-legacy-research-route" content="research/index.html">
     include-after-body:
@@ -18,11 +18,11 @@ format:
 ::: {.qs-about-page}
 ::: {.qs-about-identity}
 ::: {.qs-about-identity-copy .qs-about-story}
-I try to understand how environmental variability, population processes, and fishing shape the distribution, abundance, productivity, and life-history strategies of pelagic fish. I address these questions primarily in the [**Humboldt Current System**](projects/), with particular emphasis on Peruvian anchovy, by combining fishery observations, scientific surveys, environmental information, and statistical, spatial, and stock-assessment models.
+I am a **quantitative fisheries scientist working at the intersection of stock assessment, marine ecology, statistical modelling, machine learning, and reproducible scientific computing**. I study how environmental variability, population processes, and fishing shape exploited marine populations by combining fishery observations, scientific surveys, environmental information, and statistical, spatial, Bayesian, and stock-assessment models.
 
-I am based at the [**Instituto del Mar del Perú (IMARPE)**](https://www.gob.pe/imarpe), where I work on quantitative analyses of pelagic resources and fisheries. I also turn recurring analytical problems into reproducible methods and [**open research software**](software/) for transparent and reusable analysis.
+I am based at the [**Instituto del Mar del Perú (IMARPE)**](https://www.gob.pe/imarpe), where I work on quantitative analyses of pelagic resources and fisheries. I also turn recurring analytical problems into reproducible methods and [**open research software**](software/) for transparent, reusable, and auditable analysis.
 
-A recurring goal is to connect biological change, environmental variability, and fishery response across scales of observation.
+A recurring goal is to connect data and models to evidence-based fisheries management across species, ecosystems, and scales of observation.
 
 My work is organized around six connected research interests:
 :::

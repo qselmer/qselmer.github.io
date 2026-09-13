@@ -89,9 +89,19 @@
   "output_theme_overrides": [
     {"source": "talks", "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability", "section": "stock-assessment"},
     {"source": "talks", "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea", "section": "environmental-variability"},
+    {"source": "talks", "title": "Bayesian state-space assessment of Peruvian dolphinfish (Coryphaena hippurus)", "section": "stock-assessment"},
+    {"source": "talks", "title": "PelagicSurveys: an R package for biometric and biological data from pelagic hydroacoustic surveys", "section": "scientific-computing"},
     {"source": "publications", "title": "Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens", "section": "life-history"},
     {"source": "talks", "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation", "section": "life-history"},
-    {"source": "publications", "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022", "section": "life-history"}
+    {"source": "publications", "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022", "section": "life-history"},
+    {"source": "publications", "title": "Habitat conditions of jack mackerel (Trachurus murphyi) and chub mackerel (Scomber japonicus) in the Peruvian sea between 2021 and 2023", "section": "spatial-biodiversity"},
+    {"source": "publications", "title": "Critical appraisal of research approaches to inform evidence of connectivity of Trachurus murphyi – a systematic review of 11 topics", "section": "spatial-biodiversity"},
+    {"source": "publications", "title": "The Joint Jack Mackerel (JJM) model: A user guide Imarpe’s proposal", "section": "stock-assessment"},
+    {"source": "publications", "title": "Elaboración de las Tablas de Decisión para la determinación del Límite Máximo Total de Captura Permisible por temporada de pesca en la pesquería del stock norte-centro de la anchoveta peruana", "section": "stock-assessment"},
+    {"source": "publications", "title": "Situación del stock norte-centro de la anchoveta peruana (Engraulis ringens) al 23 de marzo y perspectivas de explotación para la primera temporada de pesca de 2026", "section": "stock-assessment"},
+    {"source": "publications", "title": "Situación de la anchoveta (Engraulis ringens) en el mar peruano al 25 de octubre y perspectivas de explotación para la segunda temporada de pesca 2025 en la región norte-centro", "section": "stock-assessment"},
+    {"source": "publications", "title": "Informe de la situación de la anchoveta disponible en la región sur del mar peruano durante el 2025 y perspectivas de explotación para la primera temporada de pesca de 2026", "section": "stock-assessment"},
+    {"source": "publications", "title": "Informe de la pesquería de jurel Trachurus murphyi durante el 2025, situación actual y perspectivas de explotación para el 2026", "section": "stock-assessment"}
   ],
   "projects": [
     {
@@ -208,6 +218,63 @@
       "site_path": "fishcore-software-paper/",
       "link_label": "Project page",
       "extra_classes": ["qs-project-planned"]
+    },
+    {
+      "slug": "fisheries-mse-template",
+      "section": "scientific-computing",
+      "source_repository": "qselmer/.template-mse",
+      "source_branch": "main",
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
+      "tone": "green",
+      "stage": "Stable reusable template",
+      "badges": [
+        {"label": "System", "value": "Fisheries", "tone": "blue"},
+        {"label": "Focus", "value": "MSE", "tone": "green"},
+        {"label": "Data", "value": "Simulation", "tone": "amber"}
+      ],
+      "title": "Fisheries Management Strategy Evaluation template",
+      "summary": "Reusable architecture for operating, observation and estimation models, management procedures, closed-loop simulation, uncertainty scenarios, performance metrics, provenance, and reproducible MSE projects.",
+      "context": "Management strategy evaluation · reproducible fisheries science",
+      "site_path": "https://github.com/qselmer/.template-mse",
+      "link_label": "Repository"
+    },
+    {
+      "slug": "hcs-environmental-data-workflow",
+      "section": "scientific-computing",
+      "source_repository": "qselmer/oceHCS-environmental-data-workflow",
+      "source_branch": "main",
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
+      "tone": "aqua",
+      "stage": "Development workflow",
+      "badges": [
+        {"label": "System", "value": "Humboldt Current", "tone": "blue"},
+        {"label": "Focus", "value": "Data engineering", "tone": "green"},
+        {"label": "Data", "value": "Ocean environment", "tone": "amber"}
+      ],
+      "title": "Humboldt Current environmental data workflow",
+      "summary": "Reproducible acquisition, quality control, harmonization, derivation, cataloguing, provenance, and reuse of environmental data for fisheries and marine-ecology analyses across the Humboldt Current System.",
+      "context": "Ocean data engineering · reproducible marine science",
+      "site_path": "https://github.com/qselmer/oceHCS-environmental-data-workflow",
+      "link_label": "Repository"
+    },
+    {
+      "slug": "fisheries-research-workflows-book",
+      "section": "scientific-computing",
+      "source_repository": "qselmer/fisheries-research-workflows-book",
+      "source_branch": "main",
+      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
+      "tone": "blue",
+      "stage": "Open book in development",
+      "badges": [
+        {"label": "System", "value": "Fisheries science", "tone": "blue"},
+        {"label": "Focus", "value": "Reproducible workflows", "tone": "green"},
+        {"label": "Data", "value": "Code + methods", "tone": "amber"}
+      ],
+      "title": "Digital workflows for fisheries science and quantitative ecology",
+      "summary": "Open educational book on portable, auditable and reproducible digital research workflows spanning data, code, automation, collaboration, R, Python, SQL, Quarto, and responsible use of AI in fisheries science and quantitative ecology.",
+      "context": "Scientific computing · open education · reproducible research",
+      "site_path": "https://qselmer.github.io/fisheries-research-workflows-book/",
+      "link_label": "Open book"
     }
   ]
 }

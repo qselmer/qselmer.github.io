@@ -99,6 +99,9 @@ def apa_name(name: str) -> str:
 
 
 def authors_apa(pub: dict[str, Any]) -> str:
+    institutional = str(pub.get("institutional_author") or "").strip()
+    if institutional:
+        return institutional
     names = [str(value).strip() for value in (pub.get("authors") or []) if str(value).strip()] or ["Elmer Quispe-Salazar"]
     rendered = [apa_name(name) for name in names]
     if len(rendered) == 1:
@@ -164,9 +167,19 @@ def reference(pub: dict[str, Any]) -> str:
     if source:
         parts.append(source)
 
+    summary = str(pub.get("summary") or "").strip()
+    if summary:
+        parts.append(html.escape(summary))
+
     doi = str(pub.get("doi") or "").strip()
     url = str(pub.get("url") or "").strip()
     badges: list[str] = []
+    identifier = str(pub.get("identifier") or "").strip()
+    role = str(pub.get("role") or "").strip()
+    if identifier:
+        badges.append(badge("ID", identifier, "neutral"))
+    if role:
+        badges.append(badge("Role", role, "green"))
     if doi:
         clean = canonical_doi(doi)
         badges.append(badge("DOI", clean, "blue", f"https://doi.org/{clean}"))
