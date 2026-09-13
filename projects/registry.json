@@ -97,9 +97,6 @@
     {
       "slug": "stock-assessment-misspecification",
       "section": "stock-assessment",
-      "source_repository": "qselmer/fishstocks-misspecification-ml-paper",
-      "source_branch": "main",
-      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "sand",
       "stage": "Methods development",
       "badges": [
@@ -111,14 +108,12 @@
       "summary": "Simulation-estimation experiments testing whether multivariate diagnostics can identify structural sources of stock-assessment misspecification.",
       "context": "Stock-assessment methods · pelagic applications",
       "site_path": "stock-assessment-misspecification/",
-      "link_label": "Project page"
+      "link_label": "Project page",
+      "source_note": "The working repository is private and intentionally not identified on the public website."
     },
     {
       "slug": "season-benchmarking",
       "section": "fisheries-dynamics",
-      "source_repository": "qselmer/pelagicPER-season-benchmark-paper",
-      "source_branch": "main",
-      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "blue",
       "stage": "Data analysis",
       "badges": [
@@ -130,14 +125,12 @@
       "summary": "Historical comparison using season day, effective fishing day, quota progress, functional envelopes, analogue seasons, and environmental adjustment.",
       "context": "Pelagic fisheries · Humboldt Current",
       "site_path": "season-benchmarking/",
-      "link_label": "Project page"
+      "link_label": "Project page",
+      "source_note": "The working repository is private and intentionally not identified on the public website."
     },
     {
       "slug": "pelagic-fishery-reorganization",
       "section": "fisheries-dynamics",
-      "source_repository": "qselmer/pelagicPER-fishery-reorganization-paper",
-      "source_branch": "main",
-      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "aqua",
       "stage": "Manuscript in development",
       "badges": [
@@ -149,7 +142,8 @@
       "summary": "Long-term changes in species composition, effort, efficiency, seasonality, fleet structure, spatial footprint, and environmental context.",
       "context": "Pelagic fisheries · Humboldt Current",
       "site_path": "pelagic-fishery-reorganization/",
-      "link_label": "Project page"
+      "link_label": "Project page",
+      "source_note": "The working repository is private and intentionally not identified on the public website."
     },
     {
       "slug": "climate-adaptive-management",
@@ -192,9 +186,6 @@
     {
       "slug": "fishcore-software-paper",
       "section": "scientific-computing",
-      "source_repository": "qselmer/fishcore-paper",
-      "source_branch": "main",
-      "logo_candidates": ["assets/images/logo.svg", "assets/images/logo.png"],
       "tone": "green",
       "stage": "Planned study",
       "badges": [
@@ -207,7 +198,8 @@
       "context": "Fisheries indicators · reproducible computing",
       "site_path": "fishcore-software-paper/",
       "link_label": "Project page",
-      "extra_classes": ["qs-project-planned"]
+      "extra_classes": ["qs-project-planned"],
+      "source_note": "The working repository is private and intentionally not identified on the public website."
     }
   ]
 }
