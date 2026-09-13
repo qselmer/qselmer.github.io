@@ -14,7 +14,10 @@
     "qselmer/oceancube",
     "qselmer/humboldt-ocean-watch",
     "qselmer/git-github-training",
-    "qselmer/.template-training"
+    "qselmer/.template-training",
+    "qselmer/.template-mse",
+    "qselmer/oceHCS-environmental-data-workflow",
+    "qselmer/fisheries-research-workflows-book"
   ],
   "theme_overrides": [
     {
