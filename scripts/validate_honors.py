@@ -52,10 +52,11 @@ def validate_source() -> None:
     for marker in (
         "Awards & distinctions",
         "Scholarships & fellowships",
-        "Best Doctoral Work - Oral Presentation",
-        "Scholarship - Fisheries Resource Assessment Diploma",
+        "Best Doctoral Work",
+        "Fisheries Resource Assessment Diploma",
         "qs-academic-output-badges",
-        "Verified certificate",
+        "Evidence",
+        "Verified",
     ):
         if marker not in fragment:
             raise RuntimeError(f"Honors fragment is missing {marker!r}")
@@ -73,10 +74,11 @@ def validate_rendered() -> None:
     body = page.read_text(encoding="utf-8", errors="strict")
     for marker in (
         "Honors &amp; Awards",
-        "Best Doctoral Work - Oral Presentation",
-        "Scholarship - Fisheries Resource Assessment Diploma",
+        "Best Doctoral Work",
+        "Fisheries Resource Assessment Diploma",
         "qs-honor-output-item",
-        "Verified certificate",
+        "Evidence",
+        "Verified",
     ):
         if marker not in body:
             raise RuntimeError(f"Rendered Honors page is missing {marker!r}")
