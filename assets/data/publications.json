@@ -69,7 +69,7 @@
     {
       "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
       "year": "2024",
-      "journal": "VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca",
+      "journal": "VI Ibero-American Symposium on Reproductive Ecology, Recruitment and Fisheries",
       "type": "Conference Output",
       "doi": "10.13140/rg.2.2.32795.73767",
       "url": "https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767",
@@ -78,25 +78,29 @@
       "output_category": "Conference outputs"
     },
     {
-      "title": "Determinación del estado poblacional del perico (Coryphaena hippurus) en las aguas del mar peruano utilizando un modelo de producción Bayesiano estado-espacio",
+      "title": "Bayesian state-space assessment of Peruvian dolphinfish (Coryphaena hippurus)",
       "year": "2026",
-      "journal": "4th IATTC Technical Meeting on Dorado",
+      "journal": "4th IATTC Technical Meeting on Dolphinfish (DOR-04)",
       "type": "International Technical Presentation",
       "doi": "",
       "url": "https://www.iattc.org/en-US/Event/DetailMeeting/Meeting-DOR-04",
-      "authors": ["Elmer Quispe-Salazar"],
+      "authors": [
+        "Elmer Quispe-Salazar"
+      ],
       "source": "Career master + IATTC",
       "output_category": "Conference outputs",
       "curated": true
     },
     {
-      "title": "PelagicSurveys: Un paquete en R para el análisis de datos biométricos y biológicos recopilados en los cruceros de evaluación hidroacústica de recursos pelágicos",
+      "title": "PelagicSurveys: an R package for biometric and biological data from pelagic hydroacoustic surveys",
       "year": "2024",
-      "journal": "Conecta Pesquero 2024, Universidad Nacional Agraria La Molina",
+      "journal": "Conecta Pesquero 2024 — III Research, Development and Innovation Meeting, UNALM",
       "type": "Invited Scientific Presentation",
       "doi": "",
       "url": "",
-      "authors": ["Elmer Quispe-Salazar"],
+      "authors": [
+        "Elmer Quispe-Salazar"
+      ],
       "source": "Career master",
       "output_category": "Conference outputs",
       "curated": true
@@ -124,7 +128,8 @@
       "summary": "Links oceanographic and habitat conditions with the distribution of jack mackerel and chub mackerel in Peruvian waters.",
       "source": "Career master + SPRFMO",
       "output_category": "Reports & technical outputs",
-      "curated": true
+      "curated": true,
+      "open_access": true
     },
     {
       "title": "Critical appraisal of research approaches to inform evidence of connectivity of Trachurus murphyi – a systematic review of 11 topics",
@@ -139,10 +144,11 @@
       "summary": "Systematic evidence synthesis across 11 research domains relevant to population connectivity and management of Chilean jack mackerel.",
       "source": "Career master + SPRFMO",
       "output_category": "Reports & technical outputs",
-      "curated": true
+      "curated": true,
+      "open_access": true
     },
     {
-      "title": "The Joint Jack Mackerel (JJM) model: A user guide Imarpe’s proposal",
+      "title": "The Joint Jack Mackerel (JJM) model: a user guide to IMARPE's proposal",
       "year": "2024",
       "journal": "SPRFMO 12th Meeting of the Scientific Committee",
       "type": "Scientific Committee Paper / User Guide",
@@ -159,74 +165,75 @@
       "summary": "Documents the population-dynamics equations, AD Model Builder implementation, inputs, outputs, model execution, and practical use of the JJM stock-assessment model.",
       "source": "Career master + SPRFMO",
       "output_category": "Reports & technical outputs",
-      "curated": true
+      "curated": true,
+      "open_access": true
     },
     {
-      "title": "Elaboración de las Tablas de Decisión para la determinación del Límite Máximo Total de Captura Permisible por temporada de pesca en la pesquería del stock norte-centro de la anchoveta peruana",
+      "title": "Decision-table protocol for seasonal catch advice in the north-central Peruvian anchovy fishery",
       "year": "2026",
       "journal": "Instituto del Mar del Perú (IMARPE)",
       "type": "Technical Protocol",
       "doi": "",
       "url": "",
       "institutional_author": "Instituto del Mar del Perú (IMARPE)",
-      "identifier": "Edition 06 · Revision 00",
-      "role": "Contributing scientist; section contributor",
+      "identifier": "Ed. 06 · Rev. 00",
+      "role": "Contributor",
       "summary": "Risk-based methodology linking abundance-at-length, biological parameters, environmental and exploitation scenarios, and spawning-biomass projections to seasonal harvest advice.",
       "source": "Career master",
       "output_category": "Reports & technical outputs",
       "curated": true
     },
     {
-      "title": "Situación del stock norte-centro de la anchoveta peruana (Engraulis ringens) al 23 de marzo y perspectivas de explotación para la primera temporada de pesca de 2026",
+      "title": "North-central Peruvian anchovy stock status and 2026 first-season exploitation outlook",
       "year": "2026",
       "journal": "Instituto del Mar del Perú (IMARPE)",
       "type": "Stock Assessment & Management Advice",
       "doi": "",
       "url": "",
       "institutional_author": "Instituto del Mar del Perú (IMARPE)",
-      "role": "Contributing scientist; section contributor",
+      "role": "Contributor",
       "summary": "Integrated stock-status assessment combining environmental conditions, fishery indicators, acoustic biomass, size structure, biological condition, and exploitation scenarios for management advice.",
       "source": "Career master",
       "output_category": "Reports & technical outputs",
       "curated": true
     },
     {
-      "title": "Situación de la anchoveta (Engraulis ringens) en el mar peruano al 25 de octubre y perspectivas de explotación para la segunda temporada de pesca 2025 en la región norte-centro",
+      "title": "North-central Peruvian anchovy status and 2025 second-season exploitation outlook",
       "year": "2025",
       "journal": "Instituto del Mar del Perú (IMARPE)",
       "type": "Stock Assessment & Management Advice",
       "doi": "",
       "url": "",
       "institutional_author": "Instituto del Mar del Perú (IMARPE)",
-      "role": "Contributing scientist; section contributor",
+      "role": "Contributor",
       "summary": "Seasonal assessment integrating fishery performance, environmental conditions, acoustic biomass, demographic structure, reproductive condition, and exploitation perspectives.",
       "source": "Career master",
       "output_category": "Reports & technical outputs",
       "curated": true
     },
     {
-      "title": "Informe de la situación de la anchoveta disponible en la región sur del mar peruano durante el 2025 y perspectivas de explotación para la primera temporada de pesca de 2026",
+      "title": "Southern Peruvian anchovy status and 2026 first-season exploitation outlook",
       "year": "2025",
       "journal": "Instituto del Mar del Perú (IMARPE)",
       "type": "Stock Assessment & Management Advice",
       "doi": "",
       "url": "",
       "institutional_author": "Instituto del Mar del Perú (IMARPE)",
-      "role": "Contributing scientist; section contributor",
+      "role": "Contributor",
       "summary": "Regional assessment of southern anchoveta availability, fishery indicators, biomass projections, exploitation scenarios, and management advice.",
       "source": "Career master",
       "output_category": "Reports & technical outputs",
       "curated": true
     },
     {
-      "title": "Informe de la pesquería de jurel Trachurus murphyi durante el 2025, situación actual y perspectivas de explotación para el 2026",
+      "title": "Jack mackerel fishery status in 2025 and exploitation outlook for 2026",
       "year": "2025",
       "journal": "Instituto del Mar del Perú (IMARPE)",
       "type": "Stock Assessment & Management Advice",
       "doi": "",
       "url": "",
       "institutional_author": "Instituto del Mar del Perú (IMARPE)",
-      "role": "Contributing scientist",
+      "role": "Contributor",
       "summary": "Assessment synthesis covering the 2025 jack-mackerel fishery, stock status, spawning biomass, fishing mortality, recruitment, exploitation scenarios, and catch-limit advice; individual contribution is not attributed in the report itself.",
       "source": "Career master",
       "output_category": "Reports & technical outputs",
