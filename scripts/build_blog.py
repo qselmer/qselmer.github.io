@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from __future__ import annotations
 
 import argparse
@@ -132,7 +131,7 @@ def render_post(post: dict) -> list[str]:
             f'aria-label="Open {title}"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></a>'
         )
     reference = (
-        f'<a class="qs-academic-output-title" href="{route}">{title}</a> '
+        f'<a class="qs-academic-output-title" href="{route}">{title}</a>. '
         f'{excerpt} '
         f'<span class="qs-badge-row qs-publication-badges qs-academic-output-badges-inline">{badges}</span>'
     )
