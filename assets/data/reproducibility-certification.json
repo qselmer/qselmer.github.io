@@ -12,27 +12,131 @@
     "qselmer/oceancube",
     "qselmer/humboldt-ocean-watch",
     "qselmer/git-github-training",
-    "qselmer/.template-training"
+    "qselmer/.template-training",
+    "qselmer/.template-mse",
+    "qselmer/oceHCS-environmental-data-workflow",
+    "qselmer/fisheries-research-workflows-book"
   ],
   "certified_from_level": 2,
   "summary": {
-    "repositories_assessed": 6,
-    "certified": 1,
+    "repositories_assessed": 9,
+    "certified": 4,
     "not_certified": 5,
     "levels": {
       "1": 5,
-      "3": 1
+      "3": 4
     }
   },
   "levels": [
-    {"level": 0, "label": "Repository", "requirements": ["public repository"]},
-    {"level": 1, "label": "Documented", "requirements": ["README/documentation"]},
-    {"level": 2, "label": "Reproducible", "requirements": ["README/documentation", "explicit license", "CITATION.cff", "tests or computational environment"]},
-    {"level": 3, "label": "Automated", "requirements": ["Level 2", "continuous integration"]},
-    {"level": 4, "label": "Archived", "requirements": ["Level 3", "versioned release", "archival DOI"]},
-    {"level": 5, "label": "Research object", "requirements": ["Level 4", "bounded machine-readable research object with provenance"]}
+    {
+      "level": 0,
+      "label": "Repository",
+      "requirements": [
+        "public repository"
+      ]
+    },
+    {
+      "level": 1,
+      "label": "Documented",
+      "requirements": [
+        "README/documentation"
+      ]
+    },
+    {
+      "level": 2,
+      "label": "Reproducible",
+      "requirements": [
+        "README/documentation",
+        "explicit license",
+        "CITATION.cff",
+        "tests or computational environment"
+      ]
+    },
+    {
+      "level": 3,
+      "label": "Automated",
+      "requirements": [
+        "Level 2",
+        "continuous integration"
+      ]
+    },
+    {
+      "level": 4,
+      "label": "Archived",
+      "requirements": [
+        "Level 3",
+        "versioned release",
+        "archival DOI"
+      ]
+    },
+    {
+      "level": 5,
+      "label": "Research object",
+      "requirements": [
+        "Level 4",
+        "bounded machine-readable research object with provenance"
+      ]
+    }
   ],
   "records": [
+    {
+      "repository": "qselmer/.template-mse",
+      "url": "https://github.com/qselmer/.template-mse",
+      "certificate_id": "QS-RC1-qselmer-template-mse",
+      "status": "certified",
+      "level": 3,
+      "level_label": "Automated",
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": true,
+        "citation_cff": true,
+        "citation_orcid": true,
+        "tests": true,
+        "environment": false,
+        "ci": true,
+        "release": false,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
+      "release_tag": "",
+      "archival_doi": "",
+      "next_actions": [
+        "create a versioned release",
+        "archive a stable release and register a DOI",
+        "add CodeMeta metadata when useful"
+      ]
+    },
+    {
+      "repository": "qselmer/.template-training",
+      "url": "https://github.com/qselmer/.template-training",
+      "certificate_id": "QS-RC1-qselmer-template-training",
+      "status": "certified",
+      "level": 3,
+      "level_label": "Automated",
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": true,
+        "citation_cff": true,
+        "citation_orcid": true,
+        "tests": false,
+        "environment": true,
+        "ci": true,
+        "release": false,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
+      "release_tag": "",
+      "archival_doi": "",
+      "next_actions": [
+        "create a versioned release",
+        "archive a stable release and register a DOI",
+        "add CodeMeta metadata when useful"
+      ]
+    },
     {
       "repository": "qselmer/oceancube",
       "url": "https://github.com/qselmer/oceancube",
@@ -40,24 +144,87 @@
       "status": "certified",
       "level": 3,
       "level_label": "Automated",
-      "assessed_at": "2026-09-11T08:55:00Z",
-      "evidence": {"readme": true, "license": true, "citation_cff": true, "citation_orcid": false, "tests": true, "environment": true, "ci": true, "release": true, "archival_doi": false, "codemeta": false, "zenodo_metadata": false},
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": true,
+        "citation_cff": true,
+        "citation_orcid": false,
+        "tests": true,
+        "environment": true,
+        "ci": true,
+        "release": true,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
       "release_tag": "v0.2.0",
       "archival_doi": "",
-      "next_actions": ["archive a stable release and register a DOI", "add ORCID to CITATION.cff", "add CodeMeta metadata when useful", "link release preservation metadata when archived"]
+      "next_actions": [
+        "archive a stable release and register a DOI",
+        "add ORCID to CITATION.cff",
+        "add CodeMeta metadata when useful",
+        "link release preservation metadata when archived"
+      ]
     },
     {
-      "repository": "qselmer/.template-training",
-      "url": "https://github.com/qselmer/.template-training",
-      "certificate_id": "QS-RC1-qselmer-template-training",
+      "repository": "qselmer/oceHCS-environmental-data-workflow",
+      "url": "https://github.com/qselmer/oceHCS-environmental-data-workflow",
+      "certificate_id": "QS-RC1-qselmer-ocehcs-environmental-data-workflow",
+      "status": "certified",
+      "level": 3,
+      "level_label": "Automated",
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": true,
+        "citation_cff": true,
+        "citation_orcid": true,
+        "tests": true,
+        "environment": false,
+        "ci": true,
+        "release": false,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
+      "release_tag": "",
+      "archival_doi": "",
+      "next_actions": [
+        "create a versioned release",
+        "archive a stable release and register a DOI",
+        "add CodeMeta metadata when useful"
+      ]
+    },
+    {
+      "repository": "qselmer/fisheries-research-workflows-book",
+      "url": "https://github.com/qselmer/fisheries-research-workflows-book",
+      "certificate_id": "QS-RC1-qselmer-fisheries-research-workflows-book",
       "status": "not-certified",
       "level": 1,
       "level_label": "Documented",
-      "assessed_at": "2026-09-11T08:55:00Z",
-      "evidence": {"readme": true, "license": false, "citation_cff": true, "citation_orcid": true, "tests": false, "environment": true, "ci": true, "release": false, "archival_doi": false, "codemeta": false, "zenodo_metadata": false},
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": false,
+        "citation_cff": false,
+        "citation_orcid": false,
+        "tests": false,
+        "environment": false,
+        "ci": true,
+        "release": false,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
       "release_tag": "",
       "archival_doi": "",
-      "next_actions": ["add an explicit license", "add CodeMeta metadata when useful"]
+      "next_actions": [
+        "add an explicit license",
+        "add CITATION.cff",
+        "document a computational environment or add tests",
+        "add CodeMeta metadata when useful"
+      ]
     },
     {
       "repository": "qselmer/git-github-training",
@@ -66,11 +233,28 @@
       "status": "not-certified",
       "level": 1,
       "level_label": "Documented",
-      "assessed_at": "2026-09-11T08:55:00Z",
-      "evidence": {"readme": true, "license": false, "citation_cff": false, "citation_orcid": false, "tests": false, "environment": false, "ci": true, "release": false, "archival_doi": false, "codemeta": false, "zenodo_metadata": false},
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": false,
+        "citation_cff": false,
+        "citation_orcid": false,
+        "tests": false,
+        "environment": false,
+        "ci": true,
+        "release": false,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
       "release_tag": "",
       "archival_doi": "",
-      "next_actions": ["add an explicit license", "add CITATION.cff", "document a computational environment or add tests", "add CodeMeta metadata when useful"]
+      "next_actions": [
+        "add an explicit license",
+        "add CITATION.cff",
+        "document a computational environment or add tests",
+        "add CodeMeta metadata when useful"
+      ]
     },
     {
       "repository": "qselmer/humboldt-ocean-watch",
@@ -79,11 +263,26 @@
       "status": "not-certified",
       "level": 1,
       "level_label": "Documented",
-      "assessed_at": "2026-09-11T08:55:00Z",
-      "evidence": {"readme": true, "license": true, "citation_cff": false, "citation_orcid": false, "tests": true, "environment": true, "ci": false, "release": false, "archival_doi": false, "codemeta": false, "zenodo_metadata": false},
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": true,
+        "citation_cff": false,
+        "citation_orcid": false,
+        "tests": true,
+        "environment": true,
+        "ci": false,
+        "release": false,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
       "release_tag": "",
       "archival_doi": "",
-      "next_actions": ["add CITATION.cff", "add CodeMeta metadata when useful"]
+      "next_actions": [
+        "add CITATION.cff",
+        "add CodeMeta metadata when useful"
+      ]
     },
     {
       "repository": "qselmer/pel-climate-adaptive-management-paper",
@@ -92,11 +291,26 @@
       "status": "not-certified",
       "level": 1,
       "level_label": "Documented",
-      "assessed_at": "2026-09-11T08:55:00Z",
-      "evidence": {"readme": true, "license": true, "citation_cff": false, "citation_orcid": false, "tests": false, "environment": true, "ci": true, "release": false, "archival_doi": false, "codemeta": false, "zenodo_metadata": false},
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": true,
+        "citation_cff": false,
+        "citation_orcid": false,
+        "tests": true,
+        "environment": true,
+        "ci": true,
+        "release": false,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
       "release_tag": "",
       "archival_doi": "",
-      "next_actions": ["add CITATION.cff", "add CodeMeta metadata when useful"]
+      "next_actions": [
+        "add CITATION.cff",
+        "add CodeMeta metadata when useful"
+      ]
     },
     {
       "repository": "qselmer/pelagicPER-availability-risk-paper",
@@ -105,11 +319,28 @@
       "status": "not-certified",
       "level": 1,
       "level_label": "Documented",
-      "assessed_at": "2026-09-11T08:55:00Z",
-      "evidence": {"readme": true, "license": false, "citation_cff": false, "citation_orcid": false, "tests": false, "environment": false, "ci": false, "release": false, "archival_doi": false, "codemeta": false, "zenodo_metadata": false},
+      "assessed_at": "",
+      "evidence": {
+        "readme": true,
+        "license": false,
+        "citation_cff": false,
+        "citation_orcid": false,
+        "tests": false,
+        "environment": false,
+        "ci": false,
+        "release": false,
+        "archival_doi": false,
+        "codemeta": false,
+        "zenodo_metadata": false
+      },
       "release_tag": "",
       "archival_doi": "",
-      "next_actions": ["add an explicit license", "add CITATION.cff", "document a computational environment or add tests", "add CodeMeta metadata when useful"]
+      "next_actions": [
+        "add an explicit license",
+        "add CITATION.cff",
+        "document a computational environment or add tests",
+        "add CodeMeta metadata when useful"
+      ]
     }
   ],
   "policy": {

@@ -2,14 +2,17 @@
 
 This page reports an **internal technical self-certification** of approved public repositories. It is not external accreditation and it does not assess scientific validity, novelty, or inferential quality.
 
-Repositories assessed: **6** · certified at Level 2 or above: **1** · below certification threshold: **5**.
+Repositories assessed: **9** · certified at Level 2 or above: **4** · below certification threshold: **5**.
 
 ## Certification records
 
 | Repository | Status | Level | Certification ID | Next priority |
 |---|---|---:|---|---|
+| [qselmer/.template-mse](https://github.com/qselmer/.template-mse) | Certified | 3 - Automated | `QS-RC1-qselmer-template-mse` | create a versioned release |
+| [qselmer/.template-training](https://github.com/qselmer/.template-training) | Certified | 3 - Automated | `QS-RC1-qselmer-template-training` | create a versioned release |
 | [qselmer/oceancube](https://github.com/qselmer/oceancube) | Certified | 3 - Automated | `QS-RC1-qselmer-oceancube` | archive a stable release and register a DOI |
-| [qselmer/.template-training](https://github.com/qselmer/.template-training) | Not certified | 1 - Documented | `QS-RC1-qselmer-template-training` | add an explicit license |
+| [qselmer/oceHCS-environmental-data-workflow](https://github.com/qselmer/oceHCS-environmental-data-workflow) | Certified | 3 - Automated | `QS-RC1-qselmer-ocehcs-environmental-data-workflow` | create a versioned release |
+| [qselmer/fisheries-research-workflows-book](https://github.com/qselmer/fisheries-research-workflows-book) | Not certified | 1 - Documented | `QS-RC1-qselmer-fisheries-research-workflows-book` | add an explicit license |
 | [qselmer/git-github-training](https://github.com/qselmer/git-github-training) | Not certified | 1 - Documented | `QS-RC1-qselmer-git-github-training` | add an explicit license |
 | [qselmer/humboldt-ocean-watch](https://github.com/qselmer/humboldt-ocean-watch) | Not certified | 1 - Documented | `QS-RC1-qselmer-humboldt-ocean-watch` | add CITATION.cff |
 | [qselmer/pel-climate-adaptive-management-paper](https://github.com/qselmer/pel-climate-adaptive-management-paper) | Not certified | 1 - Documented | `QS-RC1-qselmer-pel-climate-adaptive-management-paper` | add CITATION.cff |
@@ -28,8 +31,11 @@ Repositories assessed: **6** · certified at Level 2 or above: **1** · below ce
 
 The queue is generated from missing evidence. It deliberately does not create licenses, DOIs, releases, or archive records automatically where those require a scientific or legal decision.
 
+- **qselmer/.template-mse:** create a versioned release; archive a stable release and register a DOI; add CodeMeta metadata when useful.
+- **qselmer/.template-training:** create a versioned release; archive a stable release and register a DOI; add CodeMeta metadata when useful.
 - **qselmer/oceancube:** archive a stable release and register a DOI; add ORCID to CITATION.cff; add CodeMeta metadata when useful; link release preservation metadata when archived.
-- **qselmer/.template-training:** add an explicit license; add CodeMeta metadata when useful.
+- **qselmer/oceHCS-environmental-data-workflow:** create a versioned release; archive a stable release and register a DOI; add CodeMeta metadata when useful.
+- **qselmer/fisheries-research-workflows-book:** add an explicit license; add CITATION.cff; document a computational environment or add tests; add CodeMeta metadata when useful.
 - **qselmer/git-github-training:** add an explicit license; add CITATION.cff; document a computational environment or add tests; add CodeMeta metadata when useful.
 - **qselmer/humboldt-ocean-watch:** add CITATION.cff; add CodeMeta metadata when useful.
 - **qselmer/pel-climate-adaptive-management-paper:** add CITATION.cff; add CodeMeta metadata when useful.

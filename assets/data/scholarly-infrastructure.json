@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "phase": 9,
+  "title": "Scholarly Visibility, Interoperability & Preservation",
+  "public_only": true,
+  "identity": {
+    "name": "Elmer Quispe-Salazar",
+    "orcid": "https://orcid.org/0000-0001-9229-6379",
+    "openalex": "https://openalex.org/A5122828742",
+    "google_scholar": "https://scholar.google.com/citations?user=wz83egoAAAAJ",
+    "web_of_science": "https://www.webofscience.com/wos/author/record/AEA-6138-2022",
+    "github": "https://github.com/qselmer"
+  },
+  "affiliation": {
+    "name": "Instituto del Mar del Perú",
+    "acronym": "IMARPE",
+    "url": "https://www.imarpe.gob.pe/",
+    "ror": "https://ror.org/01gbk3827",
+    "verification_source": "https://revistas.imarpe.gob.pe/index.php/boletin/contacto"
+  },
+  "identifier_coverage": {
+    "profile_outputs": 15,
+    "profile_outputs_with_doi": 3,
+    "formal_outputs": 10,
+    "formal_outputs_with_doi": 2
+  },
+  "repositories": [
+    {
+      "repository": "qselmer/.template-mse",
+      "url": "https://github.com/qselmer/.template-mse",
+      "role": "Project",
+      "readiness_level": 3,
+      "readiness_label": "Automated",
+      "citation_cff": true,
+      "citation_orcid": true,
+      "codemeta": false,
+      "license": "MIT",
+      "tests": true,
+      "ci": true,
+      "environment": false,
+      "release": "",
+      "archival_doi": "",
+      "gaps": [
+        "CodeMeta",
+        "versioned release",
+        "archival DOI"
+      ]
+    },
+    {
+      "repository": "qselmer/fisheries-research-workflows-book",
+      "url": "https://github.com/qselmer/fisheries-research-workflows-book",
+      "role": "Project",
+      "readiness_level": 1,
+      "readiness_label": "Documented",
+      "citation_cff": false,
+      "citation_orcid": false,
+      "codemeta": false,
+      "license": "",
+      "tests": false,
+      "ci": true,
+      "environment": false,
+      "release": "",
+      "archival_doi": "",
+      "gaps": [
+        "license",
+        "CITATION.cff",
+        "CodeMeta",
+        "versioned release",
+        "archival DOI"
+      ]
+    },
+    {
+      "repository": "qselmer/oceHCS-environmental-data-workflow",
+      "url": "https://github.com/qselmer/oceHCS-environmental-data-workflow",
+      "role": "Project",
+      "readiness_level": 3,
+      "readiness_label": "Automated",
+      "citation_cff": true,
+      "citation_orcid": true,
+      "codemeta": false,
+      "license": "MIT",
+      "tests": true,
+      "ci": true,
+      "environment": false,
+      "release": "",
+      "archival_doi": "",
+      "gaps": [
+        "CodeMeta",
+        "versioned release",
+        "archival DOI"
+      ]
+    },
+    {
+      "repository": "qselmer/pel-climate-adaptive-management-paper",
+      "url": "https://github.com/qselmer/pel-climate-adaptive-management-paper",
+      "role": "Project",
+      "readiness_level": 1,
+      "readiness_label": "Documented",
+      "citation_cff": false,
+      "citation_orcid": false,
+      "codemeta": false,
+      "license": "MIT",
+      "tests": true,
+      "ci": true,
+      "environment": true,
+      "release": "",
+      "archival_doi": "",
+      "gaps": [
+        "CITATION.cff",
+        "CodeMeta",
+        "versioned release",
+        "archival DOI"
+      ]
+    },
+    {
+      "repository": "qselmer/pelagicPER-availability-risk-paper",
+      "url": "https://github.com/qselmer/pelagicPER-availability-risk-paper",
+      "role": "Project",
+      "readiness_level": 1,
+      "readiness_label": "Documented",
+      "citation_cff": false,
+      "citation_orcid": false,
+      "codemeta": false,
+      "license": "",
+      "tests": false,
+      "ci": false,
+      "environment": false,
+      "release": "",
+      "archival_doi": "",
+      "gaps": [
+        "license",
+        "CITATION.cff",
+        "CodeMeta",
+        "CI",
+        "versioned release",
+        "archival DOI"
+      ]
+    },
+    {
+      "repository": "qselmer/humboldt-ocean-watch",
+      "url": "https://github.com/qselmer/humboldt-ocean-watch",
+      "role": "Software",
+      "readiness_level": 1,
+      "readiness_label": "Documented",
+      "citation_cff": false,
+      "citation_orcid": false,
+      "codemeta": false,
+      "license": "MIT",
+      "tests": true,
+      "ci": false,
+      "environment": true,
+      "release": "",
+      "archival_doi": "",
+      "gaps": [
+        "CITATION.cff",
+        "CodeMeta",
+        "CI",
+        "versioned release",
+        "archival DOI"
+      ]
+    },
+    {
+      "repository": "qselmer/oceancube",
+      "url": "https://github.com/qselmer/oceancube",
+      "role": "Software",
+      "readiness_level": 3,
+      "readiness_label": "Automated",
+      "citation_cff": true,
+      "citation_orcid": false,
+      "codemeta": false,
+      "license": "",
+      "tests": true,
+      "ci": true,
+      "environment": true,
+      "release": "v0.2.0",
+      "archival_doi": "",
+      "gaps": [
+        "ORCID in citation metadata",
+        "CodeMeta",
+        "archival DOI"
+      ]
+    },
+    {
+      "repository": "qselmer/.template-training",
+      "url": "https://github.com/qselmer/.template-training",
+      "role": "Teaching",
+      "readiness_level": 3,
+      "readiness_label": "Automated",
+      "citation_cff": true,
+      "citation_orcid": true,
+      "codemeta": false,
+      "license": "MIT",
+      "tests": false,
+      "ci": true,
+      "environment": true,
+      "release": "",
+      "archival_doi": "",
+      "gaps": [
+        "CodeMeta",
+        "versioned release",
+        "archival DOI"
+      ]
+    },
+    {
+      "repository": "qselmer/git-github-training",
+      "url": "https://github.com/qselmer/git-github-training",
+      "role": "Teaching",
+      "readiness_level": 1,
+      "readiness_label": "Documented",
+      "citation_cff": false,
+      "citation_orcid": false,
+      "codemeta": false,
+      "license": "",
+      "tests": false,
+      "ci": true,
+      "environment": false,
+      "release": "",
+      "archival_doi": "",
+      "gaps": [
+        "license",
+        "CITATION.cff",
+        "CodeMeta",
+        "versioned release",
+        "archival DOI"
+      ]
+    }
+  ],
+  "readiness_distribution": {
+    "1": 5,
+    "3": 4
+  },
+  "standards": {
+    "person": [
+      "ORCID",
+      "Schema.org Person"
+    ],
+    "organization": [
+      "ROR",
+      "Schema.org Organization"
+    ],
+    "publications": [
+      "DOI",
+      "Schema.org ScholarlyArticle"
+    ],
+    "software": [
+      "CITATION.cff",
+      "CodeMeta",
+      "GitHub release",
+      "archival DOI when available"
+    ],
+    "preservation": [
+      "versioned release",
+      "persistent identifier",
+      "archival repository"
+    ],
+    "research_objects": [
+      "RO-Crate when a project has a bounded reusable research object"
+    ]
+  },
+  "reproducibility_levels": [
+    {
+      "level": 0,
+      "label": "Repository",
+      "criterion": "Public repository exists."
+    },
+    {
+      "level": 1,
+      "label": "Documented",
+      "criterion": "Repository has usable documentation."
+    },
+    {
+      "level": 2,
+      "label": "Reproducible inputs",
+      "criterion": "Documentation plus explicit license, citation metadata, and computational environment or tests."
+    },
+    {
+      "level": 3,
+      "label": "Automated",
+      "criterion": "Level 2 plus continuous integration or an equivalent automated validation workflow."
+    },
+    {
+      "level": 4,
+      "label": "Archived release",
+      "criterion": "Level 3 plus a versioned release and archival persistent identifier."
+    },
+    {
+      "level": 5,
+      "label": "Research object",
+      "criterion": "Level 4 plus a bounded, machine-readable research object with provenance."
+    }
+  ],
+  "machine_interfaces": [
+    "https://qselmer.github.io/assets/data/scholarly-graph.json",
+    "https://qselmer.github.io/assets/data/scholarly-infrastructure.json"
+  ],
+  "source_contract": {
+    "identity": "config/site.json + assets/data/research-metrics.json",
+    "outputs": "assets/data/publications.json",
+    "repository_evidence": "assets/data/repository-scholarly-metadata.json",
+    "policy": "scholarly/registry.json",
+    "no_identifier_invention": true
+  }
+}

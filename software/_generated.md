@@ -3,34 +3,34 @@
 ## Software packages I am a lead developer for {#packages}
 
 ```{=html}
-<article class="qs-software-entry">
-<div class="qs-software-visual" aria-label="oceancube software mark"><span class="qs-software-mark-text">oceancube</span></div>
-<div class="qs-software-copy">
-<h3><a href="/software/oceancube/">oceancube</a></h3>
-<p class="qs-software-links qs-software-links-after-title"><a href="https://github.com/qselmer/oceancube">Repository</a> <span aria-hidden="true">|</span> <a href="https://qselmer.github.io/oceancube/">Documentation</a> <span aria-hidden="true">|</span> <a href="/software/oceancube/">Project page</a></p>
-<p>Validated R infrastructure for representing, inspecting, subsetting, extracting, visualizing, and transforming multidimensional ocean data cubes for reproducible marine analysis.</p>
-<div class="qs-badge-row"><a class="qs-badge qs-badge-green" href="https://github.com/qselmer/oceancube"><span class="qs-badge-label">repo status</span><span class="qs-badge-value">Active</span></a><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">package</span><span class="qs-badge-value">R</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">version</span><span class="qs-badge-value">0.3.0</span></span><a class="qs-badge qs-badge-blue" href="https://github.com/qselmer/oceancube/actions/workflows/R-CMD-check.yaml"><span class="qs-badge-label">R-CMD-check</span><span class="qs-badge-value">configured</span></a><a class="qs-badge qs-badge-blue" href="https://qselmer.github.io/oceancube/"><span class="qs-badge-label">docs</span><span class="qs-badge-value">online</span></a><a class="qs-badge qs-badge-green" href="https://github.com/qselmer/oceancube/releases/tag/v0.2.0"><span class="qs-badge-label">release</span><span class="qs-badge-value">v0.2.0</span></a></div>
+<ul class="qs-academic-output-list qs-software-output-list">
+<li class="qs-academic-output-item qs-software-output-item">
+<div class="qs-academic-output-layout qs-academic-output-layout-inline">
+<div class="qs-academic-output-media" aria-label="oceancube software mark"><span class="qs-academic-output-mark">oceancube</span></div>
+<div class="qs-academic-output-copy">
+<p class="qs-academic-output-reference qs-academic-output-reference-inline"><a class="qs-academic-output-title" href="/software/oceancube/">oceancube</a>. Validated R infrastructure for representing, inspecting, subsetting, extracting, visualizing, and transforming multidimensional ocean data cubes for reproducible marine analysis.  <span class="qs-academic-output-links-inline"><a href="https://github.com/qselmer/oceancube">Repository</a> <span aria-hidden="true">·</span> <a href="https://qselmer.github.io/oceancube/">Documentation</a> <span aria-hidden="true">·</span> <a href="/software/oceancube/">Project page</a>.</span>  <span class="qs-badge-row qs-publication-badges qs-academic-output-badges-inline"><span class="qs-badge qs-badge-neutral"><span class="qs-badge-label">Type</span><span class="qs-badge-value">R package</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">Stage</span><span class="qs-badge-value">Stable</span></span><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">Language</span><span class="qs-badge-value">R</span></span><a class="qs-badge qs-badge-amber" href="https://github.com/qselmer/oceancube/releases/tag/v0.2.0"><span class="qs-badge-label">Release</span><span class="qs-badge-value">v0.2.0</span></a></span></p>
 </div>
-</article>
+</div>
+</li>
+</ul>
 ```
 
 ## Research applications I develop {#applications}
 
 ```{=html}
-<article class="qs-software-entry">
-<div class="qs-software-visual" aria-label="humboldt-ocean-watch software mark"><span class="qs-software-mark-text">HOW</span></div>
-<div class="qs-software-copy">
-<h3><a href="/software/humboldt-ocean-watch/">humboldt-ocean-watch</a></h3>
-<p class="qs-software-links qs-software-links-after-title"><a href="https://github.com/qselmer/humboldt-ocean-watch">Repository</a> <span aria-hidden="true">|</span> <a href="/software/humboldt-ocean-watch/">Project page</a></p>
-<p>Python and Streamlit system for reproducible thermal monitoring of Niño 1+2 using validated local analytics, quality control, event diagnostics, and optional grounded scientific briefs.</p>
-<div class="qs-badge-row"><a class="qs-badge qs-badge-green" href="https://github.com/qselmer/humboldt-ocean-watch"><span class="qs-badge-label">repo status</span><span class="qs-badge-value">Active</span></a><span class="qs-badge qs-badge-amber"><span class="qs-badge-label">stage</span><span class="qs-badge-value">Experimental</span></span><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">language</span><span class="qs-badge-value">Python</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">app</span><span class="qs-badge-value">Streamlit</span></span></div>
+<ul class="qs-academic-output-list qs-software-output-list">
+<li class="qs-academic-output-item qs-software-output-item">
+<div class="qs-academic-output-layout qs-academic-output-layout-inline">
+<div class="qs-academic-output-media" aria-label="humboldt-ocean-watch software mark"><span class="qs-academic-output-mark">HOW</span></div>
+<div class="qs-academic-output-copy">
+<p class="qs-academic-output-reference qs-academic-output-reference-inline"><a class="qs-academic-output-title" href="/software/humboldt-ocean-watch/">humboldt-ocean-watch</a>. Python and Streamlit system for reproducible thermal monitoring of Niño 1+2 using validated local analytics, quality control, event diagnostics, and optional grounded scientific briefs.  <span class="qs-academic-output-links-inline"><a href="https://github.com/qselmer/humboldt-ocean-watch">Repository</a> <span aria-hidden="true">·</span> <a href="/software/humboldt-ocean-watch/">Project page</a>.</span>  <span class="qs-badge-row qs-publication-badges qs-academic-output-badges-inline"><span class="qs-badge qs-badge-neutral"><span class="qs-badge-label">Type</span><span class="qs-badge-value">Application</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">Stage</span><span class="qs-badge-value">Experimental</span></span><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">Language</span><span class="qs-badge-value">Python</span></span><span class="qs-badge qs-badge-amber"><span class="qs-badge-label">Release</span><span class="qs-badge-value">Unreleased</span></span></span></p>
 </div>
-</article>
+</div>
+</li>
+</ul>
 ```
 
 ## Incubating and concept-stage work {#incubating}
-
-These records are preserved for continuity but are not presented as released or validated scientific software.
 
 - [`seasignals`](/software/seasignals/) - Public R-package repository exists, but its current README is still a package skeleton with placeholder installation and example sections.
 - [Pelagytics](/software/pelagytics/) - Concept and prototype only; no canonical public repository has been verified.

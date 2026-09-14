@@ -1,9 +1,8 @@
 {
   "orcid": "0000-0001-9229-6379",
-  "updated_at": "2026-09-09T21:07:59.043708+00:00",
+  "updated_at": "2026-09-14T16:59:48.877131+00:00",
   "count": 15,
   "publishing_since": "2023",
-  "website_curated_count": 10,
   "output_counts": {
     "Journal articles": 1,
     "Preprints & working papers": 0,
@@ -69,7 +68,7 @@
     {
       "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
       "year": "2024",
-      "journal": "VI Ibero-American Symposium on Reproductive Ecology, Recruitment and Fisheries",
+      "journal": "VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca",
       "type": "Conference Output",
       "doi": "10.13140/rg.2.2.32795.73767",
       "url": "https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767",
@@ -241,5 +240,6 @@
       "output_category": "Reports & technical outputs",
       "curated": true
     }
-  ]
+  ],
+  "website_curated_count": 10
 }
