@@ -1,6 +1,6 @@
 ---
-title: "Data Sources"
-description: "Curated external data sources for fisheries, marine ecology, oceanography, climate, spatial analysis, and teaching."
+title: "Data"
+description: "Curated external data for fisheries, marine ecology, oceanography, climate, spatial analysis, and teaching."
 ---
 
 <div class="qs-publication-nav qs-data-nav" aria-label="Data sections">
@@ -18,5 +18,5 @@ description: "Curated external data sources for fisheries, marine ecology, ocean
 :::
 
 ::: {.qs-footnote-note}
-**Data-source policy.** These datasets are not produced or owned by Elmer Quispe-Salazar. The website stores discovery metadata and authoritative provider links only; users should verify current licences, citation requirements, versions, and access conditions before analysis.
+**Data policy.** These datasets are not produced or owned by Elmer Quispe-Salazar. The website stores discovery metadata and authoritative provider links only; users should verify current licences, citation requirements, versions, and access conditions before analysis.
 :::
