@@ -99,7 +99,7 @@ website:
         icon: three-dots
         menu:
           - href: data/index.qmd
-            text: Data Sources
+            text: Data
             icon: database
           - href: miscellaneous/index.qmd
             text: Miscellaneous
