@@ -30,7 +30,9 @@ SCHOLARLY_V2_CSS = ROOT / "scholarly-v2.css"
 ACCESSIBILITY_CSS = ROOT / "accessibility.css"
 BLOG_REGISTRY = ROOT / "blog" / "registry.json"
 RSS_SOURCE = ROOT / "blog" / "index.xml"
+METRICS_SOURCE = ROOT / "assets" / "data" / "research-metrics.json"
 SITE_URL = "https://qselmer.github.io"
+MIN_OPENALEX_CITATIONS_FOR_SIDEBAR = 5
 
 
 def load_json(path: Path) -> dict:
@@ -54,6 +56,17 @@ def require(haystack: str, needle: str, label: str) -> None:
 def reject(haystack: str, needle: str, label: str) -> None:
     if needle in haystack:
         raise RuntimeError(f"{label} contains forbidden QA marker: {needle}")
+
+
+def sidebar_metrics_expected() -> bool:
+    metrics = load_json(METRICS_SOURCE)
+    openalex = metrics.get("openalex")
+    if not isinstance(openalex, dict):
+        return False
+    try:
+        return float(openalex.get("cited_by_count") or 0) >= MIN_OPENALEX_CITATIONS_FOR_SIDEBAR
+    except (TypeError, ValueError):
+        return False
 
 
 def project_count() -> int:
@@ -115,6 +128,7 @@ def validate_source() -> None:
     css = text(CATALOGUE_CSS)
     scholarly_v2 = text(SCHOLARLY_V2_CSS)
     accessibility = text(ACCESSIBILITY_CSS)
+    metrics_visible = sidebar_metrics_expected()
 
     # One project-card contract: every current Research repository uses the same
     # editorial markup, whether the GitHub repository is public or private.
@@ -142,8 +156,11 @@ def validate_source() -> None:
     reject(data, '>International Council for the Exploration of the Sea<', "data/_generated.md")
     reject(data, '>Free registration / non-commercial API<', "data/_generated.md")
 
-    # Sidebar metrics use normal text markup and a final global CSS override.
-    require(sidebar, 'class="qs-sidebar-metric-value"', "includes/profile-sidebar.html")
+    # Sidebar metrics remain hidden until OpenAlex reaches the configured citation threshold.
+    if metrics_visible:
+        require(sidebar, 'class="qs-sidebar-metric-value"', "includes/profile-sidebar.html")
+    else:
+        reject(sidebar, 'class="qs-sidebar-metric-value"', "includes/profile-sidebar.html")
     for marker in (
         ".qs-publication-nav > p",
         "list-style: disc outside !important",
@@ -171,10 +188,11 @@ def validate_source() -> None:
         require(accessibility, marker, "accessibility.css")
 
     rss_items = validate_rss(RSS_SOURCE)
+    metric_state = "visible" if metrics_visible else "hidden below citation threshold"
     print(
         f"Phase 6 source QA PASS: {count} current repository projects use one card system; "
         f"About reuses the Research cards; Software/Teaching/Posts share one inline scholarly list grammar; "
-        f"Data badges are compact; sidebar metrics use global normal-weight typography; "
+        f"Data badges are compact; sidebar metrics are {metric_state}; "
         f"responsive/focus/reduced-motion contracts present; RSS has {rss_items} item(s)"
     )
 
@@ -212,6 +230,7 @@ def validate_rendered() -> None:
     teaching = text(rendered_file("/teaching/"))
     blog = text(rendered_file("/blog/"))
     data = text(rendered_file("/data/"))
+    metrics_visible = sidebar_metrics_expected()
     if research.count('class="qs-project-tile"') != count:
         raise RuntimeError("Rendered Research project-card count does not match current repository registry")
     if research.count('class="qs-project-type"') != count:
@@ -227,13 +246,16 @@ def validate_rendered() -> None:
     validate_output_catalogue(software, "rendered Software", "qs-software-entry")
     validate_output_catalogue(teaching, "rendered Teaching", "qs-teaching-entry")
     validate_output_catalogue(blog, "rendered Posts", "qs-post-row")
-    require(data, '>ICES<', "rendered Data Sources")
-    require(data, '>Register<', "rendered Data Sources")
+    require(data, '>ICES<', "rendered Data")
+    require(data, '>Register<', "rendered Data")
 
-    # The research-metric typography is a global sidebar contract, not an About-only rule.
+    # Research metrics are a conditional sidebar contract driven by OpenAlex citations.
     for route in ("/", "/projects/", "/publications/", "/talks/", "/software/", "/teaching/", "/blog/", "/data/"):
         body = text(rendered_file(route))
-        require(body, 'class="qs-sidebar-metric-value"', f"rendered sidebar on {route}")
+        if metrics_visible:
+            require(body, 'class="qs-sidebar-metric-value"', f"rendered sidebar on {route}")
+        else:
+            reject(body, 'class="qs-sidebar-metric-value"', f"rendered sidebar on {route}")
         require(body, 'scholarly-v2.css', f"cache-busting stylesheet on {route}")
 
     # Route-specific scholarly structured data.
@@ -250,9 +272,10 @@ def validate_rendered() -> None:
     rss_items = validate_rss(SITE / "blog" / "index.xml")
     require(blog, 'type="application/rss+xml"', "rendered Posts")
 
+    metric_state = "visible" if metrics_visible else "hidden below citation threshold"
     print(
         f"Phase 6 rendered QA PASS: {count} uniform current repository cards, About card reuse, "
-        f"inline scholarly output lists, compact Data badges, global sidebar metrics, "
+        f"inline scholarly output lists, compact Data badges, sidebar metrics {metric_state}, "
         f"scholarly JSON-LD, social previews, responsive catalogue contract, and {rss_items} RSS item(s)"
     )
 
