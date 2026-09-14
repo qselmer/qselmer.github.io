@@ -10,69 +10,10 @@
     {
       "id": "stock-assessment",
       "heading": "Stock assessment and population dynamics",
-      "research_question": "How do population processes, productivity, and model assumptions shape inference about the state and dynamics of exploited pelagic populations?",
-      "why_it_matters": "Reliable assessment requires integrating biomass with recruitment, mortality, selectivity, and productivity while accounting for structural uncertainty in the models used for fisheries advice.",
+      "description": "Population-state reconstruction, assessment diagnostics, biological parameters, and methods for understanding how structural assumptions affect fisheries inference.",
       "projects": [
         "stock-assessment-misspecification"
       ],
-      "outputs": [
-        {
-          "id": "talk:2026-05-06:multivariate health index of the anchovy understanding the dynamics of small pelagic fish under environmental variability",
-          "type": "Talk",
-          "year": "2026",
-          "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
-          "url": "/talks/2026-05-06-anchovy-health-index/",
-          "source": "talks"
-        },
-        {
-          "id": "talk:2026-03-12:bayesian state-space assessment of peruvian dolphinfish coryphaena hippurus",
-          "type": "Talk",
-          "year": "2026",
-          "title": "Bayesian state-space assessment of Peruvian dolphinfish (Coryphaena hippurus)",
-          "url": "https://www.iattc.org/en-US/Event/DetailMeeting/Meeting-DOR-04",
-          "source": "talks"
-        },
-        {
-          "id": "talk:2024-05-08:impacts of the 2023-2024 el nino on peruvian anchovy population dynamics",
-          "type": "Talk",
-          "year": "2024",
-          "title": "Impacts of the 2023-2024 El Niño on Peruvian anchovy population dynamics",
-          "url": "/talks/",
-          "source": "talks"
-        },
-        {
-          "id": "talk:2022-09-01:multi-scale variability in the biomass dynamics of the north-central stock of the peruvian anchoveta 1953-2022 within the humboldt current system",
-          "type": "Talk",
-          "year": "2022",
-          "title": "Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953-2022) within the Humboldt Current System",
-          "url": "/talks/2022-09-01-anchoveta-biomass-variability/",
-          "source": "talks"
-        }
-      ]
-    },
-    {
-      "id": "environmental-variability",
-      "heading": "Environmental variability and pressure-state relationships",
-      "research_question": "How do climate and oceanographic variability, natural forcing, fishing pressure, and their interactions alter productivity and the state of pelagic populations?",
-      "why_it_matters": "Eastern Boundary Upwelling Systems are highly variable, so separating environmental forcing from fishing effects is essential for detecting pressure-state relationships, thresholds, and regime changes.",
-      "projects": [],
-      "outputs": [
-        {
-          "id": "talk:2026-05-08:critical points of natural and anthropogenic pressures and responses in the state of the north-central anchovy stock in the pelagic system of the peruvian sea",
-          "type": "Poster",
-          "year": "2026",
-          "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north-central anchovy stock in the pelagic system of the Peruvian Sea",
-          "url": "/talks/2026-05-08-critical-points-anchovy-stock/",
-          "source": "talks"
-        }
-      ]
-    },
-    {
-      "id": "life-history",
-      "heading": "Reproductive biology, growth and condition",
-      "research_question": "How do reproduction, growth, and individual condition vary through time, and how do these life-history processes contribute to changes in pelagic population state?",
-      "why_it_matters": "Maturity, spawning, growth, and condition can respond before biomass does, providing complementary information on population performance and resilience.",
-      "projects": [],
       "outputs": [
         {
           "id": "publication:interannual variability in the growth of the northern-central stock of peruvian anchovy engraulis ringens during the period 1960-2022:2025",
@@ -83,6 +24,49 @@
           "source": "publications"
         },
         {
+          "id": "talk:2022-09-01:multi-scale variability in the biomass dynamics of the north-central stock of the peruvian anchoveta 1953-2022 within the humboldt current system",
+          "type": "Talk",
+          "year": "2022",
+          "title": "Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System",
+          "url": "/talks/2022-09-01-anchoveta-biomass-variability/",
+          "source": "talks"
+        }
+      ]
+    },
+    {
+      "id": "fisheries-dynamics",
+      "heading": "Fisheries dynamics and management",
+      "description": "Fishery season dynamics, fleet reorganization, fishing pressure, management benchmarks, and decision-relevant diagnostics under environmental variability.",
+      "projects": [
+        "season-benchmarking",
+        "pelagic-fishery-reorganization"
+      ],
+      "outputs": [
+        {
+          "id": "talk:2026-05-08:critical points of natural and anthropogenic pressures and responses in the state of the north-central anchovy stock in the pelagic system of the peruvian sea",
+          "type": "Poster",
+          "year": "2026",
+          "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea",
+          "url": "/talks/2026-05-08-critical-points-anchovy-stock/",
+          "source": "talks"
+        }
+      ]
+    },
+    {
+      "id": "stock-condition",
+      "heading": "Stock condition and reproductive ecology",
+      "description": "Multidimensional stock condition, reproductive indicators, maturity, and biological responses used to describe population state beyond biomass alone.",
+      "projects": [],
+      "outputs": [
+        {
+          "id": "talk:2026-05-06:multivariate health index of the anchovy understanding the dynamics of small pelagic fish under environmental variability",
+          "type": "Talk",
+          "year": "2026",
+          "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
+          "url": "/talks/2026-05-06-anchovy-health-index/",
+          "source": "talks"
+        },
+        {
           "id": "publication:classification models based on the gonadosomatic index to determine gonadal maturity stages a case study in the peruvian anchovy engraulis ringens:2025",
           "type": "Paper",
           "year": "2025",
@@ -91,112 +75,21 @@
           "source": "publications"
         },
         {
-          "id": "talk:2024-11-11:suitability of the gonadosomatic index in peruvian anchovy engraulis ringens sexual maturity a 5 critical threshold and seasonal variation",
+          "id": "talk:2024-11-11:suitability of the gonadosomatic index in peruvian anchoveta engraulis ringens sexual maturity a 5 critical threshold and seasonal variation",
           "type": "Talk",
           "year": "2024",
-          "title": "Suitability of the gonadosomatic index in Peruvian anchovy (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
+          "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
           "url": "/talks/2024-11-11-anchoveta-gsi-sibecorp/",
           "source": "talks"
         }
       ]
     },
     {
-      "id": "spatial-biodiversity",
-      "heading": "Spatial ecology, species distribution and biodiversity",
-      "research_question": "How do pelagic species, associated fauna, and non-target interactions vary across space and time, and which environmental processes shape habitat suitability and species distributions?",
-      "why_it_matters": "Spatially explicit information from niche models, species distribution models, biodiversity observations, and bycatch patterns is needed to interpret ecosystem change and support spatial fisheries management.",
-      "projects": [],
-      "outputs": [
-        {
-          "id": "talk:2024-05-08:pelagic community changes associated with the 2023-2024 el nino in the humboldt current ecosystem off peru",
-          "type": "Talk",
-          "year": "2024",
-          "title": "Pelagic community changes associated with the 2023-2024 El Niño in the Humboldt Current Ecosystem off Peru",
-          "url": "/talks/",
-          "source": "talks"
-        },
-        {
-          "id": "publication:critical appraisal of research approaches to inform evidence of connectivity of trachurus murphyi - a systematic review of 11 topics:2024",
-          "type": "Report",
-          "year": "2024",
-          "title": "Critical appraisal of research approaches to inform evidence of connectivity of Trachurus murphyi – a systematic review of 11 topics",
-          "url": "/publications/#reports",
-          "source": "publications"
-        },
-        {
-          "id": "publication:habitat conditions of jack mackerel trachurus murphyi and chub mackerel scomber japonicus in the peruvian sea between 2021 and 2023:2023",
-          "type": "Report",
-          "year": "2023",
-          "title": "Habitat conditions of jack mackerel (Trachurus murphyi) and chub mackerel (Scomber japonicus) in the Peruvian sea between 2021 and 2023",
-          "url": "/publications/#reports",
-          "source": "publications"
-        }
-      ]
-    },
-    {
-      "id": "fisheries-dynamics",
-      "heading": "Fisheries dynamics and adaptive management",
-      "research_question": "How do pelagic fisheries reorganize through seasons, environmental variability, fleet behaviour, and management interventions, and how can those dynamics inform adaptive decisions?",
-      "why_it_matters": "Fast changes in resource availability and fishing operations require diagnostics that separate ecological availability, biological risk, fishing pressure, and fleet response.",
-      "projects": [
-        "season-benchmarking",
-        "pelagic-fishery-reorganization",
-        "climate-adaptive-management",
-        "availability-risk"
-      ],
-      "outputs": [
-        {
-          "id": "publication:north-central peruvian anchovy stock status and 2026 first-season exploitation outlook:2026",
-          "type": "Report",
-          "year": "2026",
-          "title": "North-central Peruvian anchovy stock status and 2026 first-season exploitation outlook",
-          "url": "/publications/#reports",
-          "source": "publications"
-        },
-        {
-          "id": "publication:decision-table protocol for seasonal catch advice in the north-central peruvian anchovy fishery:2026",
-          "type": "Report",
-          "year": "2026",
-          "title": "Decision-table protocol for seasonal catch advice in the north-central Peruvian anchovy fishery",
-          "url": "/publications/#reports",
-          "source": "publications"
-        },
-        {
-          "id": "publication:southern peruvian anchovy status and 2026 first-season exploitation outlook:2025",
-          "type": "Report",
-          "year": "2025",
-          "title": "Southern Peruvian anchovy status and 2026 first-season exploitation outlook",
-          "url": "/publications/#reports",
-          "source": "publications"
-        },
-        {
-          "id": "publication:north-central peruvian anchovy status and 2025 second-season exploitation outlook:2025",
-          "type": "Report",
-          "year": "2025",
-          "title": "North-central Peruvian anchovy status and 2025 second-season exploitation outlook",
-          "url": "/publications/#reports",
-          "source": "publications"
-        },
-        {
-          "id": "publication:jack mackerel fishery status in 2025 and exploitation outlook for 2026:2025",
-          "type": "Report",
-          "year": "2025",
-          "title": "Jack mackerel fishery status in 2025 and exploitation outlook for 2026",
-          "url": "/publications/#reports",
-          "source": "publications"
-        }
-      ]
-    },
-    {
       "id": "scientific-computing",
-      "heading": "Scientific computing and research software",
-      "research_question": "How can statistical methods, reproducible workflows, and research software make complex marine and fisheries analyses more transparent, reusable, and auditable?",
-      "why_it_matters": "Heterogeneous marine data and complex models create hidden analytical variation; reusable software and reproducible workflows improve validation, transferability, and scientific efficiency.",
+      "heading": "Statistical ecology and scientific computing",
+      "description": "Reusable statistical methods, research software, reproducible workflows, and marine-data infrastructure developed to support quantitative ecological analysis.",
       "projects": [
-        "fishcore-software-paper",
-        "fisheries-mse-template",
-        "hcs-environmental-data-workflow",
-        "fisheries-research-workflows-book"
+        "fishcore-software-paper"
       ],
       "outputs": [
         {
@@ -214,26 +107,9 @@
           "title": "humboldt-ocean-watch",
           "url": "/software/humboldt-ocean-watch/",
           "source": "software"
-        },
-        {
-          "id": "talk:2024-12-12:pelagicsurveys an r package for biometric and biological data from pelagic hydroacoustic surveys",
-          "type": "Talk",
-          "year": "2024",
-          "title": "PelagicSurveys: an R package for biometric and biological data from pelagic hydroacoustic surveys",
-          "url": "/talks/",
-          "source": "talks"
         }
       ]
     }
   ],
-  "unclassified_outputs": [
-    {
-      "id": "publication:the joint jack mackerel jjm model a user guide to imarpe s proposal:2024",
-      "type": "Report",
-      "year": "2024",
-      "title": "The Joint Jack Mackerel (JJM) model: a user guide to IMARPE's proposal",
-      "url": "/publications/#reports",
-      "source": "publications"
-    }
-  ]
+  "unclassified_outputs": []
 }
