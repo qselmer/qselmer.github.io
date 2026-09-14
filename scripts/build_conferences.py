@@ -33,9 +33,18 @@ def normalize_title(value: object) -> str:
     return " ".join(text.casefold().split())
 
 
-def citation_date_label(value: str) -> str:
-    date = dt.date.fromisoformat(value)
-    return f"{date.year}, {MONTHS[date.month]} {date.day}"
+def citation_date_label(value: str, end_value: str = "") -> str:
+    start = dt.date.fromisoformat(value)
+    if not end_value:
+        return f"{start.year}, {MONTHS[start.month]} {start.day}"
+    end = dt.date.fromisoformat(end_value)
+    if end == start:
+        return f"{start.year}, {MONTHS[start.month]} {start.day}"
+    if start.year == end.year and start.month == end.month:
+        return f"{start.year}, {MONTHS[start.month]} {start.day}-{end.day}"
+    if start.year == end.year:
+        return f"{start.year}, {MONTHS[start.month]} {start.day}-{MONTHS[end.month]} {end.day}"
+    return f"{MONTHS[start.month]} {start.day}, {start.year}-{MONTHS[end.month]} {end.day}, {end.year}"
 
 
 def validate_presentation(entry: dict, label: str) -> None:
@@ -44,6 +53,9 @@ def validate_presentation(entry: dict, label: str) -> None:
             raise RuntimeError(f"Conference registry entry is missing {field}: {label}")
     if not isinstance(entry.get("authors"), list):
         raise RuntimeError(f"Conference authors must be a list: {label}")
+    compact = compact_type(str(entry.get("presentation_type") or ""))
+    if compact not in {"Oral", "Poster"} and str(entry.get("presentation_type") or "").strip() not in {"Conference presentation"}:
+        raise RuntimeError(f"Presentation type must resolve to Oral or Poster: {label}")
 
 
 def build_records() -> tuple[dict, list[dict]]:
@@ -51,8 +63,9 @@ def build_records() -> tuple[dict, list[dict]]:
     registry = load_json(REGISTRY)
     outputs = publications.get("publications")
     records = registry.get("records")
+    standalone = registry.get("standalone_records", [])
     historical = registry.get("historical_records", [])
-    if not isinstance(outputs, list) or not isinstance(records, list) or not isinstance(historical, list):
+    if not isinstance(outputs, list) or not isinstance(records, list) or not isinstance(standalone, list) or not isinstance(historical, list):
         raise RuntimeError("Invalid publications or talks registry structure")
 
     conference_outputs = [item for item in outputs if item.get("output_category") == "Conference outputs"]
@@ -88,11 +101,13 @@ def build_records() -> tuple[dict, list[dict]]:
             "source": publication.get("source", ""),
             "site_path": entry.get("site_path", ""),
             "date": entry.get("date", ""),
+            "end_date": entry.get("end_date", ""),
             "presentation_type": entry.get("presentation_type", ""),
             "event": entry.get("event", ""),
             "location": entry.get("location", ""),
             "authors": entry.get("authors", []),
             "presenter": entry.get("presenter", ""),
+            "presenter_note": entry.get("presenter_note", ""),
             "summary": entry.get("summary", ""),
             "source_status": "",
             "legacy_path": "",
@@ -102,6 +117,42 @@ def build_records() -> tuple[dict, list[dict]]:
     unmatched = set(by_title) - matched
     if unmatched:
         raise RuntimeError(f"Conference outputs are missing from talks/registry.json: {[by_title[key].get('title', '') for key in sorted(unmatched)]}")
+
+    standalone_titles: set[str] = set()
+    for entry in standalone:
+        if not isinstance(entry, dict):
+            raise RuntimeError("Standalone conference entries must be JSON objects")
+        title = str(entry.get("display_title") or "").strip()
+        if not title:
+            raise RuntimeError("Standalone conference entries require display_title")
+        validate_presentation(entry, title)
+        normalized = normalize_title(title)
+        if normalized in standalone_titles:
+            raise RuntimeError(f"Duplicate standalone conference title: {title}")
+        standalone_titles.add(normalized)
+        selected.append({
+            "record_origin": "career_master",
+            "source_title": title,
+            "title": title,
+            "year": str(entry.get("date") or "")[:4],
+            "source_type": entry.get("source_type", "Conference Abstract"),
+            "source_url": entry.get("source_url", ""),
+            "doi": entry.get("doi", ""),
+            "source": entry.get("source", "Career master"),
+            "site_path": entry.get("site_path", ""),
+            "date": entry.get("date", ""),
+            "end_date": entry.get("end_date", ""),
+            "presentation_type": entry.get("presentation_type", ""),
+            "event": entry.get("event", ""),
+            "location": entry.get("location", ""),
+            "authors": entry.get("authors", []),
+            "presenter": entry.get("presenter", ""),
+            "presenter_note": entry.get("presenter_note", ""),
+            "summary": entry.get("summary", ""),
+            "source_status": entry.get("source_status", ""),
+            "legacy_path": "",
+            "related_links": entry.get("related_links", []),
+        })
 
     historical_paths: set[str] = set()
     for entry in historical:
@@ -128,11 +179,13 @@ def build_records() -> tuple[dict, list[dict]]:
             "source": "Legacy qselmer.github.io record",
             "site_path": site_path,
             "date": entry.get("date", ""),
+            "end_date": entry.get("end_date", ""),
             "presentation_type": entry.get("presentation_type", ""),
             "event": entry.get("event", ""),
             "location": entry.get("location", ""),
             "authors": entry.get("authors", []),
             "presenter": entry.get("presenter", ""),
+            "presenter_note": entry.get("presenter_note", ""),
             "summary": entry.get("summary", ""),
             "source_status": entry.get("source_status", ""),
             "legacy_path": entry.get("legacy_path", ""),
@@ -142,10 +195,11 @@ def build_records() -> tuple[dict, list[dict]]:
     selected.sort(key=lambda item: item["date"], reverse=True)
     return {
         "schema_version": 1,
-        "source": "assets/data/publications.json + talks/registry.json historical records",
+        "source": "assets/data/publications.json + talks/registry.json",
         "source_updated_at": publications.get("updated_at", ""),
         "count": len(selected),
         "canonical_count": len(records),
+        "standalone_count": len(standalone),
         "historical_count": len(historical),
         "conferences": selected,
     }, selected
@@ -203,7 +257,8 @@ def short_location(value: str) -> str:
 def render_entry(item: dict) -> str:
     authors = authors_apa(item.get("authors", []))
     date_value = str(item.get("date") or "")
-    date = citation_date_label(date_value)
+    end_date = str(item.get("end_date") or "")
+    date = citation_date_label(date_value, end_date)
     title = str(item.get("title") or "").strip()
     event = str(item.get("event") or "").strip()
     location = str(item.get("location") or "").strip()
@@ -215,7 +270,7 @@ def render_entry(item: dict) -> str:
         badges.append(badge("Type", presentation_type, "neutral"))
     if location:
         badges.append(badge("Location", short_location(location), "green"))
-    if site_path:
+    if site_path and site_path != "/talks/":
         badges.append(badge("Details", "page", "blue", site_path))
     badges_html = f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>' if badges else ""
     return (
@@ -260,7 +315,10 @@ def main() -> None:
             stale.append(str(MARKDOWN_TARGET.relative_to(ROOT)))
         if stale:
             raise SystemExit("Conference outputs are stale; run python scripts/build_conferences.py: " + ", ".join(stale))
-        print(f"Conference catalogue is synchronized: {payload['canonical_count']} canonical + {payload['historical_count']} historical.")
+        print(
+            f"Conference catalogue is synchronized: {payload['canonical_count']} canonical + "
+            f"{payload['standalone_count']} standalone + {payload['historical_count']} historical."
+        )
         return
     DATA_TARGET.parent.mkdir(parents=True, exist_ok=True)
     MARKDOWN_TARGET.parent.mkdir(parents=True, exist_ok=True)
