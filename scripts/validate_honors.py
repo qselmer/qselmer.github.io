@@ -55,11 +55,14 @@ def validate_source() -> None:
         "Best Doctoral Work",
         "Fisheries Resource Assessment Diploma",
         "qs-academic-output-badges",
-        "Status",
-        "Verified",
+        ">Type<",
+        ">Scope<",
+        "qs-badge-green",
     ):
         if marker not in fragment:
             raise RuntimeError(f"Honors fragment is missing {marker!r}")
+    if '>Status<' in fragment:
+        raise RuntimeError("Honors fragment must expose only Type and Scope badges")
     if "{{< include _generated.md >}}" not in PAGE.read_text(encoding="utf-8"):
         raise RuntimeError("Honors page must include its generated fragment")
 
@@ -77,11 +80,14 @@ def validate_rendered() -> None:
         "Best Doctoral Work",
         "Fisheries Resource Assessment Diploma",
         "qs-honor-output-item",
-        "Status",
-        "Verified",
+        ">Type<",
+        ">Scope<",
+        "qs-badge-green",
     ):
         if marker not in body:
             raise RuntimeError(f"Rendered Honors page is missing {marker!r}")
+    if '>Status<' in body:
+        raise RuntimeError("Rendered Honors page must expose only Type and Scope badges")
 
 
 def main() -> None:
@@ -90,10 +96,10 @@ def main() -> None:
     args = parser.parse_args()
     if args.mode in {"source", "all"}:
         validate_source()
-        print("Honors source QA PASS: canonical registry, generated catalogue, and evidence status verified.")
+        print("Honors source QA PASS: canonical registry, generated catalogue, and evidence verification are synchronized.")
     if args.mode in {"rendered", "all"}:
         validate_rendered()
-        print("Honors rendered QA PASS: page and machine-readable catalogue deployed.")
+        print("Honors rendered QA PASS: only Type and Scope badges are displayed, with Scope highlighted in green.")
 
 
 if __name__ == "__main__":
