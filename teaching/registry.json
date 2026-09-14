@@ -25,7 +25,9 @@
       "audience": "Instructors",
       "duration": "Reusable",
       "language_display": "Spanish",
-      "materials": "Quarto modules, labs & exercises"
+      "materials": "Quarto modules, labs & exercises",
+      "image": "https://raw.githubusercontent.com/qselmer/.template-training/main/assets/images/logo.svg",
+      "image_alt": "Scientific Training Template logo"
     }
   ],
   "under_review": [
