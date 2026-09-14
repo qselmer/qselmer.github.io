@@ -54,15 +54,13 @@ def badge(label: str, value: str, tone: str = "neutral") -> str:
 
 
 def render_item(item: dict[str, Any]) -> str:
-    year = html.escape(str(item["year"]))
     title = html.escape(str(item["title"]))
     organization = html.escape(str(item["organization"]))
     location = html.escape(str(item.get("location") or ""))
     summary = html.escape(str(item.get("summary") or ""))
     work_title = html.escape(str(item.get("work_title") or ""))
-    evidence_status = html.escape(str(item.get("evidence_status") or ""))
 
-    reference = f'<strong>{year}.</strong> <span class="qs-academic-output-title">{title}</span>. {organization}.'
+    reference = f'<span class="qs-academic-output-title">{title}</span>. {organization}.'
     if location:
         reference += f" {location}."
     details: list[str] = []
@@ -70,11 +68,10 @@ def render_item(item: dict[str, Any]) -> str:
         details.append(summary)
     if work_title:
         details.append(f'<em>Recognized work:</em> “{work_title}”.')
-    if evidence_status:
-        details.append(f'<span class="qs-honor-evidence"><em>Evidence:</em> {evidence_status}.</span>')
     badges = "".join([
         badge("Type", str(item["type"]), "blue"),
         badge("Scope", str(item["scope"]), "neutral"),
+        badge("Evidence", "Verified", "green"),
     ])
     return (
         '<li class="qs-academic-output-item qs-honor-output-item">'
