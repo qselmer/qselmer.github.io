@@ -83,3 +83,38 @@
     white-space: normal;
   }
 }
+
+/* Repository visibility is explicit without exposing private GitHub links. */
+.qs-project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .55rem;
+}
+
+.qs-project-visibility {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 50%;
+  font-size: .82rem;
+  line-height: 1;
+}
+
+.qs-project-visibility-private {
+  color: #9a6200;
+  background: rgba(196, 132, 0, .11);
+}
+
+.qs-project-visibility-public {
+  color: #39724d;
+  background: rgba(57, 114, 77, .10);
+}
+
+.qs-project-repository-state {
+  color: #6b7280;
+  font-size: .84rem;
+  white-space: nowrap;
+}

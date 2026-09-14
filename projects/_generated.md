@@ -2,112 +2,240 @@
 
 ```{=html}
 <nav class="qs-project-theme-nav" aria-label="Research themes">
-<a href="#stock-assessment">Stock assessment and population dynamics</a>
-<a href="#fisheries-dynamics">Fisheries dynamics and management</a>
-<a href="#stock-condition">Stock condition and reproductive ecology</a>
-<a href="#scientific-computing">Statistical ecology and scientific computing</a>
+<a href="#stock-assessment">Stock assessment</a>
+<a href="#environmental-variability">Environment</a>
+<a href="#life-history">Reproduction &amp; growth</a>
+<a href="#spatial-biodiversity">Spatial ecology</a>
+<a href="#fisheries-dynamics">Fisheries dynamics</a>
+<a href="#scientific-computing">Scientific computing</a>
 </nav>
 ```
 
 ## Stock assessment and population dynamics {#stock-assessment}
 
-Population-state reconstruction, assessment diagnostics, biological parameters, and methods for understanding how structural assumptions affect fisheries inference.
+```{=html}
+<div class="qs-theme-badges"><div class="qs-badge-row"><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">System</span><span class="qs-badge-value">Pelagic fish</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">Focus</span><span class="qs-badge-value">Assessment</span></span><span class="qs-badge qs-badge-amber"><span class="qs-badge-label">Data</span><span class="qs-badge-value">Survey + fishery</span></span></div></div>
+<p class="qs-theme-rationale"><strong>Research question:</strong> How do population processes, productivity, and model assumptions shape inference about the state and dynamics of exploited pelagic populations? <strong>Why it matters:</strong> Reliable assessment requires integrating biomass with recruitment, mortality, selectivity, and productivity while accounting for structural uncertainty in the models used for fisheries advice.</p>
+```
+
+### Projects and research directions
 
 ```{=html}
 <div class="qs-project-grid">
-<article class="qs-project-tile qs-project-tone-sand">
-<div class="qs-project-visual">
-<img class="qs-project-logo" src="/images/projects/stock-assessment-misspecification/logo.png" alt="Diagnosing stock-assessment misspecification with machine learning project logo" loading="lazy">
-</div>
+<article class="qs-project-tile">
 <div class="qs-project-body">
-<p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
-<h3><a href="stock-assessment-misspecification/">Diagnosing stock-assessment misspecification with machine learning</a></h3>
-<p class="qs-project-card-summary">Simulation-estimation experiments testing whether multivariate diagnostics can identify structural sources of assessment misspecification.</p>
-<div class="qs-project-footer"><span>Method development</span><a href="stock-assessment-misspecification/">Details</a></div>
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-private" title="Private repository" aria-label="Private repository"><i class="bi bi-lock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="stock-assessment-misspecification/">Diagnosing stock-assessment model misspecification with machine learning</a></h3>
+<p class="qs-project-card-summary">Simulation-estimation experiments testing whether multivariate diagnostics can identify structural sources of stock-assessment misspecification.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Methods development · Stock-assessment methods · pelagic applications</span><span class="qs-project-repository-state">Private repository</span></div>
 </div>
 </article>
 </div>
 ```
 
-### Related outputs
-
-```{=html}
-<ul class="qs-related-output-list">
-<li class="qs-related-output"><span class="qs-output-type">Thesis</span><a href="/publications/#theses">Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022</a> (2025)</li>
-<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2022-09-01-anchoveta-biomass-variability/">Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System</a> (2022)</li>
-</ul>
-```
-
-## Fisheries dynamics and management {#fisheries-dynamics}
-
-Fishery season dynamics, fleet reorganization, fishing pressure, management benchmarks, and decision-relevant diagnostics under environmental variability.
-
-```{=html}
-<div class="qs-project-grid">
-<article class="qs-project-tile qs-project-tone-blue qs-project-no-logo">
-<div class="qs-project-body">
-<p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
-<h3><a href="season-benchmarking/">Standardizing in-season benchmarking for a highly variable small-pelagic fishery</a></h3>
-<p class="qs-project-card-summary">Historical comparison using season day, effective fishing day, quota progress, functional envelopes, analogue seasons, and environmental adjustment.</p>
-<div class="qs-project-footer"><span>Data preparation</span><a href="season-benchmarking/">Details</a></div>
-</div>
-</article>
-
-<article class="qs-project-tile qs-project-tone-aqua qs-project-no-logo">
-<div class="qs-project-body">
-<p class="qs-card-meta">TYPE-PAPER · ACTIVE · PRIVATE</p>
-<h3><a href="pelagic-fishery-reorganization/">Long-term reorganization of Peruvian pelagic fisheries under environmental variability</a></h3>
-<p class="qs-project-card-summary">Long-term changes in species composition, effort, efficiency, seasonality, fleet structure, spatial footprint, and environmental context.</p>
-<div class="qs-project-footer"><span>Concept / assembly</span><a href="pelagic-fishery-reorganization/">Details</a></div>
-</div>
-</article>
-</div>
-```
-
-### Related outputs
-
-```{=html}
-<ul class="qs-related-output-list">
-<li class="qs-related-output"><span class="qs-output-type">Poster</span><a href="/talks/2026-05-08-critical-points-anchovy-stock/">Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea</a> (2026)</li>
-</ul>
-```
-
-## Stock condition and reproductive ecology {#stock-condition}
-
-Multidimensional stock condition, reproductive indicators, maturity, and biological responses used to describe population state beyond biomass alone.
-
-### Related outputs
+### Outputs
 
 ```{=html}
 <ul class="qs-related-output-list">
 <li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2026-05-06-anchovy-health-index/">Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability</a> (2026)</li>
-<li class="qs-related-output"><span class="qs-output-type">Paper</span><a href="/publications/#papers">Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens</a> (2025)</li>
-<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2024-11-11-anchoveta-gsi-sibecorp/">Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation</a> (2024)</li>
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="https://www.iattc.org/en-US/Event/DetailMeeting/Meeting-DOR-04">Bayesian state-space assessment of Peruvian dolphinfish (Coryphaena hippurus)</a> (2026)</li>
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/">Impacts of the 2023-2024 El Niño on Peruvian anchovy population dynamics</a> (2024)</li>
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2022-09-01-anchoveta-biomass-variability/">Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953-2022) within the Humboldt Current System</a> (2022)</li>
 </ul>
 ```
 
-## Statistical ecology and scientific computing {#scientific-computing}
+## Environmental variability and pressure-state relationships {#environmental-variability}
 
-Reusable statistical methods, research software, reproducible workflows, and marine-data infrastructure developed to support quantitative ecological analysis.
+```{=html}
+<div class="qs-theme-badges"><div class="qs-badge-row"><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">System</span><span class="qs-badge-value">Humboldt Current</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">Focus</span><span class="qs-badge-value">Environment</span></span><span class="qs-badge qs-badge-amber"><span class="qs-badge-label">Data</span><span class="qs-badge-value">Ocean + fishery</span></span></div></div>
+<p class="qs-theme-rationale"><strong>Research question:</strong> How do climate and oceanographic variability, natural forcing, fishing pressure, and their interactions alter productivity and the state of pelagic populations? <strong>Why it matters:</strong> Eastern Boundary Upwelling Systems are highly variable, so separating environmental forcing from fishing effects is essential for detecting pressure-state relationships, thresholds, and regime changes.</p>
+```
+
+### Outputs
+
+```{=html}
+<ul class="qs-related-output-list">
+<li class="qs-related-output"><span class="qs-output-type">Poster</span><a href="/talks/2026-05-08-critical-points-anchovy-stock/">Critical points of natural and anthropogenic pressures and responses in the state of the north-central anchovy stock in the pelagic system of the Peruvian Sea</a> (2026)</li>
+</ul>
+```
+
+## Reproductive biology, growth and condition {#life-history}
+
+```{=html}
+<div class="qs-theme-badges"><div class="qs-badge-row"><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">System</span><span class="qs-badge-value">Anchovy</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">Focus</span><span class="qs-badge-value">Life history</span></span><span class="qs-badge qs-badge-amber"><span class="qs-badge-label">Data</span><span class="qs-badge-value">Biological</span></span></div></div>
+<p class="qs-theme-rationale"><strong>Research question:</strong> How do reproduction, growth, and individual condition vary through time, and how do these life-history processes contribute to changes in pelagic population state? <strong>Why it matters:</strong> Maturity, spawning, growth, and condition can respond before biomass does, providing complementary information on population performance and resilience.</p>
+```
+
+### Outputs
+
+```{=html}
+<ul class="qs-related-output-list">
+<li class="qs-related-output"><span class="qs-output-type">Thesis</span><a href="/publications/#theses">Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022</a> (2025)</li>
+<li class="qs-related-output"><span class="qs-output-type">Paper</span><a href="/publications/#papers">Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens</a> (2025)</li>
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/2024-11-11-anchoveta-gsi-sibecorp/">Suitability of the gonadosomatic index in Peruvian anchovy (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation</a> (2024)</li>
+</ul>
+```
+
+## Spatial ecology, species distribution and biodiversity {#spatial-biodiversity}
+
+```{=html}
+<div class="qs-theme-badges"><div class="qs-badge-row"><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">System</span><span class="qs-badge-value">Pelagic ecosystem</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">Focus</span><span class="qs-badge-value">Spatial ecology</span></span><span class="qs-badge qs-badge-amber"><span class="qs-badge-label">Data</span><span class="qs-badge-value">Survey + environment</span></span></div></div>
+<p class="qs-theme-rationale"><strong>Research question:</strong> How do pelagic species, associated fauna, and non-target interactions vary across space and time, and which environmental processes shape habitat suitability and species distributions? <strong>Why it matters:</strong> Spatially explicit information from niche models, species distribution models, biodiversity observations, and bycatch patterns is needed to interpret ecosystem change and support spatial fisheries management.</p>
+```
+
+### Outputs
+
+```{=html}
+<ul class="qs-related-output-list">
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/">Pelagic community changes associated with the 2023-2024 El Niño in the Humboldt Current Ecosystem off Peru</a> (2024)</li>
+<li class="qs-related-output"><span class="qs-output-type">Report</span><a href="/publications/#reports">Critical appraisal of research approaches to inform evidence of connectivity of Trachurus murphyi – a systematic review of 11 topics</a> (2024)</li>
+<li class="qs-related-output"><span class="qs-output-type">Report</span><a href="/publications/#reports">Habitat conditions of jack mackerel (Trachurus murphyi) and chub mackerel (Scomber japonicus) in the Peruvian sea between 2021 and 2023</a> (2023)</li>
+</ul>
+```
+
+## Fisheries dynamics and adaptive management {#fisheries-dynamics}
+
+```{=html}
+<div class="qs-theme-badges"><div class="qs-badge-row"><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">System</span><span class="qs-badge-value">Pelagic fisheries</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">Focus</span><span class="qs-badge-value">Management</span></span><span class="qs-badge qs-badge-amber"><span class="qs-badge-label">Data</span><span class="qs-badge-value">Fishery + environment</span></span></div></div>
+<p class="qs-theme-rationale"><strong>Research question:</strong> How do pelagic fisheries reorganize through seasons, environmental variability, fleet behaviour, and management interventions, and how can those dynamics inform adaptive decisions? <strong>Why it matters:</strong> Fast changes in resource availability and fishing operations require diagnostics that separate ecological availability, biological risk, fishing pressure, and fleet response.</p>
+```
+
+### Projects and research directions
 
 ```{=html}
 <div class="qs-project-grid">
-<article class="qs-project-tile qs-project-tone-green qs-project-planned qs-project-no-logo">
+<article class="qs-project-tile">
 <div class="qs-project-body">
-<p class="qs-card-meta">TYPE-PAPER · PLANNED · DECISION GATE</p>
-<h3><a href="fishcore-software-paper/">fishcore software paper</a></h3>
-<p class="qs-project-card-summary">Potential software paper contingent on stable reuse, documentation, testing, and a defensible methodological gap in the underlying R framework.</p>
-<div class="qs-project-footer"><span>Decision gate: 30 Jun 2027</span><a href="fishcore-software-paper/">Details</a></div>
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-private" title="Private repository" aria-label="Private repository"><i class="bi bi-lock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="season-benchmarking/">In-season benchmarking for environmentally variable small-pelagic fisheries</a></h3>
+<p class="qs-project-card-summary">Historical comparison using season day, effective fishing day, quota progress, functional envelopes, analogue seasons, and environmental adjustment.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Data analysis · Pelagic fisheries · Humboldt Current</span><span class="qs-project-repository-state">Private repository</span></div>
+</div>
+</article>
+
+<article class="qs-project-tile">
+<div class="qs-project-body">
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-private" title="Private repository" aria-label="Private repository"><i class="bi bi-lock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="pelagic-fishery-reorganization/">Long-term reorganization of Peruvian pelagic fisheries in a variable upwelling system</a></h3>
+<p class="qs-project-card-summary">Long-term changes in species composition, effort, efficiency, seasonality, fleet structure, spatial footprint, and environmental context.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Manuscript in development · Pelagic fisheries · Humboldt Current</span><span class="qs-project-repository-state">Private repository</span></div>
+</div>
+</article>
+
+<article class="qs-project-tile">
+<div class="qs-project-body">
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-public" title="Public repository" aria-label="Public repository"><i class="bi bi-unlock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="https://github.com/qselmer/pel-climate-adaptive-management-paper">Climate-adaptive management of small pelagic fisheries in upwelling systems</a></h3>
+<p class="qs-project-card-summary">Systematic evidence synthesis evaluating management responses to environmental variability and climate change and their transferability to Peruvian anchovy.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Systematic evidence synthesis · Small pelagics · Eastern Boundary Upwelling Systems</span><a href="https://github.com/qselmer/pel-climate-adaptive-management-paper">Repository</a></div>
+</div>
+</article>
+
+<article class="qs-project-tile">
+<div class="qs-project-body">
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-public" title="Public repository" aria-label="Public repository"><i class="bi bi-unlock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="https://github.com/qselmer/pelagicPER-availability-risk-paper">Dynamic environmental availability and biological risk in pelagic fisheries</a></h3>
+<p class="qs-project-card-summary">Framework separating resource availability, biological risk, operational risk, and regulation using environmental and fishery information with hindcast validation.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Planned study · Pelagic fisheries · Humboldt Current</span><a href="https://github.com/qselmer/pelagicPER-availability-risk-paper">Repository</a></div>
 </div>
 </article>
 </div>
 ```
 
-### Related outputs
+### Outputs
+
+```{=html}
+<ul class="qs-related-output-list">
+<li class="qs-related-output"><span class="qs-output-type">Report</span><a href="/publications/#reports">North-central Peruvian anchovy stock status and 2026 first-season exploitation outlook</a> (2026)</li>
+<li class="qs-related-output"><span class="qs-output-type">Report</span><a href="/publications/#reports">Decision-table protocol for seasonal catch advice in the north-central Peruvian anchovy fishery</a> (2026)</li>
+<li class="qs-related-output"><span class="qs-output-type">Report</span><a href="/publications/#reports">Southern Peruvian anchovy status and 2026 first-season exploitation outlook</a> (2025)</li>
+<li class="qs-related-output"><span class="qs-output-type">Report</span><a href="/publications/#reports">North-central Peruvian anchovy status and 2025 second-season exploitation outlook</a> (2025)</li>
+<li class="qs-related-output"><span class="qs-output-type">Report</span><a href="/publications/#reports">Jack mackerel fishery status in 2025 and exploitation outlook for 2026</a> (2025)</li>
+</ul>
+```
+
+## Scientific computing and research software {#scientific-computing}
+
+```{=html}
+<div class="qs-theme-badges"><div class="qs-badge-row"><span class="qs-badge qs-badge-blue"><span class="qs-badge-label">System</span><span class="qs-badge-value">Marine data</span></span><span class="qs-badge qs-badge-green"><span class="qs-badge-label">Focus</span><span class="qs-badge-value">Methods + software</span></span><span class="qs-badge qs-badge-amber"><span class="qs-badge-label">Data</span><span class="qs-badge-value">Multi-source</span></span></div></div>
+<p class="qs-theme-rationale"><strong>Research question:</strong> How can statistical methods, reproducible workflows, and research software make complex marine and fisheries analyses more transparent, reusable, and auditable? <strong>Why it matters:</strong> Heterogeneous marine data and complex models create hidden analytical variation; reusable software and reproducible workflows improve validation, transferability, and scientific efficiency.</p>
+```
+
+### Projects and research directions
+
+```{=html}
+<div class="qs-project-grid">
+<article class="qs-project-tile">
+<div class="qs-project-body">
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-private" title="Private repository" aria-label="Private repository"><i class="bi bi-lock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="fishcore-software-paper/">Standardized fisheries indicators as reusable research software</a></h3>
+<p class="qs-project-card-summary">Potential software paper contingent on stable reuse, documentation, testing, and a defensible methodological contribution in the underlying fisheries-indicator framework.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Planned study · Fisheries indicators · reproducible computing</span><span class="qs-project-repository-state">Private repository</span></div>
+</div>
+</article>
+
+<article class="qs-project-tile">
+<div class="qs-project-body">
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-public" title="Public repository" aria-label="Public repository"><i class="bi bi-unlock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="https://github.com/qselmer/.template-mse">Fisheries Management Strategy Evaluation template</a></h3>
+<p class="qs-project-card-summary">Reusable architecture for operating, observation and estimation models, management procedures, closed-loop simulation, uncertainty scenarios, performance metrics, provenance, and reproducible MSE projects.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Stable reusable template · Management strategy evaluation · reproducible fisheries science</span><a href="https://github.com/qselmer/.template-mse">Repository</a></div>
+</div>
+</article>
+
+<article class="qs-project-tile">
+<div class="qs-project-body">
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-public" title="Public repository" aria-label="Public repository"><i class="bi bi-unlock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="https://github.com/qselmer/oceHCS-environmental-data-workflow">Humboldt Current environmental data workflow</a></h3>
+<p class="qs-project-card-summary">Reproducible acquisition, quality control, harmonization, derivation, cataloguing, provenance, and reuse of environmental data for fisheries and marine-ecology analyses across the Humboldt Current System.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Development workflow · Ocean data engineering · reproducible marine science</span><a href="https://github.com/qselmer/oceHCS-environmental-data-workflow">Repository</a></div>
+</div>
+</article>
+
+<article class="qs-project-tile">
+<div class="qs-project-body">
+<div class="qs-project-topline">
+<span class="qs-project-type">PROJECT</span>
+<span class="qs-project-visibility qs-project-visibility-public" title="Public repository" aria-label="Public repository"><i class="bi bi-unlock-fill" aria-hidden="true"></i></span>
+</div>
+<h3><a href="https://github.com/qselmer/fisheries-research-workflows-book">Digital workflows for fisheries science and quantitative ecology</a></h3>
+<p class="qs-project-card-summary">Open educational book on portable, auditable and reproducible digital research workflows spanning data, code, automation, collaboration, R, Python, SQL, Quarto, and responsible use of AI in fisheries science and quantitative ecology.</p>
+<div class="qs-project-footer"><span><strong>Stage:</strong> Open book in development · Scientific computing · open education · reproducible research</span><a href="https://github.com/qselmer/fisheries-research-workflows-book">Repository</a></div>
+</div>
+</article>
+</div>
+```
+
+### Outputs
 
 ```{=html}
 <ul class="qs-related-output-list">
 <li class="qs-related-output"><span class="qs-output-type">Software</span><a href="/software/oceancube/">oceancube</a> (2026)</li>
 <li class="qs-related-output"><span class="qs-output-type">Software</span><a href="/software/humboldt-ocean-watch/">humboldt-ocean-watch</a> (2026)</li>
+<li class="qs-related-output"><span class="qs-output-type">Talk</span><a href="/talks/">PelagicSurveys: an R package for biometric and biological data from pelagic hydroacoustic surveys</a> (2024)</li>
 </ul>
 ```

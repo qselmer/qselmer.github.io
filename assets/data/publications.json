@@ -174,14 +174,15 @@
       "journal": "Instituto del Mar del Perú (IMARPE)",
       "type": "Technical Protocol",
       "doi": "",
-      "url": "",
+      "url": "https://www.gob.pe/institucion/imarpe/informes-publicaciones/7947433-elaboracion-de-las-tablas-de-decision-para-la-determinacion-del-limite-maximo-total-de-captura-permisible-por-temporada-de-pesca-en-la-pesqueria-del-stock-norte-centro-de-la-anchoveta-peruana",
       "institutional_author": "Instituto del Mar del Perú (IMARPE)",
       "identifier": "Ed. 06 · Rev. 00",
       "role": "Contributor",
       "summary": "Risk-based methodology linking abundance-at-length, biological parameters, environmental and exploitation scenarios, and spawning-biomass projections to seasonal harvest advice.",
       "source": "Career master",
       "output_category": "Reports & technical outputs",
-      "curated": true
+      "curated": true,
+      "open_access": true
     },
     {
       "title": "North-central Peruvian anchovy stock status and 2026 first-season exploitation outlook",
@@ -189,13 +190,14 @@
       "journal": "Instituto del Mar del Perú (IMARPE)",
       "type": "Stock Assessment & Management Advice",
       "doi": "",
-      "url": "",
+      "url": "https://www.gob.pe/institucion/imarpe/informes-publicaciones/7960391-informe-correspondiente-al-oficio-n-0507-2026-imarpe-pe",
       "institutional_author": "Instituto del Mar del Perú (IMARPE)",
       "role": "Contributor",
       "summary": "Integrated stock-status assessment combining environmental conditions, fishery indicators, acoustic biomass, size structure, biological condition, and exploitation scenarios for management advice.",
       "source": "Career master",
       "output_category": "Reports & technical outputs",
-      "curated": true
+      "curated": true,
+      "open_access": true
     },
     {
       "title": "North-central Peruvian anchovy status and 2025 second-season exploitation outlook",

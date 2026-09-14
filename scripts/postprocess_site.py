@@ -20,6 +20,7 @@ ROUTES = ROOT / "config" / "legacy-routes.json"
 PUBLICATIONS = ROOT / "assets" / "data" / "publications.json"
 SOFTWARE = ROOT / "assets" / "data" / "software.json"
 BLOG = ROOT / "blog" / "registry.json"
+CONFIG = ROOT / "config" / "site.json"
 PERSON_ID = SITE_URL + "/#person"
 
 
@@ -121,6 +122,8 @@ def apply_social_preview(text: str, route: str) -> str:
 
 
 def person_schema() -> dict:
+    identity = load_json(CONFIG).get("identity") or {}
+    headline = str(identity.get("headline") or "Quantitative Fisheries Scientist")
     return {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -128,7 +131,7 @@ def person_schema() -> dict:
         "name": "Elmer Quispe-Salazar",
         "url": SITE_URL + "/",
         "image": SITE_URL + "/images/profile.png",
-        "jobTitle": ["Marine Quantitative Ecologist", "Fisheries Scientist"],
+        "jobTitle": headline,
         "worksFor": {
             "@type": "Organization",
             "name": "Instituto del Mar del Perú (IMARPE)",
