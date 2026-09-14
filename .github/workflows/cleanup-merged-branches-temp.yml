@@ -1,0 +1,51 @@
+name: Cleanup merged branches
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .github/workflows/cleanup-merged-branches-temp.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Delete only branches fully merged into master
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
+          for ref in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
+            case "$ref" in
+              origin/HEAD|origin/master) continue ;;
+            esac
+            branch="${ref#origin/}"
+            if git merge-base --is-ancestor "$ref" origin/master; then
+              echo "Deleting merged branch: $branch"
+              git push origin --delete "$branch"
+            else
+              echo "Keeping unmerged branch: $branch"
+            fi
+          done
+
+      - name: Remove this temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/cleanup-merged-branches-temp.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore: remove temporary branch cleanup workflow'
+          git push origin HEAD:master
