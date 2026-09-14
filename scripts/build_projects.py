@@ -13,6 +13,7 @@ from site_config import ROOT
 
 REGISTRY = ROOT / "projects" / "registry.json"
 GRAPH = ROOT / "assets" / "data" / "research-graph.json"
+PUBLIC_POLICY = ROOT / "graph" / "registry.json"
 TARGET = ROOT / "projects" / "_generated.md"
 CLASS_TOKEN = re.compile(r"^[A-Za-z0-9_-]+$")
 THEME_BADGE_LABELS = ("System", "Focus", "Data")
@@ -46,6 +47,14 @@ def load_graph() -> dict[str, dict]:
     if not isinstance(themes, list):
         raise RuntimeError("Research graph must contain themes")
     return {str(theme.get("id") or "").strip(): theme for theme in themes}
+
+
+def load_public_repositories() -> set[str]:
+    payload = load_json(PUBLIC_POLICY)
+    repositories = payload.get("public_repositories")
+    if not isinstance(repositories, list):
+        raise RuntimeError("graph/registry.json must contain public_repositories")
+    return {str(value).strip() for value in repositories if str(value).strip()}
 
 
 def clean_class(value: object, label: str) -> str:
@@ -82,28 +91,23 @@ def render_badges(items: list[dict], owner: str, expected_labels: tuple[str, ...
 
 
 def render_card(project: dict) -> list[str]:
-    """Render every Research project with one editorial card format.
-
-    Project logos remain canonical assets for project detail pages, but the Research
-    catalogue intentionally does not use them. This keeps projects with and without
-    logos visually identical and avoids loading large logo files in the catalogue.
-    """
+    """Render an approved public GitHub project with the existing editorial card format."""
     slug = clean_class(project.get("slug"), "project slug")
     title = str(project.get("title") or "").strip()
     summary = str(project.get("summary") or "").strip()
     context = str(project.get("context") or "").strip()
-    site_path = str(project.get("site_path") or "").strip()
-    link_label = str(project.get("link_label") or "Details").strip()
-    if not all((title, summary, context, site_path, link_label)):
-        raise RuntimeError(f"Project {slug} is missing card content")
+    repository = str(project.get("source_repository") or "").strip()
+    if not all((title, summary, context, repository)):
+        raise RuntimeError(f"Project {slug} is missing card content or source_repository")
+    target = f"https://github.com/{repository}"
 
     return [
         '<article class="qs-project-tile">',
         '<div class="qs-project-body">',
         '<span class="qs-project-type">PROJECT</span>',
-        f'<h3><a href="{html.escape(site_path, quote=True)}">{html.escape(title)}</a></h3>',
+        f'<h3><a href="{html.escape(target, quote=True)}">{html.escape(title)}</a></h3>',
         f'<p class="qs-project-card-summary">{html.escape(summary)}</p>',
-        f'<div class="qs-project-footer"><span>{html.escape(context)}</span><a href="{html.escape(site_path, quote=True)}">{html.escape(link_label)}</a></div>',
+        f'<div class="qs-project-footer"><span>{html.escape(context)}</span><a href="{html.escape(target, quote=True)}">Repository</a></div>',
         "</div>",
         "</article>",
     ]
@@ -130,6 +134,7 @@ def render() -> str:
     sections = payload["sections"]
     projects = payload["projects"]
     graph = load_graph()
+    public_repositories = load_public_repositories()
 
     section_ids: set[str] = set()
     for section in sections:
@@ -179,7 +184,11 @@ def render() -> str:
             raise RuntimeError(f"Research theme {section_id} badges must be a list")
         grid_class = str(section.get("grid_class") or "qs-project-grid").strip()
         class_tokens = [clean_class(token, f"{section_id} grid class") for token in grid_class.split()]
-        group = [project for project in projects if project.get("section") == section_id]
+        group = [
+            project for project in projects
+            if project.get("section") == section_id
+            and str(project.get("source_repository") or "").strip() in public_repositories
+        ]
         outputs = graph[section_id].get("outputs") or []
         if not isinstance(outputs, list):
             raise RuntimeError(f"Research graph outputs must be a list for {section_id}")
