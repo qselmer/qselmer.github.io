@@ -152,6 +152,8 @@ def first_url(pub: dict[str, Any], *keys: str) -> str:
 
 
 def is_open_access(pub: dict[str, Any]) -> bool:
+    if pub.get("open_access") is True:
+        return True
     journal = str(pub.get("journal") or pub.get("outlet") or "").strip().casefold()
     if journal in OPEN_ACCESS_OUTLETS:
         return True
@@ -173,20 +175,23 @@ def reference(pub: dict[str, Any]) -> str:
 
     doi = str(pub.get("doi") or "").strip()
     url = str(pub.get("url") or "").strip()
+    open_access = is_open_access(pub)
     badges: list[str] = []
     identifier = str(pub.get("identifier") or "").strip()
     role = str(pub.get("role") or "").strip()
     if identifier:
         badges.append(badge("ID", identifier, "neutral"))
     if role:
-        badges.append(badge("Role", role, "green"))
+        badges.append(badge("Role", role, "neutral"))
     if doi:
         clean = canonical_doi(doi)
-        badges.append(badge("DOI", clean, "blue", f"https://doi.org/{clean}"))
-    elif url:
-        badges.append(badge("Output", "view", "blue", url))
-    if is_open_access(pub):
-        badges.append(badge("Open", "access", "green", url or f"https://doi.org/{canonical_doi(doi)}"))
+        badges.append(badge("DOI", "view", "blue", f"https://doi.org/{clean}"))
+    elif url and not open_access:
+        badges.append(badge("Link", "view", "blue", url))
+    if open_access:
+        open_url = url or (f"https://doi.org/{canonical_doi(doi)}" if doi else "")
+        if open_url:
+            badges.append(badge("Open", "access", "green", open_url))
 
     pdf_url = first_url(pub, "pdf_url", "pdf")
     code_url = first_url(pub, "code_url", "code")
@@ -194,9 +199,9 @@ def reference(pub: dict[str, Any]) -> str:
     if pdf_url:
         badges.append(badge("PDF", "open", "neutral", pdf_url))
     if code_url:
-        badges.append(badge("Code", "repository", "neutral", code_url))
+        badges.append(badge("Code", "repo", "neutral", code_url))
     if data_url:
-        badges.append(badge("Data", "dataset", "neutral", data_url))
+        badges.append(badge("Data", "set", "neutral", data_url))
     if badges:
         parts.append(f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>')
     return " ".join(parts)
