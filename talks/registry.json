@@ -20,7 +20,7 @@
     },
     {
       "source_title": "Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea",
-      "display_title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian Sea",
+      "display_title": "Critical points of natural and anthropogenic pressures and responses in the state of the north-central anchovy stock in the pelagic system of the Peruvian Sea",
       "site_path": "/talks/2026-05-08-critical-points-anchovy-stock/",
       "date": "2026-05-08",
       "presentation_type": "Poster",
@@ -71,7 +71,7 @@
       "site_path": "/talks/",
       "date": "2024-12-12",
       "presentation_type": "Oral",
-      "event": "Conecta Pesquero 2024 — III Research, Development and Innovation Meeting, UNALM",
+      "event": "Conecta Pesquero 2024 - III Research, Development and Innovation Meeting, UNALM",
       "location": "Lima, PE",
       "authors": ["Elmer Quispe-Salazar"],
       "presenter": "Elmer Quispe-Salazar",
@@ -79,9 +79,44 @@
       "related_links": []
     }
   ],
+  "standalone_records": [
+    {
+      "display_title": "Pelagic community changes associated with the 2023-2024 El Niño in the Humboldt Current Ecosystem off Peru",
+      "site_path": "/talks/",
+      "date": "2024-05-08",
+      "end_date": "2024-05-10",
+      "presentation_type": "Oral",
+      "event": "Scientific Workshop: El Niño 2023-2024 - Effects and outlook for the Peruvian sea and its living resources",
+      "location": "Callao, PE",
+      "authors": ["Elmer Quispe-Salazar"],
+      "presenter": "",
+      "presenter_note": "Oral presentation delivered by a colleague; presenter name not yet documented in the public source.",
+      "summary": "Changes in species occurrence, spatial distribution, and size composition of the Peruvian pelagic community before, during, and after the 2023-2024 El Niño.",
+      "source_type": "Conference Abstract",
+      "source": "IMARPE Book of Abstracts + career master",
+      "source_status": "Abstract-book contribution, p. 49; oral modality and colleague presentation confirmed by the author.",
+      "related_links": []
+    },
+    {
+      "display_title": "Impacts of the 2023-2024 El Niño on Peruvian anchovy population dynamics",
+      "site_path": "/talks/",
+      "date": "2024-05-08",
+      "end_date": "2024-05-10",
+      "presentation_type": "Oral",
+      "event": "Scientific Workshop: El Niño 2023-2024 - Effects and outlook for the Peruvian sea and its living resources",
+      "location": "Callao, PE",
+      "authors": ["Erich Díaz", "Pablo Marin", "Elmer Quispe-Salazar", "Josymar Torrejón", "Daniel Grados"],
+      "presenter": "Elmer Quispe-Salazar",
+      "summary": "Population-level effects of the 2023-2024 El Niño on Peruvian anchovy biomass, spatial distribution, demographic structure, recruitment, and resilience.",
+      "source_type": "Conference Abstract",
+      "source": "IMARPE Book of Abstracts + career master",
+      "source_status": "Abstract-book contribution, p. 45; oral modality and Elmer Quispe-Salazar as presenter confirmed by the author.",
+      "related_links": []
+    }
+  ],
   "historical_records": [
     {
-      "display_title": "Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953–2022) within the Humboldt Current System",
+      "display_title": "Multi-scale variability in the biomass dynamics of the north-central stock of the Peruvian anchoveta (1953-2022) within the Humboldt Current System",
       "site_path": "/talks/2022-09-01-anchoveta-biomass-variability/",
       "date": "2022-09-01",
       "presentation_type": "Conference presentation",

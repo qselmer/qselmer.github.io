@@ -11,20 +11,30 @@ Absolute ``qselmer.github.io`` URLs are treated as internal only when their path
 actually resolves inside the rendered ``_site`` tree. This keeps future main-
 site routes out of the network audit before production cutover while still
 checking sibling GitHub Pages project sites such as ``/oceancube/``.
+
+GitHub intentionally returns 404 for private repositories to unauthenticated
+clients. Exact repository URLs that are explicitly curated as current Research
+projects but are absent from the public-repository allowlist are therefore
+reported as restricted rather than dead. This exception is deliberately narrow:
+ordinary GitHub 404s still fail the audit.
 """
 
 from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import json
 import ssl
 import time
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
+ROOT = Path(__file__).resolve().parents[1]
+PROJECT_REGISTRY = ROOT / "projects" / "registry.json"
+GRAPH_REGISTRY = ROOT / "graph" / "registry.json"
 USER_AGENT = "qselmer.github.io-link-check/1.3 (+https://qselmer.github.io)"
 SITE_HOST = "qselmer.github.io"
 RESTRICTED_CODES = {401, 403, 405, 429}
@@ -44,6 +54,36 @@ class LinkParser(HTMLParser):
         href = (data.get("href") or "").strip()
         if urlsplit(href).scheme in {"http", "https"}:
             self.links.add(href)
+
+
+def load_json(path: Path) -> dict:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise RuntimeError(f"{path.relative_to(ROOT)} must contain a JSON object")
+    return payload
+
+
+def normalize_external_url(url: str) -> str:
+    parsed = urlsplit(url.strip())
+    path = parsed.path.rstrip("/") or "/"
+    return urlunsplit((parsed.scheme.casefold(), parsed.netloc.casefold(), path, "", ""))
+
+
+def restricted_research_repository_urls() -> set[str]:
+    projects = load_json(PROJECT_REGISTRY).get("projects", [])
+    public = load_json(GRAPH_REGISTRY).get("public_repositories", [])
+    if not isinstance(projects, list) or not isinstance(public, list):
+        raise RuntimeError("Project and graph registries must contain list fields")
+
+    public_set = {str(value).strip() for value in public if str(value).strip()}
+    restricted: set[str] = set()
+    for project in projects:
+        if not isinstance(project, dict):
+            continue
+        repository = str(project.get("source_repository") or "").strip()
+        if repository and repository not in public_set:
+            restricted.add(normalize_external_url(f"https://github.com/{repository}"))
+    return restricted
 
 
 def resolves_inside_site(url: str, site: Path) -> bool:
@@ -151,6 +191,21 @@ def main() -> None:
     results: list[tuple[str, str, int | None, str]] = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
         results.extend(pool.map(check_url, links))
+
+    curated_restricted = restricted_research_repository_urls()
+    adjusted: list[tuple[str, str, int | None, str]] = []
+    for url, status, code, detail in results:
+        if (
+            status == "dead"
+            and code in TERMINAL_CODES
+            and normalize_external_url(url) in curated_restricted
+        ):
+            adjusted.append(
+                (url, "restricted", code, "Curated access-controlled Research repository; GitHub masks private repositories as 404")
+            )
+        else:
+            adjusted.append((url, status, code, detail))
+    results = adjusted
 
     dead = [r for r in results if r[1] == "dead"]
     restricted = [r for r in results if r[1] == "restricted"]

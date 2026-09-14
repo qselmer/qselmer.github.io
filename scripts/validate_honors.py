@@ -55,7 +55,7 @@ def validate_source() -> None:
         "Best Doctoral Work",
         "Fisheries Resource Assessment Diploma",
         "qs-academic-output-badges",
-        "Evidence",
+        "Status",
         "Verified",
     ):
         if marker not in fragment:
@@ -77,7 +77,7 @@ def validate_rendered() -> None:
         "Best Doctoral Work",
         "Fisheries Resource Assessment Diploma",
         "qs-honor-output-item",
-        "Evidence",
+        "Status",
         "Verified",
     ):
         if marker not in body:

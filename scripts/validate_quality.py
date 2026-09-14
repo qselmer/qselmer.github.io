@@ -18,7 +18,6 @@ from site_config import ROOT
 
 SITE = ROOT / "_site"
 REGISTRY = ROOT / "projects" / "registry.json"
-PUBLIC_POLICY = ROOT / "graph" / "registry.json"
 GENERATED_PROJECTS = ROOT / "projects" / "_generated.md"
 ABOUT_SELECTED = ROOT / "includes" / "about-selected.html"
 PROFILE_SIDEBAR = ROOT / "includes" / "profile-sidebar.html"
@@ -59,18 +58,12 @@ def reject(haystack: str, needle: str, label: str) -> None:
 
 def project_count() -> int:
     projects = load_json(REGISTRY).get("projects")
-    public_repositories = load_json(PUBLIC_POLICY).get("public_repositories")
     if not isinstance(projects, list) or not projects:
         raise RuntimeError("projects/registry.json must contain at least one project")
-    if not isinstance(public_repositories, list):
-        raise RuntimeError("graph/registry.json must contain public_repositories")
-    approved = {str(value).strip() for value in public_repositories if str(value).strip()}
-    return sum(
-        1
-        for project in projects
-        if isinstance(project, dict)
-        and str(project.get("source_repository") or "").strip() in approved
-    )
+    for project in projects:
+        if not isinstance(project, dict) or not str(project.get("source_repository") or "").strip():
+            raise RuntimeError("Every current Research project must reference a GitHub repository")
+    return len(projects)
 
 
 def validate_rss(path: Path) -> int:
@@ -123,13 +116,12 @@ def validate_source() -> None:
     scholarly_v2 = text(SCHOLARLY_V2_CSS)
     accessibility = text(ACCESSIBILITY_CSS)
 
-    # One project-card contract: every public Research card uses the same editorial
-    # markup, and only repositories approved for public graph exposure count here.
-    # About reuses the same card component instead of maintaining a second card implementation.
+    # One project-card contract: every current Research repository uses the same
+    # editorial markup, whether the GitHub repository is public or private.
     if generated.count('class="qs-project-tile"') != count:
-        raise RuntimeError("Generated public Research project-card count does not match approved repositories")
+        raise RuntimeError("Generated Research project-card count does not match current repository registry")
     if generated.count('class="qs-project-type"') != count:
-        raise RuntimeError("Every public Research project card must include the PROJECT type marker")
+        raise RuntimeError("Every Research project card must include the PROJECT type marker")
     reject(generated, "qs-project-visual", "projects/_generated.md")
     reject(generated, "qs-project-logo", "projects/_generated.md")
     reject(generated, "/images/projects/", "projects/_generated.md")
@@ -164,8 +156,6 @@ def validate_source() -> None:
         require(scholarly_v2, marker, "scholarly-v2.css")
 
     # Responsive and visual contract for project cards and thematic navigation.
-    # Research projects are full-width rows across themes; About can use its own
-    # compact grid while reusing exactly the same card component.
     for marker in (
         "border-top: 3px solid #0b1320",
         "grid-template-columns: 1fr !important",
@@ -182,7 +172,7 @@ def validate_source() -> None:
 
     rss_items = validate_rss(RSS_SOURCE)
     print(
-        f"Phase 6 source QA PASS: {count} public projects use one card system; "
+        f"Phase 6 source QA PASS: {count} current repository projects use one card system; "
         f"About reuses the Research cards; Software/Teaching/Posts share one inline scholarly list grammar; "
         f"Data badges are compact; sidebar metrics use global normal-weight typography; "
         f"responsive/focus/reduced-motion contracts present; RSS has {rss_items} item(s)"
@@ -223,9 +213,9 @@ def validate_rendered() -> None:
     blog = text(rendered_file("/blog/"))
     data = text(rendered_file("/data/"))
     if research.count('class="qs-project-tile"') != count:
-        raise RuntimeError("Rendered public Research project-card count does not match approved repositories")
+        raise RuntimeError("Rendered Research project-card count does not match current repository registry")
     if research.count('class="qs-project-type"') != count:
-        raise RuntimeError("Rendered public Research cards do not all use the unified PROJECT marker")
+        raise RuntimeError("Rendered Research cards do not all use the unified PROJECT marker")
     reject(research, "qs-project-visual", "rendered Research")
     reject(research, "qs-project-logo", "rendered Research")
     reject(research, "/images/projects/", "rendered Research")
@@ -261,7 +251,7 @@ def validate_rendered() -> None:
     require(blog, 'type="application/rss+xml"', "rendered Posts")
 
     print(
-        f"Phase 6 rendered QA PASS: {count} uniform public project cards, About card reuse, "
+        f"Phase 6 rendered QA PASS: {count} uniform current repository cards, About card reuse, "
         f"inline scholarly output lists, compact Data badges, global sidebar metrics, "
         f"scholarly JSON-LD, social previews, responsive catalogue contract, and {rss_items} RSS item(s)"
     )

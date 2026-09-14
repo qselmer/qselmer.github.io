@@ -141,5 +141,7 @@ format:
     include-before-body:
       - includes/skip-link.html
       - includes/profile-sidebar.html
+    include-after-body:
+      - includes/normalize-visible-text.html
 
 lang: en
