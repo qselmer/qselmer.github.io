@@ -1,0 +1,21 @@
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const protectedSelector = [
+    "code", "pre", "kbd", "samp", "script", "style", "textarea",
+    "input", "select", "option", ".sourceCode", ".cell-code",
+    ".math", ".MathJax", ".katex"
+  ].join(",");
+
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  for (const node of textNodes) {
+    const parent = node.parentElement;
+    if (!parent || parent.closest(protectedSelector)) continue;
+    if (node.nodeValue.includes("_")) {
+      node.nodeValue = node.nodeValue.replaceAll("_", "-");
+    }
+  }
+});
+</script>
