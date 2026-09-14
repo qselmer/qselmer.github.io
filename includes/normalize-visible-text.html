@@ -13,9 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
   for (const node of textNodes) {
     const parent = node.parentElement;
     if (!parent || parent.closest(protectedSelector)) continue;
-    if (node.nodeValue.includes("_")) {
-      node.nodeValue = node.nodeValue.replaceAll("_", "-");
-    }
+    let value = node.nodeValue;
+    if (value.includes("_")) value = value.replaceAll("_", "-");
+    if (value.includes("—")) value = value.replaceAll("—", "-");
+    node.nodeValue = value;
   }
 });
 </script>
