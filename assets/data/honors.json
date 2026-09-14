@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2,
+  "count": 7,
   "categories": [
     {
       "id": "awards",
@@ -20,6 +20,22 @@
   ],
   "honors": [
     {
+      "id": "honor-2025-thesis-highest-honors",
+      "year": 2025,
+      "date": "2025-03-03",
+      "category": "awards",
+      "type": "Distinction",
+      "title": "Thesis defense with highest honors",
+      "organization": "Universidad Nacional Mayor de San Marcos",
+      "location": "Lima, Peru",
+      "scope": "National",
+      "work_title": "Interannual variability in the growth of the north-central stock of Peruvian anchovy (Engraulis ringens), 1960–2022",
+      "summary": "Highest-honors distinction for the professional biology thesis defense.",
+      "evidence_status": "Verified thesis-defense act",
+      "featured": true,
+      "visibility": "public"
+    },
+    {
       "id": "honor-2024-sibecorp-best-doctoral-work-oral-presentation",
       "year": 2024,
       "date": "2024-11-15",
@@ -30,10 +46,24 @@
       "event": "VI Ibero-American Symposium on Reproductive Ecology, Recruitment and Fisheries",
       "location": "Algés, Portugal",
       "scope": "International",
-      "work_title": "Identidad del índice gonadosomático en la anchoveta (Engraulis ringens): madurez sexual, valor crítico del 5% y su variación estacional",
-      "summary": "Awarded in the Best Doctoral Work category for an oral presentation at VI SIBECORP, held in Algés, Portugal, 11-15 November 2024.",
+      "work_title": "Suitability of the gonadosomatic index in Peruvian anchovy (Engraulis ringens): Sexual maturity, critical threshold, and seasonal variation",
+      "summary": "International scientific-presentation award recognizing quantitative work on reproductive indicators and maturity assessment in Peruvian anchovy.",
       "evidence_status": "Verified certificate",
       "featured": true,
+      "visibility": "public"
+    },
+    {
+      "id": "honor-2025-mncn-machine-deep-learning-scholarship",
+      "year": 2025,
+      "date": "2025-10-27",
+      "category": "scholarships",
+      "type": "Scholarship",
+      "title": "Full Scholarship - Machine & Deep Learning for Scientific Research",
+      "organization": "Museo Nacional de Ciencias Naturales (MNCN-CSIC)",
+      "scope": "International",
+      "summary": "Full scholarship for advanced scientific training in machine learning, ensemble methods, model interpretation, deep learning, and Keras-based research workflows.",
+      "evidence_status": "Verified scholarship letter",
+      "featured": false,
       "visibility": "public"
     },
     {
@@ -47,9 +77,52 @@
       "event": "Diploma in Fisheries Resource Assessment",
       "location": "Valparaíso, Chile",
       "scope": "International",
-      "summary": "Scholarship for the diploma Evaluación de Recursos Pesqueros, taught by the School of Marine Sciences at the Pontificia Universidad Católica de Valparaíso from 10 August to 26 October 2023.",
+      "summary": "Scholarship for specialized training in fisheries resource assessment and quantitative stock-assessment methods at the School of Marine Sciences, PUCV.",
       "evidence_status": "Verified certificate",
       "featured": true,
+      "visibility": "public"
+    },
+    {
+      "id": "honor-2017-unmsm-top-decile",
+      "year": 2017,
+      "category": "recognition",
+      "type": "Merit",
+      "title": "Top-decile academic standing",
+      "organization": "Universidad Nacional Mayor de San Marcos",
+      "location": "Lima, Peru",
+      "scope": "National",
+      "summary": "Academic-merit recognition for placement in the top decile of the Biological Sciences cohort.",
+      "evidence_status": "Verified university certificate",
+      "featured": false,
+      "visibility": "public"
+    },
+    {
+      "id": "honor-2023-statistical-models-excellence",
+      "year": 2023,
+      "date": "2023-02-13",
+      "category": "recognition",
+      "type": "Excellence",
+      "title": "Certificate of Excellence - Statistical Models",
+      "organization": "Data Science Research Peru",
+      "scope": "National",
+      "summary": "Excellence recognition in statistical modelling and Python-based quantitative analysis.",
+      "evidence_status": "Verified certificate",
+      "featured": false,
+      "visibility": "public"
+    },
+    {
+      "id": "honor-2018-imarpe-population-dynamics-top-score",
+      "year": 2018,
+      "date": "2018-09-07",
+      "category": "recognition",
+      "type": "Merit",
+      "title": "Highest performance - Fisheries Population Dynamics",
+      "organization": "Instituto del Mar del Perú (IMARPE)",
+      "location": "Callao, Peru",
+      "scope": "National",
+      "summary": "Top performance in IMARPE training on fisheries population dynamics.",
+      "evidence_status": "Verified evaluation record",
+      "featured": false,
       "visibility": "public"
     }
   ],
