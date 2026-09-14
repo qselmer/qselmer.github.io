@@ -14,6 +14,7 @@ SCHOLARLY_GRAPH_SOURCE = ROOT / "assets" / "data" / "scholarly-graph.json"
 CONFIG = ROOT / "config" / "site.json"
 SIDEBAR_OUTPUT = ROOT / "includes" / "profile-sidebar.html"
 SELECTED_OUTPUT = ROOT / "includes" / "about-selected.html"
+MIN_OPENALEX_CITATIONS_FOR_SIDEBAR = 5
 
 
 def load_json(path: Path) -> dict:
@@ -50,20 +51,34 @@ def metric_available(value: object) -> bool:
         return True
 
 
+def metric_at_least(value: object, threshold: float) -> bool:
+    if value is None or isinstance(value, bool):
+        return False
+    try:
+        return float(str(value).strip()) >= threshold
+    except (TypeError, ValueError):
+        return False
+
+
 def display_metric(value: object) -> str:
     return str(value).strip()
 
 
 def render_sidebar(data: dict, identity: dict) -> str:
     oa = data["openalex"]
-    metrics = [
-        ("Citations", oa.get("cited_by_count")),
-        ("h-index", oa.get("h_index")),
-        ("i10-index", oa.get("i10_index")),
-        ("ORCID works", data.get("public_orcid_works")),
-        ("OpenAlex works", oa.get("works_count")),
-    ]
-    metrics = [(label, value) for label, value in metrics if metric_available(value)]
+    show_metrics = metric_at_least(
+        oa.get("cited_by_count"), MIN_OPENALEX_CITATIONS_FOR_SIDEBAR
+    )
+    metrics = []
+    if show_metrics:
+        metrics = [
+            ("Citations", oa.get("cited_by_count")),
+            ("h-index", oa.get("h_index")),
+            ("i10-index", oa.get("i10_index")),
+            ("ORCID works", data.get("public_orcid_works")),
+            ("OpenAlex works", oa.get("works_count")),
+        ]
+        metrics = [(label, value) for label, value in metrics if metric_available(value)]
 
     metric_rows = "\n".join(
         '<div class="qs-sidebar-metric-row">'
