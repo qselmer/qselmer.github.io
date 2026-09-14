@@ -82,24 +82,39 @@ def render_badges(items: list[dict], owner: str, expected_labels: tuple[str, ...
 
 
 def render_card(project: dict) -> list[str]:
-    """Render a GitHub-backed project while making its maturity explicit."""
+    """Render a GitHub-backed project while making maturity and repository visibility explicit."""
     slug = clean_class(project.get("slug"), "project slug")
     title = str(project.get("title") or "").strip()
     summary = str(project.get("summary") or "").strip()
     context = str(project.get("context") or "").strip()
     stage = str(project.get("stage") or "").strip()
     repository = str(project.get("source_repository") or "").strip()
+    site_path = str(project.get("site_path") or "").strip()
     if not all((title, summary, context, stage, repository)):
         raise RuntimeError(f"Project {slug} is missing card content, stage, or source_repository")
-    target = f"https://github.com/{repository}"
+
+    repository_url = f"https://github.com/{repository}"
+    is_private = bool(site_path) and not re.match(r"^https?://", site_path, flags=re.I)
+    target = site_path if is_private else repository_url
+    visibility = "Private repository" if is_private else "Public repository"
+    visibility_class = "private" if is_private else "public"
+    visibility_icon = "bi-lock-fill" if is_private else "bi-unlock-fill"
+    repository_action = (
+        '<span class="qs-project-repository-state">Private repository</span>'
+        if is_private
+        else f'<a href="{html.escape(repository_url, quote=True)}">Repository</a>'
+    )
 
     return [
         '<article class="qs-project-tile">',
         '<div class="qs-project-body">',
+        '<div class="qs-project-topline">',
         '<span class="qs-project-type">PROJECT</span>',
+        f'<span class="qs-project-visibility qs-project-visibility-{visibility_class}" title="{html.escape(visibility, quote=True)}" aria-label="{html.escape(visibility, quote=True)}"><i class="bi {visibility_icon}" aria-hidden="true"></i></span>',
+        '</div>',
         f'<h3><a href="{html.escape(target, quote=True)}">{html.escape(title)}</a></h3>',
         f'<p class="qs-project-card-summary">{html.escape(summary)}</p>',
-        f'<div class="qs-project-footer"><span><strong>Stage:</strong> {html.escape(stage)} · {html.escape(context)}</span><a href="{html.escape(target, quote=True)}">Repository</a></div>',
+        f'<div class="qs-project-footer"><span><strong>Stage:</strong> {html.escape(stage)} · {html.escape(context)}</span>{repository_action}</div>',
         "</div>",
         "</article>",
     ]
