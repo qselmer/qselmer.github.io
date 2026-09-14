@@ -98,15 +98,6 @@ website:
       - text: More
         icon: three-dots
         menu:
-          - href: research-graph/index.qmd
-            text: Research Graph
-            icon: share
-          - href: open-science/index.qmd
-            text: Open science
-            icon: boxes
-          - href: reproducibility/index.qmd
-            text: Reproducibility
-            icon: check2-square
           - href: data/index.qmd
             text: Data Sources
             icon: database
