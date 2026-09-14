@@ -70,8 +70,7 @@ def render_item(item: dict[str, Any]) -> str:
         details.append(f'<em>Recognized work:</em> “{work_title}”.')
     badges = "".join([
         badge("Type", str(item["type"]), "blue"),
-        badge("Scope", str(item["scope"]), "neutral"),
-        badge("Status", "Verified", "green"),
+        badge("Scope", str(item["scope"]), "green"),
     ])
     return (
         '<li class="qs-academic-output-item qs-honor-output-item">'
