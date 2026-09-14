@@ -99,8 +99,16 @@ def apa_name(name: str) -> str:
 
 
 def authors_apa(pub: dict[str, Any]) -> str:
+    display_author = str(pub.get("display_author") or "").strip()
+    if display_author:
+        return display_author
     institutional = str(pub.get("institutional_author") or "").strip()
     if institutional:
+        if (
+            pub.get("output_category") == "Reports & technical outputs"
+            and "instituto del mar del perú" in institutional.casefold()
+        ):
+            return "IMARPE Pelagic Resources Team"
         return institutional
     names = [str(value).strip() for value in (pub.get("authors") or []) if str(value).strip()] or ["Elmer Quispe-Salazar"]
     rendered = [apa_name(name) for name in names]
@@ -113,6 +121,13 @@ def authors_apa(pub: dict[str, Any]) -> str:
 
 def source_apa(pub: dict[str, Any]) -> str:
     journal = str(pub.get("journal") or pub.get("outlet") or pub.get("type") or "").strip()
+    institutional = str(pub.get("institutional_author") or "").strip()
+    if (
+        pub.get("output_category") == "Reports & technical outputs"
+        and "instituto del mar del perú" in institutional.casefold()
+        and journal.casefold() == institutional.casefold()
+    ):
+        return ""
     volume = str(pub.get("volume") or "").strip()
     issue = str(pub.get("issue") or "").strip()
     pages = str(pub.get("pages") or "").strip()
@@ -143,14 +158,6 @@ def badge(label: str, value: str, tone: str = "blue", url: str = "") -> str:
     return f'<span class="{classes}">{body}</span>'
 
 
-def first_url(pub: dict[str, Any], *keys: str) -> str:
-    for key in keys:
-        value = pub.get(key)
-        if isinstance(value, str) and value.strip():
-            return value.strip()
-    return ""
-
-
 def is_open_access(pub: dict[str, Any]) -> bool:
     if pub.get("open_access") is True:
         return True
@@ -177,31 +184,13 @@ def reference(pub: dict[str, Any]) -> str:
     url = str(pub.get("url") or "").strip()
     open_access = is_open_access(pub)
     badges: list[str] = []
-    identifier = str(pub.get("identifier") or "").strip()
-    role = str(pub.get("role") or "").strip()
-    if identifier:
-        badges.append(badge("ID", identifier, "neutral"))
-    if role:
-        badges.append(badge("Role", role, "neutral"))
     if doi:
         clean = canonical_doi(doi)
-        badges.append(badge("DOI", "view", "blue", f"https://doi.org/{clean}"))
-    elif url and not open_access:
-        badges.append(badge("Link", "view", "blue", url))
+        badges.append(badge("DOI", clean, "blue", f"https://doi.org/{clean}"))
     if open_access:
         open_url = url or (f"https://doi.org/{canonical_doi(doi)}" if doi else "")
         if open_url:
             badges.append(badge("Open", "access", "green", open_url))
-
-    pdf_url = first_url(pub, "pdf_url", "pdf")
-    code_url = first_url(pub, "code_url", "code")
-    data_url = first_url(pub, "data_url", "data")
-    if pdf_url:
-        badges.append(badge("PDF", "open", "neutral", pdf_url))
-    if code_url:
-        badges.append(badge("Code", "repo", "neutral", code_url))
-    if data_url:
-        badges.append(badge("Data", "set", "neutral", data_url))
     if badges:
         parts.append(f'<span class="qs-badge-row qs-publication-badges">{"".join(badges)}</span>')
     return " ".join(parts)
